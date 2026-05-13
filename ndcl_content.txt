@@ -1,0 +1,88 @@
+# NDCL Calibration Website Content
+
+## Calibration Overview
+Calibration is the process of verifying the accuracy of measurement instruments or equipment against known standards. The goal is to ensure instruments measure within specified tolerances and provide accurate, reliable readings.
+
+## Thermal Parameters
+- Glass Thermometer
+- Digital Thermometer
+- Infrared Thermometer
+- Temperature Transmitter
+- RTD/Thermo-couple with Indicator/Simulators
+- Temperature Gauge
+- Dry Well/Oil Bath Calibration
+- Muffle Furnace
+- Oven/Incubator/Freezer/Deep Freezer/Refrigerator
+- Autoclave
+- All types of Stability Chambers
+- Water Bath
+
+## Temperature & Humidity Mapping
+- Stability Chamber
+- Incubator
+- Oven
+- Autoclave
+- Cold Room
+- Refrigerator
+- Deep Freezer
+- Warehouse
+
+## Pressure & Vacuum Parameter
+- Pressure Gauge
+- Vacuum Gauge
+- Compound Gauge
+- Magnehelic Gauge
+- Barometric Pressure
+
+## Weighing Balance & Weights Parameter
+- Weighing Balance
+- Single Pan Electrical Balance
+- Analytical Weights (1 mg to 200 g)
+- Weights
+
+## Volume Parameter
+- Micropipette
+- Volumetric Flask/Burette/Beaker/Measuring Cylinder & other Glass wares
+- Volume Measurement of vessel Tank and Dip scale Marking
+
+## Acoustics Parameters
+- Sound Level Meter
+- Sound Level Calibrator
+
+## Dimension Parameters
+- Vernier Caliper
+- Micrometer
+- Dial Gauge
+- Height Gauge
+- Feeler Gauge
+- Measuring Tape
+- Steel Rule
+
+## Electro-Technical Parameters
+- Multimeter
+- Clamp Meter
+- Oscilloscope
+- Power Supply
+- Megger/Insulation Tester
+
+## Fluid Flow Parameters
+- Anemometer
+- Pitot Tube/RDS/Fine Particulate Sampler/Combined Sampler/Sack Monitoring Kit
+
+## Other Measuring Devices
+- Tachometer
+- RPM Indicator
+- Centrifuge
+- Refractometer
+- Polarimeter
+- Viscometer
+- pH Meter
+- Conductivity Meter
+- TDS Meter
+- Turbidity Meter
+- Gas Chromatograph (GC)
+- UV & FTIR Spectrophotometer
+- Magnet
+- Lux Meter
+- Laminar Air Flow
+- Bio-Safety Cabinet

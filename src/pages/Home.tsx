@@ -1,153 +1,225 @@
 import React from 'react';
-import { 
-  Box, 
-  Container, 
-  Typography, 
-  Button, 
-  Grid, 
-  Card, 
-  CardContent, 
-  Stack, 
-  Avatar,
-  useTheme,
-  alpha
-} from '@mui/material';
-import { motion } from 'framer-motion';
-import PrecisionManufacturingIcon from '@mui/icons-material/PrecisionManufacturing';
-import VerifiedIcon from '@mui/icons-material/Verified';
-import SpeedIcon from '@mui/icons-material/Speed';
-import GroupsIcon from '@mui/icons-material/Groups';
-
-const MotionBox = motion(Box);
-const MotionTypography = motion(Typography);
+import HeroSlider from '../components/HeroSlider';
+import './Home.css';
 
 const Home: React.FC = () => {
-  const theme = useTheme();
-
   return (
-    <Box>
-      {/* Hero Section */}
-      <Box 
-        sx={{ 
-          background: `linear-gradient(135deg, ${alpha(theme.palette.primary.dark, 0.95)} 0%, ${alpha(theme.palette.primary.main, 0.8)} 100%), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          color: 'white',
-          py: { xs: 10, md: 20 },
-          textAlign: 'center',
-          position: 'relative',
-          overflow: 'hidden'
-        }}
-      >
-        <Container maxWidth="lg">
-          <MotionTypography 
-            variant="h1" 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            sx={{ mb: 2, fontSize: { xs: '2.5rem', md: '4rem' } }}
-          >
-            Precision. Reliability. Excellence.
-          </MotionTypography>
-          <MotionTypography 
-            variant="h5" 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            sx={{ mb: 4, opacity: 0.9, fontWeight: 400, maxWidth: '800px', mx: 'auto' }}
-          >
-            Fareast Calibration is your premier partner for state-of-the-art calibration and validation services, ensuring your instruments meet global standards.
-          </MotionTypography>
-          <MotionBox
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            <Button variant="contained" color="secondary" size="large" sx={{ mr: 2, px: 4, py: 1.5 }}>
-              Our Services
-            </Button>
-            <Button variant="outlined" sx={{ color: 'white', borderColor: 'white', px: 4, py: 1.5 }}>
-              Contact Us
-            </Button>
-          </MotionBox>
-        </Container>
-      </Box>
+    <div className="home-page">
+      <HeroSlider />
+      
+      {/* Counter Section (Yellow) */}
+      <section className="counter-section">
+        <div className="container">
+          <div className="counter-grid">
+            <div className="counter-item">
+              <span className="counter-number">800+</span>
+              <span className="counter-label">Happy Customer</span>
+            </div>
+            <div className="counter-item">
+              <span className="counter-number">11+</span>
+              <span className="counter-label">Team Member</span>
+            </div>
+            <div className="counter-item">
+              <span className="counter-number">15+</span>
+              <span className="counter-label">Years Experience</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* About NDCL Section */}
+      <section className="about-ndcl py-100">
+        <div className="container">
+          <div className="about-grid">
+            <div className="about-content-main">
+              <span className="subtitle-main">ABOUT NDCL</span>
+              <h2 className="title-main">New Delhi Calibration <br /> Laboratory Private Limited (NDCLPL)</h2>
+              <div className="yellow-divider"></div>
+              <p className="desc-main">
+                NDCL is a leading ISO accredited calibration laboratory providing professional 
+                calibration services for a wide range of measuring instruments. We are committed 
+                to providing the highest quality of service to our clients.
+              </p>
+              <ul className="about-features">
+                <li>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Fastest Turnaround Time
+                </li>
+                <li>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Experienced Technical Team
+                </li>
+                <li>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  On-Site & In-Lab Calibration
+                </li>
+              </ul>
+              
+              <div style={{display: 'flex', alignItems: 'center', gap: '20px', marginTop: '30px'}}>
+                <div style={{
+                  width: '60px', height: '60px', borderRadius: '50%', background: 'var(--accent-color)', 
+                  display: 'flex', alignItems: 'center', justifyContent: 'center'
+                }}>
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--secondary-color)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                </div>
+                <div>
+                  <span style={{display: 'block', fontSize: '14px', color: 'var(--text-light)', fontWeight: 600}}>Have Any Questions?</span>
+                  <a href="tel:09810977012" style={{color: 'var(--secondary-color)', fontSize: '1.5rem', fontWeight: 700, textDecoration: 'none'}}>(+91) 9810977012</a>
+                </div>
+              </div>
+            </div>
+            <div className="about-image-main">
+              <img src="/src/assets/img-left-1.webp" alt="Laboratory" />
+            </div>
+          </div>
+        </div>
+      </section>
 
-      {/* Stats Section */}
-      <Container maxWidth="lg" sx={{ mt: -5, mb: 10, position: 'relative', zIndex: 2 }}>
-        <Grid container spacing={3}>
-          {[
-            { label: 'Happy Clients', value: '500+', icon: <GroupsIcon sx={{ fontSize: 40 }} /> },
-            { label: 'Calibrations Done', value: '15,000+', icon: <VerifiedIcon sx={{ fontSize: 40 }} /> },
-            { label: 'Turnaround Time', value: '24-48h', icon: <SpeedIcon sx={{ fontSize: 40 }} /> },
-            { label: 'Expert Engineers', value: '20+', icon: <PrecisionManufacturingIcon sx={{ fontSize: 40 }} /> },
-          ].map((stat, index) => (
-            <Grid size={{ xs: 12, sm: 6, md: 3 }} key={index}>
-              <Card sx={{ textAlign: 'center', p: 2 }}>
-                <Box sx={{ color: 'secondary.main', mb: 1 }}>{stat.icon}</Box>
-                <Typography variant="h4" sx={{ fontWeight: 800 }}>{stat.value}</Typography>
-                <Typography variant="body2" color="text.secondary">{stat.label}</Typography>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
+      {/* Why Choose Us Section */}
+      <section className="why-us-section py-100">
+        <div className="container">
+          <div className="section-header text-center">
+            <h2 className="section-title">Why Choose NDCL?</h2>
+            <div className="title-divider"></div>
+          </div>
+          
+          <div className="features-grid">
+            <div className="feature-card">
+              <div className="feature-icon">🏆</div>
+              <h4>NABL Accredited</h4>
+              <p>Our lab is accredited by NABL, ensuring global acceptance of our calibration results.</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon">⚡</div>
+              <h4>Fast Turnaround</h4>
+              <p>We understand your business needs and provide quick, reliable calibration services.</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon">👨‍🔬</div>
+              <h4>Expert Technicians</h4>
+              <p>Highly qualified and experienced engineers using state-of-the-art equipment.</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon">📈</div>
+              <h4>Precision Results</h4>
+              <p>We guarantee the highest level of accuracy for all your measurement instruments.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      {/* Services Highlight */}
-      <Container maxWidth="lg" sx={{ mb: 12 }}>
-        <Box sx={{ textAlign: 'center', mb: 8 }}>
-          <Typography variant="h3" sx={{ fontWeight: 800, mb: 2 }}>Our Expertise</Typography>
-          <Typography variant="h6" color="text.secondary" sx={{ maxWidth: '700px', mx: 'auto' }}>
-            We provide a wide range of calibration services across various domains to keep your industry moving forward with accuracy.
-          </Typography>
-        </Box>
-        
-        <Grid container spacing={4}>
-          {[
-            { title: 'Thermal Calibration', desc: 'Precise calibration for ovens, furnaces, chillers, and temperature sensors.' },
-            { title: 'Mechanical Calibration', desc: 'Accuracy for pressure gauges, vacuum gauges, and dimensional tools.' },
-            { title: 'Electrical Calibration', desc: 'Expert calibration for multimeters, oscilloscopes, and power supplies.' },
-            { title: 'Validation Services', desc: 'Comprehensive HVAC, cleanroom, and equipment validation for pharma.' },
-          ].map((service, index) => (
-            <Grid size={{ xs: 12, md: 3 }} key={index}>
-              <Card sx={{ height: '100%', transition: 'transform 0.3s', '&:hover': { transform: 'translateY(-10px)' } }}>
-                <CardContent>
-                  <Typography variant="h6" sx={{ fontWeight: 700, mb: 2, color: 'primary.main' }}>{service.title}</Typography>
-                  <Typography variant="body2" color="text.secondary">{service.desc}</Typography>
-                  <Button sx={{ mt: 2, p: 0 }}>Learn More</Button>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
+      {/* Calibration Parameters (Scraped Data) */}
+      <section className="parameters-section bg-light py-100">
+        <div className="container">
+          <div className="section-header text-center">
+            <h2 className="section-title">Calibration Parameters</h2>
+            <div className="title-divider"></div>
+          </div>
+          
+          <div className="services-grid-main">
+            <div className="service-card-main">
+              <div className="service-icon-main">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              </div>
+              <h3>Mechanical Calibration</h3>
+              <p>Precise calibration for dimensional tools, pressure gauges, and vacuum instruments.</p>
+              <button className="read-more">Read More →</button>
+            </div>
 
-      {/* Testimonials */}
-      <Box sx={{ bgcolor: alpha(theme.palette.primary.main, 0.03), py: 12 }}>
-        <Container maxWidth="lg">
-          <Typography variant="h3" align="center" sx={{ fontWeight: 800, mb: 8 }}>What Our Clients Say</Typography>
-          <Grid container spacing={4}>
-            {[
-              { name: 'Dr. Amit Sharma', company: 'Global Pharma', text: 'Fareast Calibration has been our go-to partner for validation services for over 5 years. Their expertise is unmatched.' },
-              { name: 'Rajesh Khanna', company: 'Apex Industries', text: 'Fast turnaround and highly accurate reports. Highly recommended for industrial calibration.' },
-            ].map((t, i) => (
-              <Grid size={{ xs: 12, md: 6 }} key={i}>
-                <Card sx={{ p: 4, position: 'relative' }}>
-                  <Typography variant="body1" sx={{ fontStyle: 'italic', mb: 3 }}>"{t.text}"</Typography>
-                  <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
-                    <Avatar sx={{ bgcolor: 'secondary.main' }}>{t.name[0]}</Avatar>
-                    <Box>
-                      <Typography sx={{ fontWeight: 700 }}>{t.name}</Typography>
-                      <Typography variant="caption" color="text.secondary">{t.company}</Typography>
-                    </Box>
-                  </Stack>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </Box>
-    </Box>
+            <div className="service-card-main">
+              <div className="service-icon-main">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"></path></svg>
+              </div>
+              <h3>Thermal Calibration</h3>
+              <p>Expert calibration for ovens, furnaces, chillers, and temperature sensors.</p>
+              <button className="read-more">Read More →</button>
+            </div>
+
+            <div className="service-card-main">
+              <div className="service-icon-main">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"></path></svg>
+              </div>
+              <h3>Fluid Flow Calibration</h3>
+              <p>Accuracy for anemometers, pitot tubes, and fluid measurement devices.</p>
+              <button className="read-more">Read More →</button>
+            </div>
+
+            <div className="service-card-main">
+              <div className="service-icon-main">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              </div>
+              <h3>Electro-Technical</h3>
+              <p>Specialized calibration for multimeters, oscilloscopes, and power supplies.</p>
+              <button className="read-more">Read More →</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Calibration Laboratory (With Image) */}
+      <section className="lab-info-section py-100">
+        <div className="container">
+          <div className="lab-info-grid">
+            <div className="lab-info-image">
+              <img src="/src/assets/img-left-1.webp" alt="Laboratory" />
+            </div>
+            <div className="lab-info-content">
+              <h2 className="section-title">Calibration Laboratory</h2>
+              <div className="title-divider left"></div>
+              <p>
+                NDCL is equipped with high-precision master instruments and a controlled environment 
+                to ensure the highest quality of calibration services. Our laboratory is managed by 
+                qualified professionals with extensive experience in industrial and scientific metrology.
+              </p>
+              <p>
+                We provide on-site and in-lab calibration services across various industrial sectors, 
+                maintaining strict adherence to international standards and NABL requirements.
+              </p>
+              <button className="btn btn-primary">Learn More</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="testimonials-section py-100" style={{ backgroundImage: `url('/src/assets/bg-testimonial.webp')` }}>
+        <div className="hero-overlay dark"></div>
+        <div className="container relative">
+          <div className="section-header text-center">
+            <h2 className="section-title text-white">What Our Clients Say</h2>
+            <div className="title-divider"></div>
+          </div>
+          
+          <div className="testimonials-grid">
+            <div className="testimonial-card">
+              <p>"NDCL has been our partner for years. Their attention to detail and precision is remarkable."</p>
+              <div className="client-info">
+                <strong>John Doe</strong>
+                <span>Manager, TechCorp</span>
+              </div>
+            </div>
+            <div className="testimonial-card">
+              <p>"Fast turnaround and extremely professional reports. Highly recommended for industrial calibration."</p>
+              <div className="client-info">
+                <strong>Sarah Smith</strong>
+                <span>Lead Engineer, PharmaFlow</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action Section */}
+      <section className="cta-section" style={{background: 'var(--secondary-color)', padding: '40px 0'}}>
+        <div className="container" style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px'}}>
+          <h3 style={{color: 'var(--white)', fontSize: '1.8rem', margin: 0, fontWeight: 600}}>
+            Call if any query to related to our services
+          </h3>
+          <a href="tel:09810977012" className="btn btn-primary" style={{background: 'var(--accent-color)', color: 'var(--secondary-color)', fontSize: '1.2rem', padding: '12px 30px'}}>
+            📞 (+91) 9810977012
+          </a>
+        </div>
+      </section>
+    </div>
   );
 };
 

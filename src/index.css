@@ -1,9 +1,43 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --primary-color: #008BF9;
+  --secondary-color: #0C2271;
+  --accent-color: #FFCD05;
+  --footer-deep: #000739;
+  --text-grey: #54595F;
+  --text-light: #7A7A7A;
+  --bg-light: #F8F9FA;
+  --white: #ffffff;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-* {
-  box-sizing: inherit;
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-grey);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--secondary-color);
+  letter-spacing: -0.02em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+ul {
+  list-style: none;
 }
