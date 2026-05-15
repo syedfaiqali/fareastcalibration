@@ -10,6 +10,8 @@ import {
   Divider,
 } from '@mui/material';
 import { motion } from 'framer-motion';
+import PageHeader from '../components/PageHeader';
+
 import { 
   Building2, 
   CheckCircle2, 
@@ -25,83 +27,44 @@ const MotionBox = motion(Box);
 const Clients: React.FC = () => {
   return (
     <Box sx={{ bgcolor: 'background.default' }}>
-      {/* Hero Section */}
-      <Box 
-        sx={{ 
-          bgcolor: 'primary.main', 
-          color: 'white', 
-          py: { xs: 10, md: 15 },
-          position: 'relative',
-          overflow: 'hidden'
-        }}
-      >
-        <Box 
-          sx={{ 
-            position: 'absolute', 
-            inset: 0, 
-            opacity: 0.1, 
-            background: 'radial-gradient(circle at 20% 30%, rgba(255,255,255,0.2), transparent 50%)' 
-          }} 
-        />
-        <Container maxWidth="lg">
-          <Stack spacing={3} sx={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
-            <Chip 
-              label="Our Network" 
-              sx={{ 
-                bgcolor: 'rgba(255,255,255,0.1)', 
-                color: 'white', 
-                fontWeight: 700, 
-                width: 'fit-content', 
-                mx: 'auto',
-                backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(255,255,255,0.2)'
-              }} 
-            />
-            <Typography variant="h1" sx={{ fontWeight: 900, fontSize: { xs: '2.5rem', md: '4rem' } }}>
-              Trusted by Industry Leaders
-            </Typography>
-            <Typography variant="h6" sx={{ opacity: 0.8, maxWidth: 800, mx: 'auto', fontWeight: 400 }}>
-              At Fareast Calibration, we partner with organizations that demand absolute precision. 
-              Our clients range from multinational pharmaceutical giants to critical infrastructure providers.
-            </Typography>
-          </Stack>
-        </Container>
-      </Box>
+      <PageHeader
+        title="Trusted by Industry Leaders"
+        subtitle="Fareast Calibration partners with organizations that demand absolute precision. Our clients range from multinational pharmaceutical giants to critical infrastructure providers."
+        breadcrumb="Clients"
+      />
 
-      {/* Client Stats / Trust Bar */}
-      <Container maxWidth="lg" sx={{ mt: -5, position: 'relative', zIndex: 2 }}>
-        <Card 
-          sx={{ 
-            p: 4, 
-            borderRadius: 4, 
-            boxShadow: '0 20px 60px rgba(0,0,0,0.1)',
-            border: 'none'
+      {/* Trust Stats Section - Clean & Minimal */}
+      <Container maxWidth="lg" sx={{ mt: -8, position: 'relative', zIndex: 3 }}>
+        <Box
+          sx={{
+            bgcolor: 'white',
+            p: 5,
+            borderRadius: '30px',
+            boxShadow: '0 20px 50px rgba(0,0,0,0.08)',
+            border: '1px solid rgba(15,122,79,0.05)'
           }}
         >
           <Grid container spacing={4} sx={{ textAlign: 'center' }}>
             {[
-              { icon: Building2, label: 'Industries Served', value: '15+' },
-              { icon: Users, label: 'Satisfied Clients', value: '500+' },
-              { icon: CheckCircle2, label: 'Project Completed', value: '10,000+' },
-              { icon: ShieldCheck, label: 'Compliance Rate', value: '100%' },
+              { label: 'Industries Served', value: '15+' },
+              { label: 'Satisfied Clients', value: '500+' },
+              { label: 'Project Completed', value: '10,000+' },
+              { label: 'Compliance Rate', value: '100%' },
             ].map((stat, i) => (
               <Grid key={i} item xs={6} md={3}>
-                <Stack spacing={1} sx={{ alignItems: 'center' }}>
-                  <Box sx={{ color: 'secondary.main' }}>
-                    <stat.icon size={32} />
-                  </Box>
-                  <Typography variant="h4" sx={{ fontWeight: 900, color: 'primary.main' }}>
-                    {stat.value}
-                  </Typography>
-                  <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 600, textTransform: 'uppercase' }}>
-                    {stat.label}
-                  </Typography>
-                </Stack>
+                <Typography variant="h3" sx={{ fontWeight: 900, color: 'primary.main', mb: 0.5 }}>
+                  {stat.value}
+                </Typography>
+                <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 800, textTransform: 'uppercase', letterSpacing: 1 }}>
+                  {stat.label}
+                </Typography>
               </Grid>
             ))}
           </Grid>
-        </Card>
+        </Box>
       </Container>
+
+
 
       {/* Logo Grid Section - BRAND THEME PREMIUM */}
       <Box 
@@ -172,60 +135,49 @@ const Clients: React.FC = () => {
           <Grid container spacing={3} sx={{ justifyContent: 'center' }}>
             {clients.map((client, i) => (
               <Grid key={i} item xs={6} sm={4} md={3}>
-                <MotionBox
-                  whileHover={{ 
-                    y: -10,
-                    scale: 1.02,
-                  }}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    duration: 0.5,
-                    delay: (i % 8) * 0.05 
+                <Box
+                  sx={{
+                    p: 3,
+                    height: { xs: 100, md: 140 },
+                    bgcolor: 'white',
+                    borderRadius: '20px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    border: '1px solid rgba(15,122,79,0.08)',
+                    boxShadow: '0 4px 20px rgba(0,0,0,0.03)',
+                    transition: 'all 0.3s ease',
+                    cursor: 'pointer',
+                    '&:hover': {
+                      borderColor: 'primary.main',
+                      transform: 'translateY(-5px)',
+                      boxShadow: '0 20px 40px rgba(15,122,79,0.1)',
+                      '& img': {
+                        filter: 'grayscale(0%)',
+                        opacity: 1,
+                        transform: 'scale(1.05)'
+                      }
+                    }
                   }}
                 >
-                  <Box
-                    sx={{
-                      p: 3,
-                      height: { xs: 100, md: 140 },
-                      bgcolor: 'white',
-                      borderRadius: '20px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      border: '1px solid rgba(15,122,79,0.08)',
-                      boxShadow: '0 4px 20px rgba(0,0,0,0.03)',
+                  <Box 
+                    component="img" 
+                    src={client.logo} 
+                    alt={client.name}
+                    sx={{ 
+                      maxWidth: '85%', 
+                      maxHeight: '85%', 
+                      objectFit: 'contain',
+                      filter: 'grayscale(100%)',
+                      opacity: 0.6,
                       transition: 'all 0.3s ease',
-                      cursor: 'pointer',
-                      '&:hover': {
-                        borderColor: 'primary.main',
-                        boxShadow: '0 20px 40px rgba(15,122,79,0.1)',
-                        '& img': {
-                          filter: 'grayscale(0%)',
-                          opacity: 1,
-                          transform: 'scale(1.05)'
-                        }
-                      }
-                    }}
-                  >
-                    <Box 
-                      component="img" 
-                      src={client.logo} 
-                      alt={client.name}
-                      sx={{ 
-                        maxWidth: '85%', 
-                        maxHeight: '85%', 
-                        objectFit: 'contain',
-                        filter: 'grayscale(100%)',
-                        opacity: 0.6,
-                        transition: 'all 0.3s ease',
-                      }} 
-                    />
-                  </Box>
-                </MotionBox>
+                    }} 
+                  />
+                </Box>
               </Grid>
             ))}
           </Grid>
+
 
 
         </Container>

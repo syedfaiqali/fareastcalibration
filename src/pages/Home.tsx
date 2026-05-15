@@ -55,9 +55,10 @@ const Home: React.FC = () => {
           overflow: 'hidden',
           bgcolor: 'primary.main', // Navy Blue background for the hero
           color: 'white',
-          minHeight: { xs: 'auto', md: '85vh' },
+          minHeight: '100vh',
           display: 'flex',
           alignItems: 'center',
+          pt: { xs: 8, md: 0 },
           '&::before': {
             content: '""',
             position: 'absolute',
@@ -106,13 +107,21 @@ const Home: React.FC = () => {
                           lineHeight: 1.1,
                           fontWeight: 900,
                           color: 'white',
-                          textShadow: '0 4px 20px rgba(0,0,0,0.2)'
+                          textShadow: '0 4px 20px rgba(0,0,0,0.2)',
+                          display: 'flex',
+                          flexWrap: 'wrap'
                         }}
                       >
                         {slide.title.split(' ').map((word, i) => (
-                          <span key={i} style={{ display: 'inline-block', marginRight: '0.3em' }}>
+                          <motion.span 
+                            key={i} 
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.2 + (i * 0.08) }}
+                            style={{ display: 'inline-block', marginRight: '0.3em' }}
+                          >
                             {word}
-                          </span>
+                          </motion.span>
                         ))}
                       </Typography>
                       
@@ -123,10 +132,22 @@ const Home: React.FC = () => {
                           maxWidth: 550, 
                           lineHeight: 1.8, 
                           fontWeight: 400,
-                          fontSize: '1.1rem'
+                          fontSize: '1.1rem',
+                          display: 'flex',
+                          flexWrap: 'wrap'
                         }}
                       >
-                        {slide.description}
+                        {slide.description.split(' ').map((word, i) => (
+                          <motion.span
+                            key={i}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.4, delay: 0.6 + (i * 0.03) }}
+                            style={{ display: 'inline-block', marginRight: '0.35em' }}
+                          >
+                            {word}
+                          </motion.span>
+                        ))}
                       </Typography>
 
                       <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2.5} sx={{ pt: 2 }}>
@@ -781,36 +802,34 @@ const Home: React.FC = () => {
             </MotionBox>
           </Stack>
 
-          {/* Premium Logo Marquee - Rectangular Consistency */}
+          {/* Optimized Lightweight Marquee */}
           <Box sx={{ position: 'relative', overflow: 'hidden', py: 4 }}>
-            <MotionBox
-              animate={{ x: [0, -2000] }}
-              transition={{ 
-                duration: 35, 
-                repeat: Infinity, 
-                ease: "linear" 
+            <Box
+              sx={{ 
+                display: 'flex', 
+                gap: 3, 
+                width: 'max-content', 
+                alignItems: 'center',
+                animation: 'scroll 60s linear infinite',
               }}
-              sx={{ display: 'flex', gap: 4, width: 'max-content', alignItems: 'center' }}
             >
-              {[...clients, ...clients, ...clients].map((client, i) => (
+              {[...clients, ...clients].map((client, i) => (
                 <Box 
                   key={i} 
                   sx={{ 
-                    width: { xs: 160, md: 240 }, 
-                    height: { xs: 80, md: 120 }, 
+                    width: 200, 
+                    height: 100, 
                     display: 'flex', 
                     alignItems: 'center', 
                     justifyContent: 'center',
                     p: 3,
-                    bgcolor: 'white',
+                    bgcolor: '#f8fafc',
                     borderRadius: '16px',
-                    border: '1px solid rgba(15,122,79,0.06)',
-                    boxShadow: '0 4px 15px rgba(0,0,0,0.02)',
                     transition: 'all 0.3s ease',
                     '&:hover': {
-                      borderColor: 'primary.main',
-                      transform: 'translateY(-5px)',
-                      boxShadow: '0 15px 30px rgba(15,122,79,0.08)',
+                      bgcolor: 'white',
+                      transform: 'translateY(-3px)',
+                      boxShadow: '0 10px 20px rgba(0,0,0,0.05)',
                     }
                   }}
                 >
@@ -819,23 +838,29 @@ const Home: React.FC = () => {
                     src={client.logo} 
                     alt={client.name}
                     sx={{ 
-                      maxWidth: '85%', 
-                      maxHeight: '85%', 
+                      maxWidth: '80%', 
+                      maxHeight: '80%', 
                       objectFit: 'contain',
-                      filter: 'grayscale(100%)',
-                      opacity: 0.5,
-                      '&:hover': { filter: 'grayscale(0%)', opacity: 1 },
-                      transition: 'all 0.4s'
+                      opacity: 0.6,
+                      '&:hover': { opacity: 1 },
+                      transition: 'opacity 0.3s'
                     }} 
                   />
                 </Box>
               ))}
-            </MotionBox>
+            </Box>
             
-            {/* Soft gradient masks for the edges */}
-            <Box sx={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: { xs: 100, md: 250 }, background: 'linear-gradient(90deg, #ffffff 10%, transparent 100%)', zIndex: 2 }} />
-            <Box sx={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: { xs: 100, md: 250 }, background: 'linear-gradient(-90deg, #ffffff 10%, transparent 100%)', zIndex: 2 }} />
+            <Box sx={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: 150, background: 'linear-gradient(90deg, #ffffff 0%, transparent 100%)', zIndex: 2 }} />
+            <Box sx={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: 150, background: 'linear-gradient(-90deg, #ffffff 0%, transparent 100%)', zIndex: 2 }} />
           </Box>
+
+          <style>{`
+            @keyframes scroll {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+          `}</style>
+
 
 
 

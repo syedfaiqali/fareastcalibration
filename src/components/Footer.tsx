@@ -15,12 +15,12 @@ const Footer: React.FC = () => {
       sx={{ 
         bgcolor: '#0d3f2b', 
         color: 'white', 
-        pt: 12, 
-        pb: 6,
-        position: 'sticky',
-        bottom: 0,
-        zIndex: -1,
-        width: '100%'
+        pt: 10, 
+        pb: 5,
+        mt: 'auto',
+        width: '100%',
+        position: 'relative',
+        zIndex: 10
       }}
     >
       <Container maxWidth="lg">

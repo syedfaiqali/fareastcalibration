@@ -25,7 +25,7 @@ export const navigation = [
   { label: 'Home', path: '/' },
   { label: 'About Us', path: '/about' },
   { label: 'Services', path: '/services' },
-  { label: 'Accreditation', path: '/accreditation' },
+  // { label: 'Accreditation', path: '/accreditation' },
   { label: 'Clients', path: '/clients' },
   { label: 'Career', path: '/career' },
   { label: 'Contact', path: '/contact' },

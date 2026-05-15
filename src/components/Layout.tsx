@@ -26,28 +26,15 @@ const Layout: React.FC = () => {
         component="main" 
         sx={{ 
           flexGrow: 1, 
-          position: 'relative', 
-          zIndex: 2, 
+          position: 'relative',
           bgcolor: 'background.default',
-          boxShadow: '0 20px 50px rgba(0,0,0,0.1)',
-          mb: 0 // Footer is sticky underneath
         }}
       >
         <Suspense fallback={<BrandLoader />}>
-          <AnimatePresence mode="wait">
-            <Box
-              key={location.pathname}
-              component={motion.div}
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.28, ease: 'easeOut' }}
-            >
-              <Outlet />
-            </Box>
-          </AnimatePresence>
+          <Outlet />
         </Suspense>
       </Box>
+
       <Footer />
     </Box>
 
