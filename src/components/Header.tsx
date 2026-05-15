@@ -15,6 +15,7 @@ import {
   ListItem,
   ListItemText,
   Stack,
+  Link,
 } from '@mui/material';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { LayoutGroup, motion, useScroll, useSpring } from 'framer-motion';
@@ -173,11 +174,17 @@ const Header: React.FC = () => {
               <Stack direction="row" spacing={1.4} sx={{ alignItems: 'center', flexWrap: 'wrap' }}>
                 <Stack direction="row" spacing={0.9} sx={{ alignItems: 'center' }}>
                   <PhoneCall size={14} />
-                  <Typography variant="caption">+62-778-351-831 / +62 812-6705-1658</Typography>
+                  <Typography variant="caption">
+                    <Link href="tel:+62778351831" color="inherit" underline="hover">+62-778-351-831</Link>
+                    {' / '}
+                    <Link href="tel:+6281267051658" color="inherit" underline="hover">+62 812-6705-1658</Link>
+                  </Typography>
                 </Stack>
                 <Stack direction="row" spacing={0.9} sx={{ alignItems: 'center' }}>
                   <Mail size={14} />
-                  <Typography variant="caption">fareastcalibration@gmail.com</Typography>
+                  <Link href="mailto:fareastcalibration@gmail.com" color="inherit" underline="hover">
+                    <Typography variant="caption">fareastcalibration@gmail.com</Typography>
+                  </Link>
                 </Stack>
               </Stack>
               <Stack direction="row" spacing={0.9} sx={{ alignItems: 'center' }}>

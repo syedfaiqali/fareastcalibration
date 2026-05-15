@@ -101,9 +101,13 @@ const Footer: React.FC = () => {
                   <PhoneCall size={20} color="#4fb37f" />
                 </Box>
                 <Box>
-                  <Typography variant="caption" sx={{ opacity: 0.5, display: 'block' }}>Call Support</Typography>
-                  <Typography variant="body1" sx={{ fontWeight: 700 }}>+62-778-351-831</Typography>
-                  <Typography variant="body2" sx={{ opacity: 0.8 }}>+62 812-6705-1658</Typography>
+                  <Typography variant="caption" sx={{ opacity: 0.5, display: 'block' }}>Call Our Lab</Typography>
+                  <Link href="tel:+62778351831" color="inherit" underline="hover">
+                    <Typography variant="body1" sx={{ fontWeight: 700 }}>+62-778-351-831</Typography>
+                  </Link>
+                  <Link href="tel:+6281267051658" color="inherit" underline="hover">
+                    <Typography variant="body2" sx={{ opacity: 0.8 }}>+62 812-6705-1658</Typography>
+                  </Link>
                 </Box>
               </Stack>
               <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
@@ -112,8 +116,12 @@ const Footer: React.FC = () => {
                 </Box>
                 <Box>
                   <Typography variant="caption" sx={{ opacity: 0.5, display: 'block' }}>Email Us</Typography>
-                  <Typography variant="body1" sx={{ fontWeight: 700 }}>sales@fareastcalibration.com</Typography>
-                  <Typography variant="body2" sx={{ opacity: 0.8 }}>fareastcalibration@gmail.com</Typography>
+                  <Link href="mailto:sales@fareastcalibration.com" color="inherit" underline="hover">
+                    <Typography variant="body1" sx={{ fontWeight: 700 }}>sales@fareastcalibration.com</Typography>
+                  </Link>
+                  <Link href="mailto:fareastcalibration@gmail.com" color="inherit" underline="hover">
+                    <Typography variant="body2" sx={{ opacity: 0.8 }}>fareastcalibration@gmail.com</Typography>
+                  </Link>
                 </Box>
               </Stack>
               <Stack direction="row" spacing={2} sx={{ alignItems: 'flex-start' }}>

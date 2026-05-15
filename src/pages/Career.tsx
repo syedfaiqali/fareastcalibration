@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Container, Typography, Grid, Paper, Stack, Button, TextField, MenuItem, Avatar, Divider } from '@mui/material';
+import { Box, Container, Typography, Grid, Paper, Stack, Button, TextField, MenuItem, Avatar, Divider, Link } from '@mui/material';
 import { motion } from 'framer-motion';
 import PageHeader from '../components/PageHeader';
 import {
@@ -233,8 +233,12 @@ const Career: React.FC = () => {
                       </Box>
                       <Box>
                         <Typography variant="caption" sx={{ fontWeight: 800, opacity: 0.6, letterSpacing: 1 }}>EMAIL YOUR CV</Typography>
-                        <Typography variant="h6" sx={{ fontWeight: 800 }}>fareastcalibration@gmail.com</Typography>
-                        <Typography variant="body2" sx={{ color: 'text.secondary' }}>info@fareastcalibration.com</Typography>
+                        <Link href="mailto:fareastcalibration@gmail.com" color="inherit" underline="hover">
+                          <Typography variant="h6" sx={{ fontWeight: 800 }}>fareastcalibration@gmail.com</Typography>
+                        </Link>
+                        <Link href="mailto:info@fareastcalibration.com" color="inherit" underline="hover">
+                          <Typography variant="body2" sx={{ color: 'text.secondary' }}>info@fareastcalibration.com</Typography>
+                        </Link>
                       </Box>
                     </Box>
 
@@ -301,7 +305,9 @@ const Career: React.FC = () => {
                   </Box>
                   <Box>
                     <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 800, letterSpacing: 1 }}>RECRUITMENT HELPLINE</Typography>
-                    <Typography variant="h4" sx={{ fontWeight: 900, color: 'secondary.main' }}>+62-778351831</Typography>
+                    <Link href="tel:+62778351831" color="inherit" underline="hover">
+                      <Typography variant="h4" sx={{ fontWeight: 900, color: 'secondary.main' }}>+62-778351831</Typography>
+                    </Link>
                   </Box>
                 </Stack>
               </Stack>
@@ -552,8 +558,8 @@ const Career: React.FC = () => {
                 <Stack spacing={2}>
                   <Typography variant="h6" sx={{ fontWeight: 900, color: 'primary.main' }}>Contact Info</Typography>
                   <Typography variant="body1" sx={{ color: 'text.secondary', fontWeight: 500 }}>
-                    Call us: +62-778351831<br />
-                    Email: sales@fareastcalibration.com
+                    Call us: <Link href="tel:+62778351831" color="inherit" underline="hover">+62-778351831</Link><br />
+                    Email: <Link href="mailto:sales@fareastcalibration.com" color="inherit" underline="hover">sales@fareastcalibration.com</Link>
                   </Typography>
                 </Stack>
               </Grid>
@@ -561,8 +567,8 @@ const Career: React.FC = () => {
                 <Stack spacing={2}>
                   <Typography variant="h6" sx={{ fontWeight: 900, color: 'primary.main' }}>Connect With Us</Typography>
                   <Typography variant="body1" sx={{ color: 'text.secondary', fontWeight: 500 }}>
-                    Facebook: facebook.com/fareastcalibration/<br />
-                    Website: www.fareastcalibration.com
+                    Facebook: <Link href="https://www.facebook.com/fareastcalibration/" target="_blank" color="inherit" underline="hover">facebook.com/fareastcalibr</Link><br />
+                    Website: <Link href="https://www.fareastcalibration.com" target="_blank" color="inherit" underline="hover">www.fareastcalibration.com</Link>
                   </Typography>
                 </Stack>
               </Grid>

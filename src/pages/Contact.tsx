@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Container, Typography, Grid, TextField, Button, Paper, Stack } from '@mui/material';
+import { Box, Container, Typography, Grid, TextField, Button, Paper, Stack, Link } from '@mui/material';
 import PageHeader from '../components/PageHeader';
 import { Mail, MapPinned, PhoneCall, Send, CheckCircle2, Clock } from 'lucide-react';
 
@@ -10,6 +10,42 @@ const Contact: React.FC = () => {
     e.preventDefault();
     setSubmitted(true);
   };
+
+  const contactItems = [
+    { 
+      icon: PhoneCall, 
+      title: 'Call Our Service Desk', 
+      text: (
+        <>
+          <Link href="tel:+62778351831" color="inherit" underline="hover">+62-778-351-831</Link>
+          {' / '}
+          <Link href="tel:+6281267051658" color="inherit" underline="hover">+62 812-6705-1658</Link>
+        </>
+      ), 
+      sub: 'Contact person: Andi Sahabinnu' 
+    },
+    { 
+      icon: Mail, 
+      title: 'Email Technical Support', 
+      text: (
+        <Link href="mailto:fareastcalibration@gmail.com" color="inherit" underline="hover">fareastcalibration@gmail.com</Link>
+      ), 
+      sub: (
+        <>
+          Also: {' '}
+          <Link href="mailto:andi@fareastcalibration.com" color="inherit" underline="hover">andi@fareastcalibration.com</Link>
+          , {' '}
+          <Link href="mailto:mak@fareastcalibration.com" color="inherit" underline="hover">mak@fareastcalibration.com</Link>
+        </>
+      )
+    },
+    { 
+      icon: MapPinned, 
+      title: 'Visit Our Laboratory', 
+      text: 'Tiban Raya Lestari, Block C/4', 
+      sub: 'Sekupang, Batam, Indonesia' 
+    }
+  ];
 
   return (
     <Box sx={{ bgcolor: 'white' }}>
@@ -33,11 +69,7 @@ const Contact: React.FC = () => {
               </Box>
 
               <Stack spacing={4}>
-                {[
-                  { icon: PhoneCall, title: 'Call Our Service Desk', text: '+62-778-351-831 / +62 812-6705-1658', sub: 'Contact person: Andi Sahabinnu' },
-                  { icon: Mail, title: 'Email Technical Support', text: 'fareastcalibration@gmail.com', sub: 'Also: andi@fareastcalibration.com, mak@fareastcalibration.com' },
-                  { icon: MapPinned, title: 'Visit Our Laboratory', text: 'Tiban Raya Lestari, Block C/4', sub: 'Sekupang, Batam, Indonesia' }
-                ].map((item, i) => (
+                {contactItems.map((item, i) => (
                   <Stack key={i} direction="row" spacing={3}>
                     <Box sx={{ width: 60, height: 60, borderRadius: '20px', bgcolor: 'rgba(15,122,79,0.08)', color: 'primary.main', display: 'grid', placeItems: 'center', flexShrink: 0 }}>
                       <item.icon size={28} />

@@ -6,13 +6,13 @@ import {
   Grid,
   Card,
   Stack,
+  Button,
 } from '@mui/material';
-import { motion } from 'framer-motion';
 import PageHeader from '../components/PageHeader';
 
-import { 
-  CheckCircle2, 
-  Handshake, 
+import {
+  CheckCircle2,
+  Handshake,
 } from 'lucide-react';
 import { clients, clientSectors } from '../data/siteContent';
 
@@ -59,63 +59,63 @@ const Clients: React.FC = () => {
 
 
       {/* Logo Grid Section - BRAND THEME PREMIUM */}
-      <Box 
-        sx={{ 
-          py: { xs: 12, md: 18 }, 
-          position: 'relative', 
+      <Box
+        sx={{
+          py: { xs: 12, md: 18 },
+          position: 'relative',
           overflow: 'hidden',
           bgcolor: 'background.default', // Use theme background
         }}
       >
         {/* Subtle Brand Textures */}
-        <Box 
-          sx={{ 
-            position: 'absolute', 
-            top: 0, 
-            left: 0, 
-            right: 0, 
-            height: '100%', 
-            opacity: 0.03, 
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            height: '100%',
+            opacity: 0.03,
             pointerEvents: 'none',
             backgroundImage: 'radial-gradient(#0f7a4f 1px, transparent 1px)',
             backgroundSize: '40px 40px'
-          }} 
+          }}
         />
-        
+
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
           <Stack spacing={2} sx={{ textAlign: 'center', mb: 10 }}>
             <Box>
-              <Typography 
-                variant="overline" 
-                sx={{ 
-                  color: 'primary.main', 
-                  fontWeight: 900, 
+              <Typography
+                variant="overline"
+                sx={{
+                  color: 'primary.main',
+                  fontWeight: 900,
                   letterSpacing: 4,
                   textTransform: 'uppercase'
                 }}
               >
                 Industrial Partnership
               </Typography>
-              <Typography 
-                variant="h2" 
-                sx={{ 
-                  fontWeight: 900, 
-                  color: 'secondary.main', 
+              <Typography
+                variant="h2"
+                sx={{
+                  fontWeight: 900,
+                  color: 'secondary.main',
                   mt: 1,
                   fontSize: { xs: '2.5rem', md: '3.5rem' },
                 }}
               >
                 Our Trusted <Box component="span" sx={{ color: 'primary.main' }}>Clients</Box>
               </Typography>
-              <Box 
-                sx={{ 
-                  width: 60, 
-                  height: 4, 
-                  bgcolor: 'primary.main', 
-                  mx: 'auto', 
-                  mt: 3, 
-                  borderRadius: 2 
-                }} 
+              <Box
+                sx={{
+                  width: 60,
+                  height: 4,
+                  bgcolor: 'primary.main',
+                  mx: 'auto',
+                  mt: 3,
+                  borderRadius: 2
+                }}
               />
             </Box>
           </Stack>
@@ -149,18 +149,18 @@ const Clients: React.FC = () => {
                     }
                   }}
                 >
-                  <Box 
-                    component="img" 
-                    src={client.logo} 
+                  <Box
+                    component="img"
+                    src={client.logo}
                     alt={client.name}
-                    sx={{ 
-                      maxWidth: '85%', 
-                      maxHeight: '85%', 
+                    sx={{
+                      maxWidth: '85%',
+                      maxHeight: '85%',
                       objectFit: 'contain',
                       filter: 'grayscale(100%)',
                       opacity: 0.6,
                       transition: 'all 0.3s ease',
-                    }} 
+                    }}
                   />
                 </Box>
               </Grid>
@@ -187,11 +187,11 @@ const Clients: React.FC = () => {
                 Precision Across Every Vertical
               </Typography>
               <Typography variant="body1" sx={{ color: 'text.secondary', mb: 4, lineHeight: 1.8 }}>
-                Our expertise is not limited to a single field. We have developed specialized 
-                calibration procedures for critical sectors, helping each customer's quality, 
+                Our expertise is not limited to a single field. We have developed specialized
+                calibration procedures for critical sectors, helping each customer's quality,
                 safety, and compliance requirements stay under control.
               </Typography>
-              
+
               <Grid container spacing={2}>
                 {clientSectors.map((sector, i) => (
                   <Grid key={i} size={{ xs: 12, sm: 6 }}>
@@ -206,8 +206,8 @@ const Clients: React.FC = () => {
               </Grid>
             </Grid>
             <Grid size={{ xs: 12, md: 6 }}>
-              <Box 
-                sx={{ 
+              <Box
+                sx={{
                   position: 'relative',
                   height: 400,
                   borderRadius: 8,
@@ -215,24 +215,24 @@ const Clients: React.FC = () => {
                   boxShadow: '0 30px 60px rgba(0,0,0,0.15)'
                 }}
               >
-                <Box 
-                  component="img" 
-                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" 
-                  sx={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                <Box
+                  component="img"
+                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80"
+                  sx={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
-                <Box 
-                  sx={{ 
-                    position: 'absolute', 
-                    inset: 0, 
-                    background: 'linear-gradient(to top, rgba(15,122,79,0.6), transparent)' 
-                  }} 
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'linear-gradient(to top, rgba(15,122,79,0.6), transparent)'
+                  }}
                 />
-                <Stack 
-                  sx={{ 
-                    position: 'absolute', 
-                    bottom: 30, 
-                    left: 30, 
-                    color: 'white' 
+                <Stack
+                  sx={{
+                    position: 'absolute',
+                    bottom: 30,
+                    left: 30,
+                    color: 'white'
                   }}
                 >
                   <Typography variant="h5" sx={{ fontWeight: 900 }}>Quality Assured</Typography>
@@ -247,27 +247,27 @@ const Clients: React.FC = () => {
       {/* Call to Action */}
       <Box sx={{ py: 12 }}>
         <Container maxWidth="md">
-          <Card 
-            sx={{ 
-              bgcolor: 'primary.main', 
-              color: 'white', 
-              p: { xs: 6, md: 10 }, 
+          <Card
+            sx={{
+              bgcolor: 'primary.main',
+              color: 'white',
+              p: { xs: 6, md: 10 },
               borderRadius: 8,
               textAlign: 'center',
               position: 'relative',
               overflow: 'hidden'
             }}
           >
-            <Box 
-              sx={{ 
-                position: 'absolute', 
-                top: -50, 
-                right: -50, 
-                width: 200, 
-                height: 200, 
-                bgcolor: 'rgba(255,255,255,0.05)', 
-                borderRadius: '50%' 
-              }} 
+            <Box
+              sx={{
+                position: 'absolute',
+                top: -50,
+                right: -50,
+                width: 200,
+                height: 200,
+                bgcolor: 'rgba(255,255,255,0.05)',
+                borderRadius: '50%'
+              }}
             />
             <Stack spacing={3} sx={{ position: 'relative', zIndex: 1 }}>
               <Box sx={{ mx: 'auto', bgcolor: 'secondary.main', p: 2, borderRadius: '50%' }}>
@@ -277,27 +277,34 @@ const Clients: React.FC = () => {
                 Become Our Partner
               </Typography>
               <Typography variant="body1" sx={{ opacity: 0.8 }}>
-                Experience the difference that technical precision and reliable support can make 
+                Experience the difference that technical precision and reliable support can make
                 for your organization. Join our growing list of prestigious clients.
               </Typography>
-              <Box sx={{ pt: 2 }}>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  style={{
-                    backgroundColor: '#fec001',
-                    color: '#001b5e',
-                    border: 'none',
-                    padding: '16px 40px',
+              <Box sx={{ pt: 3 }}>
+                <Button
+                  component="a"
+                  href="mailto:fareastcalibration@gmail.com"
+                  variant="contained"
+                  size="large"
+                  sx={{
+                    bgcolor: '#fec001',
+                    color: 'secondary.main',
+                    px: 6,
+                    py: 2,
                     borderRadius: '50px',
                     fontSize: '1.1rem',
                     fontWeight: 800,
-                    cursor: 'pointer',
-                    boxShadow: '0 10px 20px rgba(0,0,0,0.2)'
+                    textTransform: 'none',
+                    boxShadow: '0 15px 30px rgba(0,0,0,0.2)',
+                    '&:hover': {
+                      bgcolor: 'white',
+                      color: 'primary.main',
+                      transform: 'translateY(-5px)'
+                    }
                   }}
                 >
-                  Get a Proposal
-                </motion.button>
+                  Email us for further conversation
+                </Button>
               </Box>
             </Stack>
           </Card>

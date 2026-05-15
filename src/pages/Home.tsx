@@ -10,6 +10,7 @@ import {
   Chip,
   Paper,
   TextField,
+  Link,
 } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -481,7 +482,9 @@ const Home: React.FC = () => {
                   </Box>
                   <Box>
                     <Typography variant="body2" sx={{ color: 'text.secondary', fontWeight: 600 }}>Have Any Questions?</Typography>
-                    <Typography variant="h5" sx={{ color: 'primary.main', fontWeight: 900 }}>+62-778-351-831</Typography>
+                    <Link href="tel:+62778351831" color="inherit" underline="hover">
+                      <Typography variant="h5" sx={{ color: 'primary.main', fontWeight: 900 }}>+62-778-351-831</Typography>
+                    </Link>
                   </Box>
                 </Stack>
               </Stack>
@@ -1091,7 +1094,7 @@ const Home: React.FC = () => {
                 <MessageSquare size={30} />
               </Box>
               <Typography variant="h5" sx={{ color: 'white', fontWeight: 800 }}>
-                For inquiry and quotation — +62-778-351-831 / +62 812-6705-1658
+                For inquiry and quotation — <Link href="tel:+62778351831" color="inherit" underline="hover">+62-778-351-831</Link> / <Link href="tel:+6281267051658" color="inherit" underline="hover">+62 812-6705-1658</Link>
               </Typography>
             </Stack>
             <Button 
