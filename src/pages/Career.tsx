@@ -120,106 +120,100 @@ const Career: React.FC = () => {
             </Stack>
           </Grid>
           <Grid size={{ xs: 12, md: 7 }}>
-            <AnimatePresence mode="wait">
-              {!submitted ? (
-                <MotionPaper
-                  key="apply-form"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  sx={{
-                    p: { xs: 4, md: 6 },
-                    borderRadius: '40px',
-                    bgcolor: 'white',
-                    boxShadow: '0 50px 100px rgba(15,122,79,0.1)',
-                    border: '1px solid rgba(15,122,79,0.05)'
-                  }}
-                >
-                  <form onSubmit={handleSubmit}>
-                    <Grid container spacing={3}>
-                      <Grid size={{ xs: 12, sm: 6 }}>
-                        <TextField fullWidth label="Full Name" required variant="outlined" sx={{ '& .MuiOutlinedInput-root': { borderRadius: '15px' } }} />
-                      </Grid>
-                      <Grid size={{ xs: 12, sm: 6 }}>
-                        <TextField fullWidth label="Email Address" type="email" required variant="outlined" sx={{ '& .MuiOutlinedInput-root': { borderRadius: '15px' } }} />
-                      </Grid>
-                      <Grid size={{ xs: 12, sm: 6 }}>
-                        <TextField fullWidth label="Phone Number" required variant="outlined" sx={{ '& .MuiOutlinedInput-root': { borderRadius: '15px' } }} />
-                      </Grid>
-                      <Grid size={{ xs: 12, sm: 6 }}>
-                        <TextField select fullWidth label="Designation" defaultValue="Calibration Engineer" variant="outlined" sx={{ '& .MuiOutlinedInput-root': { borderRadius: '15px' } }}>
-                          {['Calibration Engineer', 'Validation Specialist', 'Technical Manager', 'Sales Executive'].map((role) => (
-                            <MenuItem key={role} value={role}>{role}</MenuItem>
-                          ))}
-                        </TextField>
-                      </Grid>
-                      <Grid size={{ xs: 12 }}>
-                        <Box 
-                          sx={{ 
-                            p: 4, 
-                            border: '2px dashed rgba(15,122,79,0.2)', 
-                            borderRadius: '20px', 
-                            textAlign: 'center',
-                            bgcolor: 'rgba(15,122,79,0.02)',
-                            transition: 'all 0.3s',
-                            '&:hover': { bgcolor: 'rgba(15,122,79,0.05)', borderColor: 'primary.main' }
-                          }}
-                        >
-                          <Upload size={32} color="#0f7a4f" style={{ marginBottom: '12px' }} />
-                          <Typography variant="body2" sx={{ fontWeight: 700, mb: 1 }}>Upload Your CV / Resume</Typography>
-                          <Typography variant="caption" sx={{ color: 'text.secondary' }}>PDF or Word files only (Max 5MB)</Typography>
-                          <input type="file" style={{ display: 'none' }} id="cv-upload" />
-                          <label htmlFor="cv-upload">
-                            <Button component="span" sx={{ mt: 2, textTransform: 'none', fontWeight: 800 }}>Choose File</Button>
-                          </label>
-                        </Box>
-                      </Grid>
-                      <Grid size={{ xs: 12 }}>
-                        <TextField fullWidth multiline rows={4} label="Cover Letter / Message" variant="outlined" sx={{ '& .MuiOutlinedInput-root': { borderRadius: '20px' } }} />
-                      </Grid>
-                      <Grid size={{ xs: 12 }}>
-                        <Button 
-                          type="submit" 
-                          fullWidth 
-                          variant="contained" 
-                          size="large" 
-                          endIcon={<Send size={20} />}
-                          sx={{ py: 2, borderRadius: '15px', fontWeight: 800, fontSize: '1.1rem', bgcolor: 'primary.main' }}
-                        >
-                          Submit Application
-                        </Button>
-                      </Grid>
+            {!submitted ? (
+              <Paper
+                sx={{
+                  p: { xs: 4, md: 6 },
+                  borderRadius: '40px',
+                  bgcolor: 'white',
+                  boxShadow: '0 10px 40px rgba(0,0,0,0.05)',
+                  border: '1px solid rgba(0,0,0,0.03)'
+                }}
+              >
+                <form onSubmit={handleSubmit}>
+                  <Grid container spacing={3}>
+                    <Grid size={{ xs: 12, sm: 6 }}>
+                      <TextField fullWidth label="Full Name" required variant="outlined" sx={{ '& .MuiOutlinedInput-root': { borderRadius: '15px' } }} />
                     </Grid>
-                  </form>
-                </MotionPaper>
-              ) : (
-                <MotionPaper
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  sx={{
-                    p: 8,
-                    borderRadius: '40px',
-                    textAlign: 'center',
-                    bgcolor: 'white',
-                    boxShadow: '0 50px 100px rgba(15,122,79,0.1)',
-                    minHeight: 500,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                  }}
-                >
-                  <Box sx={{ width: 100, height: 100, bgcolor: 'rgba(15,122,79,0.1)', color: 'primary.main', borderRadius: '50%', display: 'grid', placeItems: 'center', mb: 4 }}>
-                    <ShieldCheck size={60} />
-                  </Box>
-                  <Typography variant="h3" sx={{ fontWeight: 900, mb: 2 }}>Application Received</Typography>
-                  <Typography variant="body1" sx={{ color: 'text.secondary', mb: 4 }}>Thank you for your interest. Our HR team will review your application and get back to you shortly.</Typography>
-                  <Button variant="outlined" onClick={() => setSubmitted(false)}>Submit Another Application</Button>
-                </MotionPaper>
-              )}
-            </AnimatePresence>
+                    <Grid size={{ xs: 12, sm: 6 }}>
+                      <TextField fullWidth label="Email Address" type="email" required variant="outlined" sx={{ '& .MuiOutlinedInput-root': { borderRadius: '15px' } }} />
+                    </Grid>
+                    <Grid size={{ xs: 12, sm: 6 }}>
+                      <TextField fullWidth label="Phone Number" required variant="outlined" sx={{ '& .MuiOutlinedInput-root': { borderRadius: '15px' } }} />
+                    </Grid>
+                    <Grid size={{ xs: 12, sm: 6 }}>
+                      <TextField select fullWidth label="Designation" defaultValue="Calibration Engineer" variant="outlined" sx={{ '& .MuiOutlinedInput-root': { borderRadius: '15px' } }}>
+                        {['Calibration Engineer', 'Validation Specialist', 'Technical Manager', 'Sales Executive'].map((role) => (
+                          <MenuItem key={role} value={role}>{role}</MenuItem>
+                        ))}
+                      </TextField>
+                    </Grid>
+                    <Grid size={{ xs: 12 }}>
+                      <Box 
+                        sx={{ 
+                          p: 4, 
+                          border: '2px dashed rgba(15,122,79,0.2)', 
+                          borderRadius: '20px', 
+                          textAlign: 'center',
+                          bgcolor: '#f8fafc',
+                          transition: 'all 0.3s',
+                          '&:hover': { bgcolor: 'rgba(15,122,79,0.05)', borderColor: 'primary.main' }
+                        }}
+                      >
+                        <Upload size={32} color="#0f7a4f" style={{ marginBottom: '12px' }} />
+                        <Typography variant="body2" sx={{ fontWeight: 700, mb: 1 }}>Upload Your CV / Resume</Typography>
+                        <Typography variant="caption" sx={{ color: 'text.secondary' }}>PDF or Word files only (Max 5MB)</Typography>
+                        <input type="file" style={{ display: 'none' }} id="cv-upload" />
+                        <label htmlFor="cv-upload">
+                          <Button component="span" sx={{ mt: 2, textTransform: 'none', fontWeight: 800 }}>Choose File</Button>
+                        </label>
+                      </Box>
+                    </Grid>
+                    <Grid size={{ xs: 12 }}>
+                      <TextField fullWidth multiline rows={4} label="Cover Letter / Message" variant="outlined" sx={{ '& .MuiOutlinedInput-root': { borderRadius: '20px' } }} />
+                    </Grid>
+                    <Grid size={{ xs: 12 }}>
+                      <Button 
+                        type="submit" 
+                        fullWidth 
+                        variant="contained" 
+                        size="large" 
+                        endIcon={<Send size={20} />}
+                        sx={{ py: 2, borderRadius: '15px', fontWeight: 800, fontSize: '1.1rem', bgcolor: 'primary.main' }}
+                      >
+                        Submit Application
+                      </Button>
+                    </Grid>
+                  </Grid>
+                </form>
+              </Paper>
+            ) : (
+              <Paper
+                sx={{
+                  p: 8,
+                  borderRadius: '40px',
+                  textAlign: 'center',
+                  bgcolor: 'white',
+                  boxShadow: '0 10px 40px rgba(0,0,0,0.05)',
+                  minHeight: 500,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+              >
+                <Box sx={{ width: 100, height: 100, bgcolor: 'rgba(15,122,79,0.1)', color: 'primary.main', borderRadius: '50%', display: 'grid', placeItems: 'center', mb: 4 }}>
+                  <ShieldCheck size={60} />
+                </Box>
+                <Typography variant="h3" sx={{ fontWeight: 900, mb: 2 }}>Application Received</Typography>
+                <Typography variant="body1" sx={{ color: 'text.secondary', mb: 4 }}>Thank you for your interest. Our HR team will review your application and get back to you shortly.</Typography>
+                <Button variant="outlined" onClick={() => setSubmitted(false)}>Submit Another Application</Button>
+              </Paper>
+            )}
           </Grid>
         </Grid>
       </Container>
+
     </Box>
   );
 };

@@ -68,89 +68,83 @@ const Contact: React.FC = () => {
 
           {/* Right Column: Contact Form */}
           <Grid size={{ xs: 12, md: 7 }}>
-            <AnimatePresence mode="wait">
-              {!submitted ? (
-                <MotionPaper
-                  key="contact-form"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  sx={{
-                    p: { xs: 4, md: 6 },
-                    borderRadius: '50px',
-                    bgcolor: 'white',
-                    boxShadow: '0 60px 120px rgba(15,122,79,0.12)',
-                    border: '1px solid rgba(15,122,79,0.05)'
-                  }}
-                >
-                  <Typography variant="h4" sx={{ fontWeight: 900, color: 'secondary.main', mb: 4 }}>
-                    Send an Enquiry
-                  </Typography>
-                  <form onSubmit={handleSubmit}>
-                    <Grid container spacing={3}>
-                      <Grid size={{ xs: 12, sm: 6 }}>
-                        <TextField fullWidth label="Your Name" required variant="outlined" sx={{ '& .MuiOutlinedInput-root': { borderRadius: '15px' } }} />
-                      </Grid>
-                      <Grid size={{ xs: 12, sm: 6 }}>
-                        <TextField fullWidth label="Company Name" variant="outlined" sx={{ '& .MuiOutlinedInput-root': { borderRadius: '15px' } }} />
-                      </Grid>
-                      <Grid size={{ xs: 12, sm: 6 }}>
-                        <TextField fullWidth label="Email Address" required type="email" variant="outlined" sx={{ '& .MuiOutlinedInput-root': { borderRadius: '15px' } }} />
-                      </Grid>
-                      <Grid size={{ xs: 12, sm: 6 }}>
-                        <TextField fullWidth label="Phone Number" required variant="outlined" sx={{ '& .MuiOutlinedInput-root': { borderRadius: '15px' } }} />
-                      </Grid>
-                      <Grid size={{ xs: 12 }}>
-                        <TextField fullWidth label="Subject" required variant="outlined" sx={{ '& .MuiOutlinedInput-root': { borderRadius: '15px' } }} />
-                      </Grid>
-                      <Grid size={{ xs: 12 }}>
-                        <TextField fullWidth multiline rows={5} label="Tell us about your requirements..." required variant="outlined" sx={{ '& .MuiOutlinedInput-root': { borderRadius: '25px' } }} />
-                      </Grid>
-                      <Grid size={{ xs: 12 }}>
-                        <Button 
-                          type="submit" 
-                          variant="contained" 
-                          size="large" 
-                          fullWidth 
-                          endIcon={<Send size={20} />}
-                          sx={{ py: 2.5, borderRadius: '15px', fontWeight: 800, fontSize: '1.1rem', bgcolor: 'primary.main', boxShadow: '0 15px 30px rgba(15,122,79,0.3)' }}
-                        >
-                          Send Message
-                        </Button>
-                      </Grid>
+            {!submitted ? (
+              <Paper
+                sx={{
+                  p: { xs: 4, md: 6 },
+                  borderRadius: '50px',
+                  bgcolor: 'white',
+                  boxShadow: '0 10px 40px rgba(0,0,0,0.05)',
+                  border: '1px solid rgba(0,0,0,0.03)'
+                }}
+              >
+                <Typography variant="h4" sx={{ fontWeight: 900, color: 'secondary.main', mb: 4 }}>
+                  Send an Enquiry
+                </Typography>
+                <form onSubmit={handleSubmit}>
+                  <Grid container spacing={3}>
+                    <Grid size={{ xs: 12, sm: 6 }}>
+                      <TextField fullWidth label="Your Name" required variant="outlined" sx={{ '& .MuiOutlinedInput-root': { borderRadius: '15px' } }} />
                     </Grid>
-                  </form>
-                </MotionPaper>
-              ) : (
-                <MotionPaper
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  sx={{
-                    p: 8,
-                    borderRadius: '50px',
-                    textAlign: 'center',
-                    bgcolor: 'white',
-                    boxShadow: '0 60px 120px rgba(15,122,79,0.12)',
-                    minHeight: 600,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                  }}
-                >
-                  <Box sx={{ width: 120, height: 120, bgcolor: 'rgba(15,122,79,0.1)', color: 'primary.main', borderRadius: '50%', display: 'grid', placeItems: 'center', mb: 4 }}>
-                    <CheckCircle2 size={70} />
-                  </Box>
-                  <Typography variant="h3" sx={{ fontWeight: 900, color: 'secondary.main', mb: 2 }}>Enquiry Sent!</Typography>
-                  <Typography variant="h6" sx={{ color: 'text.secondary', fontWeight: 400, maxWidth: 450, mb: 4 }}>
-                    We've received your message. A technical specialist will review your request and get back to you shortly.
-                  </Typography>
-                  <Button variant="outlined" onClick={() => setSubmitted(false)} sx={{ borderRadius: '50px', px: 6 }}>
-                    Send Another Message
-                  </Button>
-                </MotionPaper>
-              )}
-            </AnimatePresence>
+                    <Grid size={{ xs: 12, sm: 6 }}>
+                      <TextField fullWidth label="Company Name" variant="outlined" sx={{ '& .MuiOutlinedInput-root': { borderRadius: '15px' } }} />
+                    </Grid>
+                    <Grid size={{ xs: 12, sm: 6 }}>
+                      <TextField fullWidth label="Email Address" required type="email" variant="outlined" sx={{ '& .MuiOutlinedInput-root': { borderRadius: '15px' } }} />
+                    </Grid>
+                    <Grid size={{ xs: 12, sm: 6 }}>
+                      <TextField fullWidth label="Phone Number" required variant="outlined" sx={{ '& .MuiOutlinedInput-root': { borderRadius: '15px' } }} />
+                    </Grid>
+                    <Grid size={{ xs: 12 }}>
+                      <TextField fullWidth label="Subject" required variant="outlined" sx={{ '& .MuiOutlinedInput-root': { borderRadius: '15px' } }} />
+                    </Grid>
+                    <Grid size={{ xs: 12 }}>
+                      <TextField fullWidth multiline rows={5} label="Tell us about your requirements..." required variant="outlined" sx={{ '& .MuiOutlinedInput-root': { borderRadius: '25px' } }} />
+                    </Grid>
+                    <Grid size={{ xs: 12 }}>
+                      <Button 
+                        type="submit" 
+                        variant="contained" 
+                        size="large" 
+                        fullWidth 
+                        endIcon={<Send size={20} />}
+                        sx={{ py: 2.5, borderRadius: '15px', fontWeight: 800, fontSize: '1.1rem', bgcolor: 'primary.main' }}
+                      >
+                        Send Message
+                      </Button>
+                    </Grid>
+                  </Grid>
+                </form>
+              </Paper>
+            ) : (
+              <Paper
+                sx={{
+                  p: 8,
+                  borderRadius: '50px',
+                  textAlign: 'center',
+                  bgcolor: 'white',
+                  boxShadow: '0 10px 40px rgba(0,0,0,0.05)',
+                  minHeight: 600,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+              >
+                <Box sx={{ width: 120, height: 120, bgcolor: 'rgba(15,122,79,0.1)', color: 'primary.main', borderRadius: '50%', display: 'grid', placeItems: 'center', mb: 4 }}>
+                  <CheckCircle2 size={70} />
+                </Box>
+                <Typography variant="h3" sx={{ fontWeight: 900, color: 'secondary.main', mb: 2 }}>Enquiry Sent!</Typography>
+                <Typography variant="h6" sx={{ color: 'text.secondary', fontWeight: 400, maxWidth: 450, mb: 4 }}>
+                  We've received your message. A technical specialist will review your request and get back to you shortly.
+                </Typography>
+                <Button variant="outlined" onClick={() => setSubmitted(false)} sx={{ borderRadius: '50px', px: 6 }}>
+                  Send Another Message
+                </Button>
+              </Paper>
+            )}
           </Grid>
+
         </Grid>
       </Container>
     </Box>

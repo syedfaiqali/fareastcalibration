@@ -103,7 +103,7 @@ const Home: React.FC = () => {
                       <Typography
                         variant="h1"
                         sx={{
-                          fontSize: { xs: '3rem', md: '4.5rem' },
+                          fontSize: { xs: '2.4rem', sm: '3rem', md: '4.5rem' },
                           lineHeight: 1.1,
                           fontWeight: 900,
                           color: 'white',

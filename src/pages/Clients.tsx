@@ -92,11 +92,7 @@ const Clients: React.FC = () => {
         
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
           <Stack spacing={2} sx={{ textAlign: 'center', mb: 10 }}>
-            <MotionBox
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
+            <Box>
               <Typography 
                 variant="overline" 
                 sx={{ 
@@ -129,8 +125,9 @@ const Clients: React.FC = () => {
                   borderRadius: 2 
                 }} 
               />
-            </MotionBox>
+            </Box>
           </Stack>
+
 
           <Grid container spacing={3} sx={{ justifyContent: 'center' }}>
             {clients.map((client, i) => (

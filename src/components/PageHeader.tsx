@@ -67,8 +67,8 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, subtitle, breadcrumb }) 
             variant="h1"
             sx={{
               fontWeight: 800,
-              fontSize: { xs: '2.6rem', md: '4.2rem' },
-              lineHeight: 1.02,
+              fontSize: { xs: '2.1rem', sm: '2.8rem', md: '4.2rem' },
+              lineHeight: 1.05,
               mb: subtitle ? 2 : 0,
               maxWidth: 900,
             }}
@@ -96,8 +96,8 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, subtitle, breadcrumb }) 
                 key={i}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ 
-                  duration: 0.3, 
+                transition={{
+                  duration: 0.3,
                   delay: 0.3 + (i * 0.04), // Start after title animation
                   ease: "easeOut"
                 }}
