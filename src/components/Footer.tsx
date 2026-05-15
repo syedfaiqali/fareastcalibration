@@ -10,111 +10,128 @@ import { navigation, serviceGroups, contactBlocks } from '../data/siteContent';
 
 const Footer: React.FC = () => {
   return (
-    <Box sx={{ bgcolor: '#0d3f2b', color: 'white', pt: 8, pb: 4, mt: 'auto' }}>
+    <Box 
+      component="footer"
+      sx={{ 
+        bgcolor: '#0d3f2b', 
+        color: 'white', 
+        pt: 12, 
+        pb: 6,
+        position: 'sticky',
+        bottom: 0,
+        zIndex: -1,
+        width: '100%'
+      }}
+    >
       <Container maxWidth="lg">
-        <Grid container spacing={4}>
-          <Grid size={{ xs: 12, md: 4 }}>
-            <Stack direction="row" spacing={1.5} sx={{ mb: 2, alignItems: 'center' }}>
-              <Box component="img" src="/fareastcalibrationLogo.jpeg" alt="Fareast Calibration logo" sx={{ width: 48, height: 48, borderRadius: '50%' }} />
+        <Grid container spacing={8}>
+          <Grid size={{ xs: 12, md: 5 }}>
+            <Stack direction="row" spacing={2} sx={{ mb: 4, alignItems: 'center' }}>
+              <Box component="img" src="/fareastcalibrationLogo.jpeg" alt="Fareast Calibration logo" sx={{ width: 64, height: 64, borderRadius: '50%', border: '2px solid rgba(255,255,255,0.1)' }} />
               <Box>
-                <Typography variant="h6" sx={{ fontWeight: 800, lineHeight: 1.1 }}>
+                <Typography variant="h4" sx={{ fontWeight: 900, lineHeight: 1.1, letterSpacing: -1 }}>
                   Fareast Calibration
                 </Typography>
-                <Typography variant="caption" sx={{ opacity: 0.7 }}>
-                  Precision. Traceability. Confidence.
+                <Typography variant="subtitle2" sx={{ opacity: 0.6, fontWeight: 700, color: 'primary.light' }}>
+                  PRECISION • TRACEABILITY • CONFIDENCE
                 </Typography>
               </Box>
             </Stack>
-            <Typography variant="body2" sx={{ opacity: 0.82, mb: 3, maxWidth: 360, lineHeight: 1.8 }}>
-              Calibration and validation support built for teams that need clean reports, dependable turnaround, and real technical attention.
+            <Typography variant="h6" sx={{ opacity: 0.7, mb: 4, maxWidth: 450, lineHeight: 1.6, fontWeight: 400 }}>
+              Operating at the intersection of traditional metrology and modern industrial speed. We keep your reports clean and your audits painless.
             </Typography>
-            <Stack direction="row" spacing={1}>
+            <Stack direction="row" spacing={1.5}>
               {[FacebookIcon, LinkedInIcon, InstagramIcon, YouTubeIcon].map((Icon, index) => (
-                <IconButton key={index} color="inherit" size="small" sx={{ bgcolor: 'rgba(255,255,255,0.08)' }}>
-                  <Icon fontSize="small" />
+                <IconButton key={index} color="inherit" sx={{ 
+                  bgcolor: 'rgba(255,255,255,0.05)',
+                  transition: 'all 0.3s',
+                  '&:hover': { bgcolor: 'primary.main', transform: 'translateY(-5px)' }
+                }}>
+                  <Icon />
                 </IconButton>
               ))}
             </Stack>
           </Grid>
 
-          <Grid size={{ xs: 12, sm: 6, md: 2 }}>
-            <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
-              Navigation
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+            <Typography variant="overline" sx={{ fontWeight: 900, mb: 3, display: 'block', color: 'primary.light', letterSpacing: 3 }}>
+              QUICK ACCESS
             </Typography>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-              {navigation.slice(0, 5).map((item) => (
-                <Link key={item.path} component={RouterLink} to={item.path} color="inherit" underline="hover">
+            <Stack spacing={2}>
+              {navigation.map((item) => (
+                <Link 
+                  key={item.path} 
+                  component={RouterLink} 
+                  to={item.path} 
+                  color="inherit" 
+                  underline="none"
+                  sx={{ 
+                    fontSize: '1.1rem',
+                    opacity: 0.7,
+                    transition: 'all 0.2s',
+                    '&:hover': { opacity: 1, color: 'primary.light', pl: 1 }
+                  }}
+                >
                   {item.label}
                 </Link>
               ))}
-            </Box>
+            </Stack>
           </Grid>
 
-          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-            <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
-              Core Services
+          <Grid size={{ xs: 12, md: 4 }}>
+            <Typography variant="overline" sx={{ fontWeight: 900, mb: 3, display: 'block', color: 'primary.light', letterSpacing: 3 }}>
+              GET IN TOUCH
             </Typography>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-              {serviceGroups.slice(0, 4).map((item) => (
-                <Typography key={item.title} variant="body2" sx={{ opacity: 0.82 }}>
-                  {item.title}
-                </Typography>
-              ))}
-            </Box>
-          </Grid>
-
-          <Grid size={{ xs: 12, md: 3 }}>
-            <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
-              Contact
-            </Typography>
-            <Stack spacing={1.5}>
-              <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
-                <PhoneCall size={16} />
-                <Typography variant="body2" sx={{ opacity: 0.82 }}>
-                  +91 98109 77012
-                </Typography>
+            <Stack spacing={3}>
+              <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
+                <Box sx={{ p: 1.5, borderRadius: '12px', bgcolor: 'rgba(255,255,255,0.05)' }}>
+                  <PhoneCall size={20} color="#4fb37f" />
+                </Box>
+                <Box>
+                  <Typography variant="caption" sx={{ opacity: 0.5, display: 'block' }}>Call Support</Typography>
+                  <Typography variant="body1" sx={{ fontWeight: 700 }}>+91 98109 77012</Typography>
+                </Box>
               </Stack>
-              <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
-                <Mail size={16} />
-                <Typography variant="body2" sx={{ opacity: 0.82 }}>
-                  newdelhicalibrationlaboratory@gmail.com
-                </Typography>
+              <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
+                <Box sx={{ p: 1.5, borderRadius: '12px', bgcolor: 'rgba(255,255,255,0.05)' }}>
+                  <Mail size={20} color="#4fb37f" />
+                </Box>
+                <Box>
+                  <Typography variant="caption" sx={{ opacity: 0.5, display: 'block' }}>Email Us</Typography>
+                  <Typography variant="body1" sx={{ fontWeight: 700 }}>newdelhicalibrationlaboratory@gmail.com</Typography>
+                </Box>
               </Stack>
-              <Stack direction="row" spacing={1} sx={{ alignItems: 'flex-start' }}>
-                <MapPinned size={16} style={{ marginTop: 2 }} />
-                <Typography variant="body2" sx={{ opacity: 0.82 }}>
-                  WZ-97 (NG-26), 206, 216 & 217, Paschim Vihar, New Delhi - 110063
-                </Typography>
+              <Stack direction="row" spacing={2} sx={{ alignItems: 'flex-start' }}>
+                <Box sx={{ p: 1.5, borderRadius: '12px', bgcolor: 'rgba(255,255,255,0.05)' }}>
+                  <MapPinned size={20} color="#4fb37f" />
+                </Box>
+                <Box>
+                  <Typography variant="caption" sx={{ opacity: 0.5, display: 'block' }}>Head Office</Typography>
+                  <Typography variant="body2" sx={{ opacity: 0.8, maxWidth: 300 }}>
+                    WZ-97 (NG-26), 206, 216 & 217, Paschim Vihar, New Delhi - 110063
+                  </Typography>
+                </Box>
               </Stack>
             </Stack>
           </Grid>
         </Grid>
 
-        <Divider sx={{ my: 4, bgcolor: 'rgba(255,255,255,0.12)' }} />
+        <Divider sx={{ my: 8, bgcolor: 'rgba(255,255,255,0.05)' }} />
 
         <Stack
           direction={{ xs: 'column', sm: 'row' }}
           spacing={2}
-          sx={{ justifyContent: 'space-between', alignItems: { xs: 'flex-start', sm: 'center' } }}
+          sx={{ justifyContent: 'space-between', alignItems: 'center' }}
         >
-          <Typography variant="body2" sx={{ opacity: 0.7 }}>
-            Copyright {new Date().getFullYear()} Fareast Calibration Private Limited. All rights reserved.
+          <Typography variant="body2" sx={{ opacity: 0.4 }}>
+            © {new Date().getFullYear()} Fareast Calibration Private Limited. All rights reserved.
           </Typography>
-          <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
-            {contactBlocks.map((item) => (
-              <Link
-                key={item.title}
-                component={RouterLink}
-                to="/contact"
-                underline="hover"
-                color="inherit"
-                sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.75, opacity: 0.8 }}
-              >
-                {item.title} <ArrowRight size={14} />
-              </Link>
-            ))}
+          <Stack direction="row" spacing={4}>
+            <Link href="#" color="inherit" sx={{ fontSize: '0.8rem', opacity: 0.5, underline: 'none', '&:hover': { opacity: 1 } }}>Privacy Policy</Link>
+            <Link href="#" color="inherit" sx={{ fontSize: '0.8rem', opacity: 0.5, underline: 'none', '&:hover': { opacity: 1 } }}>Terms of Service</Link>
           </Stack>
         </Stack>
+
       </Container>
     </Box>
   );

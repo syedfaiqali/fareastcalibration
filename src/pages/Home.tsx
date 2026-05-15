@@ -12,6 +12,7 @@ import {
   Divider,
   TextField,
 } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
   ArrowRight,
@@ -28,6 +29,7 @@ import {
   heroSlides,
   serviceGroups,
   testimonials,
+  clients,
 } from '../data/siteContent';
 
 const MotionBox = motion(Box);
@@ -741,125 +743,119 @@ const Home: React.FC = () => {
         </Container>
       </Box>
 
-      {/* Testimonials Section - BEAUTIFIED Green & White */}
-      <Box sx={{ py: { xs: 8, md: 15 }, bgcolor: '#ffffff', position: 'relative', overflow: 'hidden' }}>
-        {/* Decorative background circle */}
-        <Box 
-          sx={{ 
-            position: 'absolute', 
-            top: '50%', 
-            left: '50%', 
-            transform: 'translate(-50%, -50%)',
-            width: 800, 
-            height: 800, 
-            borderRadius: '50%', 
-            background: 'radial-gradient(circle, rgba(15,122,79,0.05) 0%, transparent 70%)',
-            zIndex: 0
-          }} 
-        />
-        
-        <Container maxWidth="md" sx={{ position: 'relative', zIndex: 1 }}>
+      {/* Our Clients Section - BRAND THEME PREMIUM */}
+      <Box 
+        sx={{ 
+          py: { xs: 10, md: 15 }, 
+          bgcolor: 'white', 
+          position: 'relative', 
+          overflow: 'hidden',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: '100%',
+            height: 1,
+            background: 'linear-gradient(90deg, transparent, rgba(15,122,79,0.1), transparent)',
+          }
+        }}
+      >
+        <Container maxWidth="lg">
           <Stack spacing={1} sx={{ textAlign: 'center', mb: 8 }}>
-            <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 800, letterSpacing: 3 }}>
-              TESTIMONIALS
-            </Typography>
-            <Typography variant="h3" sx={{ fontWeight: 900, color: 'secondary.main' }}>
-              Industrial Trust & Feedback
-            </Typography>
-            <Box sx={{ display: 'flex', justifyContent: 'center', gap: 0.5, mt: 1 }}>
-              {[...Array(5)].map((_, i) => (
-                <Sparkles key={i} size={18} color="#fec001" fill="#fec001" />
-              ))}
-            </Box>
+            <MotionBox
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 800, letterSpacing: 4 }}>
+                TRUSTED PARTNERS
+              </Typography>
+              <Typography variant="h2" sx={{ fontWeight: 900, color: 'secondary.main', mt: 1 }}>
+                Supporting Industrial <Box component="span" sx={{ color: 'primary.main' }}>Leaders</Box>
+              </Typography>
+              <Typography variant="body1" sx={{ color: 'text.secondary', maxWidth: 600, mx: 'auto', mt: 2 }}>
+                We provide high-precision calibration services for organizations that demand absolute measurement confidence.
+              </Typography>
+            </MotionBox>
           </Stack>
 
-          <Box sx={{ position: 'relative', py: 4 }}>
-            {/* Centered Testimonial */}
-            <MotionPaper
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              sx={{
-                p: { xs: 5, md: 8 },
-                borderRadius: '40px',
-                bgcolor: '#ffffff',
-                boxShadow: '0 40px 100px rgba(15,122,79,0.12)',
-                border: '1px solid rgba(15,122,79,0.05)',
-                textAlign: 'center',
-                position: 'relative',
-                zIndex: 2
+          {/* Premium Logo Marquee - Rectangular Consistency */}
+          <Box sx={{ position: 'relative', overflow: 'hidden', py: 4 }}>
+            <MotionBox
+              animate={{ x: [0, -2000] }}
+              transition={{ 
+                duration: 35, 
+                repeat: Infinity, 
+                ease: "linear" 
               }}
+              sx={{ display: 'flex', gap: 4, width: 'max-content', alignItems: 'center' }}
             >
-              <Box sx={{ 
-                position: 'absolute', 
-                top: -25, 
-                left: '50%', 
-                transform: 'translateX(-50%)',
-                width: 50, 
-                height: 50, 
-                bgcolor: 'primary.main', 
-                borderRadius: '50%', 
-                display: 'grid', 
-                placeItems: 'center',
-                color: 'white',
-                boxShadow: '0 10px 20px rgba(15,122,79,0.3)'
-              }}>
-                <Sparkles size={24} />
-              </Box>
-              
-              <Typography variant="h5" sx={{ fontStyle: 'normal', lineHeight: 1.8, mb: 4, fontWeight: 500, color: 'text.primary' }}>
-                "{testimonials[0].text}"
-              </Typography>
-              
-              <Divider sx={{ width: 60, mx: 'auto', mb: 3, height: 4, borderRadius: 2, bgcolor: 'primary.main', border: 'none' }} />
-              
-              <Typography variant="h6" sx={{ fontWeight: 800, color: 'secondary.main' }}>{testimonials[0].name}</Typography>
-              <Typography variant="body2" sx={{ color: 'primary.main', fontWeight: 600 }}>{testimonials[0].company}</Typography>
-            </MotionPaper>
+              {[...clients, ...clients, ...clients].map((client, i) => (
+                <Box 
+                  key={i} 
+                  sx={{ 
+                    width: { xs: 160, md: 240 }, 
+                    height: { xs: 80, md: 120 }, 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center',
+                    p: 3,
+                    bgcolor: 'white',
+                    borderRadius: '16px',
+                    border: '1px solid rgba(15,122,79,0.06)',
+                    boxShadow: '0 4px 15px rgba(0,0,0,0.02)',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      borderColor: 'primary.main',
+                      transform: 'translateY(-5px)',
+                      boxShadow: '0 15px 30px rgba(15,122,79,0.08)',
+                    }
+                  }}
+                >
+                  <Box 
+                    component="img" 
+                    src={client.logo} 
+                    alt={client.name}
+                    sx={{ 
+                      maxWidth: '85%', 
+                      maxHeight: '85%', 
+                      objectFit: 'contain',
+                      filter: 'grayscale(100%)',
+                      opacity: 0.5,
+                      '&:hover': { filter: 'grayscale(0%)', opacity: 1 },
+                      transition: 'all 0.4s'
+                    }} 
+                  />
+                </Box>
+              ))}
+            </MotionBox>
+            
+            {/* Soft gradient masks for the edges */}
+            <Box sx={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: { xs: 100, md: 250 }, background: 'linear-gradient(90deg, #ffffff 10%, transparent 100%)', zIndex: 2 }} />
+            <Box sx={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: { xs: 100, md: 250 }, background: 'linear-gradient(-90deg, #ffffff 10%, transparent 100%)', zIndex: 2 }} />
+          </Box>
 
-            {/* Floating Avatars with continuous movement */}
-            {[
-              { top: '-15%', left: '-8%', size: 95, delay: 0 },
-              { top: '5%', right: '-10%', size: 75, delay: 0.5 },
-              { bottom: '-2%', left: '-6%', size: 85, delay: 1 },
-              { bottom: '12%', right: '-4%', size: 105, delay: 1.5 },
-              { top: '42%', left: '-15%', size: 65, delay: 2 },
-            ].map((avatar, i) => (
-              <MotionBox
-                key={i}
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                animate={{ 
-                  y: [0, -25, 0],
-                  x: [0, 15, 0],
-                }}
-                transition={{ 
-                  duration: 6 + i, 
-                  repeat: Infinity, 
-                  ease: "easeInOut",
-                  delay: avatar.delay 
-                }}
-                sx={{
-                  position: 'absolute',
-                  top: avatar.top,
-                  left: avatar.left,
-                  right: avatar.right,
-                  bottom: avatar.bottom,
-                  width: avatar.size,
-                  height: avatar.size,
-                  borderRadius: '50%',
-                  border: '8px solid white',
-                  overflow: 'hidden',
-                  zIndex: 1,
-                  display: { xs: 'none', md: 'block' },
-                  boxShadow: '0 25px 50px rgba(15,122,79,0.12)'
-                }}
-              >
-                <Box component="img" src={`https://i.pravatar.cc/150?u=${i + 30}`} sx={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              </MotionBox>
-            ))}
+
+
+          <Box sx={{ textAlign: 'center', mt: 6 }}>
+            <Button
+              component={RouterLink}
+              to="/clients"
+              variant="text"
+              color="primary"
+              endIcon={<ArrowRight size={20} />}
+              sx={{ fontWeight: 800, fontSize: '1.1rem' }}
+            >
+              Explore our full client portfolio
+            </Button>
           </Box>
         </Container>
       </Box>
+
+
+
 
       {/* Book Appointment Section - BEAUTIFIED */}
       <Box sx={{ py: { xs: 8, md: 15 }, bgcolor: '#f4fbf7' }}>

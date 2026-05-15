@@ -23,10 +23,10 @@ import {
 
 export const navigation = [
   { label: 'Home', path: '/' },
-  { label: 'About', path: '/about' },
+  { label: 'About Us', path: '/about' },
   { label: 'Services', path: '/services' },
   { label: 'Accreditation', path: '/accreditation' },
-  { label: 'Feedback', path: '/feedback' },
+  { label: 'Clients', path: '/clients' },
   { label: 'Career', path: '/career' },
   { label: 'Contact', path: '/contact' },
 ];
@@ -268,6 +268,27 @@ export const testimonials = [
     text: 'Calibration, validation, and follow-up all feel organised. It removed a lot of admin stress for us.',
   },
 ];
+
+export const clients = [
+  { name: 'Client 1', logo: '/src/assets/ourclient1.png' },
+  { name: 'Client 2', logo: '/src/assets/ourclient2.png' },
+  { name: 'Client 3', logo: '/src/assets/ourclient3.png' },
+  { name: 'Client 4', logo: '/src/assets/ourclient4.png' },
+  { name: 'Client 5', logo: '/src/assets/ourclient5.jpg' },
+  { name: 'Client 6', logo: '/src/assets/ourclient6.jpg' },
+  { name: 'Client 7', logo: '/src/assets/ourclient7.jpg' },
+  { name: 'Client 8', logo: '/src/assets/ourclient8.png' },
+  { name: 'Client 9', logo: '/src/assets/ourclient9.png' },
+  { name: 'Client 10', logo: '/src/assets/ourclient10.png' },
+  { name: 'Client 11', logo: '/src/assets/ourclient11.png' },
+  { name: 'Client 12', logo: '/src/assets/ourclient12.jpg' },
+  { name: 'Client 14', logo: '/src/assets/ourclient14.png' },
+  { name: 'Client 15', logo: '/src/assets/ourclient15.png' },
+  { name: 'Client 16', logo: '/src/assets/ourclient16.png' },
+  { name: 'Client 17', logo: '/src/assets/ourclient17.png' },
+];
+
+
 
 export const careerBenefits = [
   'Structured learning on real industrial instruments',

@@ -20,9 +20,19 @@ const Layout: React.FC = () => {
   }
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', position: 'relative' }}>
       <Header />
-      <Box component="main" sx={{ flexGrow: 1 }}>
+      <Box 
+        component="main" 
+        sx={{ 
+          flexGrow: 1, 
+          position: 'relative', 
+          zIndex: 2, 
+          bgcolor: 'background.default',
+          boxShadow: '0 20px 50px rgba(0,0,0,0.1)',
+          mb: 0 // Footer is sticky underneath
+        }}
+      >
         <Suspense fallback={<BrandLoader />}>
           <AnimatePresence mode="wait">
             <Box
@@ -40,6 +50,7 @@ const Layout: React.FC = () => {
       </Box>
       <Footer />
     </Box>
+
   );
 };
 
