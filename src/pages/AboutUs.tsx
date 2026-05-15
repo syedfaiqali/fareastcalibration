@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Container, Typography, Grid, Paper, Stack, Divider, Chip, Avatar } from '@mui/material';
+import { Box, Container, Typography, Grid, Paper, Stack, Divider, Chip, Avatar, Button } from '@mui/material';
 import { motion } from 'framer-motion';
 import PageHeader from '../components/PageHeader';
 import directorImg from '../assets/director.png';
@@ -16,6 +16,8 @@ import {
   TrendingUp,
   ShieldCheck,
   Award,
+  ThermometerSun,
+  Zap,
   Shield,
   Clock,
   CircleDollarSign,
@@ -82,16 +84,31 @@ const keyFeatures = [
   { text: 'Trained and competent laboratory technicians', icon: GraduationCap },
 ];
 
-const organizationStructure = [
-  { role: 'Chairman', level: 1, color: '#0d3f2b' },
-  { role: 'Managing Director', level: 2, color: '#0f7a4f' },
-  { role: 'Director', level: 2, color: '#0f7a4f' },
-  { role: 'Technical Manager', level: 3, color: '#16a34a' },
-  { role: 'Instrument Engineer', level: 4, color: '#22c55e' },
-  { role: 'Finance & Admin Executive', level: 4, color: '#22c55e' },
-  { role: 'Sales & Marketing Executive', level: 4, color: '#22c55e' },
-  { role: 'Technical Assistant', level: 5, color: '#4ade80' },
-  { role: 'Technical Helper', level: 5, color: '#86efac' },
+const strategicAdvantages = [
+  { 
+    title: 'NIST & KAN Traceability', 
+    desc: 'Our measurements are directly traceable to national and international standards, ensuring global acceptance.',
+    icon: ShieldCheck,
+    color: '#0f7a4f'
+  },
+  { 
+    title: 'Controlled Lab Environment', 
+    desc: 'Strictly monitored temperature and humidity controls for maximum measurement stability.',
+    icon: ThermometerSun,
+    color: '#0d3f2b'
+  },
+  { 
+    title: 'Automated Reporting', 
+    desc: 'Digitized certificate generation for faster turnaround and error-free documentation.',
+    icon: Zap,
+    color: '#16a34a'
+  },
+  { 
+    title: 'Expert Consultation', 
+    desc: 'Our technical team provides deep insights into measurement uncertainty and instrument optimization.',
+    icon: Users,
+    color: '#22c55e'
+  },
 ];
 
 const jobExecutionSteps = [
@@ -298,46 +315,76 @@ const AboutUs: React.FC = () => {
         </Container>
       </Box>
 
-      {/* 6. UPGRADED: GOVERNANCE - HIERARCHICAL NODES */}
-      <Box sx={{ py: { xs: 12, md: 15 }, bgcolor: 'white' }}>
+      {/* 6. NEW: TECHNICAL EXCELLENCE - HIGH IMPACT SECTION */}
+      <Box sx={{ py: { xs: 15, md: 25 }, bgcolor: 'white', position: 'relative', overflow: 'hidden' }}>
+        <Box sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0.02, backgroundImage: 'radial-gradient(#0f7a4f 2px, transparent 2px)', backgroundSize: '60px 60px' }} />
         <Container maxWidth="lg">
-          <Stack spacing={2} sx={{ textAlign: 'center', mb: 12 }}>
-            <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 900, letterSpacing: 6 }}>GOVERNANCE</Typography>
-            <Typography variant="h2" sx={{ fontWeight: 900, color: 'secondary.main' }}>Company <Box component="span" sx={{ color: 'primary.main' }}>Structure</Box></Typography>
-          </Stack>
-          
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 3, position: 'relative' }}>
-            {organizationStructure.map((role, i) => (
-              <MotionPaper
-                key={i}
-                {...fadeInUp}
-                transition={{ delay: i * 0.1 }}
-                sx={{
-                  p: 3,
-                  minWidth: { xs: '100%', sm: role.level === 1 ? '500px' : role.level === 2 ? '350px' : '280px' },
-                  borderRadius: '24px',
-                  bgcolor: i === 0 ? 'secondary.main' : 'white',
-                  color: i === 0 ? 'white' : 'secondary.main',
-                  border: i === 0 ? 'none' : `1px solid ${role.color}20`,
-                  boxShadow: i === 0 ? '0 20px 40px rgba(0,0,0,0.15)' : '0 10px 30px rgba(0,0,0,0.02)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 3,
-                  zIndex: 2,
-                  '&:hover': { transform: 'scale(1.02) translateY(-5px)', transition: '0.3s' }
-                }}
-              >
-                <Box sx={{ width: 50, height: 50, borderRadius: '15px', bgcolor: i === 0 ? 'primary.main' : `${role.color}15`, color: i === 0 ? 'white' : role.color, display: 'grid', placeItems: 'center' }}>
-                  <Users size={24} />
-                </Box>
-                <Box>
-                  <Typography variant="h5" sx={{ fontWeight: 900 }}>{role.role}</Typography>
-                  <Typography variant="caption" sx={{ opacity: 0.7, letterSpacing: 2, fontWeight: 800 }}>LEVEL {role.level}</Typography>
-                </Box>
-                {i < 3 && <Box sx={{ ml: 'auto', p: 1, borderRadius: '50%', bgcolor: i === 0 ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.03)' }}><Shield size={18} /></Box>}
-              </MotionPaper>
-            ))}
-          </Box>
+          <Grid container spacing={10} sx={{ alignItems: 'center' }}>
+            <Grid size={{ xs: 12, md: 5 }}>
+              <MotionBox {...fadeInUp}>
+                <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 900, letterSpacing: 6 }}>TECHNICAL PROWESS</Typography>
+                <Typography variant="h2" sx={{ fontWeight: 900, color: 'secondary.main', mt: 2, mb: 4, lineHeight: 1.1 }}>
+                  The Science of <Box component="span" sx={{ color: 'primary.main' }}>Precision</Box>
+                </Typography>
+                <Typography variant="body1" sx={{ color: 'text.secondary', fontSize: '1.25rem', lineHeight: 1.8, mb: 6 }}>
+                  We don't just measure; we validate your operational integrity. Our laboratory is designed to exceed international standards in every technical dimension.
+                </Typography>
+                <Stack spacing={3}>
+                  <Box sx={{ p: 4, borderRadius: '30px', bgcolor: '#f4fbf7', border: '1px solid rgba(15,122,79,0.1)' }}>
+                    <Typography variant="h5" sx={{ fontWeight: 900, color: 'primary.main', mb: 1 }}>99.9% Accuracy Rate</Typography>
+                    <Typography variant="body2" sx={{ color: 'text.secondary' }}>Our calibration processes are refined through continuous proficiency testing.</Typography>
+                  </Box>
+                  <Button variant="contained" size="large" sx={{ borderRadius: '20px', py: 2, px: 5, fontWeight: 900, boxShadow: '0 20px 40px rgba(15,122,79,0.2)' }}>
+                    View Technical Scope
+                  </Button>
+                </Stack>
+              </MotionBox>
+            </Grid>
+            
+            <Grid size={{ xs: 12, md: 7 }}>
+              <Grid container spacing={3}>
+                {strategicAdvantages.map((item, i) => (
+                  <Grid key={i} size={{ xs: 12, sm: 6 }}>
+                    <MotionPaper
+                      whileHover={{ y: -15, scale: 1.02 }}
+                      transition={{ type: 'spring', stiffness: 300 }}
+                      sx={{
+                        p: 5,
+                        height: '100%',
+                        borderRadius: '40px',
+                        bgcolor: 'white',
+                        border: '1px solid rgba(0,0,0,0.04)',
+                        boxShadow: '0 20px 50px rgba(0,0,0,0.03)',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: 3,
+                        position: 'relative',
+                        overflow: 'hidden',
+                        '&::before': {
+                          content: '""',
+                          position: 'absolute',
+                          top: 0,
+                          right: 0,
+                          width: '100px',
+                          height: '100px',
+                          background: `radial-gradient(circle at top right, ${item.color}15, transparent 70%)`,
+                          borderRadius: '0 0 0 100%'
+                        }
+                      }}
+                    >
+                      <Box sx={{ width: 64, height: 64, borderRadius: '18px', bgcolor: `${item.color}15`, color: item.color, display: 'grid', placeItems: 'center' }}>
+                        <item.icon size={32} />
+                      </Box>
+                      <Box>
+                        <Typography variant="h5" sx={{ fontWeight: 900, color: 'secondary.main', mb: 1.5 }}>{item.title}</Typography>
+                        <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>{item.desc}</Typography>
+                      </Box>
+                    </MotionPaper>
+                  </Grid>
+                ))}
+              </Grid>
+            </Grid>
+          </Grid>
         </Container>
       </Box>
 
