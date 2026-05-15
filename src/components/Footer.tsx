@@ -4,9 +4,9 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import YouTubeIcon from '@mui/icons-material/YouTube';
-import { ArrowRight, PhoneCall, Mail, MapPinned } from 'lucide-react';
+import { PhoneCall, Mail, MapPinned } from 'lucide-react';
 import { Link as RouterLink } from 'react-router-dom';
-import { navigation, serviceGroups, contactBlocks } from '../data/siteContent';
+import { navigation } from '../data/siteContent';
 
 const Footer: React.FC = () => {
   return (
@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
               </Box>
             </Stack>
             <Typography variant="h6" sx={{ opacity: 0.7, mb: 4, maxWidth: 450, lineHeight: 1.6, fontWeight: 400 }}>
-              Operating at the intersection of traditional metrology and modern industrial speed. We keep your reports clean and your audits painless.
+              One stop solution for calibration and testing services in Batam, Indonesia. KAN accredited, ISO/IEC 17025:2017 aligned, and ISO 9001:2015 certified.
             </Typography>
             <Stack direction="row" spacing={1.5}>
               {[FacebookIcon, LinkedInIcon, InstagramIcon, YouTubeIcon].map((Icon, index) => (
@@ -89,7 +89,8 @@ const Footer: React.FC = () => {
                 </Box>
                 <Box>
                   <Typography variant="caption" sx={{ opacity: 0.5, display: 'block' }}>Call Support</Typography>
-                  <Typography variant="body1" sx={{ fontWeight: 700 }}>+91 98109 77012</Typography>
+                  <Typography variant="body1" sx={{ fontWeight: 700 }}>+62-778-351-831</Typography>
+                  <Typography variant="body2" sx={{ opacity: 0.8 }}>+62 812-6705-1658</Typography>
                 </Box>
               </Stack>
               <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
@@ -98,7 +99,8 @@ const Footer: React.FC = () => {
                 </Box>
                 <Box>
                   <Typography variant="caption" sx={{ opacity: 0.5, display: 'block' }}>Email Us</Typography>
-                  <Typography variant="body1" sx={{ fontWeight: 700 }}>newdelhicalibrationlaboratory@gmail.com</Typography>
+                  <Typography variant="body1" sx={{ fontWeight: 700 }}>fareastcalibration@gmail.com</Typography>
+                  <Typography variant="body2" sx={{ opacity: 0.8 }}>andi@fareastcalibration.com</Typography>
                 </Box>
               </Stack>
               <Stack direction="row" spacing={2} sx={{ alignItems: 'flex-start' }}>
@@ -108,7 +110,7 @@ const Footer: React.FC = () => {
                 <Box>
                   <Typography variant="caption" sx={{ opacity: 0.5, display: 'block' }}>Head Office</Typography>
                   <Typography variant="body2" sx={{ opacity: 0.8, maxWidth: 300 }}>
-                    WZ-97 (NG-26), 206, 216 & 217, Paschim Vihar, New Delhi - 110063
+                    Tiban Raya Lestari, Block C/4, Sekupang, Batam, Indonesia
                   </Typography>
                 </Box>
               </Stack>
@@ -124,7 +126,7 @@ const Footer: React.FC = () => {
           sx={{ justifyContent: 'space-between', alignItems: 'center' }}
         >
           <Typography variant="body2" sx={{ opacity: 0.4 }}>
-            © {new Date().getFullYear()} Fareast Calibration Private Limited. All rights reserved.
+            © {new Date().getFullYear()} PT Fareast Calibration and Testing Services. All rights reserved.
           </Typography>
           <Stack direction="row" spacing={4}>
             <Link href="#" color="inherit" sx={{ fontSize: '0.8rem', opacity: 0.5, underline: 'none', '&:hover': { opacity: 1 } }}>Privacy Policy</Link>

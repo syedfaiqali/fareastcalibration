@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Container, Typography, Grid, TextField, Button, Paper, Stack } from '@mui/material';
-import { motion, AnimatePresence } from 'framer-motion';
 import PageHeader from '../components/PageHeader';
 import { Mail, MapPinned, PhoneCall, Send, CheckCircle2, Clock } from 'lucide-react';
-
-const MotionPaper = motion(Paper);
 
 const Contact: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -18,7 +15,7 @@ const Contact: React.FC = () => {
     <Box sx={{ bgcolor: 'white' }}>
       <PageHeader
         title="Get in Touch"
-        subtitle="Have a technical query or need a service quote? Our specialized support team is here to provide the clarity and precision you need."
+        subtitle="For instrument calibration, onboard testing, pickup, delivery, or quotation requests, our Batam team is ready to help."
       />
 
       <Container maxWidth="lg" sx={{ py: { xs: 10, md: 15 } }}>
@@ -31,15 +28,15 @@ const Contact: React.FC = () => {
                   DIRECT CHANNELS
                 </Typography>
                 <Typography variant="h2" sx={{ fontWeight: 900, color: 'secondary.main', mt: 1, lineHeight: 1.1 }}>
-                  Let's Talk <Box component="span" sx={{ color: 'primary.main' }}>Precision</Box>
+                  Contact <Box component="span" sx={{ color: 'primary.main' }}>Fareast</Box>
                 </Typography>
               </Box>
 
               <Stack spacing={4}>
                 {[
-                  { icon: PhoneCall, title: 'Call Our Service Desk', text: '(+91) 98109 77012 / 90159 04300', sub: 'Available Mon-Sat, 9 AM - 6 PM' },
-                  { icon: Mail, title: 'Email Technical Support', text: 'newdelhicalibrationlaboratory@gmail.com', sub: 'We respond within 24 business hours' },
-                  { icon: MapPinned, title: 'Visit Our Laboratory', text: 'Paschim Vihar, New Delhi - 110063', sub: 'WZ-97 (NG-26), Sunder Palace' }
+                  { icon: PhoneCall, title: 'Call Our Service Desk', text: '+62-778-351-831 / +62 812-6705-1658', sub: 'Contact person: Andi Sahabinnu' },
+                  { icon: Mail, title: 'Email Technical Support', text: 'fareastcalibration@gmail.com', sub: 'Also: andi@fareastcalibration.com, mak@fareastcalibration.com' },
+                  { icon: MapPinned, title: 'Visit Our Laboratory', text: 'Tiban Raya Lestari, Block C/4', sub: 'Sekupang, Batam, Indonesia' }
                 ].map((item, i) => (
                   <Stack key={i} direction="row" spacing={3}>
                     <Box sx={{ width: 60, height: 60, borderRadius: '20px', bgcolor: 'rgba(15,122,79,0.08)', color: 'primary.main', display: 'grid', placeItems: 'center', flexShrink: 0 }}>
@@ -58,8 +55,8 @@ const Contact: React.FC = () => {
                 <Stack direction="row" spacing={2.5} sx={{ alignItems: 'center' }}>
                   <Clock size={32} color="#0f7a4f" />
                   <Box>
-                    <Typography variant="subtitle1" sx={{ fontWeight: 800 }}>Emergency Support?</Typography>
-                    <Typography variant="body2" sx={{ opacity: 0.7 }}>For urgent on-site validation, please call our direct hotline.</Typography>
+                    <Typography variant="subtitle1" sx={{ fontWeight: 800 }}>Need urgent calibration?</Typography>
+                    <Typography variant="body2" sx={{ opacity: 0.7 }}>Express calibration and onsite service are available without additional express charges.</Typography>
                   </Box>
                 </Stack>
               </Paper>

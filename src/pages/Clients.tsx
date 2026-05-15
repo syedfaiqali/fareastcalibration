@@ -6,30 +6,22 @@ import {
   Grid,
   Card,
   Stack,
-  Chip,
-  Divider,
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import PageHeader from '../components/PageHeader';
 
 import { 
-  Building2, 
   CheckCircle2, 
-  FlaskConical, 
   Handshake, 
-  ShieldCheck, 
-  Users 
 } from 'lucide-react';
 import { clients, clientSectors } from '../data/siteContent';
-
-const MotionBox = motion(Box);
 
 const Clients: React.FC = () => {
   return (
     <Box sx={{ bgcolor: 'background.default' }}>
       <PageHeader
         title="Trusted by Industry Leaders"
-        subtitle="Fareast Calibration partners with organizations that demand absolute precision. Our clients range from multinational pharmaceutical giants to critical infrastructure providers."
+        subtitle="PT Fareast Calibration and Testing Services supports manufacturers, laboratories, marine teams, utilities, and inspection groups that need dependable calibration."
         breadcrumb="Clients"
       />
 
@@ -46,12 +38,12 @@ const Clients: React.FC = () => {
         >
           <Grid container spacing={4} sx={{ textAlign: 'center' }}>
             {[
-              { label: 'Industries Served', value: '15+' },
-              { label: 'Satisfied Clients', value: '500+' },
-              { label: 'Project Completed', value: '10,000+' },
-              { label: 'Compliance Rate', value: '100%' },
+              { label: 'Satisfied Customers', value: '300+' },
+              { label: 'Instruments Calibrated', value: '4000+' },
+              { label: 'Established', value: '2014' },
+              { label: 'Standards', value: 'KAN' },
             ].map((stat, i) => (
-              <Grid key={i} item xs={6} md={3}>
+              <Grid key={i} size={{ xs: 6, md: 3 }}>
                 <Typography variant="h3" sx={{ fontWeight: 900, color: 'primary.main', mb: 0.5 }}>
                   {stat.value}
                 </Typography>
@@ -131,7 +123,7 @@ const Clients: React.FC = () => {
 
           <Grid container spacing={3} sx={{ justifyContent: 'center' }}>
             {clients.map((client, i) => (
-              <Grid key={i} item xs={6} sm={4} md={3}>
+              <Grid key={i} size={{ xs: 6, sm: 4, md: 3 }}>
                 <Box
                   sx={{
                     p: 3,
@@ -187,7 +179,7 @@ const Clients: React.FC = () => {
       <Box sx={{ py: 12, bgcolor: '#f4fbf7' }}>
         <Container maxWidth="lg">
           <Grid container spacing={8} sx={{ alignItems: 'center' }}>
-            <Grid item xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 800, letterSpacing: 2 }}>
                 SECTOR COVERAGE
               </Typography>
@@ -196,13 +188,13 @@ const Clients: React.FC = () => {
               </Typography>
               <Typography variant="body1" sx={{ color: 'text.secondary', mb: 4, lineHeight: 1.8 }}>
                 Our expertise is not limited to a single field. We have developed specialized 
-                calibration protocols for various critical sectors, ensuring each industry's 
-                unique compliance requirements are met with 100% accuracy.
+                calibration procedures for critical sectors, helping each customer's quality, 
+                safety, and compliance requirements stay under control.
               </Typography>
               
               <Grid container spacing={2}>
                 {clientSectors.map((sector, i) => (
-                  <Grid key={i} item xs={12} sm={6}>
+                  <Grid key={i} size={{ xs: 12, sm: 6 }}>
                     <Stack direction="row" spacing={1.5} sx={{ alignItems: 'center' }}>
                       <Box sx={{ color: 'primary.main' }}>
                         <CheckCircle2 size={20} />
@@ -213,7 +205,7 @@ const Clients: React.FC = () => {
                 ))}
               </Grid>
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <Box 
                 sx={{ 
                   position: 'relative',

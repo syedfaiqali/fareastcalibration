@@ -12,7 +12,7 @@ const Accreditation: React.FC = () => {
     <Box sx={{ bgcolor: 'white' }}>
       <PageHeader
         title="Accreditation & Standards"
-        subtitle="Global recognition for technical competence and quality management. We adhere to the most rigorous international standards in metrology."
+        subtitle="KAN accredited calibration services in accordance with ISO/IEC 17025:2017, supported by ISO 9001:2015 certified management practices."
       />
 
       {/* Hero / Overview Section */}
@@ -33,7 +33,7 @@ const Accreditation: React.FC = () => {
                   A Commitment to <Box component="span" sx={{ color: 'primary.main' }}>Unrivaled Quality</Box>
                 </Typography>
                 <Typography variant="h6" sx={{ color: 'text.secondary', lineHeight: 1.8, fontWeight: 400 }}>
-                  Accreditation is the formal recognition of our technical competence. It's the "gold standard" that ensures our lab operates with integrity and that our results are globally traceable.
+                  PT Fareast Calibration and Testing Services is accredited by KAN (Komite Akreditasi Nasional) in accordance with ISO/IEC 17025:2017 for calibration services.
                 </Typography>
                 
                 <Stack spacing={2.5}>
@@ -41,7 +41,7 @@ const Accreditation: React.FC = () => {
                     "Demonstrated technical competence for specific tests & calibrations",
                     "Rigorous internal quality management systems",
                     "Continuous participation in Proficiency Testing (PT)",
-                    "Valid and globally recognized calibration results"
+                    "ISO 9001:2015 certified management system"
                   ].map((text) => (
                     <Stack key={text} direction="row" spacing={2} sx={{ alignItems: 'center' }}>
                       <CheckCircle2 size={24} color="#0f7a4f" />
@@ -80,7 +80,7 @@ const Accreditation: React.FC = () => {
                     <Typography variant="subtitle1" sx={{ color: 'primary.main', fontWeight: 700, letterSpacing: 1 }}>LABORATORY ACCREDITATION</Typography>
                   </Box>
                   <Typography variant="body2" sx={{ color: 'text.secondary', maxWidth: 300 }}>
-                    Our laboratory operations are aligned with international standards to ensure repeatable, accurate, and defensible data for every client.
+                    Our laboratory operations follow recognized international standards to deliver repeatable, accurate, and defensible calibration results.
                   </Typography>
                   <Button 
                     variant="outlined" 
@@ -162,7 +162,7 @@ const Accreditation: React.FC = () => {
             { title: 'Mechanical', icon: Scale, text: 'Precision mass, balance, and volume calibration.' },
             { title: 'Thermal', icon: ThermometerSun, text: 'Advanced temperature and humidity mapping.' },
             { title: 'Electrical', icon: Zap, text: 'Electro-technical source and measure verification.' },
-            { title: 'Metrology', icon: FlaskConical, text: 'Pressure, vacuum, and dimensional calibration.' }
+            { title: 'Analytical', icon: FlaskConical, text: 'Analytical and general instrument calibration.' }
           ].map((scope) => (
             <Grid key={scope.title} size={{ xs: 12, sm: 6, md: 3 }}>
               <MotionPaper
@@ -223,7 +223,7 @@ const Accreditation: React.FC = () => {
                   startIcon={<Download size={20} />}
                   sx={{ py: 2, borderRadius: '15px', fontWeight: 800, fontSize: '1rem', bgcolor: 'primary.main' }}
                 >
-                  NABL Certificate
+                  KAN Accreditation
                 </Button>
               </Grid>
               <Grid size={{ xs: 12, sm: 6 }}>

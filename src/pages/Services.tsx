@@ -12,7 +12,7 @@ const Services: React.FC = () => {
     <Box sx={{ bgcolor: 'white' }}>
       <PageHeader
         title="Our Technical Expertise"
-        subtitle="Comprehensive calibration and validation solutions designed for high-precision industries. We bridge the gap between measurement and certainty."
+        subtitle="Comprehensive calibration and testing services covering thermal, mechanical, electrical, dimensional, analytical, general, and onboard instruments."
       />
 
       {/* Services Grid Section */}
@@ -22,7 +22,7 @@ const Services: React.FC = () => {
             SERVICE DOMAINS
           </Typography>
           <Typography variant="h2" sx={{ fontWeight: 900, color: 'secondary.main' }}>
-            Precision Across Every Scale
+            One Stop Calibration & Testing Services
           </Typography>
         </Stack>
 
@@ -98,13 +98,13 @@ const Services: React.FC = () => {
                 </Typography>
                 <Typography variant="h2" sx={{ fontWeight: 900 }}>How We Deliver Accuracy</Typography>
                 <Typography variant="body1" sx={{ opacity: 0.7, lineHeight: 1.8, fontSize: '1.1rem' }}>
-                  Our workflow is optimized for industrial speed without compromising the rigorous standards of metrology.
+                  Our job execution flow is built around clear enquiry handling, instrument inspection, quotation approval, calibration, certification, and delivery.
                 </Typography>
                 <Stack spacing={3} sx={{ mt: 4 }}>
                   {[
-                    { icon: ShieldCheck, title: 'Compliance Driven', text: 'ISO/IEC 17025 aligned documentation.' },
-                    { icon: Timer, title: 'Rapid Turnaround', text: 'Optimized logistics for minimal downtime.' },
-                    { icon: Settings, title: 'Tailored Scope', text: 'Customized to your specific tolerances.' }
+                    { icon: ShieldCheck, title: 'KAN Accredited', text: 'ISO/IEC 17025:2017 calibration services.' },
+                    { icon: Timer, title: 'Lead Time Focused', text: 'Committed delivery within agreed lead time.' },
+                    { icon: Settings, title: 'Lab and Onsite', text: 'In-lab and onsite calibration facilities available.' }
                   ].map((feat, i) => (
                     <Stack key={i} direction="row" spacing={3}>
                       <Box sx={{ color: 'primary.main' }}>
@@ -170,10 +170,10 @@ const Services: React.FC = () => {
           <Grid container spacing={6} sx={{ alignItems: 'center', position: 'relative', zIndex: 2 }}>
             <Grid size={{ xs: 12, md: 8 }}>
               <Typography variant="h3" sx={{ fontWeight: 900, mb: 3 }}>
-                Ready to Establish Your <br />Calibration Schedule?
+                Ready to Schedule Your <br />Calibration?
               </Typography>
               <Typography variant="h6" sx={{ opacity: 0.8, fontWeight: 400, maxWidth: 600 }}>
-                Whether you need a single instrument check or an annual service contract for an entire plant, our engineers are ready.
+                Whether you need a single instrument check, onboard testing, or an ongoing calibration schedule, our technical team is ready.
               </Typography>
             </Grid>
             <Grid size={{ xs: 12, md: 4 }}>

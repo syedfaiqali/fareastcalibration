@@ -3,7 +3,6 @@ import {
   BadgeCheck,
   Cable,
   CheckCircle2,
-  CircleGauge,
   Droplets,
   Factory,
   FlaskConical,
@@ -12,7 +11,6 @@ import {
   LayoutGrid,
   MapPinned,
   Ruler,
-  Scale,
   ShieldCheck,
   ThermometerSun,
   TimerReset,
@@ -32,41 +30,42 @@ export const navigation = [
 ];
 
 export const heroHighlights = [
-  'ISO/IEC 17025 & ISO 9001 aligned workflow',
+  'KAN accredited ISO/IEC 17025:2017 laboratory',
+  'ISO 9001:2015 certified management system',
   'On-site and in-lab calibration',
-  'Annual contracts and validation support',
-  'Traceable certificates and fast turnaround',
+  'Free pickup and delivery within Batam',
+  'Traceable certificates with fast turnaround',
 ];
 
 export const heroStats = [
-  { label: 'Core service domains', value: '8+', icon: LayoutGrid },
-  { label: 'Delivery modes', value: '2', icon: MapPinned },
-  { label: 'Quality layers', value: '4', icon: ShieldCheck },
-  { label: 'Coverage focus', value: 'Lab + field', icon: TrendingUp },
+  { label: 'Established', value: '2014', icon: LayoutGrid },
+  { label: 'Customers served', value: '300+', icon: MapPinned },
+  { label: 'Instruments calibrated', value: '4000+', icon: ShieldCheck },
+  { label: 'Service modes', value: 'Lab + site', icon: TrendingUp },
 ];
 
 export const heroSlides = [
   {
-    title: 'Temperature and humidity',
-    description: 'Mapped, verified, and tracked for chambers, cold rooms, and process environments.',
+    title: 'Thermal calibration',
+    description: 'Temperature and humidity instruments calibrated for reliable process, chamber, oven, and environmental measurements.',
     image:
       'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1400&q=80',
   },
   {
-    title: 'Pressure and vacuum',
-    description: 'Gauge and transmitter support with a clean, industrial look and quick visual clarity.',
+    title: 'Mechanical calibration',
+    description: 'Pressure gauges, vacuum gauges, torque tools, flow meters, weights, and balances supported in lab or on site.',
     image:
       'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1400&q=80',
   },
   {
-    title: 'Dimensional precision',
-    description: 'Tools and inspection gear presented like a proper metrology portfolio, not a stock collage.',
+    title: 'Dimensional calibration',
+    description: 'Calipers, micrometers, gauge blocks, thickness gauges, and inspection tools calibrated for dependable accuracy.',
     image:
       'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1400&q=80',
   },
   {
     title: 'Electrical calibration',
-    description: 'Instruments, indicators, and panels displayed with a premium technical rhythm.',
+    description: 'Multimeters, clamp meters, oscilloscopes, power meters, testers, and process calibrators verified with care.',
     image:
       'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1400&q=80',
   },
@@ -113,137 +112,127 @@ export const homeGallery = [
 
 export const serviceGroups = [
   {
-    anchor: 'temperature-humidity',
-    title: 'Temperature and humidity',
+    anchor: 'thermal-calibration',
+    title: 'Thermal Calibration',
     icon: ThermometerSun,
     summary:
-      'Calibration and mapping for temperature chains, chambers, cold rooms, ovens, and humidity-sensitive environments.',
-    items: ['Thermometers', 'RTD and thermocouple systems', 'Humidity indicators', 'Temperature mapping'],
+      'Temperature and humidity calibration for sensors, indicators, sources, ovens, furnaces, chambers, baths, and environmental monitors.',
+    items: ['Glass thermometers', 'Thermocouples and RTDs', 'IR thermometers and black body sources', 'Ovens, furnaces, chambers and baths'],
   },
   {
-    anchor: 'pressure-vacuum',
-    title: 'Pressure and vacuum',
+    anchor: 'mechanical-calibration',
+    title: 'Mechanical Calibration',
     icon: Gauge,
     summary:
-      'Gauge, transmitter, manometer, and differential pressure calibration with traceable reference controls.',
-    items: ['Pressure gauges', 'Vacuum gauges', 'Transmitters', 'Manometers and indicators'],
+      'Pressure, vacuum, torque, hardness, flow, weighing, and mechanical instrument calibration for industrial operations.',
+    items: ['Pressure and vacuum gauges', 'Manometers and pressure calibrators', 'Torque tools and hardness testers', 'Flow meters, weights and balances'],
   },
   {
     anchor: 'dimensional',
-    title: 'Dimensional',
+    title: 'Dimensional Calibration',
     icon: Ruler,
     summary:
-      'Precision support for metrology tools used in production, QA, maintenance, and inspection teams.',
-    items: ['Micrometers', 'Verniers', 'Height gauges', 'Dial indicators'],
+      'Dimensional calibration for measuring tools used by production, inspection, maintenance, and quality teams.',
+    items: ['Calipers, height and depth gauges', 'Gauge blocks and micrometers', 'Dial gauges and bore gauges', 'Thickness, coating and ultrasonic gauges'],
   },
   {
-    anchor: 'electro-technical',
-    title: 'Electro-technical',
+    anchor: 'electrical-calibration',
+    title: 'Electrical Calibration',
     icon: Zap,
     summary:
-      'Electrical calibration for source, measure, and inspection instruments across shop floors and labs.',
-    items: ['Multimeters', 'Clamp meters', 'Oscilloscopes', 'Controllers and testers'],
+      'Electrical calibration for measuring, testing, source, and inspection instruments across shop floors, vessels, and laboratories.',
+    items: ['Voltmeters, ammeters and multimeters', 'Clamp meters and oscilloscopes', 'LCR, power and watt meters', 'Process, mV and mA calibrators'],
   },
   {
-    anchor: 'mass-balance-volume',
-    title: 'Mass, balance and volume',
-    icon: Scale,
-    summary:
-      'Instrument checks for weighing systems, balances, pipettes, and volume-handling equipment.',
-    items: ['Balances', 'Standard weights', 'Pipettes', 'Volumetric glassware'],
-  },
-  {
-    anchor: 'flow-fluid',
-    title: 'Flow and fluid',
-    icon: Droplets,
-    summary:
-      'Calibration support for process flow, water flow, and air flow devices used in utility and plant settings.',
-    items: ['Flow meters', 'Anemometers', 'Rotameters', 'Pitot and sampler systems'],
-  },
-  {
-    anchor: 'force-torque',
-    title: 'Force and torque',
-    icon: CircleGauge,
-    summary:
-      'Solutions for load, force, torque, and related mechanical measurement systems that need dependable accuracy.',
-    items: ['Torque tools', 'Load cells', 'Force indicators', 'Mechanical gauges'],
-  },
-  {
-    anchor: 'validation-mapping',
-    title: 'Validation and mapping',
+    anchor: 'general-calibration',
+    title: 'General Calibration',
     icon: FlaskConical,
     summary:
-      'Validation for cleanrooms, equipment, and thermal environments with documentation that helps teams stay audit-ready.',
-    items: ['HVAC mapping', 'Cleanroom validation', 'Equipment qualification', 'Annual calibration contracts'],
+      'Calibration support for analytical, environmental, safety, and portable test instruments used in daily operations.',
+    items: ['pH, TDS, hydrometer and viscosity tools', 'Tachometers, anemometers and lux meters', 'Sound, vibration and UV meters', 'Gas detectors, load cells and OWS tests'],
+  },
+  {
+    anchor: 'analytical-calibration',
+    title: 'Analytical Calibration',
+    icon: Droplets,
+    summary:
+      'Analytical instrument calibration using reference standards to verify readings, zero error, and operating accuracy.',
+    items: ['Viscometers and viscosity cups', 'Alcometers and hydrometers', 'pH and TDS meters', 'Chlorine and contamination meters'],
+  },
+  {
+    anchor: 'onboard-testing',
+    title: 'Onboard Calibration & Testing',
+    icon: Factory,
+    summary:
+      'Onboard calibration and testing for marine and industrial customers, including hose testing, noise, vibration, flow, and gas detection.',
+    items: ['OWS and flow meter calibration', 'Bulk, fresh water and bunker hose testing', 'Noise and vibration surveys', 'Portable gas detector and scale testing'],
   },
 ];
 
 export const serviceMenuLinks = [
-  { label: 'Temperature & Humidity', path: '/services#temperature-humidity' },
-  { label: 'Pressure & Vacuum', path: '/services#pressure-vacuum' },
-  { label: 'Dimensional', path: '/services#dimensional' },
-  { label: 'Electro-Technical', path: '/services#electro-technical' },
-  { label: 'Weight, Balance & Volume', path: '/services#mass-balance-volume' },
-  { label: 'Flow & Fluid', path: '/services#flow-fluid' },
-  { label: 'Force & Torque', path: '/services#force-torque' },
-  { label: 'Validation & Mapping', path: '/services#validation-mapping' },
-  { label: 'Annual Contract', path: '/services' },
+  { label: 'Thermal Calibration', path: '/services#thermal-calibration' },
+  { label: 'Mechanical Calibration', path: '/services#mechanical-calibration' },
+  { label: 'Dimensional Calibration', path: '/services#dimensional' },
+  { label: 'Electrical Calibration', path: '/services#electrical-calibration' },
+  { label: 'General Calibration', path: '/services#general-calibration' },
+  { label: 'Analytical Calibration', path: '/services#analytical-calibration' },
+  { label: 'Onboard Testing', path: '/services#onboard-testing' },
 ];
 
 export const processSteps = [
   {
     step: '01',
-    title: 'Survey',
-    text: 'We review the instrument list, required tolerances, and site conditions before any work starts.',
+    title: 'Inspect',
+    text: 'We receive or collect the instrument, inspect the unit under test, and enter the technical record.',
   },
   {
     step: '02',
-    title: 'Calibrate',
-    text: 'The right references and procedures are used for each instrument family, in lab or on site.',
+    title: 'Quote',
+    text: 'A clear quotation is submitted, then the approved PO and starting date are confirmed with the customer.',
   },
   {
     step: '03',
-    title: 'Verify',
-    text: 'Results are checked against acceptance limits and traceability rules so there is no guesswork.',
+    title: 'Calibrate',
+    text: 'The unit under test is calibrated or tested using the right procedures and supporting standards.',
   },
   {
     step: '04',
     title: 'Certify',
-    text: 'You receive clear documentation, practical notes, and a record you can use in audits.',
+    text: 'Calibration certificates and supporting documents are issued before the instrument is delivered back.',
   },
 ];
 
 export const trustPoints = [
   {
     title: 'Traceability first',
-    text: 'Every calibration path is built around reference continuity, documented results, and repeatability.',
+    text: 'Every calibration path is built around documented results, repeatability, and ISO/IEC 17025:2017 discipline.',
     icon: BadgeCheck,
   },
   {
     title: 'Responsive scheduling',
-    text: 'We keep turnaround tight and scheduling practical so operations are not waiting around.',
+    text: 'We keep turnaround practical, with express calibration available without additional charges.',
     icon: TimerReset,
   },
   {
     title: 'Audit ready documentation',
-    text: 'Reports are structured for quality teams that want something tidy, clear, and defensible.',
+    text: 'Certificates and supporting documents are prepared for audits, vendor files, and quality teams.',
     icon: ShieldCheck,
   },
   {
     title: 'People who know the tools',
-    text: 'The work is handled by engineers who understand industrial instruments, not generic service desks.',
+    text: 'The work is handled by trained and competent laboratory technicians who understand industrial instruments.',
     icon: Wrench,
   },
 ];
 
 export const industries = [
-  'Pharmaceuticals',
   'Manufacturing',
-  'Food and beverage',
+  'Marine and onboard services',
+  'Oil and gas support',
   'Energy and utilities',
   'Laboratories',
-  'Healthcare',
-  'HVAC and facilities',
+  'Process industries',
+  'Shipyards and maintenance teams',
   'Inspection teams',
 ];
 
@@ -252,20 +241,20 @@ export const clientSectors = [
   'QA and QC labs',
   'Process industries',
   'Research facilities',
-  'Utilities and utilities contractors',
-  'Hospitals and biomedical teams',
+  'Marine and onboard teams',
+  'Utilities and maintenance contractors',
 ];
 
 export const testimonials = [
   {
     name: 'Plant QA Lead',
     company: 'Manufacturing client',
-    text: 'The reporting is clean, the team is practical, and the turnaround fits the way our plant actually works.',
+    text: 'The reporting is clean, the team is practical, and the turnaround fits the way our plant works.',
   },
   {
-    name: 'Facilities Manager',
-    company: 'Healthcare client',
-    text: 'Calibration, validation, and follow-up all feel organised. It removed a lot of admin stress for us.',
+    name: 'Marine Service Coordinator',
+    company: 'Onboard testing client',
+    text: 'The pickup, calibration, certificate issue, and return process is straightforward and reliable.',
   },
 ];
 
@@ -327,15 +316,15 @@ export const openRoles = [
 export const contactBlocks = [
   {
     title: 'Service desk',
-    lines: ['+91 98109 77012', '+91 90159 04300'],
+    lines: ['+62-778-351-831', '+62 812-6705-1658'],
   },
   {
     title: 'Email',
-    lines: ['newdelhicalibrationlaboratory@gmail.com'],
+    lines: ['fareastcalibration@gmail.com', 'andi@fareastcalibration.com', 'mak@fareastcalibration.com'],
   },
   {
     title: 'Location',
-    lines: ['WZ-97 (NG-26), 206, 216 & 217', 'Sunder Palace, Jawalaheri Market', 'Paschim Vihar, New Delhi - 110063'],
+    lines: ['Tiban Raya Lestari, Block C/4', 'Sekupang, Batam, Indonesia'],
   },
 ];
 

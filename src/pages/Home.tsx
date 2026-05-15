@@ -9,7 +9,6 @@ import {
   Stack,
   Chip,
   Paper,
-  Divider,
   TextField,
 } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
@@ -20,7 +19,6 @@ import {
   ChevronLeft,
   ChevronRight,
   PhoneCall,
-  Sparkles,
   TimerReset,
   MessageSquare,
 } from 'lucide-react';
@@ -28,13 +26,11 @@ import {
   heroStats,
   heroSlides,
   serviceGroups,
-  testimonials,
   clients,
 } from '../data/siteContent';
 
 const MotionBox = motion(Box);
 const MotionCard = motion(Card);
-const MotionPaper = motion(Paper);
 const Home: React.FC = () => {
   const [activeSlide, setActiveSlide] = useState(0);
 
@@ -462,10 +458,10 @@ const Home: React.FC = () => {
                   }} 
                 />
                 <Typography variant="h2" sx={{ fontWeight: 900, color: 'primary.main', fontSize: { xs: '2.5rem', md: '3.5rem' } }}>
-                  New Delhi Calibration Laboratory Private Limited
+                  PT Fareast Calibration and Testing Services
                 </Typography>
                 <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8, fontSize: '1.1rem' }}>
-                  Providing scientific accuracy and confidence in every measurement since our inception. We specialize in high-precision calibration services for various industries, ensuring your instruments perform at their absolute best.
+                  Independent calibration and testing laboratory in Batam, Indonesia, serving thermal, mechanical, electrical, dimensional, analytical, general, and onboard calibration needs since 2014.
                 </Typography>
                 
                 <Stack direction="row" spacing={3} sx={{ alignItems: 'center', pt: 2 }}>
@@ -485,7 +481,7 @@ const Home: React.FC = () => {
                   </Box>
                   <Box>
                     <Typography variant="body2" sx={{ color: 'text.secondary', fontWeight: 600 }}>Have Any Questions?</Typography>
-                    <Typography variant="h5" sx={{ color: 'primary.main', fontWeight: 900 }}>(+91) 98109 77012</Typography>
+                    <Typography variant="h5" sx={{ color: 'primary.main', fontWeight: 900 }}>+62-778-351-831</Typography>
                   </Box>
                 </Stack>
               </Stack>
@@ -511,9 +507,9 @@ const Home: React.FC = () => {
                 
                 <Stack spacing={3}>
                   {[
-                    { title: "Traceability Guaranteed", text: "All our measurements are traceable to national/international standards." },
-                    { title: "Fast Turnaround Time", text: "We understand your deadlines and offer optimized scheduling for minimal downtime." },
-                    { title: "Customized Solutions", text: "Tailored calibration plans that fit your specific industrial requirements." }
+                    { title: "KAN Accredited", text: "Accredited by Komite Akreditasi Nasional in accordance with ISO/IEC 17025:2017." },
+                    { title: "Fast Turnaround Time", text: "Committed to delivery within lead time, with express calibration available without extra charges." },
+                    { title: "Lab and Onsite Support", text: "In-lab and onsite calibration facilities with free pickup and delivery within Batam." }
                   ].map((item, index) => (
                     <Stack key={index} direction="row" spacing={2.5} sx={{ alignItems: 'flex-start' }}>
                       <Box sx={{ mt: 0.5, bgcolor: 'rgba(15,122,79,0.1)', color: 'primary.main', p: 1, borderRadius: '50%' }}>
@@ -896,12 +892,12 @@ const Home: React.FC = () => {
                   Ready to Schedule Your Calibration?
                 </Typography>
                 <Typography variant="body1" sx={{ opacity: 0.8, mb: 6, lineHeight: 1.8 }}>
-                  Our team of expert engineers is ready to provide you with the highest precision services. Fill out the form, and we'll get back to you within 24 hours.
+                  Our technical team is ready to support your calibration and testing requirements. Fill out the form, and we will get back to you with the next step.
                 </Typography>
 
                 <Stack spacing={4}>
                   {[
-                    { label: 'Accredited Lab', val: 'ISO/IEC 17025' },
+                    { label: 'Accredited Lab', val: 'KAN | ISO/IEC 17025' },
                     { label: 'Experience', val: '11+ Years' },
                     { label: 'Turnaround', val: 'Fast & Reliable' }
                   ].map((stat, i) => (
@@ -1095,7 +1091,7 @@ const Home: React.FC = () => {
                 <MessageSquare size={30} />
               </Box>
               <Typography variant="h5" sx={{ color: 'white', fontWeight: 800 }}>
-                Call if any query to related to our services — (+91) 9810977012
+                For inquiry and quotation — +62-778-351-831 / +62 812-6705-1658
               </Typography>
             </Stack>
             <Button 

@@ -1,13 +1,11 @@
 import React, { Suspense, useEffect, useState } from 'react';
 import { Box } from '@mui/material';
-import { AnimatePresence, motion } from 'framer-motion';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import BrandLoader from './BrandLoader';
 
 const Layout: React.FC = () => {
-  const location = useLocation();
   const [booting, setBooting] = useState(true);
 
   useEffect(() => {

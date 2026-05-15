@@ -173,17 +173,17 @@ const Header: React.FC = () => {
               <Stack direction="row" spacing={1.4} sx={{ alignItems: 'center', flexWrap: 'wrap' }}>
                 <Stack direction="row" spacing={0.9} sx={{ alignItems: 'center' }}>
                   <PhoneCall size={14} />
-                  <Typography variant="caption">+91 98109 77012</Typography>
+                  <Typography variant="caption">+62-778-351-831 / +62 812-6705-1658</Typography>
                 </Stack>
                 <Stack direction="row" spacing={0.9} sx={{ alignItems: 'center' }}>
                   <Mail size={14} />
-                  <Typography variant="caption">newdelhicalibrationlaboratory@gmail.com</Typography>
+                  <Typography variant="caption">fareastcalibration@gmail.com</Typography>
                 </Stack>
               </Stack>
               <Stack direction="row" spacing={0.9} sx={{ alignItems: 'center' }}>
                 <ShieldCheck size={14} />
                 <Typography variant="caption" sx={{ opacity: 0.9 }}>
-                  Audit-ready calibration and validation
+                  KAN accredited lab | ISO/IEC 17025:2017 | ISO 9001:2015
                 </Typography>
               </Stack>
             </Stack>
