@@ -81,22 +81,126 @@ const Contact: React.FC = () => {
                 <form onSubmit={handleSubmit}>
                   <Grid container spacing={3}>
                     <Grid size={{ xs: 12, sm: 6 }}>
-                      <TextField fullWidth label="Your Name" required variant="outlined" sx={{ '& .MuiOutlinedInput-root': { borderRadius: '15px' } }} />
+                      <TextField 
+                        fullWidth 
+                        label="Your Name" 
+                        required 
+                        variant="filled" 
+                        sx={{ 
+                          '& .MuiFilledInput-root': { 
+                            borderRadius: '20px', 
+                            bgcolor: '#f8fafc',
+                            border: '1px solid rgba(0,0,0,0.08)',
+                            transition: 'all 0.3s ease',
+                            '&:hover': { bgcolor: 'white', borderColor: 'primary.light' },
+                            '&.Mui-focused': { bgcolor: 'white', borderColor: 'primary.main', boxShadow: '0 10px 20px rgba(15,122,79,0.05)' },
+                            '&:before, &:after': { display: 'none' }
+                          },
+                          '& .MuiInputLabel-root': { fontWeight: 600, '&.Mui-focused': { color: 'primary.main' } }
+                        }} 
+                      />
                     </Grid>
                     <Grid size={{ xs: 12, sm: 6 }}>
-                      <TextField fullWidth label="Company Name" variant="outlined" sx={{ '& .MuiOutlinedInput-root': { borderRadius: '15px' } }} />
+                      <TextField 
+                        fullWidth 
+                        label="Company Name" 
+                        variant="filled" 
+                        sx={{ 
+                          '& .MuiFilledInput-root': { 
+                            borderRadius: '20px', 
+                            bgcolor: '#f8fafc',
+                            border: '1px solid rgba(0,0,0,0.08)',
+                            transition: 'all 0.3s ease',
+                            '&:hover': { bgcolor: 'white', borderColor: 'primary.light' },
+                            '&.Mui-focused': { bgcolor: 'white', borderColor: 'primary.main', boxShadow: '0 10px 20px rgba(15,122,79,0.05)' },
+                            '&:before, &:after': { display: 'none' }
+                          },
+                          '& .MuiInputLabel-root': { fontWeight: 600, '&.Mui-focused': { color: 'primary.main' } }
+                        }} 
+                      />
                     </Grid>
                     <Grid size={{ xs: 12, sm: 6 }}>
-                      <TextField fullWidth label="Email Address" required type="email" variant="outlined" sx={{ '& .MuiOutlinedInput-root': { borderRadius: '15px' } }} />
+                      <TextField 
+                        fullWidth 
+                        label="Email Address" 
+                        required 
+                        type="email" 
+                        variant="filled" 
+                        sx={{ 
+                          '& .MuiFilledInput-root': { 
+                            borderRadius: '20px', 
+                            bgcolor: '#f8fafc',
+                            border: '1px solid rgba(0,0,0,0.08)',
+                            transition: 'all 0.3s ease',
+                            '&:hover': { bgcolor: 'white', borderColor: 'primary.light' },
+                            '&.Mui-focused': { bgcolor: 'white', borderColor: 'primary.main', boxShadow: '0 10px 20px rgba(15,122,79,0.05)' },
+                            '&:before, &:after': { display: 'none' }
+                          },
+                          '& .MuiInputLabel-root': { fontWeight: 600, '&.Mui-focused': { color: 'primary.main' } }
+                        }} 
+                      />
                     </Grid>
                     <Grid size={{ xs: 12, sm: 6 }}>
-                      <TextField fullWidth label="Phone Number" required variant="outlined" sx={{ '& .MuiOutlinedInput-root': { borderRadius: '15px' } }} />
+                      <TextField 
+                        fullWidth 
+                        label="Phone Number" 
+                        required 
+                        variant="filled" 
+                        sx={{ 
+                          '& .MuiFilledInput-root': { 
+                            borderRadius: '20px', 
+                            bgcolor: '#f8fafc',
+                            border: '1px solid rgba(0,0,0,0.08)',
+                            transition: 'all 0.3s ease',
+                            '&:hover': { bgcolor: 'white', borderColor: 'primary.light' },
+                            '&.Mui-focused': { bgcolor: 'white', borderColor: 'primary.main', boxShadow: '0 10px 20px rgba(15,122,79,0.05)' },
+                            '&:before, &:after': { display: 'none' }
+                          },
+                          '& .MuiInputLabel-root': { fontWeight: 600, '&.Mui-focused': { color: 'primary.main' } }
+                        }} 
+                      />
                     </Grid>
                     <Grid size={{ xs: 12 }}>
-                      <TextField fullWidth label="Subject" required variant="outlined" sx={{ '& .MuiOutlinedInput-root': { borderRadius: '15px' } }} />
+                      <TextField 
+                        fullWidth 
+                        label="Subject" 
+                        required 
+                        variant="filled" 
+                        sx={{ 
+                          '& .MuiFilledInput-root': { 
+                            borderRadius: '20px', 
+                            bgcolor: '#f8fafc',
+                            border: '2px solid transparent',
+                            transition: 'all 0.3s ease',
+                            '&:hover': { bgcolor: 'white', borderColor: 'primary.light' },
+                            '&.Mui-focused': { bgcolor: 'white', borderColor: 'primary.main', boxShadow: '0 10px 20px rgba(15,122,79,0.05)' },
+                            '&:before, &:after': { display: 'none' }
+                          },
+                          '& .MuiInputLabel-root': { fontWeight: 600, '&.Mui-focused': { color: 'primary.main' } }
+                        }} 
+                      />
                     </Grid>
                     <Grid size={{ xs: 12 }}>
-                      <TextField fullWidth multiline rows={5} label="Tell us about your requirements..." required variant="outlined" sx={{ '& .MuiOutlinedInput-root': { borderRadius: '25px' } }} />
+                      <TextField 
+                        fullWidth 
+                        multiline 
+                        rows={5} 
+                        label="Tell us about your requirements..." 
+                        required 
+                        variant="filled" 
+                        sx={{ 
+                          '& .MuiFilledInput-root': { 
+                            borderRadius: '25px', 
+                            bgcolor: '#f8fafc',
+                            border: '2px solid transparent',
+                            transition: 'all 0.3s ease',
+                            '&:hover': { bgcolor: 'white', borderColor: 'primary.light' },
+                            '&.Mui-focused': { bgcolor: 'white', borderColor: 'primary.main', boxShadow: '0 10px 20px rgba(15,122,79,0.05)' },
+                            '&:before, &:after': { display: 'none' }
+                          },
+                          '& .MuiInputLabel-root': { fontWeight: 600, '&.Mui-focused': { color: 'primary.main' } }
+                        }} 
+                      />
                     </Grid>
                     <Grid size={{ xs: 12 }}>
                       <Button 
@@ -105,7 +209,7 @@ const Contact: React.FC = () => {
                         size="large" 
                         fullWidth 
                         endIcon={<Send size={20} />}
-                        sx={{ py: 2.5, borderRadius: '15px', fontWeight: 800, fontSize: '1.1rem', bgcolor: 'primary.main' }}
+                        sx={{ py: 2.5, borderRadius: '20px', fontWeight: 900, fontSize: '1.2rem', bgcolor: 'primary.main', boxShadow: '0 20px 40px rgba(15,122,79,0.3)', '&:hover': { transform: 'translateY(-3px)' } }}
                       >
                         Send Message
                       </Button>

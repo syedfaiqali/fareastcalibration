@@ -10,12 +10,12 @@ import { navigation } from '../data/siteContent';
 
 const Footer: React.FC = () => {
   return (
-    <Box 
+    <Box
       component="footer"
-      sx={{ 
-        bgcolor: '#0d3f2b', 
-        color: 'white', 
-        pt: 10, 
+      sx={{
+        bgcolor: '#0d3f2b',
+        color: 'white',
+        pt: 10,
         pb: 5,
         mt: 'auto',
         width: '100%',
@@ -41,13 +41,26 @@ const Footer: React.FC = () => {
               One stop solution for calibration and testing services in Batam, Indonesia. KAN accredited, ISO/IEC 17025:2017 aligned, and ISO 9001:2015 certified.
             </Typography>
             <Stack direction="row" spacing={1.5}>
-              {[FacebookIcon, LinkedInIcon, InstagramIcon, YouTubeIcon].map((Icon, index) => (
-                <IconButton key={index} color="inherit" sx={{ 
-                  bgcolor: 'rgba(255,255,255,0.05)',
-                  transition: 'all 0.3s',
-                  '&:hover': { bgcolor: 'primary.main', transform: 'translateY(-5px)' }
-                }}>
-                  <Icon />
+              {[
+                { icon: FacebookIcon, url: 'https://www.facebook.com/fareastcalibration/' },
+                { icon: LinkedInIcon, url: '#' },
+                { icon: InstagramIcon, url: '#' },
+                { icon: YouTubeIcon, url: '#' }
+              ].map((social, index) => (
+                <IconButton 
+                  key={index} 
+                  color="inherit" 
+                  component="a"
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{
+                    bgcolor: 'rgba(255,255,255,0.05)',
+                    transition: 'all 0.3s',
+                    '&:hover': { bgcolor: 'primary.main', transform: 'translateY(-5px)' }
+                  }}
+                >
+                  <social.icon />
                 </IconButton>
               ))}
             </Stack>
@@ -59,13 +72,13 @@ const Footer: React.FC = () => {
             </Typography>
             <Stack spacing={2}>
               {navigation.map((item) => (
-                <Link 
-                  key={item.path} 
-                  component={RouterLink} 
-                  to={item.path} 
-                  color="inherit" 
+                <Link
+                  key={item.path}
+                  component={RouterLink}
+                  to={item.path}
+                  color="inherit"
                   underline="none"
-                  sx={{ 
+                  sx={{
                     fontSize: '1.1rem',
                     opacity: 0.7,
                     transition: 'all 0.2s',
@@ -99,8 +112,8 @@ const Footer: React.FC = () => {
                 </Box>
                 <Box>
                   <Typography variant="caption" sx={{ opacity: 0.5, display: 'block' }}>Email Us</Typography>
-                  <Typography variant="body1" sx={{ fontWeight: 700 }}>fareastcalibration@gmail.com</Typography>
-                  <Typography variant="body2" sx={{ opacity: 0.8 }}>andi@fareastcalibration.com</Typography>
+                  <Typography variant="body1" sx={{ fontWeight: 700 }}>sales@fareastcalibration.com</Typography>
+                  <Typography variant="body2" sx={{ opacity: 0.8 }}>fareastcalibration@gmail.com</Typography>
                 </Box>
               </Stack>
               <Stack direction="row" spacing={2} sx={{ alignItems: 'flex-start' }}>
