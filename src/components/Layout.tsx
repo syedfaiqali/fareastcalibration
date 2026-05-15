@@ -4,6 +4,7 @@ import { Outlet } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import BrandLoader from './BrandLoader';
+import ScrollToTop from './ScrollToTop';
 
 const Layout: React.FC = () => {
   const [booting, setBooting] = useState(true);
@@ -19,6 +20,7 @@ const Layout: React.FC = () => {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', position: 'relative' }}>
+      <div id="back-to-top-anchor" />
       <Header />
       <Box 
         component="main" 
@@ -34,6 +36,7 @@ const Layout: React.FC = () => {
       </Box>
 
       <Footer />
+      <ScrollToTop />
     </Box>
 
   );

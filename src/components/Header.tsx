@@ -199,55 +199,66 @@ const Header: React.FC = () => {
 
         <Container maxWidth="lg">
           <Toolbar disableGutters sx={{ py: 1.05, gap: 2 }}>
-            <Button
+            <Box
               component={RouterLink}
               to="/"
-              disableRipple
               sx={{
                 flexGrow: 1,
-                justifyContent: 'flex-start',
-                px: 0,
-                color: 'primary.main',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 1.5,
                 textDecoration: 'none',
-                '&:hover': { bgcolor: 'transparent' },
+                color: 'secondary.main',
+                '&:hover .logo-container': { transform: 'scale(1.08)' },
+                '&:hover .brand-title': { color: 'primary.main' }
               }}
             >
-              <Stack direction="row" spacing={1.2} sx={{ alignItems: 'center' }}>
+              <Box
+                className="logo-container"
+                sx={{
+                  width: 52,
+                  height: 52,
+                  borderRadius: '50%',
+                  bgcolor: 'white',
+                  display: 'grid',
+                  placeItems: 'center',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  border: '1px solid rgba(0,0,0,0.05)',
+                  boxShadow: '0 8px 20px rgba(0,0,0,0.06)',
+                  transition: 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)',
+                }}
+              >
                 <Box
+                  component="img"
+                  src="/fareastcalibrationLogo.jpeg"
+                  alt="Fareast Calibration logo"
                   sx={{
-                    width: 52,
-                    height: 52,
+                    width: '100%',
+                    height: '100%',
                     borderRadius: '50%',
-                    bgcolor: 'rgba(15,122,79,0.08)',
-                    display: 'grid',
-                    placeItems: 'center',
-                    position: 'relative',
-                    overflow: 'hidden',
+                    objectFit: 'cover'
+                  }}
+                />
+              </Box>
+              <Box sx={{ textAlign: 'left', display: { xs: 'none', sm: 'block' } }}>
+                <Typography 
+                  variant="h6" 
+                  className="brand-title"
+                  sx={{ 
+                    fontWeight: 900, 
+                    lineHeight: 1.05, 
+                    color: 'secondary.main',
+                    transition: 'color 0.3s ease'
                   }}
                 >
-                  <Box
-                    component={motion.div}
-                    animate={{ scale: [1, 1.05, 1] }}
-                    transition={{ repeat: Infinity, duration: 2.8 }}
-                    sx={{
-                      position: 'absolute',
-                      inset: 6,
-                      borderRadius: '50%',
-                      border: '1px solid rgba(0,27,94,0.18)',
-                    }}
-                  />
-                  <Box component="img" src="/fareastcalibrationLogo.jpeg" alt="Fareast Calibration logo" sx={{ width: 38, height: 38, borderRadius: '50%', position: 'relative', zIndex: 1 }} />
-                </Box>
-                <Box sx={{ textAlign: 'left', display: { xs: 'none', sm: 'block' } }}>
-                  <Typography variant="h6" sx={{ fontWeight: 900, lineHeight: 1.05 }}>
-                    Fareast Calibration
-                  </Typography>
-                  <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-                    Precision. Traceability. Confidence.
-                  </Typography>
-                </Box>
-              </Stack>
-            </Button>
+                  Fareast Calibration
+                </Typography>
+                <Typography variant="caption" sx={{ color: 'text.secondary' }}>
+                  Precision. Traceability. Confidence.
+                </Typography>
+              </Box>
+            </Box>
 
             <LayoutGroup>
               <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 0.5, alignItems: 'center' }}>
