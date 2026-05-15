@@ -1,270 +1,216 @@
 import React from 'react';
-import { Box, Container, Typography, Grid, useTheme, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import { Box, Container, Typography, Grid, Stack, Paper, Button } from '@mui/material';
 import { motion } from 'framer-motion';
 import PageHeader from '../components/PageHeader';
-import CircleIcon from '@mui/icons-material/Circle';
+import { serviceGroups, processSteps } from '../data/siteContent';
+import { ArrowRight, BadgeCheck, Settings, ShieldCheck, Timer } from 'lucide-react';
+
+const MotionPaper = motion(Paper);
 
 const Services: React.FC = () => {
-  const theme = useTheme();
-
-  const services = [
-    {
-      title: 'Flow Meter Calibration',
-      description: 'Our laboratory is capable of calibrating various types of flow meters and flow sensors. We utilize master flow meter tools built with advanced German technology to ensure precision and reliability in every measurement.',
-      items: [
-        'Manual Flow meters',
-        'Ultrasonic flow meters',
-        'Turbine flow meters',
-        'Magnetic flow meters',
-        'Industrial flow sensors'
-      ],
-      image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80',
-    },
-    {
-      title: 'Pressure Calibration',
-      description: 'Fareast Calibration provides comprehensive calibration for all types of industrial pressure instruments, from standard gauges to complex dead weight testers.',
-      items: [
-        'Bourdon tube pressure meters',
-        'Digital pressure gauges & indicators',
-        'Differential pressure gauges',
-        'Pressure / Vacuum / Dial gauges',
-        'Dead weight testers',
-        'Pressure recorders & controllers',
-        'Barometric sensors & switches'
-      ],
-      image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80',
-    },
-    {
-      title: 'Temperature Calibration',
-      description: 'We offer a wide range of temperature calibration services for building services and industrial processes, ensuring accuracy in thermal monitoring and control.',
-      items: [
-        'Analog & Digital thermometers',
-        'Digital thermal sensors',
-        'Oven & Furnace mapping',
-        'Thermocouples & RTD sensors',
-        'Thermal hygrometers',
-        'Cold room & Warehouse mapping'
-      ],
-      image: 'https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80',
-    },
-    {
-      title: 'Dimensional Calibration',
-      description: 'Our dimensional calibration services cover a vast array of industrial measuring instruments, providing precision measurement for manufacturing and quality control.',
-      items: [
-        'Steel rulers & Digital calipers',
-        'Micrometers (Inside/Outside)',
-        'Linear displacement transducers',
-        'Dial gauges & Indicators',
-        'Height gauges & Precision blocks',
-        'Thickness gauges & Veneer calipers'
-      ],
-      image: 'https://images.unsplash.com/photo-1530311701074-9ef4a446f62b?auto=format&fit=crop&q=80',
-    },
-    {
-      title: 'Mass & Weight Calibration',
-      description: 'We are capable of calibrating all types of weighing and balance scales, ensuring traceability to national and international standards for laboratory and industrial use.',
-      items: [
-        'Analytical & Laboratory balances',
-        'Bench & Single cell scales',
-        'Floor & Industrial platform scales',
-        'Fork & Desk weighing systems',
-        'Load cells & Force transducers',
-        'Standard weights (Class M1, F1, E2)'
-      ],
-      image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80',
-    },
-    {
-      title: 'Electrical Calibration',
-      description: 'Fareast Calibration offers expert testing and calibration services for a wide range of industrial and laboratory electrical equipment.',
-      items: [
-        'Frequency meters & Counters',
-        'LCR & Impedance meters',
-        'Ammeters, Voltmeters & Watt meters',
-        'Insulation testers & Megohmmeters',
-        'Oscilloscopes & Signal generators',
-        'Earth testers & Conductivity meters',
-        'High Voltage test sets & Relays'
-      ],
-      image: 'https://images.unsplash.com/photo-1581092162384-8987c1794ed9?auto=format&fit=crop&q=80',
-    },
-    {
-      title: 'General & Validation Services',
-      description: 'Our general calibration and validation services ensure that your facility operations comply with stringent quality control and safety standards.',
-      items: [
-        'HVAC & Cleanroom validation',
-        'Steam sterilizer & Autoclave mapping',
-        'Fire alarm system testing',
-        'Hand-held industrial tools',
-        'Quality control system calibration',
-        'Custom validation protocols'
-      ],
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80',
-    }
-  ];
-
   return (
-    <Box sx={{ bgcolor: '#0a0a0a', minHeight: '100vh', pb: 15 }}>
-      <PageHeader 
-        title="Engineering Services" 
-        subtitle="Uncompromising precision and regulatory excellence for industrial leaders." 
+    <Box sx={{ bgcolor: 'white' }}>
+      <PageHeader
+        title="Our Technical Expertise"
+        subtitle="Comprehensive calibration and validation solutions designed for high-precision industries. We bridge the gap between measurement and certainty."
       />
 
-      <Container maxWidth="lg" sx={{ mt: 10 }}>
-        {services.map((service, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-          >
-            <Grid 
-              container 
-              spacing={{ xs: 4, md: 10 }} 
-              alignItems="center" 
-              sx={{ 
-                mb: { xs: 10, md: 20 }, 
-                flexDirection: index % 2 === 0 ? 'row' : 'row-reverse' 
-              }}
-            >
-              <Grid size={{ xs: 12, md: 6 }}>
-                <Box 
-                  sx={{ 
-                    position: 'relative',
-                    overflow: 'hidden',
+      {/* Services Grid Section */}
+      <Container maxWidth="lg" sx={{ py: { xs: 10, md: 15 } }}>
+        <Stack spacing={1} sx={{ textAlign: 'center', mb: 10 }}>
+          <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 800, letterSpacing: 3 }}>
+            SERVICE DOMAINS
+          </Typography>
+          <Typography variant="h2" sx={{ fontWeight: 900, color: 'secondary.main' }}>
+            Precision Across Every Scale
+          </Typography>
+        </Stack>
+
+        <Grid container spacing={4}>
+          {serviceGroups.map((service) => {
+            const Icon = service.icon;
+            return (
+              <Grid key={service.title} id={service.anchor} size={{ xs: 12, sm: 6, md: 4 }} sx={{ scrollMarginTop: 120 }}>
+                <MotionPaper
+                  whileHover={{ y: -10, boxShadow: '0 30px 60px rgba(15,122,79,0.1)' }}
+                  sx={{
+                    p: 5,
+                    height: '100%',
                     borderRadius: '40px',
-                    boxShadow: '0 40px 80px rgba(0,0,0,0.6)',
-                    aspectRatio: '4/3',
-                    border: '1px solid rgba(255,255,255,0.1)'
+                    bgcolor: 'white',
+                    border: '1px solid rgba(15,122,79,0.05)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    position: 'relative',
+                    overflow: 'hidden'
                   }}
                 >
-                  <Box
-                    component="img"
-                    src={service.image}
-                    alt={service.title}
-                    sx={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      transition: 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
-                      '&:hover': {
-                        transform: 'scale(1.1)'
-                      }
-                    }}
-                  />
-                </Box>
-              </Grid>
-              <Grid size={{ xs: 12, md: 6 }}>
-                <Box sx={{ px: { md: 2 } }}>
-                  <Typography 
-                    variant="overline" 
-                    sx={{ 
-                      color: 'primary.main', 
-                      fontWeight: 800, 
-                      letterSpacing: 3,
-                      display: 'block',
-                      mb: 2
-                    }}
-                  >
-                    EXCELLENCE IN METROLOGY
-                  </Typography>
-                  <Typography 
-                    variant="h2" 
-                    sx={{ 
-                      color: 'white', 
-                      fontWeight: 900, 
-                      fontSize: { xs: '2.2rem', md: '3.2rem' },
-                      lineHeight: 1.1,
-                      mb: 3,
-                      letterSpacing: '-0.03em'
-                    }}
-                  >
-                    {service.title}
-                  </Typography>
-                  <Typography 
-                    variant="body1" 
-                    sx={{ 
-                      color: 'rgba(255,255,255,0.7)', 
-                      fontSize: '1.15rem', 
-                      lineHeight: 1.7,
-                      fontWeight: 400,
-                      mb: 4
-                    }}
-                  >
-                    {service.description}
-                  </Typography>
-                  
-                  <Grid container spacing={1}>
-                    {service.items.map((item, i) => (
-                      <Grid size={{ xs: 12, sm: 6 }} key={i}>
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 1 }}>
-                          <CircleIcon sx={{ fontSize: 8, color: 'primary.main' }} />
-                          <Typography sx={{ color: 'rgba(255,255,255,0.9)', fontSize: '0.95rem', fontWeight: 500 }}>
+                  <Stack spacing={4}>
+                    <Box sx={{ width: 70, height: 70, borderRadius: '24px', bgcolor: 'rgba(15,122,79,0.08)', color: 'primary.main', display: 'grid', placeItems: 'center' }}>
+                      <Icon size={32} />
+                    </Box>
+                    <Box>
+                      <Typography variant="h5" sx={{ fontWeight: 900, color: 'secondary.main', mb: 2 }}>
+                        {service.title}
+                      </Typography>
+                      <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.8, mb: 4 }}>
+                        {service.summary}
+                      </Typography>
+                    </Box>
+                    
+                    <Stack spacing={1.5}>
+                      <Typography variant="caption" sx={{ fontWeight: 800, color: 'primary.main', letterSpacing: 1 }}>CORE CAPABILITIES</Typography>
+                      {service.items.map((item) => (
+                        <Stack key={item} direction="row" spacing={1.5} sx={{ alignItems: 'center' }}>
+                          <BadgeCheck size={18} color="#0f7a4f" />
+                          <Typography variant="body2" sx={{ fontWeight: 500, color: 'secondary.main' }}>
                             {item}
                           </Typography>
-                        </Box>
-                      </Grid>
-                    ))}
+                        </Stack>
+                      ))}
+                    </Stack>
+                  </Stack>
+                  
+                  <Button 
+                    variant="text" 
+                    color="primary" 
+                    endIcon={<ArrowRight size={18} />} 
+                    sx={{ mt: 4, alignSelf: 'flex-start', fontWeight: 800, p: 0 }}
+                  >
+                    Request Service
+                  </Button>
+                </MotionPaper>
+              </Grid>
+            );
+          })}
+        </Grid>
+      </Container>
+
+      {/* Workflow Section */}
+      <Box sx={{ bgcolor: 'secondary.main', color: 'white', py: { xs: 10, md: 20 } }}>
+        <Container maxWidth="lg">
+          <Grid container spacing={10} sx={{ alignItems: 'center' }}>
+            <Grid size={{ xs: 12, md: 5 }}>
+              <Stack spacing={3}>
+                <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 800, letterSpacing: 3 }}>
+                  OPERATIONAL EXCELLENCE
+                </Typography>
+                <Typography variant="h2" sx={{ fontWeight: 900 }}>How We Deliver Accuracy</Typography>
+                <Typography variant="body1" sx={{ opacity: 0.7, lineHeight: 1.8, fontSize: '1.1rem' }}>
+                  Our workflow is optimized for industrial speed without compromising the rigorous standards of metrology.
+                </Typography>
+                <Stack spacing={3} sx={{ mt: 4 }}>
+                  {[
+                    { icon: ShieldCheck, title: 'Compliance Driven', text: 'ISO/IEC 17025 aligned documentation.' },
+                    { icon: Timer, title: 'Rapid Turnaround', text: 'Optimized logistics for minimal downtime.' },
+                    { icon: Settings, title: 'Tailored Scope', text: 'Customized to your specific tolerances.' }
+                  ].map((feat, i) => (
+                    <Stack key={i} direction="row" spacing={3}>
+                      <Box sx={{ color: 'primary.main' }}>
+                        <feat.icon size={28} />
+                      </Box>
+                      <Box>
+                        <Typography variant="h6" sx={{ fontWeight: 800 }}>{feat.title}</Typography>
+                        <Typography variant="body2" sx={{ opacity: 0.6 }}>{feat.text}</Typography>
+                      </Box>
+                    </Stack>
+                  ))}
+                </Stack>
+              </Stack>
+            </Grid>
+            <Grid size={{ xs: 12, md: 7 }}>
+              <Grid container spacing={3}>
+                {processSteps.map((step, index) => (
+                  <Grid key={step.step} size={{ xs: 12, sm: 6 }}>
+                    <MotionPaper
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      sx={{ 
+                        p: 5, 
+                        height: '100%', 
+                        bgcolor: 'rgba(255,255,255,0.05)', 
+                        border: '1px solid rgba(255,255,255,0.1)', 
+                        borderRadius: '30px',
+                        color: 'white'
+                      }}
+                    >
+                      <Typography variant="h1" sx={{ fontSize: '4rem', fontWeight: 900, opacity: 0.1, lineHeight: 1, mb: -4 }}>
+                        {step.step}
+                      </Typography>
+                      <Typography variant="h5" sx={{ fontWeight: 900, mb: 2, position: 'relative' }}>
+                        {step.title}
+                      </Typography>
+                      <Typography variant="body2" sx={{ opacity: 0.7, lineHeight: 1.8 }}>
+                        {step.text}
+                      </Typography>
+                    </MotionPaper>
                   </Grid>
-                </Box>
+                ))}
               </Grid>
             </Grid>
-          </motion.div>
-        ))}
+          </Grid>
+        </Container>
+      </Box>
 
-        {/* Professional Trust Footer */}
-        <Box 
+      {/* CTA Section */}
+      <Container maxWidth="lg" sx={{ py: { xs: 10, md: 15 } }}>
+        <Paper 
           sx={{ 
-            mt: 10, 
-            p: { xs: 4, md: 10 }, 
+            p: { xs: 5, md: 10 }, 
             borderRadius: '60px', 
-            background: 'linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%)', 
-            textAlign: 'center',
-            border: '1px solid rgba(255,255,255,0.05)',
-            position: 'relative',
-            overflow: 'hidden'
+            bgcolor: 'primary.main', 
+            color: 'white', 
+            position: 'relative', 
+            overflow: 'hidden',
+            boxShadow: '0 40px 80px rgba(15,122,79,0.3)'
           }}
         >
+          <Grid container spacing={6} sx={{ alignItems: 'center', position: 'relative', zIndex: 2 }}>
+            <Grid size={{ xs: 12, md: 8 }}>
+              <Typography variant="h3" sx={{ fontWeight: 900, mb: 3 }}>
+                Ready to Establish Your <br />Calibration Schedule?
+              </Typography>
+              <Typography variant="h6" sx={{ opacity: 0.8, fontWeight: 400, maxWidth: 600 }}>
+                Whether you need a single instrument check or an annual service contract for an entire plant, our engineers are ready.
+              </Typography>
+            </Grid>
+            <Grid size={{ xs: 12, md: 4 }}>
+              <Stack spacing={2}>
+                <Button 
+                  variant="contained" 
+                  color="secondary" 
+                  size="large" 
+                  endIcon={<ArrowRight size={20} />}
+                  sx={{ py: 2.5, borderRadius: '50px', fontWeight: 800, fontSize: '1.1rem' }}
+                >
+                  Request a Quote
+                </Button>
+                <Button 
+                  variant="outlined" 
+                  color="inherit" 
+                  size="large" 
+                  sx={{ py: 2.5, borderRadius: '50px', fontWeight: 800, borderColor: 'rgba(255,255,255,0.3)' }}
+                >
+                  Download Scope
+                </Button>
+              </Stack>
+            </Grid>
+          </Grid>
+          {/* Decorative Circle */}
           <Box 
             sx={{ 
               position: 'absolute', 
               top: '-50%', 
-              left: '-20%', 
-              width: '60%', 
-              height: '200%', 
-              bgcolor: 'primary.main', 
-              opacity: 0.05, 
-              filter: 'blur(100px)',
-              borderRadius: '50%',
-              zIndex: 0
+              right: '-20%', 
+              width: 600, 
+              height: 600, 
+              borderRadius: '50%', 
+              bgcolor: 'rgba(255,255,255,0.05)' 
             }} 
           />
-          <Box sx={{ position: 'relative', zIndex: 1 }}>
-            <Typography variant="h3" sx={{ color: 'white', fontWeight: 900, mb: 3 }}>
-              Global Standard Calibration
-            </Typography>
-            <Typography variant="h6" sx={{ color: 'rgba(255,255,255,0.5)', mb: 6, maxWidth: '700px', mx: 'auto', fontWeight: 400 }}>
-              Our facility is certified with ISO 9001:2015 & ISO/IEC 17025:2017 standards, providing you with the highest level of accuracy and compliance.
-            </Typography>
-            <motion.button
-              whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}
-              whileTap={{ scale: 0.95 }}
-              style={{
-                backgroundColor: theme.palette.primary.main,
-                color: 'white',
-                border: 'none',
-                padding: '22px 50px',
-                borderRadius: '20px',
-                fontSize: '1.2rem',
-                fontWeight: 800,
-                cursor: 'pointer',
-                transition: 'all 0.3s ease'
-              }}
-            >
-              Get a Free Quote Today
-            </motion.button>
-          </Box>
-        </Box>
+        </Paper>
       </Container>
     </Box>
   );

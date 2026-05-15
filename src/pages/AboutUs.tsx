@@ -1,223 +1,297 @@
 import React from 'react';
-import { Box, Container, Typography, Grid, Paper, Avatar, Divider, Stack } from '@mui/material';
-import { alpha } from '@mui/material/styles';
+import { Box, Container, Typography, Grid, Paper, Stack, Divider, Chip } from '@mui/material';
+import { motion } from 'framer-motion';
 import PageHeader from '../components/PageHeader';
-import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import AdsClickIcon from '@mui/icons-material/AdsClick';
-import DiamondIcon from '@mui/icons-material/Diamond';
 import directorImg from '../assets/director.png';
+import { BadgeCheck, Target, Eye, HeartHandshake, Sparkles } from 'lucide-react';
+
+const MotionBox = motion(Box);
+const MotionPaper = motion(Paper);
+const MotionTypography = motion(Typography);
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 30 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, ease: "easeOut" as any }
+};
+
+
 
 const AboutUs: React.FC = () => {
   return (
-    <Box sx={{ bgcolor: '#fcfcfc' }}>
-      <PageHeader 
-        title="About Us" 
-        subtitle="Leading the way in calibration excellence since 2014." 
+    <Box sx={{ bgcolor: 'white' }}>
+      <PageHeader
+        title="Our Story. Our Precision."
+        subtitle="Fareast Calibration isn't just about measurements; it's about the confidence that keeps industries running without a second thought."
       />
 
-      {/* Director Message Section */}
-      <Container maxWidth="lg" sx={{ py: 12 }}>
-        <Grid container spacing={8} alignItems="center">
-          <Grid size={{ xs: 12, md: 5 }}>
-            <Box sx={{ position: 'relative' }}>
-              <Box 
-                sx={{ 
-                  position: 'absolute', 
-                  top: -20, 
-                  left: -20, 
-                  width: '100%', 
-                  height: '100%', 
-                  bgcolor: 'primary.main', 
-                  borderRadius: '24px', 
-                  opacity: 0.1,
+      {/* Modern Intro Section */}
+      <Container maxWidth="lg" sx={{ py: { xs: 10, md: 15 } }}>
+        <Grid container spacing={8} sx={{ alignItems: 'center' }}>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <MotionBox
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              sx={{ position: 'relative' }}
+            >
+              {/* Decorative quote mark */}
+              <Box sx={{ position: 'absolute', top: -40, left: -40, opacity: 0.05, color: 'primary.main' }}>
+                <Typography sx={{ fontSize: 160, fontWeight: 900, lineHeight: 1 }}>"</Typography>
+              </Box>
+              
+              <Stack spacing={4}>
+                <MotionBox variants={fadeInUp} initial="initial" whileInView="animate">
+                  <Chip 
+                    label="ESTABLISHED 2013" 
+                    sx={{ width: 'fit-content', bgcolor: 'rgba(15,122,79,0.1)', color: 'primary.main', fontWeight: 800, letterSpacing: 1 }} 
+                  />
+                </MotionBox>
+                
+                <MotionTypography 
+                  variants={fadeInUp} 
+                  initial="initial" 
+                  whileInView="animate"
+                  transition={{ delay: 0.1 }}
+                  variant="h2" 
+                  sx={{ fontWeight: 900, lineHeight: 1.1, color: 'secondary.main' }}
+                >
+                  Setting the Standard for <Box component="span" sx={{ color: 'primary.main' }}>Calibration</Box>
+                </MotionTypography>
+
+                <MotionTypography 
+                  variants={fadeInUp} 
+                  initial="initial" 
+                  whileInView="animate"
+                  transition={{ delay: 0.2 }}
+                  variant="h6" 
+                  sx={{ color: 'text.secondary', lineHeight: 1.8, fontWeight: 400 }}
+                >
+                  Fareast Calibration was founded on a simple premise: that industrial precision should be accessible, traceable, and absolutely reliable. We don't just provide certificates; we provide the peace of mind that your operations are built on a foundation of accuracy.
+                </MotionTypography>
+
+                <MotionTypography 
+                  variants={fadeInUp} 
+                  initial="initial" 
+                  whileInView="animate"
+                  transition={{ delay: 0.3 }}
+                  variant="body1" 
+                  sx={{ color: 'text.secondary', lineHeight: 1.9 }}
+                >
+                  Over the last decade, we have grown from a small specialized lab into a regional leader in metrology, serving hundreds of clients across diverse industrial sectors. Our journey is defined by a relentless pursuit of excellence and a commitment to our clients' success.
+                </MotionTypography>
+              </Stack>
+            </MotionBox>
+          </Grid>
+          
+          <Grid size={{ xs: 12, md: 6 }}>
+            <MotionBox
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              sx={{ position: 'relative' }}
+            >
+              <Box
+                sx={{
+                  position: 'absolute',
+                  inset: -20,
+                  border: '2px solid rgba(15,122,79,0.1)',
+                  borderRadius: '40px',
                   zIndex: 0
-                }} 
+                }}
               />
               <Box
                 component="img"
-                src={directorImg}
-                alt="Director Operations"
+                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80"
                 sx={{
                   width: '100%',
-                  borderRadius: '24px',
-                  boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
+                  height: 500,
+                  objectFit: 'cover',
+                  borderRadius: '40px',
                   position: 'relative',
                   zIndex: 1,
-                  display: 'block'
+                  boxShadow: '0 40px 80px rgba(15,122,79,0.15)'
                 }}
               />
-              <Box 
-                sx={{ 
-                  position: 'absolute', 
-                  bottom: 20, 
-                  right: 20, 
-                  bgcolor: 'white', 
-                  p: 2, 
-                  borderRadius: '12px', 
-                  boxShadow: '0 10px 20px rgba(0,0,0,0.1)',
-                  zIndex: 2
-                }}
-              >
-                <Typography variant="h6" sx={{ fontWeight: 800, color: 'primary.main' }}>Muhammad Aamir</Typography>
-                <Typography variant="body2" sx={{ color: 'text.secondary', fontWeight: 600 }}>Director Operations</Typography>
-              </Box>
-            </Box>
-          </Grid>
-          <Grid size={{ xs: 12, md: 7 }}>
-            <Stack spacing={3}>
-              <Box>
-                <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 700, letterSpacing: 2 }}>
-                  LEADERSHIP REFLECTION
-                </Typography>
-                <Typography variant="h3" sx={{ fontWeight: 900, mb: 2, color: '#1a1a1a' }}>
-                  Director's Message
-                </Typography>
-                <Divider sx={{ width: 60, height: 4, bgcolor: 'primary.main', borderRadius: 2, mb: 4 }} />
-              </Box>
-              
-              <Box sx={{ position: 'relative' }}>
-                <FormatQuoteIcon sx={{ position: 'absolute', top: -10, left: -40, fontSize: 60, color: 'primary.main', opacity: 0.1 }} />
-                <Typography variant="body1" sx={{ fontSize: '1.1rem', lineHeight: 1.8, color: '#444', fontStyle: 'italic' }}>
-                  "Progress for me has never been a dream. It has always been a distant reality and once one milestone is achieved, there is always another one waiting to be crossed. It is with this belief that we started Fareast calibration & testing services in 2014."
-                </Typography>
-              </Box>
-
-              <Typography variant="body1" sx={{ lineHeight: 1.8, color: 'text.secondary' }}>
-                Almost instantly, Fareast Calibration & Testing Services became a prominent name in its business segment, but like every company director to their dream, I always wanted to push my company to more prosperous milestones. More than being a global player, I always perceived my company as a unit that could make a difference with its quality and competitively priced services.
-              </Typography>
-
-              <Typography variant="body1" sx={{ lineHeight: 1.8, color: 'text.secondary' }}>
-                Overcoming challenge with the help of Almighty Allah & support of my brilliant team, I have been successful in bringing Fareast Calibration & Testing services to a new milestone of global recognition with ISO 9001:2015 & ISO/IEC 17025:2017 Accredited Laboratory (Komite Akreditasi Nasional).
-              </Typography>
-
-              <Typography variant="body1" sx={{ lineHeight: 1.8, color: 'text.secondary', fontWeight: 500 }}>
-                The journey of Fareast Calibration & Testing Services is never ending. But with the help of Almighty Allah & support of my team and clients, I am confident that the company will continue to scale milestones of excellence for years to come.
-              </Typography>
-            </Stack>
+            </MotionBox>
           </Grid>
         </Grid>
       </Container>
 
-      {/* Introduction Section with Gradient Background */}
-      <Box sx={{ bgcolor: '#1a1a1a', color: 'white', py: 12 }}>
+      {/* Vision & Mission Split-Screen */}
+      <Box sx={{ bgcolor: 'secondary.main', color: 'white', py: { xs: 10, md: 15 }, overflow: 'hidden' }}>
         <Container maxWidth="lg">
-          <Grid container spacing={6} alignItems="center">
+          <Grid container spacing={10}>
             <Grid size={{ xs: 12, md: 6 }}>
-              <Typography variant="overline" sx={{ color: 'primary.light', fontWeight: 700, letterSpacing: 2 }}>
-                WHO WE ARE
-              </Typography>
-              <Typography variant="h3" sx={{ fontWeight: 900, mt: 1, mb: 4 }}>
-                Introduction
-              </Typography>
-              <Typography variant="body1" sx={{ fontSize: '1.1rem', opacity: 0.9, mb: 3, lineHeight: 1.8 }}>
-                Fareast calibration is formed with the objective to provide laboratory calibration and onsite calibration services. We serve all the major industries such as Oil and gas, Manufacturing industry, Marine industry, R&D laboratories, food and beverage, Electrical companies, Mechanical companies, Testing laboratories, Hotels.
-              </Typography>
-              <Typography variant="body1" sx={{ opacity: 0.8, mb: 4, lineHeight: 1.8 }}>
-                Our quality system compliance to ISO 9001:2015 & ISO/IEC 17025:2017 Accredited Laboratory (Komite Akreditasi Nasional) standards we are certified for the competency of testing and calibration services.
-              </Typography>
-              <Paper sx={{ p: 3, bgcolor: 'rgba(255,255,255,0.05)', borderRadius: 4, borderLeft: '4px solid', borderColor: 'primary.main' }}>
-                <Typography variant="body2" sx={{ fontStyle: 'italic' }}>
-                  "All the instruments either for laboratory use or field use will be periodically calibrated and traceable to either accredited laboratory or national laboratory."
-                </Typography>
-              </Paper>
+              <MotionBox {...fadeInUp}>
+                <Stack spacing={4}>
+                  <Box sx={{ width: 80, height: 80, borderRadius: '20px', bgcolor: 'rgba(255,255,255,0.1)', display: 'grid', placeItems: 'center' }}>
+                    <Eye size={40} color="#0f7a4f" />
+                  </Box>
+                  <Typography variant="h3" sx={{ fontWeight: 900 }}>Our Vision</Typography>
+                  <Typography variant="h6" sx={{ opacity: 0.8, fontWeight: 400, lineHeight: 1.8 }}>
+                    To be the most trusted and sought-after calibration partner in the region, recognized for our uncompromising integrity, technical prowess, and the ability to solve the most complex measurement challenges.
+                  </Typography>
+                  <Divider sx={{ bgcolor: 'rgba(255,255,255,0.1)' }} />
+                  <Typography variant="body1" sx={{ opacity: 0.6 }}>
+                    We aim to redefine industry standards by integrating cutting-edge technology with traditional craftsmanship in metrology.
+                  </Typography>
+                </Stack>
+              </MotionBox>
             </Grid>
             <Grid size={{ xs: 12, md: 6 }}>
-              <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
-                <Box 
-                  sx={{ 
-                    width: '100%', 
-                    height: 400, 
-                    borderRadius: '50% 20% 50% 20%', 
-                    bgcolor: 'primary.main', 
-                    filter: 'blur(80px)', 
-                    position: 'absolute', 
-                    opacity: 0.2 
-                  }} 
-                />
-                <Grid container spacing={2}>
-                  {[
-                    'Oil & Gas', 'Manufacturing', 'Marine', 'R&D Labs', 'Food & Beverage', 'Electrical'
-                  ].map((text, i) => (
-                    <Grid size={{ xs: 6 }} key={i}>
-                      <Box sx={{ p: 2, bgcolor: 'rgba(255,255,255,0.03)', borderRadius: 2, border: '1px solid rgba(255,255,255,0.1)', textAlign: 'center' }}>
-                        <Typography sx={{ fontWeight: 600 }}>{text}</Typography>
-                      </Box>
-                    </Grid>
-                  ))}
-                </Grid>
-              </Box>
+              <MotionBox {...fadeInUp} transition={{ delay: 0.2 }}>
+                <Stack spacing={4}>
+                  <Box sx={{ width: 80, height: 80, borderRadius: '20px', bgcolor: 'rgba(255,255,255,0.1)', display: 'grid', placeItems: 'center' }}>
+                    <Target size={40} color="#0f7a4f" />
+                  </Box>
+                  <Typography variant="h3" sx={{ fontWeight: 900 }}>Our Mission</Typography>
+                  <Typography variant="h6" sx={{ opacity: 0.8, fontWeight: 400, lineHeight: 1.8 }}>
+                    To empower industries with high-precision calibration and validation services that ensure compliance, safety, and operational excellence. We are dedicated to providing fast, accurate, and traceable results every time.
+                  </Typography>
+                  <Divider sx={{ bgcolor: 'rgba(255,255,255,0.1)' }} />
+                  <Typography variant="body1" sx={{ opacity: 0.6 }}>
+                    Our mission is built on the core values of accuracy, transparency, and a customer-first approach to technical support.
+                  </Typography>
+                </Stack>
+              </MotionBox>
             </Grid>
           </Grid>
         </Container>
       </Box>
 
-      {/* Vision, Mission, Values */}
-      <Container maxWidth="lg" sx={{ py: 15 }}>
-        <Grid container spacing={4}>
-          {[
-            {
-              title: 'Our Vision',
-              icon: <VisibilityIcon sx={{ fontSize: 40 }} />,
-              text: 'Fareast calibration and testing services vision is to become a well-known accredited calibration laboratory. We would like to see ourselves in upcoming years as one of the best calibration service providers in the region.',
-              color: '#3f51b5'
-            },
-            {
-              title: 'Our Mission',
-              icon: <AdsClickIcon sx={{ fontSize: 40 }} />,
-              text: 'To be well-known calibration service providers in the region. We deliver high-quality services, improving our methods and instrumentation to compliment new measurement technology with specialized staff.',
-              color: '#00bcd4'
-            },
-            {
-              title: 'Our Values',
-              icon: <DiamondIcon sx={{ fontSize: 40 }} />,
-              text: 'Integrity, Precision, and Excellence. We believe in providing traceable and accurate results that empower industries to reach their full potential with safety and reliability.',
-              color: '#4caf50'
-            }
-          ].map((item, index) => (
-            <Grid size={{ xs: 12, md: 4 }} key={index}>
-              <Paper 
-                elevation={0}
-                sx={{ 
-                  p: 6, 
-                  height: '100%', 
-                  borderRadius: 6, 
-                  bgcolor: 'white', 
-                  border: '1px solid #eee',
-                  transition: 'all 0.3s ease',
-                  '&:hover': {
-                    transform: 'translateY(-10px)',
-                    boxShadow: '0 30px 60px rgba(0,0,0,0.1)',
-                    borderColor: item.color
-                  }
+      {/* Leadership Section */}
+      <Container maxWidth="lg" sx={{ py: { xs: 10, md: 20 } }}>
+        <Grid container spacing={8} sx={{ alignItems: 'center', flexDirection: { xs: 'column-reverse', md: 'row' } }}>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Box sx={{ position: 'relative' }}>
+              <MotionBox
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                sx={{
+                  position: 'absolute',
+                  top: -40,
+                  left: -40,
+                  width: 200,
+                  height: 200,
+                  bgcolor: 'rgba(15,122,79,0.05)',
+                  borderRadius: '50%',
+                  zIndex: 0
                 }}
+              />
+              <MotionBox
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                sx={{ position: 'relative', zIndex: 1 }}
               >
-                <Box 
-                  sx={{ 
-                    width: 80, 
-                    height: 80, 
-                    borderRadius: 4, 
-                    bgcolor: `${item.color}15`, 
-                    color: item.color, 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    justifyContent: 'center',
-                    mb: 4
-                  }}
-                >
-                  {item.icon}
-                </Box>
-                <Typography variant="h4" sx={{ fontWeight: 900, mb: 3 }}>
-                  {item.title}
-                </Typography>
-                <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
-                  {item.text}
-                </Typography>
-              </Paper>
-            </Grid>
-          ))}
+                <Stack spacing={4}>
+                  <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 800, letterSpacing: 3 }}>
+                    LEADERSHIP
+                  </Typography>
+                  <Typography variant="h3" sx={{ fontWeight: 900, color: 'secondary.main' }}>
+                    Guided by Experience, Driven by Quality
+                  </Typography>
+                  <Typography variant="h6" sx={{ fontStyle: 'italic', color: 'text.secondary', fontWeight: 400, borderLeft: '4px solid #0f7a4f', pl: 3 }}>
+                    "Quality is not an act, it is a habit. In calibration, it is our only language."
+                  </Typography>
+                  <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.9 }}>
+                    Under the leadership of our Director of Operations, Fareast Calibration has maintained a 99% client retention rate. We believe that true technical leadership comes from being on the ground, understanding the nuances of every instrument, and never compromising on traceability.
+                  </Typography>
+                  <Box>
+                    <Typography variant="h5" sx={{ fontWeight: 900, color: 'secondary.main' }}>Mr. R.K. Sharma</Typography>
+                    <Typography variant="subtitle1" sx={{ color: 'primary.main', fontWeight: 700 }}>Director Operations</Typography>
+                  </Box>
+                </Stack>
+              </MotionBox>
+            </Box>
+          </Grid>
+          
+          <Grid size={{ xs: 12, md: 6 }}>
+            <MotionBox
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              sx={{ position: 'relative' }}
+            >
+              <Box
+                sx={{
+                  position: 'absolute',
+                  inset: 0,
+                  transform: 'translate(24px, 24px)',
+                  borderRadius: '40px',
+                  bgcolor: 'primary.main',
+                  zIndex: 0
+                }}
+              />
+              <Box
+                component="img"
+                src={directorImg}
+                alt="Director"
+                sx={{
+                  width: '100%',
+                  height: 600,
+                  objectFit: 'cover',
+                  borderRadius: '40px',
+                  position: 'relative',
+                  zIndex: 1,
+                  boxShadow: '0 30px 60px rgba(15,122,79,0.2)'
+                }}
+              />
+            </MotionBox>
+          </Grid>
         </Grid>
       </Container>
+
+      {/* Core Values Section */}
+      <Box sx={{ bgcolor: '#f4fbf7', py: { xs: 10, md: 15 } }}>
+        <Container maxWidth="lg">
+          <Stack spacing={1} sx={{ textAlign: 'center', mb: 10 }}>
+            <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 800, letterSpacing: 3 }}>
+              OUR FOUNDATION
+            </Typography>
+            <Typography variant="h2" sx={{ fontWeight: 900, color: 'secondary.main' }}>
+              Core Values That Define Us
+            </Typography>
+          </Stack>
+
+          <Grid container spacing={4}>
+            {[
+              { title: 'Traceable Accuracy', icon: BadgeCheck, text: 'Every measurement is traceable to national and international standards (NIST/NABL).' },
+              { title: 'Industrial Focus', icon: Target, text: 'We speak the language of engineering, downtime, and audit compliance.' },
+              { title: 'Partnership Support', icon: HeartHandshake, text: 'We are more than a lab; we are a technical extension of your quality team.' },
+              { title: 'Innovative Metrology', icon: Sparkles, text: 'Integrating modern software and workflows into traditional calibration cycles.' }
+            ].map((item, i) => (
+              <Grid key={i} size={{ xs: 12, sm: 6, md: 3 }}>
+                <MotionPaper
+                  whileHover={{ y: -15 }}
+                  sx={{
+                    p: 5,
+                    height: '100%',
+                    borderRadius: '30px',
+                    bgcolor: 'white',
+                    border: '1px solid rgba(15,122,79,0.05)',
+                    boxShadow: '0 15px 30px rgba(15,122,79,0.05)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    textAlign: 'center'
+                  }}
+                >
+                  <Box sx={{ width: 70, height: 70, borderRadius: '50%', bgcolor: 'rgba(15,122,79,0.08)', color: 'primary.main', display: 'grid', placeItems: 'center', mb: 3 }}>
+                    <item.icon size={32} />
+                  </Box>
+                  <Typography variant="h5" sx={{ fontWeight: 900, mb: 2, color: 'secondary.main' }}>{item.title}</Typography>
+                  <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
+                    {item.text}
+                  </Typography>
+                </MotionPaper>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </Box>
     </Box>
   );
 };

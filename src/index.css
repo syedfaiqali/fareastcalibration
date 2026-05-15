@@ -1,9 +1,29 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background: #f4fbf7;
+  color: #173426;
 }
 
 * {
   box-sizing: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: rgba(15, 122, 79, 0.18);
+  color: #173426;
 }
