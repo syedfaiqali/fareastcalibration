@@ -1,40 +1,33 @@
 import React from 'react';
 import { Box, Container, Typography, Grid, Paper, Stack, Divider, Chip, Avatar } from '@mui/material';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import PageHeader from '../components/PageHeader';
 import directorImg from '../assets/director.png';
 import {
   BadgeCheck,
   ClipboardCheck,
   Eye,
-  FlaskConical,
-  Gauge,
   HeartHandshake,
-  Ruler,
   Sparkles,
   Target,
-  ThermometerSun,
   Users,
-  Zap,
   Quote,
   MessageCircle,
   TrendingUp,
   ShieldCheck,
   Award,
-  ChevronRight,
-  Gem,
-  ArrowRight,
   Shield,
   Clock,
   CircleDollarSign,
   Truck,
   GraduationCap,
+  Gem,
 } from 'lucide-react';
 
 const MotionBox = motion(Box);
 const MotionPaper = motion(Paper);
 
-const fadeInUp = {
+const fadeInUp: any = {
   initial: { opacity: 0, y: 40 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-100px" },
@@ -112,13 +105,7 @@ const jobExecutionSteps = [
   { title: 'Final Delivery', desc: 'Equipment returned safely to customer.' },
 ];
 
-const coreServices = [
-  { title: 'Thermal Calibration', icon: ThermometerSun, text: 'Temperature calibration for devices used in systems that measure temperature.', color: '#0f7a4f' },
-  { title: 'Electrical Calibration', icon: Zap, text: 'Verification or adjustment of instruments that measure or test electrical parameters.', color: '#0f7a4f' },
-  { title: 'Dimensional Calibration', icon: Ruler, text: 'Comparison of hand tools, gauges, and measuring instruments against measurement standards.', color: '#0f7a4f' },
-  { title: 'Pressure Calibration', icon: Gauge, text: 'Comparison of pressure measuring devices with a reference pressure measurement standard.', color: '#0f7a4f' },
-  { title: 'Analytical Calibration', icon: FlaskConical, text: 'Calibration using reference standards to ensure analytical instrument readings are accurate.', color: '#0f7a4f' },
-];
+
 
 const AboutUs: React.FC = () => {
   return (
@@ -189,7 +176,7 @@ const AboutUs: React.FC = () => {
                   <Typography variant="body1" sx={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.8, fontSize: '1.05rem' }}>
                     Since 2014, Fareast Calibration & Testing Services has been built on the 3P's: Precision, Perfection, and Professionalism. Our accreditation by KAN Indonesia (ISO/IEC 17025:2017) marks a significant milestone in our journey toward excellence.
                   </Typography>
-                  <Stack direction="row" spacing={3} alignItems="center" sx={{ pt: 2 }}>
+                  <Stack direction="row" spacing={3} sx={{ alignItems: 'center', pt: 2 }}>
                     <Divider sx={{ width: 80, height: '4px', bgcolor: 'primary.light', borderRadius: 2 }} />
                     <Box>
                       <Typography variant="h4" sx={{ fontWeight: 900, color: 'white' }}>Muhammad Aamir</Typography>
@@ -228,7 +215,7 @@ const AboutUs: React.FC = () => {
       <Container maxWidth="lg" sx={{ py: { xs: 10, md: 15 } }}>
         <MotionBox initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} sx={{ p: { xs: 6, md: 10 }, borderRadius: '60px', background: 'linear-gradient(135deg, #0d3f2b 0%, #0f7a4f 100%)', color: 'white', position: 'relative', boxShadow: '0 50px 100px rgba(15, 122, 79, 0.3)', overflow: 'hidden' }}>
           <Box sx={{ position: 'absolute', top: -40, right: -40, opacity: 0.1 }}><Quote size={350} /></Box>
-          <Grid container spacing={8} alignItems="center">
+          <Grid container spacing={8} sx={{ alignItems: 'center' }}>
             <Grid size={{ xs: 12, md: 7 }}>
               <Stack spacing={4} sx={{ position: 'relative', zIndex: 2 }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
@@ -237,7 +224,7 @@ const AboutUs: React.FC = () => {
                 </Box>
                 <Typography variant="h2" sx={{ fontWeight: 900, lineHeight: 1.1 }}>Your Trust, Our <Box component="span" sx={{ color: 'primary.light' }}>Commitment</Box></Typography>
                 <Typography variant="h5" sx={{ fontWeight: 400, opacity: 0.9, lineHeight: 1.8, fontStyle: 'italic' }}>"At PT. Fareast Calibration, we believe that precision is not just a service, but a promise."</Typography>
-                <Stack direction="row" spacing={3} alignItems="center">
+                <Stack direction="row" spacing={3} sx={{ alignItems: 'center' }}>
                   <Avatar src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=120&q=80" sx={{ width: 72, height: 72, border: '4px solid rgba(79, 179, 127, 0.5)' }} />
                   <Box><Typography variant="h6" sx={{ fontWeight: 900 }}>Client Relations Team</Typography><Typography variant="subtitle2" sx={{ opacity: 0.7 }}>PT. Fareast Calibration & Testing Services</Typography></Box>
                 </Stack>
@@ -253,7 +240,7 @@ const AboutUs: React.FC = () => {
       {/* 5. UPGRADED: WHY CHOOSE US - STAGGERED PREMIUM LIST */}
       <Box sx={{ py: { xs: 12, md: 20 }, bgcolor: '#f8fafc', position: 'relative' }}>
         <Container maxWidth="lg">
-          <Grid container spacing={10} alignItems="center">
+          <Grid container spacing={10} sx={{ alignItems: 'center' }}>
             <Grid size={{ xs: 12, md: 5 }}>
               <MotionBox {...fadeInUp}>
                 <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 900, letterSpacing: 6 }}>EXCELLENCE IN CALIBRATION</Typography>

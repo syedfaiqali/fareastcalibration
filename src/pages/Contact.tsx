@@ -144,6 +144,35 @@ const Contact: React.FC = () => {
 
         </Grid>
       </Container>
+
+      {/* Map Section */}
+      <Box sx={{ pb: { xs: 10, md: 15 } }}>
+        <Container maxWidth="lg">
+          <Paper 
+            elevation={0}
+            sx={{ 
+              borderRadius: '60px', 
+              overflow: 'hidden', 
+              height: { xs: 400, md: 600 },
+              border: '1px solid rgba(0,0,0,0.05)',
+              boxShadow: '0 40px 80px rgba(0,0,0,0.08)',
+              position: 'relative'
+            }}
+          >
+            <iframe
+              title="PT. Fareast Calibration & Testing Services Location"
+              width="100%"
+              height="100%"
+              frameBorder="0"
+              scrolling="no"
+              marginHeight={0}
+              marginWidth={0}
+              src="https://maps.google.com/maps?q=PT.%20Fareast%20Calibration%20%26%20Testing%20Services%20Batam&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              style={{ filter: 'grayscale(0.2) contrast(1.1)' }}
+            />
+          </Paper>
+        </Container>
+      </Box>
     </Box>
   );
 };

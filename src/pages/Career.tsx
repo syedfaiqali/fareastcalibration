@@ -20,7 +20,7 @@ import {
 const MotionBox = motion(Box);
 const MotionPaper = motion(Paper);
 
-const fadeInUp = {
+const fadeInUp: any = {
   initial: { opacity: 0, y: 40 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-100px" },
@@ -127,7 +127,7 @@ const Career: React.FC = () => {
             <MotionBox
               initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
               whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-              transition={{ duration: 1 }}
+              transition={{ duration: 1, ease: [0.21, 1.02, 0.47, 0.98] as any }}
               sx={{ position: 'relative' }}
             >
               <Box 
@@ -156,7 +156,7 @@ const Career: React.FC = () => {
               <MotionPaper 
                 initial={{ x: 50, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.5 }}
+                transition={{ delay: 0.5, ease: [0.21, 1.02, 0.47, 0.98] as any }}
                 sx={{ 
                   position: 'absolute', 
                   bottom: 40, 
@@ -169,7 +169,7 @@ const Career: React.FC = () => {
                   display: { xs: 'none', md: 'block' }
                 }}
               >
-                <Stack direction="row" spacing={3} alignItems="center">
+                <Stack direction="row" spacing={3} sx={{ alignItems: 'center' }}>
                   <Avatar sx={{ bgcolor: 'primary.main', width: 64, height: 64 }}><Trophy size={32} /></Avatar>
                   <Box>
                     <Typography variant="h4" sx={{ fontWeight: 900, color: 'secondary.main' }}>11+ Years</Typography>
@@ -212,7 +212,7 @@ const Career: React.FC = () => {
                     transition: 'all 0.4s ease'
                   }}
                 >
-                  <Stack spacing={3} flexGrow={1}>
+                  <Stack spacing={3} sx={{ flexGrow: 1 }}>
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                       <Box sx={{ p: 2, borderRadius: '20px', bgcolor: 'rgba(79, 179, 127, 0.1)', color: 'primary.light' }}>
                         <Briefcase size={32} />
@@ -259,7 +259,7 @@ const Career: React.FC = () => {
 
       {/* 3. Application Form Section - SOPHISTICATED DESIGN */}
       <Container maxWidth="lg" sx={{ py: { xs: 15, md: 25 } }}>
-        <Grid container spacing={10} alignItems="center">
+        <Grid container spacing={10} sx={{ alignItems: 'center' }}>
           <Grid size={{ xs: 12, md: 5 }}>
             <MotionBox {...fadeInUp}>
               <Stack spacing={5}>
@@ -287,7 +287,7 @@ const Career: React.FC = () => {
 
                 <Divider sx={{ my: 2 }} />
 
-                <Stack direction="row" spacing={3} alignItems="center">
+                <Stack direction="row" spacing={3} sx={{ alignItems: 'center' }}>
                   <Box sx={{ width: 72, height: 72, borderRadius: '24px', bgcolor: 'rgba(15,122,79,0.1)', color: 'primary.main', display: 'grid', placeItems: 'center' }}>
                     <PhoneCall size={32} />
                   </Box>
