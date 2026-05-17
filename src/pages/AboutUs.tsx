@@ -1,5 +1,5 @@
-import React from 'react';
-import { Box, Container, Typography, Grid, Paper, Stack, Divider, Chip, Avatar, Button } from '@mui/material';
+import React, { useState } from 'react';
+import { Box, Container, Typography, Grid, Paper, Stack, Divider, Chip, Button, Dialog, IconButton } from '@mui/material';
 import { motion } from 'framer-motion';
 import PageHeader from '../components/PageHeader';
 import directorImg from '../assets/director.png';
@@ -12,7 +12,6 @@ import {
   Target,
   Users,
   Quote,
-  MessageCircle,
   TrendingUp,
   ShieldCheck,
   Award,
@@ -24,6 +23,9 @@ import {
   Truck,
   GraduationCap,
   Gem,
+  Download,
+  X,
+  ArrowDown,
 } from 'lucide-react';
 
 const MotionBox = motion(Box);
@@ -128,9 +130,25 @@ const jobExecutionSteps = [
   { title: 'Final Delivery', desc: 'Equipment returned safely to customer.' },
 ];
 
+const certificates = [
+  {
+    label: 'KAN Accredited',
+    title: 'KAN Accreditation Certificate',
+    file: '/certificates/kan-accreditation.pdf',
+    icon: ShieldCheck,
+  },
+  {
+    label: 'ISO 9001:2015',
+    title: 'ISO 9001:2015 Certificate',
+    file: '/certificates/iso-9001-2015.pdf',
+    icon: Award,
+  },
+];
 
 
 const AboutUs: React.FC = () => {
+  const [selectedCertificate, setSelectedCertificate] = useState<(typeof certificates)[number] | null>(null);
+
   return (
     <Box sx={{ bgcolor: '#ffffff', position: 'relative' }}>
       <PageHeader
@@ -155,8 +173,32 @@ const AboutUs: React.FC = () => {
                   Since 2014 we are providing quality services, with low price, best lead time and according to customer target price. Accredited by KAN Indonesia (ISO/IEC 17025:2017) and certified for ISO 9001:2015.
                 </Typography>
                 <Stack direction="row" spacing={4} sx={{ mt: 2 }}>
-                  {[{ label: 'KAN Accredited', icon: ShieldCheck }, { label: 'ISO 9001:2015', icon: Award }].map((item, idx) => (
-                    <Box key={idx} sx={{ display: 'flex', alignItems: 'center', gap: 1.5, p: 2, borderRadius: '16px', bgcolor: 'white', boxShadow: '0 14px 34px rgba(0,27,94,0.07)', border: '1px solid rgba(0,27,94,0.08)' }}>
+                  {certificates.map((item, idx) => (
+                    <Box
+                      key={idx}
+                      component="button"
+                      type="button"
+                      onClick={() => setSelectedCertificate(item)}
+                      sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 1.5,
+                        p: 2,
+                        borderRadius: '16px',
+                        bgcolor: 'white',
+                        boxShadow: '0 14px 34px rgba(0,27,94,0.07)',
+                        border: '1px solid rgba(0,27,94,0.08)',
+                        cursor: 'pointer',
+                        font: 'inherit',
+                        textAlign: 'left',
+                        transition: 'all 0.25s ease',
+                        '&:hover': {
+                          transform: 'translateY(-3px)',
+                          borderColor: idx % 2 ? 'rgba(0,27,94,0.20)' : 'rgba(15,122,79,0.24)',
+                          boxShadow: '0 20px 42px rgba(0,27,94,0.12)',
+                        },
+                      }}
+                    >
                       <Box sx={{ color: idx % 2 ? brandBlue : brandGreen, bgcolor: idx % 2 ? 'rgba(0,27,94,0.08)' : 'rgba(15,122,79,0.1)', p: 1, borderRadius: '10px' }}><item.icon size={24} /></Box>
                       <Typography variant="subtitle2" sx={{ fontWeight: 800, color: brandBlue }}>{item.label}</Typography>
                     </Box>
@@ -203,7 +245,7 @@ const AboutUs: React.FC = () => {
                     </Typography>
                   </Box>
                   <Typography variant="body1" sx={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.8, fontSize: '1.05rem' }}>
-                    Since 2014, Fareast Calibration & Testing Services has been built on the 3P's: Precision, Perfection, and Professionalism. Our accreditation by KAN Indonesia (ISO/IEC 17025:2017) marks a significant milestone in our journey toward excellence.
+                    Since 2014, Fareast Calibration & Testing Services has been built on the 3P's: Precision, Perfection, and Professionalism. Our accreditation by KAN Indonesia (ISO/IEC 17025:2017 & ISO:9001-2015) marks a significant milestone in our journey toward excellence.
                   </Typography>
                   <Stack direction="row" spacing={3} sx={{ alignItems: 'center', pt: 2 }}>
                     <Divider sx={{ width: 80, height: '4px', bgcolor: '#7edaa9', borderRadius: 2 }} />
@@ -331,7 +373,7 @@ const AboutUs: React.FC = () => {
       </Box>
 
       {/* 4. Customer Message */}
-      <Container maxWidth="lg" sx={{ py: { xs: 10, md: 15 } }}>
+      {/* <Container maxWidth="lg" sx={{ py: { xs: 10, md: 15 } }}>
         <MotionBox initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} sx={{ p: { xs: 6, md: 10 }, borderRadius: '44px', background: `radial-gradient(circle at 80% 20%, rgba(79,179,127,0.28), transparent 34%), linear-gradient(135deg, ${brandBlue} 0%, ${brandGreenDark} 44%, ${brandGreen} 100%)`, color: 'white', position: 'relative', boxShadow: '0 50px 100px rgba(0,27,94,0.22)', overflow: 'hidden' }}>
           <Box sx={{ position: 'absolute', top: -40, right: -40, opacity: 0.1 }}><Quote size={350} /></Box>
           <Grid container spacing={8} sx={{ alignItems: 'center' }}>
@@ -354,7 +396,7 @@ const AboutUs: React.FC = () => {
             </Grid>
           </Grid>
         </MotionBox>
-      </Container>
+      </Container> */}
 
       {/* 5. UPGRADED: WHY CHOOSE US - STAGGERED PREMIUM LIST */}
       <Box sx={{ py: { xs: 12, md: 20 }, bgcolor: '#ffffff', position: 'relative', overflow: 'hidden' }}>
@@ -505,7 +547,11 @@ const AboutUs: React.FC = () => {
       </Box>
 
       {/* 7. UPGRADED: OPERATIONAL FLOW - CONNECTED TIMELINE */}
-      <Box sx={{ py: { xs: 15, md: 20 }, bgcolor: brandBlue, background: `linear-gradient(135deg, ${brandBlue} 0%, ${brandGreenDark} 100%)`, position: 'relative', overflow: 'hidden' }}>
+      <Box sx={{ py: { xs: 15, md: 20 }, bgcolor: brandBlue, background: `
+            radial-gradient(circle at 78% 18%, rgba(79,179,127,0.42) 0%, rgba(15,122,79,0.24) 32%, transparent 52%),
+            radial-gradient(circle at 12% 85%, rgba(0,27,94,0.30) 0%, transparent 36%),
+            linear-gradient(135deg, #0d3f2b 0%, #0f7a4f 60%, #001b5e 100%)
+          `, position: 'relative', overflow: 'hidden' }}>
         <BackgroundElements />
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
           <Stack spacing={2} sx={{ textAlign: 'center', mb: 12 }}>
@@ -513,49 +559,85 @@ const AboutUs: React.FC = () => {
             <Typography variant="h2" sx={{ fontWeight: 900, color: 'white' }}>From Enquiry to <Box component="span" sx={{ color: '#7edaa9' }}>Delivery</Box></Typography>
           </Stack>
 
-          <Box sx={{ position: 'relative' }}>
-            {/* Connection Line */}
-            <Box sx={{ position: 'absolute', top: 0, left: { xs: '30px', md: '50%' }, bottom: 0, width: '2px', bgcolor: 'rgba(255,255,255,0.1)', transform: { md: 'translateX(-50%)' }, zIndex: 0 }} />
+          <Box sx={{ position: 'relative', maxWidth: 1140, mx: 'auto' }}>
+            <Box
+              sx={{
+                position: 'absolute',
+                top: 0,
+                bottom: 0,
+                left: { xs: 32, md: '50%' },
+                width: 2,
+                bgcolor: 'rgba(255,255,255,0.12)',
+                transform: { md: 'translateX(-50%)' },
+                zIndex: 0,
+              }}
+            />
 
-            <Grid container spacing={6}>
+            <Grid container rowSpacing={{ xs: 5, md: 7 }}>
               {jobExecutionSteps.map((step, i) => (
                 <Grid key={i} size={12}>
-                  <Box sx={{ display: 'flex', justifyContent: { xs: 'flex-start', md: i % 2 === 0 ? 'flex-end' : 'flex-start' }, position: 'relative' }}>
-                    <MotionBox
-                      {...fadeInUp}
+                  <Box
+                    sx={{
+                      display: 'grid',
+                      gridTemplateColumns: { xs: '64px 1fr', md: '1fr 96px 1fr' },
+                      alignItems: 'center',
+                      position: 'relative',
+                    }}
+                  >
+                    <Box
                       sx={{
-                        width: { xs: 'calc(100% - 60px)', md: '45%' },
-                        p: 5,
-                        borderRadius: '40px',
-                        bgcolor: 'rgba(255,255,255,0.03)',
-                        backdropFilter: 'blur(10px)',
-                        border: '1px solid rgba(255,255,255,0.1)',
-                        position: 'relative',
-                        ml: { xs: '60px', md: 0 },
-                        '&:hover': { bgcolor: 'rgba(255,255,255,0.08)', transform: 'translateY(-5px)' }
-                      }}
-                    >
-                      {/* Step Number Circle */}
-                      <Box sx={{
-                        position: 'absolute',
-                        top: '50%',
-                        left: { xs: '-75px', md: i % 2 === 0 ? 'calc(100% + 40px)' : '-100px' },
-                        width: 60,
-                        height: 60,
+                        gridColumn: { xs: '1', md: '2' },
+                        gridRow: 1,
+                        width: { xs: 54, md: 64 },
+                        height: { xs: 54, md: 64 },
                         borderRadius: '50%',
                         bgcolor: brandGreen,
                         color: 'white',
                         display: 'grid',
                         placeItems: 'center',
                         fontWeight: 900,
-                        fontSize: '1.5rem',
-                        boxShadow: '0 0 30px rgba(15,122,79,0.5)',
-                        transform: 'translateY(-50%)',
-                        zIndex: 2
-                      }}>
-                        {i + 1}
-                      </Box>
-
+                        fontSize: { xs: '1.2rem', md: '1.45rem' },
+                        boxShadow: '0 0 0 10px rgba(15,122,79,0.10), 0 18px 42px rgba(15,122,79,0.32)',
+                        justifySelf: { xs: 'center', md: 'center' },
+                        zIndex: 2,
+                      }}
+                    >
+                      {i + 1}
+                    </Box>
+                    <MotionBox
+                      {...fadeInUp}
+                      sx={{
+                        gridColumn: { xs: '2', md: i % 2 === 0 ? '3' : '1' },
+                        gridRow: 1,
+                        width: '100%',
+                        p: { xs: 3, md: 4 },
+                        borderRadius: { xs: '26px', md: '36px' },
+                        bgcolor: 'rgba(255,255,255,0.045)',
+                        backdropFilter: 'blur(14px)',
+                        border: '1px solid rgba(255,255,255,0.12)',
+                        position: 'relative',
+                        boxShadow: '0 24px 70px rgba(0,27,94,0.18)',
+                        justifySelf: { md: i % 2 === 0 ? 'start' : 'end' },
+                        '&::before': {
+                          content: '""',
+                          position: 'absolute',
+                          top: '50%',
+                          width: { xs: 24, md: 56 },
+                          height: 3,
+                          bgcolor: '#7edaa9',
+                          borderRadius: 999,
+                          transform: 'translateY(-50%)',
+                          left: { xs: -24, md: i % 2 === 0 ? -56 : 'auto' },
+                          right: { xs: 'auto', md: i % 2 === 0 ? 'auto' : -56 },
+                          boxShadow: '0 0 18px rgba(126,218,169,0.32)',
+                        },
+                        '&:hover': {
+                          bgcolor: 'rgba(255,255,255,0.08)',
+                          transform: 'translateY(-6px)',
+                          borderColor: 'rgba(126,218,169,0.28)',
+                        }
+                      }}
+                    >
                       <Stack spacing={2}>
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, color: '#7edaa9' }}>
                           <ClipboardCheck size={24} />
@@ -564,6 +646,28 @@ const AboutUs: React.FC = () => {
                         <Typography variant="body1" sx={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.1rem', lineHeight: 1.6 }}>{step.desc}</Typography>
                       </Stack>
                     </MotionBox>
+                    {i < jobExecutionSteps.length - 1 && (
+                      <Box
+                        sx={{
+                          position: 'absolute',
+                          left: { xs: 32, md: '50%' },
+                          bottom: { xs: -42, md: -48 },
+                          transform: { xs: 'translateX(-50%)', md: 'translateX(-50%)' },
+                          width: 38,
+                          height: 38,
+                          borderRadius: '50%',
+                          bgcolor: 'rgba(15,122,79,0.95)',
+                          color: 'white',
+                          display: 'grid',
+                          placeItems: 'center',
+                          border: '1px solid rgba(255,255,255,0.18)',
+                          boxShadow: '0 16px 34px rgba(15,122,79,0.28)',
+                          zIndex: 3,
+                        }}
+                      >
+                        <ArrowDown size={20} strokeWidth={3} />
+                      </Box>
+                    )}
                   </Box>
                 </Grid>
               ))}
@@ -596,6 +700,85 @@ const AboutUs: React.FC = () => {
           </Grid>
         </Container>
       </Box>
+
+      <Dialog
+        open={Boolean(selectedCertificate)}
+        onClose={() => setSelectedCertificate(null)}
+        fullWidth
+        maxWidth="lg"
+        slotProps={{
+          paper: {
+            sx: {
+              height: { xs: '88vh', md: '90vh' },
+              borderRadius: { xs: 3, md: 4 },
+              overflow: 'hidden',
+              border: '1px solid rgba(0,27,94,0.12)',
+            },
+          },
+        }}
+      >
+        <Stack
+          direction="row"
+          spacing={2}
+          sx={{
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            px: { xs: 2, md: 3 },
+            py: 1.5,
+            bgcolor: brandBlue,
+            color: 'white',
+          }}
+        >
+          <Box>
+            <Typography variant="h6" sx={{ fontWeight: 900, lineHeight: 1.2 }}>
+              {selectedCertificate?.title}
+            </Typography>
+            <Typography variant="caption" sx={{ color: 'rgba(255,255,255,0.72)' }}>
+              PT. Fareast Calibration & Testing Services
+            </Typography>
+          </Box>
+          <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
+            <Button
+              component="a"
+              href={selectedCertificate?.file || '#'}
+              download
+              target="_blank"
+              rel="noreferrer"
+              startIcon={<Download size={18} />}
+              sx={{
+                color: 'white',
+                border: '1px solid rgba(255,255,255,0.22)',
+                bgcolor: 'rgba(255,255,255,0.08)',
+                '&:hover': { bgcolor: 'rgba(255,255,255,0.16)' },
+              }}
+            >
+              Download
+            </Button>
+            <IconButton
+              aria-label="Close certificate viewer"
+              onClick={() => setSelectedCertificate(null)}
+              sx={{
+                color: 'white',
+                bgcolor: 'rgba(255,255,255,0.08)',
+                '&:hover': { bgcolor: 'rgba(255,255,255,0.16)' },
+              }}
+            >
+              <X size={22} />
+            </IconButton>
+          </Stack>
+        </Stack>
+        <Box
+          component="iframe"
+          src={selectedCertificate?.file}
+          title={selectedCertificate?.title || 'Certificate PDF'}
+          sx={{
+            width: '100%',
+            height: '100%',
+            border: 0,
+            bgcolor: '#f8fafc',
+          }}
+        />
+      </Dialog>
     </Box>
   );
 };
