@@ -1,8 +1,8 @@
 import React from 'react';
-import { Box, Container, Typography, Breadcrumbs, Link, Stack, Chip } from '@mui/material';
+import { Box, Container, Typography, Breadcrumbs, Link, Stack } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, BadgeCheck, ShieldCheck } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface PageHeaderProps {
   title: string;
@@ -17,7 +17,11 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, subtitle, breadcrumb }) 
         position: 'relative',
         overflow: 'hidden',
         color: 'white',
-        background: 'linear-gradient(135deg, #0d3f2b 0%, #0a5a39 50%, #0f7a4f 100%)',
+        background: `
+            radial-gradient(circle at 78% 18%, rgba(79,179,127,0.42) 0%, rgba(15,122,79,0.24) 32%, transparent 52%),
+            radial-gradient(circle at 12% 85%, rgba(0,27,94,0.30) 0%, transparent 36%),
+            linear-gradient(135deg, #0d3f2b 0%, #0f7a4f 68%, #001b5e 100%)
+          `,
         minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
@@ -42,8 +46,6 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, subtitle, breadcrumb }) 
           transition={{ duration: 0.45 }}
         >
           <Stack direction="row" spacing={1} sx={{ mb: 2, alignItems: 'center', flexWrap: 'wrap' }}>
-            <Chip icon={<BadgeCheck size={14} />} label="Traceable workflows" sx={{ bgcolor: 'rgba(255,255,255,0.12)', color: 'white' }} />
-            <Chip icon={<ShieldCheck size={14} />} label="Audit-ready reports" sx={{ bgcolor: 'rgba(255,255,255,0.12)', color: 'white' }} />
           </Stack>
           <Breadcrumbs
             separator={<ArrowRight size={14} color="rgba(255,255,255,0.6)" />}
