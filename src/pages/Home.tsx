@@ -54,7 +54,11 @@ const Home: React.FC = () => {
         sx={{
           position: 'relative',
           overflow: 'hidden',
-          bgcolor: 'primary.main', // Navy Blue background for the hero
+          background: `
+            radial-gradient(circle at 78% 18%, rgba(79,179,127,0.42) 0%, rgba(15,122,79,0.24) 32%, transparent 52%),
+            radial-gradient(circle at 12% 85%, rgba(0,27,94,0.30) 0%, transparent 36%),
+            linear-gradient(135deg, ${brandGreenDark} 0%, ${brandGreen} 68%, ${brandBlue} 100%)
+          `,
           color: 'white',
           minHeight: { xs: 'auto', md: 'calc(100svh - 110px)' },
           display: 'flex',
@@ -108,7 +112,7 @@ const Home: React.FC = () => {
                           Fareast Calibration Excellence
                         </Typography>
                       </Stack>
-                      
+
                       <Typography
                         variant="h1"
                         sx={{
@@ -125,8 +129,8 @@ const Home: React.FC = () => {
                         }}
                       >
                         {slide.title.split(' ').map((word, i) => (
-                          <motion.span 
-                            key={i} 
+                          <motion.span
+                            key={i}
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.2 + (i * 0.08) }}
@@ -136,13 +140,13 @@ const Home: React.FC = () => {
                           </motion.span>
                         ))}
                       </Typography>
-                      
+
                       <Typography
                         variant="h6"
-                        sx={{ 
-                          color: 'rgba(255,255,255,0.8)', 
-                          maxWidth: 550, 
-                          lineHeight: 1.8, 
+                        sx={{
+                          color: 'rgba(255,255,255,0.8)',
+                          maxWidth: 550,
+                          lineHeight: 1.8,
                           fontWeight: 400,
                           fontSize: '1.1rem',
                           display: 'flex',
@@ -168,9 +172,9 @@ const Home: React.FC = () => {
                           color="secondary"
                           size="large"
                           endIcon={<ArrowRight size={20} />}
-                          sx={{ 
-                            px: 4, 
-                            py: 2, 
+                          sx={{
+                            px: 4,
+                            py: 2,
                             fontSize: '1rem',
                             bgcolor: brandBlue,
                             background: `linear-gradient(135deg, ${brandBlue} 0%, #0c3f8f 100%)`,
@@ -185,10 +189,10 @@ const Home: React.FC = () => {
                         </Button>
                         <Button
                           variant="outlined"
-                          sx={{ 
-                            px: 4, 
-                            py: 2, 
-                            color: 'white', 
+                          sx={{
+                            px: 4,
+                            py: 2,
+                            color: 'white',
                             borderColor: 'rgba(255,255,255,0.3)',
                             fontSize: '1rem',
                             '&:hover': {
@@ -208,13 +212,13 @@ const Home: React.FC = () => {
                 {/* Slider Controls with Progress Loader */}
                 <Stack direction="row" spacing={3} sx={{ alignItems: 'center', mt: { xs: 4, md: 2 } }}>
                   <Stack direction="row" spacing={1}>
-                    <Box 
-                      component="button" 
+                    <Box
+                      component="button"
                       onClick={() => setActiveSlide((v) => (v - 1 + heroSlides.length) % heroSlides.length)}
-                      sx={{ 
-                        width: 48, 
-                        height: 48, 
-                        borderRadius: '50%', 
+                      sx={{
+                        width: 48,
+                        height: 48,
+                        borderRadius: '50%',
                         border: '1px solid rgba(255,255,255,0.2)',
                         bgcolor: 'transparent',
                         color: 'white',
@@ -227,13 +231,13 @@ const Home: React.FC = () => {
                     >
                       <ChevronLeft size={24} />
                     </Box>
-                    <Box 
-                      component="button" 
+                    <Box
+                      component="button"
                       onClick={() => setActiveSlide((v) => (v + 1) % heroSlides.length)}
-                      sx={{ 
-                        width: 48, 
-                        height: 48, 
-                        borderRadius: '50%', 
+                      sx={{
+                        width: 48,
+                        height: 48,
+                        borderRadius: '50%',
                         border: '1px solid rgba(255,255,255,0.2)',
                         bgcolor: 'transparent',
                         color: 'white',
@@ -257,7 +261,7 @@ const Home: React.FC = () => {
                       style={{ height: '100%', background: '#ffffff', position: 'absolute', top: 0, left: 0 }}
                     />
                   </Box>
-                  
+
                   <Typography variant="caption" sx={{ fontWeight: 700, letterSpacing: 1, opacity: 0.6 }}>
                     0{activeSlide + 1} / 0{heroSlides.length}
                   </Typography>
@@ -303,7 +307,7 @@ const Home: React.FC = () => {
                       boxShadow: '0 0 0 10px rgba(0,27,94,0.08)',
                     }}
                   />
-                  
+
                   <Box
                     sx={{
                       width: '100%',
@@ -420,14 +424,14 @@ const Home: React.FC = () => {
 
       {/* About Us Section */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: softBlue, position: 'relative', overflow: 'hidden' }}>
-        <Box 
-          sx={{ 
-            position: 'absolute', 
-            inset: 0, 
-            opacity: 0.03, 
-            backgroundImage: 'radial-gradient(#001b5e 1px, transparent 1px)', 
-            backgroundSize: '30px 30px' 
-          }} 
+        <Box
+          sx={{
+            position: 'absolute',
+            inset: 0,
+            opacity: 0.03,
+            backgroundImage: 'radial-gradient(#001b5e 1px, transparent 1px)',
+            backgroundSize: '30px 30px'
+          }}
         />
         <Container maxWidth="lg">
           <Grid container spacing={8} sx={{ alignItems: 'center' }}>
@@ -476,16 +480,16 @@ const Home: React.FC = () => {
             </Grid>
             <Grid size={{ xs: 12, md: 6 }}>
               <Stack spacing={3}>
-                <Chip 
-                  label="Welcome To Fareast Calibration" 
-                  sx={{ 
-                    width: 'fit-content', 
+                <Chip
+                  label="Welcome To Fareast Calibration"
+                  sx={{
+                    width: 'fit-content',
                     bgcolor: brandBlue,
-                    color: 'white', 
-                    fontWeight: 700, 
+                    color: 'white',
+                    fontWeight: 700,
                     px: 1,
                     borderRadius: '50px'
-                  }} 
+                  }}
                 />
                 <Typography variant="h2" sx={{ fontWeight: 900, color: brandBlue, fontSize: { xs: '2.5rem', md: '3.5rem' } }}>
                   PT Fareast <Box component="span" sx={{ color: brandGreen }}>Calibration</Box> and Testing Services
@@ -493,16 +497,16 @@ const Home: React.FC = () => {
                 <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8, fontSize: '1.1rem' }}>
                   Independent calibration and testing laboratory in Batam, Indonesia, serving thermal, mechanical, electrical, dimensional, analytical, general, and onboard calibration needs since 2014.
                 </Typography>
-                
+
                 <Stack direction="row" spacing={3} sx={{ alignItems: 'center', pt: 2 }}>
-                  <Box 
-                    sx={{ 
-                      width: 64, 
-                      height: 64, 
-                      borderRadius: '50%', 
+                  <Box
+                    sx={{
+                      width: 64,
+                      height: 64,
+                      borderRadius: '50%',
                       bgcolor: brandBlue,
-                      color: 'white', 
-                      display: 'grid', 
+                      color: 'white',
+                      display: 'grid',
                       placeItems: 'center',
                       boxShadow: '0 10px 20px rgba(0,27,94,0.18)'
                     }}
@@ -537,7 +541,7 @@ const Home: React.FC = () => {
                     Accurate & Reliable <Box component="span" sx={{ color: brandGreen }}>Calibration</Box> Solutions
                   </Typography>
                 </Box>
-                
+
                 <Stack spacing={3}>
                   {[
                     { title: "KAN Accredited & ISO Certified", text: "Accredited by Komite Akreditasi Nasional in accordance with ISO/IEC 17025:2017 & ISO:9001-2015." },
@@ -573,7 +577,7 @@ const Home: React.FC = () => {
                 >
                   <Box component="img" src="https://images.unsplash.com/photo-1579154235884-10f5fe138760?auto=format&fit=crop&w=1200&q=80" sx={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </MotionBox>
-                
+
                 {/* Experience Badge */}
                 <MotionBox
                   initial={{ scale: 0, opacity: 0 }}
@@ -618,7 +622,7 @@ const Home: React.FC = () => {
               Our Laboratory & <Box component="span" sx={{ color: brandGreen }}>Field Excellence</Box>
             </Typography>
           </Stack>
-          
+
           <Grid container spacing={3}>
             {[
               { url: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80', title: 'Electrical Testing' },
@@ -631,24 +635,24 @@ const Home: React.FC = () => {
               <Grid key={i} size={{ xs: 12, sm: 6, md: 4 }}>
                 <MotionBox
                   whileHover={{ y: -10 }}
-                  sx={{ 
-                    position: 'relative', 
-                    height: 300, 
-                    borderRadius: '24px', 
+                  sx={{
+                    position: 'relative',
+                    height: 300,
+                    borderRadius: '24px',
                     overflow: 'hidden',
                     boxShadow: '0 22px 44px rgba(0,27,94,0.12)',
                     border: '1px solid rgba(0,27,94,0.10)',
                   }}
                 >
-                  <Box 
-                    component="img" 
-                    src={img.url} 
-                    sx={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                  <Box
+                    component="img"
+                    src={img.url}
+                    sx={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
-                  <Box 
-                    sx={{ 
-                      position: 'absolute', 
-                      inset: 0, 
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      inset: 0,
                       background: `linear-gradient(to top, rgba(0,27,94,0.82) 0%, rgba(15,122,79,0.42) 58%, transparent 100%)`,
                       display: 'flex',
                       alignItems: 'flex-end',
@@ -708,14 +712,14 @@ const Home: React.FC = () => {
                       }
                     }}
                   >
-                    <Box 
-                      sx={{ 
-                        width: 70, 
-                        height: 70, 
-                        borderRadius: '50%', 
-                        bgcolor: index % 2 ? 'rgba(0,27,94,0.08)' : 'rgba(15,122,79,0.10)', 
-                        color: index % 2 ? brandBlue : brandGreen, 
-                        display: 'grid', 
+                    <Box
+                      sx={{
+                        width: 70,
+                        height: 70,
+                        borderRadius: '50%',
+                        bgcolor: index % 2 ? 'rgba(0,27,94,0.08)' : 'rgba(15,122,79,0.10)',
+                        color: index % 2 ? brandBlue : brandGreen,
+                        display: 'grid',
                         placeItems: 'center',
                         mb: 3
                       }}
@@ -728,9 +732,9 @@ const Home: React.FC = () => {
                     <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.8, mb: 3 }}>
                       {service.summary}
                     </Typography>
-                    <Button 
-                      variant="text" 
-                      color="secondary" 
+                    <Button
+                      variant="text"
+                      color="secondary"
                       endIcon={<ArrowRight size={16} />}
                       sx={{ p: 0, '&:hover': { bgcolor: 'transparent', transform: 'translateX(5px)' }, transition: 'transform 0.3s' }}
                     >
@@ -778,11 +782,11 @@ const Home: React.FC = () => {
               <Grid container spacing={{ xs: 1.5, md: 0 }} sx={{ alignItems: 'stretch', position: 'relative', zIndex: 1 }}>
                 {heroStats.map((stat, index) => (
                   <Grid key={index} size={{ xs: 6, md: 3 }}>
-                    <Stack 
+                    <Stack
                       direction={{ xs: 'column', sm: 'row' }}
                       spacing={{ xs: 1.5, sm: 2 }}
-                      sx={{ 
-                        alignItems: 'center', 
+                      sx={{
+                        alignItems: 'center',
                         justifyContent: 'center',
                         height: '100%',
                         minHeight: { xs: 130, md: 108 },
@@ -795,15 +799,15 @@ const Home: React.FC = () => {
                       }}
                     >
                       <MotionBox
-                        animate={{ 
+                        animate={{
                           y: [0, -8, 0],
                           scale: [1, 1.1, 1]
                         }}
-                        transition={{ 
-                          duration: 4, 
-                          repeat: Infinity, 
-                          ease: "easeInOut", 
-                          delay: index * 0.3 
+                        transition={{
+                          duration: 4,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                          delay: index * 0.3
                         }}
                         sx={{
                           width: 58,
@@ -838,11 +842,11 @@ const Home: React.FC = () => {
       </Box>
 
       {/* Our Clients Section - BRAND THEME PREMIUM */}
-      <Box 
-        sx={{ 
-          py: { xs: 10, md: 15 }, 
-          bgcolor: softBlue, 
-          position: 'relative', 
+      <Box
+        sx={{
+          py: { xs: 10, md: 15 },
+          bgcolor: softBlue,
+          position: 'relative',
           overflow: 'hidden',
           '&::before': {
             content: '""',
@@ -878,22 +882,22 @@ const Home: React.FC = () => {
           {/* Optimized Lightweight Marquee */}
           <Box sx={{ position: 'relative', overflow: 'hidden', py: 4 }}>
             <Box
-              sx={{ 
-                display: 'flex', 
-                gap: 3, 
-                width: 'max-content', 
+              sx={{
+                display: 'flex',
+                gap: 3,
+                width: 'max-content',
                 alignItems: 'center',
                 animation: 'scroll 60s linear infinite',
               }}
             >
               {[...clients, ...clients].map((client, i) => (
-                <Box 
-                  key={i} 
-                  sx={{ 
-                    width: 200, 
-                    height: 100, 
-                    display: 'flex', 
-                    alignItems: 'center', 
+                <Box
+                  key={i}
+                  sx={{
+                    width: 200,
+                    height: 100,
+                    display: 'flex',
+                    alignItems: 'center',
                     justifyContent: 'center',
                     p: 3,
                     bgcolor: 'rgba(255,255,255,0.86)',
@@ -907,23 +911,23 @@ const Home: React.FC = () => {
                     }
                   }}
                 >
-                  <Box 
-                    component="img" 
-                    src={client.logo} 
+                  <Box
+                    component="img"
+                    src={client.logo}
                     alt={client.name}
-                    sx={{ 
-                      maxWidth: '80%', 
-                      maxHeight: '80%', 
+                    sx={{
+                      maxWidth: '80%',
+                      maxHeight: '80%',
                       objectFit: 'contain',
                       opacity: 0.6,
                       '&:hover': { opacity: 1 },
                       transition: 'opacity 0.3s'
-                    }} 
+                    }}
                   />
                 </Box>
               ))}
             </Box>
-            
+
             <Box sx={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: 150, background: `linear-gradient(90deg, ${softBlue} 0%, transparent 100%)`, zIndex: 2 }} />
             <Box sx={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: 150, background: `linear-gradient(-90deg, ${softBlue} 0%, transparent 100%)`, zIndex: 2 }} />
           </Box>
@@ -988,17 +992,17 @@ const Home: React.FC = () => {
               </Box>
 
               {/* Decorative Circle */}
-              <Box 
-                sx={{ 
-                  position: 'absolute', 
-                  bottom: -100, 
-                  right: -100, 
-                  width: 300, 
-                  height: 300, 
-                  borderRadius: '50%', 
+              <Box
+                sx={{
+                  position: 'absolute',
+                  bottom: -100,
+                  right: -100,
+                  width: 300,
+                  height: 300,
+                  borderRadius: '50%',
                   bgcolor: 'rgba(15,122,79,0.18)',
                   zIndex: 1
-                }} 
+                }}
               />
             </Grid>
 
@@ -1016,7 +1020,7 @@ const Home: React.FC = () => {
 
                 <Grid container spacing={3}>
                   <Grid size={{ xs: 12, sm: 6 }}>
-                    <TextField 
+                    <TextField
                       {...({
                         fullWidth: true,
                         label: "Your Name",
@@ -1027,7 +1031,7 @@ const Home: React.FC = () => {
                     />
                   </Grid>
                   <Grid size={{ xs: 12, sm: 6 }}>
-                    <TextField 
+                    <TextField
                       {...({
                         fullWidth: true,
                         label: "Email Address",
@@ -1038,7 +1042,7 @@ const Home: React.FC = () => {
                     />
                   </Grid>
                   <Grid size={{ xs: 12, sm: 6 }}>
-                    <TextField 
+                    <TextField
                       {...({
                         fullWidth: true,
                         label: "Phone Number",
@@ -1049,7 +1053,7 @@ const Home: React.FC = () => {
                     />
                   </Grid>
                   <Grid size={{ xs: 12, sm: 6 }}>
-                    <TextField 
+                    <TextField
                       {...({
                         fullWidth: true,
                         label: "Service Type",
@@ -1061,7 +1065,7 @@ const Home: React.FC = () => {
                     />
                   </Grid>
                   <Grid size={{ xs: 12 }}>
-                    <TextField 
+                    <TextField
                       {...({
                         fullWidth: true,
                         label: "Your Message",
@@ -1075,14 +1079,14 @@ const Home: React.FC = () => {
                   </Grid>
                 </Grid>
 
-                <Button 
-                  variant="contained" 
+                <Button
+                  variant="contained"
                   size="large"
                   fullWidth
-                  sx={{ 
-                    py: 2, 
-                    fontSize: '1.1rem', 
-                    fontWeight: 800, 
+                  sx={{
+                    py: 2,
+                    fontSize: '1.1rem',
+                    fontWeight: 800,
                     borderRadius: '15px',
                     bgcolor: brandBlue,
                     background: `linear-gradient(135deg, ${brandBlue} 0%, ${brandGreen} 100%)`,
@@ -1103,14 +1107,14 @@ const Home: React.FC = () => {
           <Typography variant="overline" sx={{ display: 'block', textAlign: 'center', color: brandBlue, fontWeight: 800, mb: 6, letterSpacing: 3 }}>
             OUR PRECISION PROJECTS
           </Typography>
-          
+
           <Box sx={{ overflow: 'hidden', position: 'relative', py: 2 }}>
             <MotionBox
               animate={{ x: [0, -2000] }}
-              transition={{ 
-                duration: 40, 
-                repeat: Infinity, 
-                ease: "linear" 
+              transition={{
+                duration: 40,
+                repeat: Infinity,
+                ease: "linear"
               }}
               sx={{ display: 'flex', gap: 4, width: 'max-content' }}
             >
@@ -1124,11 +1128,11 @@ const Home: React.FC = () => {
                 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80',
                 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80'
               ].map((url, i) => (
-                <Box 
-                  key={i} 
-                  sx={{ 
-                    width: { xs: 300, md: 450 }, 
-                    height: 280, 
+                <Box
+                  key={i}
+                  sx={{
+                    width: { xs: 300, md: 450 },
+                    height: 280,
                     borderRadius: '24px',
                     overflow: 'hidden',
                     boxShadow: '0 22px 44px rgba(0,27,94,0.14)',
@@ -1136,22 +1140,22 @@ const Home: React.FC = () => {
                     position: 'relative'
                   }}
                 >
-                  <Box 
-                    component="img" 
-                    src={url} 
-                    sx={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                  <Box
+                    component="img"
+                    src={url}
+                    sx={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
-                  <Box 
-                    sx={{ 
-                      position: 'absolute', 
-                      inset: 0, 
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      inset: 0,
                       background: `linear-gradient(to top, rgba(0,27,94,0.54) 0%, rgba(15,122,79,0.20) 55%, transparent 100%)`
-                    }} 
+                    }}
                   />
                 </Box>
               ))}
             </MotionBox>
-            
+
             {/* Soft gradient masks for the edges */}
             <Box sx={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: 200, background: `linear-gradient(90deg, ${softBlue} 10%, transparent 100%)`, zIndex: 2 }} />
             <Box sx={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: 200, background: `linear-gradient(-90deg, ${softBlue} 10%, transparent 100%)`, zIndex: 2 }} />
@@ -1162,9 +1166,9 @@ const Home: React.FC = () => {
       {/* CTA Bar above Footer */}
       <Box sx={{ bgcolor: brandBlue, background: `linear-gradient(135deg, ${brandBlue} 40%, ${brandGreenDark} 60%)`, py: 4 }}>
         <Container maxWidth="lg">
-          <Stack 
-            direction={{ xs: 'column', md: 'row' }} 
-            spacing={3} 
+          <Stack
+            direction={{ xs: 'column', md: 'row' }}
+            spacing={3}
             sx={{ justifyContent: 'space-between', alignItems: 'center' }}
           >
             <Stack direction="row" spacing={3} sx={{ alignItems: 'center' }}>
@@ -1175,15 +1179,19 @@ const Home: React.FC = () => {
                 For inquiry and quotation — <Link href="tel:+62778351831" color="inherit" underline="hover">+62-778-351-831</Link> / <Link href="tel:+6281267051658" color="inherit" underline="hover">+62 812-6705-1658</Link>
               </Typography>
             </Stack>
-            <Button 
-              variant="contained" 
-              sx={{ 
-                bgcolor: brandGreen, 
-                color: 'white', 
-                px: 4, 
-                py: 1.5, 
-                borderRadius: '50px',
-                '&:hover': { bgcolor: brandGreenDark }
+            <Button
+              variant="contained"
+              sx={{
+                px: 4,
+                py: 2,
+                fontSize: '1rem',
+                bgcolor: brandBlue,
+                background: `linear-gradient(135deg, ${brandBlue} 0%, #0c3f8f 100%)`,
+                boxShadow: '0 16px 34px rgba(0,27,94,0.28)',
+                '&:hover': {
+                  bgcolor: '#00144a',
+                  transform: 'translateY(-2px)'
+                }
               }}
             >
               Contact Us

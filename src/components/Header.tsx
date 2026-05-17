@@ -170,7 +170,11 @@ const Header: React.FC = () => {
             scaleX: progress,
             transformOrigin: '0% 50%',
             height: '100%',
-            background: 'linear-gradient(90deg, #0f7a4f 0%, #4fb37f 100%)',
+            background: `
+            radial-gradient(circle at 78% 18%, rgba(79,179,127,0.42) 0%, rgba(15,122,79,0.24) 32%, transparent 52%),
+            radial-gradient(circle at 12% 85%, rgba(0,27,94,0.30) 0%, transparent 36%),
+            linear-gradient(135deg, #0d3f2b 0%, #0f7a4f 68%, #001b5e 100%)
+          `,
           }}
         />
       </Box>
@@ -180,10 +184,11 @@ const Header: React.FC = () => {
         color="default"
         elevation={0}
         sx={{
-          borderBottom: '1px solid rgba(15, 122, 79, 0.08)',
+          borderBottom: 0,
+          borderRadius: 0,
           bgcolor: 'rgba(255, 255, 255, 0.95)',
           backdropFilter: 'blur(18px)',
-          boxShadow: '0 14px 40px rgba(15, 122, 79, 0.05)',
+          boxShadow: 'none',
         }}
       >
         <Box sx={{ bgcolor: '#0f7a4f', color: 'white' }}>
@@ -239,7 +244,7 @@ const Header: React.FC = () => {
         </Box>
 
         <Container maxWidth="lg">
-          <Toolbar disableGutters sx={{ py: 1.05, gap: 2 }}>
+          <Toolbar disableGutters sx={{ py: 1.05, gap: 2, }}>
             <Box
               component={RouterLink}
               to="/"

@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
               <Box component="img" src="/fareastcalibrationLogo.jpeg" alt="Fareast Calibration logo" sx={{ width: 64, height: 64, borderRadius: '50%', border: '2px solid rgba(255,255,255,0.1)' }} />
               <Box>
                 <Typography variant="h4" sx={{ fontWeight: 900, lineHeight: 1.1, letterSpacing: -1 }}>
-                  Fareast Calibration
+                  PT. Fareast Calibration Services
                 </Typography>
                 <Typography variant="subtitle2" sx={{ opacity: 0.6, fontWeight: 700, color: 'primary.light' }}>
                   PRECISION • TRACEABILITY • CONFIDENCE
