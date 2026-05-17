@@ -18,6 +18,22 @@ import {
   Wrench,
   Zap,
 } from 'lucide-react';
+import ourClient1 from '../assets/ourclient1.png';
+import ourClient2 from '../assets/ourclient2.png';
+import ourClient3 from '../assets/ourclient3.png';
+import ourClient4 from '../assets/ourclient4.png';
+import ourClient5 from '../assets/ourclient5.jpg';
+import ourClient6 from '../assets/ourclient6.jpg';
+import ourClient7 from '../assets/ourclient7.jpg';
+import ourClient8 from '../assets/ourclient8.png';
+import ourClient9 from '../assets/ourclient9.png';
+import ourClient10 from '../assets/ourclient10.png';
+import ourClient11 from '../assets/ourclient11.png';
+import ourClient12 from '../assets/ourclient12.jpg';
+import ourClient14 from '../assets/ourclient14.png';
+import ourClient15 from '../assets/ourclient15.png';
+import ourClient16 from '../assets/ourclient16.png';
+import ourClient17 from '../assets/ourclient17.png';
 
 export const navigation = [
   { label: 'Home', path: '/' },
@@ -265,22 +281,22 @@ export const testimonials = [
 ];
 
 export const clients = [
-  { name: 'Client 1', logo: '/src/assets/ourclient1.png' },
-  { name: 'Client 2', logo: '/src/assets/ourclient2.png' },
-  { name: 'Client 3', logo: '/src/assets/ourclient3.png' },
-  { name: 'Client 4', logo: '/src/assets/ourclient4.png' },
-  { name: 'Client 5', logo: '/src/assets/ourclient5.jpg' },
-  { name: 'Client 6', logo: '/src/assets/ourclient6.jpg' },
-  { name: 'Client 7', logo: '/src/assets/ourclient7.jpg' },
-  { name: 'Client 8', logo: '/src/assets/ourclient8.png' },
-  { name: 'Client 9', logo: '/src/assets/ourclient9.png' },
-  { name: 'Client 10', logo: '/src/assets/ourclient10.png' },
-  { name: 'Client 11', logo: '/src/assets/ourclient11.png' },
-  { name: 'Client 12', logo: '/src/assets/ourclient12.jpg' },
-  { name: 'Client 14', logo: '/src/assets/ourclient14.png' },
-  { name: 'Client 15', logo: '/src/assets/ourclient15.png' },
-  { name: 'Client 16', logo: '/src/assets/ourclient16.png' },
-  { name: 'Client 17', logo: '/src/assets/ourclient17.png' },
+  { name: 'Client 1', logo: ourClient1 },
+  { name: 'Client 2', logo: ourClient2 },
+  { name: 'Client 3', logo: ourClient3 },
+  { name: 'Client 4', logo: ourClient4 },
+  { name: 'Client 5', logo: ourClient5 },
+  { name: 'Client 6', logo: ourClient6 },
+  { name: 'Client 7', logo: ourClient7 },
+  { name: 'Client 8', logo: ourClient8 },
+  { name: 'Client 9', logo: ourClient9 },
+  { name: 'Client 10', logo: ourClient10 },
+  { name: 'Client 11', logo: ourClient11 },
+  { name: 'Client 12', logo: ourClient12 },
+  { name: 'Client 14', logo: ourClient14 },
+  { name: 'Client 15', logo: ourClient15 },
+  { name: 'Client 16', logo: ourClient16 },
+  { name: 'Client 17', logo: ourClient17 },
 ];
 
 
