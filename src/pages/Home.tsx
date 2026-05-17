@@ -276,12 +276,13 @@ const Home: React.FC = () => {
                       height: 460,
                     },
                     borderRadius: '50%',
-                    border: '12px solid rgba(255,255,255,0.05)',
+                    border: '12px solid rgba(0, 27, 94, 0.85)',
                     padding: 2,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    overflow: 'visible'
+                    overflow: 'visible',
+                    boxShadow: '0 0 0 10px rgba(15,122,79,0.18), 0 26px 70px rgba(0,27,94,0.28)'
                   }}
                 >
                   {/* Rotating outer ring */}
@@ -292,7 +293,8 @@ const Home: React.FC = () => {
                       position: 'absolute',
                       inset: -20,
                       borderRadius: '50%',
-                      border: '1px dashed rgba(255,255,255,0.2)',
+                      border: '1px dashed rgba(254,255,255,0.35)',
+                      boxShadow: '0 0 0 10px rgba(0,27,94,0.08)',
                     }}
                   />
                   
@@ -303,7 +305,10 @@ const Home: React.FC = () => {
                       borderRadius: '50%',
                       overflow: 'hidden',
                       position: 'relative',
-                      boxShadow: '0 30px 60px rgba(0,0,0,0.4)',
+                      border: '6px solid rgba(255,255,255,0.88)',
+                      outline: '5px solid rgba(0,27,94,0.75)',
+                      outlineOffset: '-10px',
+                      boxShadow: '0 30px 60px rgba(0,0,0,0.35)',
                     }}
                   >
                     <AnimatePresence mode="wait">
@@ -441,6 +446,7 @@ const Home: React.FC = () => {
                       width: '100%',
                       height: '100%',
                       borderRadius: '50%',
+                      border: '12px solid rgba(0, 27, 94, 0.85)',
                       overflow: 'hidden',
                       boxShadow: '0 30px 60px rgba(0,0,0,0.15)',
                       bgcolor: 'white',
