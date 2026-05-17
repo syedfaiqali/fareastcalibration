@@ -46,6 +46,12 @@ export const heroStats = [
 
 export const heroSlides = [
   {
+    title: 'PT. Fareast Calibration Services',
+    description: 'Temperature and humidity instruments calibrated for reliable process, chamber, oven, and environmental measurements.',
+    image:
+      '/fareastcalibrationLogo.jpeg',
+  },
+  {
     title: 'Thermal calibration',
     description: 'Temperature and humidity instruments calibrated for reliable process, chamber, oven, and environmental measurements.',
     image:

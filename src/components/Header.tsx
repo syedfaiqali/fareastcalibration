@@ -61,7 +61,7 @@ const Header: React.FC = () => {
         </Box>
         <Box>
           <Typography variant="subtitle1" sx={{ fontWeight: 800, lineHeight: 1.1, color: 'primary.main' }}>
-            Fareast Calibration
+            PT. Fareast Calibration Services
           </Typography>
           <Typography variant="caption" sx={{ color: 'text.secondary' }}>
             Precision that reads true
@@ -186,6 +186,12 @@ const Header: React.FC = () => {
                     <Typography variant="caption">fareastcalibration@gmail.com</Typography>
                   </Link>
                 </Stack>
+                <Stack direction="row" spacing={0.9} sx={{ alignItems: 'center' }}>
+                  <Mail size={14} />
+                  <Link href="mailto:sales@fareastcalibration.com" color="inherit" underline="hover">
+                    <Typography variant="caption">sales@fareastcalibration.com</Typography>
+                  </Link>
+                </Stack>
               </Stack>
               <Stack direction="row" spacing={0.9} sx={{ alignItems: 'center' }}>
                 <ShieldCheck size={14} />
@@ -252,7 +258,7 @@ const Header: React.FC = () => {
                     transition: 'color 0.3s ease'
                   }}
                 >
-                  Fareast Calibration
+                  PT. Fareast Calibration Services
                 </Typography>
                 <Typography variant="caption" sx={{ color: 'text.secondary' }}>
                   Precision. Traceability. Confidence.

@@ -78,7 +78,7 @@ const BrandLoader: React.FC = () => {
 
         <Box sx={{ textAlign: 'center' }}>
           <Typography variant="h5" sx={{ fontWeight: 900, mb: 0.5, color: 'primary.main', letterSpacing: 1 }}>
-            FAREAST CALIBRATION
+            PT. Fareast Calibration Services
           </Typography>
           <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase' }}>
             Precision Metrology Services
