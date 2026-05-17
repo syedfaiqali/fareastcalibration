@@ -39,8 +39,8 @@ export const heroHighlights = [
 
 export const heroStats = [
   { label: 'Established', value: '2014', icon: LayoutGrid },
-  { label: 'Customers served', value: '300+', icon: MapPinned },
-  { label: 'Instruments calibrated', value: '4000+', icon: ShieldCheck },
+  { label: 'Customers served', value: '500+', icon: MapPinned },
+  { label: 'Instruments calibrated', value: '20000+', icon: ShieldCheck },
   { label: 'Service modes', value: 'Lab + site', icon: TrendingUp },
 ];
 

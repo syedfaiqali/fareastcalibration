@@ -503,8 +503,8 @@ const Home: React.FC = () => {
                   </Box>
                   <Box>
                     <Typography variant="body2" sx={{ color: 'text.secondary', fontWeight: 600 }}>Have Any Questions?</Typography>
-                    <Link href="tel:+62778351831" color="inherit" underline="hover">
-                      <Typography variant="h5" sx={{ color: 'primary.main', fontWeight: 900 }}>+62-778-351-831</Typography>
+                    <Link href="tel:+6282286881953" color="inherit" underline="hover">
+                      <Typography variant="h5" sx={{ color: 'primary.main', fontWeight: 900 }}>+62-822-8688-1953</Typography>
                     </Link>
                   </Box>
                 </Stack>
@@ -531,8 +531,8 @@ const Home: React.FC = () => {
                 
                 <Stack spacing={3}>
                   {[
-                    { title: "KAN Accredited", text: "Accredited by Komite Akreditasi Nasional in accordance with ISO/IEC 17025:2017." },
-                    { title: "Fast Turnaround Time", text: "Committed to delivery within lead time, with express calibration available without extra charges." },
+                    { title: "KAN Accredited & ISO Certified", text: "Accredited by Komite Akreditasi Nasional in accordance with ISO/IEC 17025:2017 & ISO:9001-2015." },
+                    { title: "Fast Turnaround Time", text: "Committed to delivery within lead time, with express calibration available with extra charges." },
                     { title: "Lab and Onsite Support", text: "In-lab and onsite calibration facilities with free pickup and delivery within Batam." }
                   ].map((item, index) => (
                     <Stack key={index} direction="row" spacing={2.5} sx={{ alignItems: 'flex-start' }}>
@@ -733,23 +733,52 @@ const Home: React.FC = () => {
           <Box sx={{ mt: 10 }}>
             <Paper
               sx={{
-                bgcolor: '#fec001',
-                borderRadius: '100px',
-                p: { xs: 4, md: 5 },
-                boxShadow: '0 30px 60px rgba(254,192,1,0.2)',
-                border: '4px solid rgba(255,255,255,0.3)'
+                position: 'relative',
+                overflow: 'hidden',
+                bgcolor: 'rgba(255,255,255,0.92)',
+                background: 'linear-gradient(135deg, #ffffff 0%, #f4fbf7 52%, #edf5ff 100%)',
+                borderRadius: { xs: '28px', md: '42px' },
+                p: { xs: 2.5, md: 3 },
+                boxShadow: '0 28px 70px rgba(0,27,94,0.12), 0 16px 40px rgba(15,122,79,0.10)',
+                border: '1px solid rgba(0,27,94,0.12)',
+                '&::before': {
+                  content: '""',
+                  position: 'absolute',
+                  inset: 0,
+                  borderRadius: 'inherit',
+                  pointerEvents: 'none',
+                  borderTop: '5px solid rgba(0,27,94,0.78)',
+                },
+                '&::after': {
+                  content: '""',
+                  position: 'absolute',
+                  left: '8%',
+                  right: '8%',
+                  bottom: -30,
+                  height: 70,
+                  borderRadius: '50%',
+                  background: 'radial-gradient(circle, rgba(15,122,79,0.16), transparent 65%)',
+                  pointerEvents: 'none',
+                }
               }}
             >
-              <Grid container spacing={4} sx={{ alignItems: 'center' }}>
+              <Grid container spacing={{ xs: 1.5, md: 0 }} sx={{ alignItems: 'stretch', position: 'relative', zIndex: 1 }}>
                 {heroStats.map((stat, index) => (
                   <Grid key={index} size={{ xs: 6, md: 3 }}>
                     <Stack 
-                      direction="row" 
-                      spacing={2.5} 
+                      direction={{ xs: 'column', sm: 'row' }}
+                      spacing={{ xs: 1.5, sm: 2 }}
                       sx={{ 
                         alignItems: 'center', 
                         justifyContent: 'center',
-                        borderRight: { md: index < 3 ? '1px solid rgba(13,63,43,0.1)' : 'none' }
+                        height: '100%',
+                        minHeight: { xs: 130, md: 108 },
+                        px: { xs: 1, md: 3 },
+                        py: { xs: 2, md: 1.5 },
+                        textAlign: { xs: 'center', sm: 'left' },
+                        borderRight: { md: index < 3 ? '1px solid rgba(0,27,94,0.10)' : 'none' },
+                        borderRadius: { xs: 3, md: 0 },
+                        bgcolor: { xs: 'rgba(255,255,255,0.62)', md: 'transparent' },
                       }}
                     >
                       <MotionBox
@@ -763,15 +792,26 @@ const Home: React.FC = () => {
                           ease: "easeInOut", 
                           delay: index * 0.3 
                         }}
-                        sx={{ color: 'secondary.main', display: 'flex' }}
+                        sx={{
+                          width: 58,
+                          height: 58,
+                          borderRadius: '18px',
+                          color: '#0f7a4f',
+                          bgcolor: 'rgba(15,122,79,0.10)',
+                          border: '1px solid rgba(15,122,79,0.16)',
+                          display: 'grid',
+                          placeItems: 'center',
+                          flexShrink: 0,
+                          boxShadow: '0 12px 24px rgba(15,122,79,0.10)',
+                        }}
                       >
-                        <stat.icon size={36} strokeWidth={2.5} />
+                        <stat.icon size={30} strokeWidth={2.4} />
                       </MotionBox>
                       <Box>
-                        <Typography variant="h3" sx={{ fontWeight: 900, color: 'secondary.main', lineHeight: 1 }}>
+                        <Typography variant="h3" sx={{ fontWeight: 900, color: '#001b5e', lineHeight: 1, fontSize: { xs: '1.9rem', md: '2.35rem' } }}>
                           {stat.value}
                         </Typography>
-                        <Typography variant="caption" sx={{ fontWeight: 800, color: 'secondary.main', opacity: 0.8, textTransform: 'uppercase', letterSpacing: 1.5, display: 'block', mt: 0.5 }}>
+                        <Typography variant="caption" sx={{ fontWeight: 900, color: '#0f7a4f', textTransform: 'uppercase', letterSpacing: 1.6, display: 'block', mt: 0.75 }}>
                           {stat.label}
                         </Typography>
                       </Box>

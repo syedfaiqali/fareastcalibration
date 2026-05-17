@@ -19,8 +19,9 @@ import {
 } from '@mui/material';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { LayoutGroup, motion, useScroll, useSpring } from 'framer-motion';
-import { ArrowRight, ChevronDown, Mail, Menu, PhoneCall, ShieldCheck, X } from 'lucide-react';
+import { ArrowRight, ChevronDown, Mail, Menu, PhoneCall, X } from 'lucide-react';
 import { navigation, serviceMenuLinks } from '../data/siteContent';
+import logoKanan from '../assets/logokanan.png';
 
 const Header: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -55,9 +56,10 @@ const Header: React.FC = () => {
             placeItems: 'center',
             position: 'relative',
             overflow: 'hidden',
+            flexShrink: 0,
           }}
         >
-          <Box component="img" src="/fareastcalibrationLogo.jpeg" alt="Fareast Calibration logo" sx={{ width: 36, height: 36, borderRadius: '50%', position: 'relative', zIndex: 1 }} />
+          <Box component="img" src="/fareastcalibrationLogo.jpeg" alt="Fareast Calibration logo" sx={{ width: 38, height: 38, borderRadius: '50%', objectFit: 'contain', position: 'relative', zIndex: 1 }} />
         </Box>
         <Box>
           <Typography variant="subtitle1" sx={{ fontWeight: 800, lineHeight: 1.1, color: 'primary.main' }}>
@@ -68,6 +70,26 @@ const Header: React.FC = () => {
           </Typography>
         </Box>
       </Stack>
+
+      <Box
+        sx={{
+          mb: 2.5,
+          p: 1.25,
+          borderRadius: 2,
+          border: '1px solid rgba(0, 27, 94, 0.12)',
+          bgcolor: 'rgba(15,122,79,0.04)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Box
+          component="img"
+          src={logoKanan}
+          alt="KAN accreditation logo"
+          sx={{ width: 118, height: 'auto', display: 'block' }}
+        />
+      </Box>
 
       <List sx={{ display: 'grid', gap: 0.5 }}>
         {navigation.map((item, index) => {
@@ -194,7 +216,20 @@ const Header: React.FC = () => {
                 </Stack>
               </Stack>
               <Stack direction="row" spacing={0.9} sx={{ alignItems: 'center' }}>
-                <ShieldCheck size={14} />
+                <Box
+                  component="img"
+                  src={logoKanan}
+                  alt="KAN accreditation logo"
+                  sx={{
+                    width: 58,
+                    height: 'auto',
+                    display: { xs: 'none', lg: 'block' },
+                    bgcolor: 'white',
+                    borderRadius: 1,
+                    px: 0.5,
+                    py: 0.25,
+                  }}
+                />
                 <Typography variant="caption" sx={{ opacity: 0.9 }}>
                   KAN accredited lab | ISO/IEC 17025:2017 | ISO 9001:2015
                 </Typography>
@@ -210,6 +245,7 @@ const Header: React.FC = () => {
               to="/"
               sx={{
                 flexGrow: 1,
+                minWidth: 0,
                 display: 'flex',
                 alignItems: 'center',
                 gap: 1.5,
@@ -224,6 +260,7 @@ const Header: React.FC = () => {
                 sx={{
                   width: 52,
                   height: 52,
+                  flexShrink: 0,
                   borderRadius: '50%',
                   bgcolor: 'white',
                   display: 'grid',
@@ -240,14 +277,15 @@ const Header: React.FC = () => {
                   src="/fareastcalibrationLogo.jpeg"
                   alt="Fareast Calibration logo"
                   sx={{
-                    width: '100%',
-                    height: '100%',
+                    width: 46,
+                    height: 46,
                     borderRadius: '50%',
-                    objectFit: 'cover'
+                    objectFit: 'contain',
+                    display: 'block'
                   }}
                 />
               </Box>
-              <Box sx={{ textAlign: 'left', display: { xs: 'none', sm: 'block' } }}>
+              <Box sx={{ textAlign: 'left', display: { xs: 'none', sm: 'block' }, minWidth: 0 }}>
                 <Typography 
                   variant="h6" 
                   className="brand-title"
@@ -255,7 +293,8 @@ const Header: React.FC = () => {
                     fontWeight: 900, 
                     lineHeight: 1.05, 
                     color: 'secondary.main',
-                    transition: 'color 0.3s ease'
+                    transition: 'color 0.3s ease',
+                    whiteSpace: 'nowrap',
                   }}
                 >
                   PT. Fareast Calibration Services
@@ -287,6 +326,7 @@ const Header: React.FC = () => {
                             fontWeight: active ? 700 : 500,
                             px: 2.2,
                             py: 1.2,
+                            whiteSpace: 'nowrap',
                             borderRadius: 999,
                             bgcolor: active ? 'rgba(15,122,79,0.08)' : 'transparent',
                             '&:hover': { bgcolor: 'rgba(15,122,79,0.06)' },
@@ -316,6 +356,7 @@ const Header: React.FC = () => {
                           fontWeight: active ? 700 : 500,
                           px: 2.2,
                           py: 1.2,
+                          whiteSpace: 'nowrap',
                           borderRadius: 999,
                           position: 'relative',
                           overflow: 'hidden',
@@ -352,6 +393,7 @@ const Header: React.FC = () => {
                     sx={{
                       px: 2.6,
                       py: 1.2,
+                      whiteSpace: 'nowrap',
                       boxShadow: '0 16px 30px rgba(15,122,79,0.20)',
                     }}
                   >
