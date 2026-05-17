@@ -16,9 +16,21 @@ import {
 } from 'lucide-react';
 import { clients, clientSectors } from '../data/siteContent';
 
+const brandBlue = '#001b5e';
+const brandGreen = '#0f7a4f';
+const brandGreenDark = '#0d3f2b';
+const softBlue = '#edf5ff';
+const softGreen = '#f4fbf7';
+
 const Clients: React.FC = () => {
   return (
-    <Box sx={{ bgcolor: 'background.default' }}>
+    <Box
+      sx={{
+        bgcolor: softBlue,
+        background:
+          'linear-gradient(180deg, #edf5ff 0%, #f7fbff 34%, #f4fbf7 68%, #ffffff 100%)',
+      }}
+    >
       <PageHeader
         title="Trusted by Industry Leaders"
         subtitle="PT Fareast Calibration and Testing Services supports manufacturers, laboratories, marine teams, utilities, and inspection groups that need dependable calibration."
@@ -29,14 +41,25 @@ const Clients: React.FC = () => {
       <Container maxWidth="lg" sx={{ mt: -8, position: 'relative', zIndex: 3 }}>
         <Box
           sx={{
-            bgcolor: 'white',
-            p: 5,
-            borderRadius: '30px',
-            boxShadow: '0 20px 50px rgba(0,0,0,0.08)',
-            border: '1px solid rgba(15,122,79,0.05)'
+            p: { xs: 3, md: 5 },
+            borderRadius: 6,
+            color: 'white',
+            position: 'relative',
+            overflow: 'hidden',
+            background:
+              `linear-gradient(135deg, ${brandBlue} 0%, #08376f 44%, ${brandGreenDark} 100%)`,
+            boxShadow: '0 28px 70px rgba(0,27,94,0.22)',
+            border: '1px solid rgba(255,255,255,0.16)',
+            '&::before': {
+              content: '""',
+              position: 'absolute',
+              inset: 0,
+              background:
+                'radial-gradient(circle at 15% 20%, rgba(255,255,255,0.16), transparent 26%), radial-gradient(circle at 85% 70%, rgba(15,122,79,0.28), transparent 30%)',
+            },
           }}
         >
-          <Grid container spacing={4} sx={{ textAlign: 'center' }}>
+          <Grid container spacing={2} sx={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
             {[
               { label: 'Satisfied Customers', value: '300+' },
               { label: 'Instruments Calibrated', value: '4000+' },
@@ -44,12 +67,22 @@ const Clients: React.FC = () => {
               { label: 'Standards', value: 'KAN' },
             ].map((stat, i) => (
               <Grid key={i} size={{ xs: 6, md: 3 }}>
-                <Typography variant="h3" sx={{ fontWeight: 900, color: 'primary.main', mb: 0.5 }}>
-                  {stat.value}
-                </Typography>
-                <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 800, textTransform: 'uppercase', letterSpacing: 1 }}>
-                  {stat.label}
-                </Typography>
+                <Box
+                  sx={{
+                    p: { xs: 2, md: 3 },
+                    borderRadius: 4,
+                    border: '1px solid rgba(255,255,255,0.13)',
+                    bgcolor: 'rgba(255,255,255,0.06)',
+                    height: '100%',
+                  }}
+                >
+                  <Typography variant="h3" sx={{ fontWeight: 900, color: i % 2 ? '#8ce0b6' : 'white', mb: 0.5 }}>
+                    {stat.value}
+                  </Typography>
+                  <Typography variant="caption" sx={{ color: 'rgba(255,255,255,0.72)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: 1 }}>
+                    {stat.label}
+                  </Typography>
+                </Box>
               </Grid>
             ))}
           </Grid>
@@ -64,7 +97,7 @@ const Clients: React.FC = () => {
           py: { xs: 12, md: 18 },
           position: 'relative',
           overflow: 'hidden',
-          bgcolor: 'background.default', // Use theme background
+          bgcolor: 'transparent',
         }}
       >
         {/* Subtle Brand Textures */}
@@ -75,9 +108,9 @@ const Clients: React.FC = () => {
             left: 0,
             right: 0,
             height: '100%',
-            opacity: 0.03,
+            opacity: 0.05,
             pointerEvents: 'none',
-            backgroundImage: 'radial-gradient(#0f7a4f 1px, transparent 1px)',
+            backgroundImage: `radial-gradient(${brandBlue} 1px, transparent 1px)`,
             backgroundSize: '40px 40px'
           }}
         />
@@ -100,18 +133,18 @@ const Clients: React.FC = () => {
                 variant="h2"
                 sx={{
                   fontWeight: 900,
-                  color: 'secondary.main',
+                  color: brandBlue,
                   mt: 1,
                   fontSize: { xs: '2.5rem', md: '3.5rem' },
                 }}
               >
-                Our Trusted <Box component="span" sx={{ color: 'primary.main' }}>Clients</Box>
+                Our Trusted <Box component="span" sx={{ color: brandGreen }}>Clients</Box>
               </Typography>
               <Box
                 sx={{
                   width: 60,
                   height: 4,
-                  bgcolor: 'primary.main',
+                  bgcolor: brandGreen,
                   mx: 'auto',
                   mt: 3,
                   borderRadius: 2
@@ -129,18 +162,32 @@ const Clients: React.FC = () => {
                     p: 3,
                     height: { xs: 100, md: 140 },
                     bgcolor: 'white',
-                    borderRadius: '20px',
+                    borderRadius: 4,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    border: '1px solid rgba(15,122,79,0.08)',
-                    boxShadow: '0 4px 20px rgba(0,0,0,0.03)',
+                    border: '1px solid rgba(0,27,94,0.08)',
+                    boxShadow: '0 18px 45px rgba(0,27,94,0.08)',
                     transition: 'all 0.3s ease',
                     cursor: 'pointer',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      height: 4,
+                      background: `linear-gradient(90deg, ${brandGreen}, ${brandBlue})`,
+                      opacity: 0,
+                      transition: 'opacity 0.3s ease',
+                    },
                     '&:hover': {
-                      borderColor: 'primary.main',
+                      borderColor: 'rgba(15,122,79,0.35)',
                       transform: 'translateY(-5px)',
-                      boxShadow: '0 20px 40px rgba(15,122,79,0.1)',
+                      boxShadow: '0 24px 56px rgba(0,27,94,0.16)',
+                      '&::before': { opacity: 1 },
                       '& img': {
                         filter: 'grayscale(0%)',
                         opacity: 1,
@@ -176,14 +223,22 @@ const Clients: React.FC = () => {
 
 
       {/* Sectors Section */}
-      <Box sx={{ py: 12, bgcolor: '#f4fbf7' }}>
-        <Container maxWidth="lg">
+      <Box sx={{ py: 12, bgcolor: softGreen, position: 'relative', overflow: 'hidden' }}>
+        <Box
+          sx={{
+            position: 'absolute',
+            inset: 0,
+            background:
+              'linear-gradient(135deg, rgba(15,122,79,0.08), transparent 45%), radial-gradient(circle at 90% 15%, rgba(0,27,94,0.10), transparent 28%)',
+          }}
+        />
+        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
           <Grid container spacing={8} sx={{ alignItems: 'center' }}>
             <Grid size={{ xs: 12, md: 6 }}>
               <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 800, letterSpacing: 2 }}>
                 SECTOR COVERAGE
               </Typography>
-              <Typography variant="h3" sx={{ fontWeight: 900, color: 'secondary.main', mt: 1, mb: 3 }}>
+              <Typography variant="h3" sx={{ fontWeight: 900, color: brandBlue, mt: 1, mb: 3 }}>
                 Precision Across Every Vertical
               </Typography>
               <Typography variant="body1" sx={{ color: 'text.secondary', mb: 4, lineHeight: 1.8 }}>
@@ -210,9 +265,10 @@ const Clients: React.FC = () => {
                 sx={{
                   position: 'relative',
                   height: 400,
-                  borderRadius: 8,
+                  borderRadius: 6,
                   overflow: 'hidden',
-                  boxShadow: '0 30px 60px rgba(0,0,0,0.15)'
+                  boxShadow: '0 30px 70px rgba(0,27,94,0.18)',
+                  border: '8px solid white',
                 }}
               >
                 <Box
@@ -224,7 +280,7 @@ const Clients: React.FC = () => {
                   sx={{
                     position: 'absolute',
                     inset: 0,
-                    background: 'linear-gradient(to top, rgba(15,122,79,0.6), transparent)'
+                    background: 'linear-gradient(to top, rgba(0,27,94,0.74), rgba(15,122,79,0.18), transparent)'
                   }}
                 />
                 <Stack
@@ -249,10 +305,10 @@ const Clients: React.FC = () => {
         <Container maxWidth="md">
           <Card
             sx={{
-              bgcolor: 'primary.main',
+              background: `linear-gradient(135deg, ${brandGreenDark} 0%, ${brandGreen} 48%, ${brandBlue} 100%)`,
               color: 'white',
               p: { xs: 6, md: 10 },
-              borderRadius: 8,
+              borderRadius: 6,
               textAlign: 'center',
               position: 'relative',
               overflow: 'hidden'
@@ -270,7 +326,7 @@ const Clients: React.FC = () => {
               }}
             />
             <Stack spacing={3} sx={{ position: 'relative', zIndex: 1 }}>
-              <Box sx={{ mx: 'auto', bgcolor: 'secondary.main', p: 2, borderRadius: '50%' }}>
+              <Box sx={{ mx: 'auto', bgcolor: 'rgba(255,255,255,0.13)', border: '1px solid rgba(255,255,255,0.22)', p: 2, borderRadius: '50%' }}>
                 <Handshake size={40} />
               </Box>
               <Typography variant="h3" sx={{ fontWeight: 900 }}>

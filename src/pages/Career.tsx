@@ -16,6 +16,12 @@ import {
 const MotionBox = motion(Box);
 const MotionPaper = motion(Paper);
 
+const brandBlue = '#001b5e';
+const brandGreen = '#0f7a4f';
+const brandGreenDark = '#0d3f2b';
+const softBlue = '#edf5ff';
+const softGreen = '#f4fbf7';
+
 const fadeInUp: any = {
   initial: { opacity: 0, y: 40 },
   whileInView: { opacity: 1, y: 0 },
@@ -41,14 +47,33 @@ const Career: React.FC = () => {
   };
 
   return (
-    <Box sx={{ bgcolor: '#fdfdfd', overflow: 'hidden' }}>
+    <Box
+      sx={{
+        bgcolor: softBlue,
+        overflow: 'hidden',
+        background:
+          'linear-gradient(180deg, #edf5ff 0%, #ffffff 24%, #f4fbf7 58%, #ffffff 100%)',
+      }}
+    >
       <PageHeader
         title="Build Your Future in Metrology"
         subtitle="Join a trained and competent laboratory team serving calibration and testing customers across Batam and the surrounding region."
       />
 
       {/* 1. Why Join Section - STUNNING UI */}
-      <Container maxWidth="lg" sx={{ py: { xs: 12, md: 20 } }}>
+      <Container maxWidth="lg" sx={{ py: { xs: 12, md: 20 }, position: 'relative' }}>
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 80,
+            right: -80,
+            width: 320,
+            height: 320,
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(0,27,94,0.12), transparent 68%)',
+            pointerEvents: 'none',
+          }}
+        />
         <Grid container spacing={10} sx={{ alignItems: 'center' }}>
           <Grid size={{ xs: 12, md: 6 }}>
             <MotionBox {...fadeInUp}>
@@ -57,7 +82,7 @@ const Career: React.FC = () => {
                   <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 900, letterSpacing: 5 }}>
                     OUR CULTURE
                   </Typography>
-                  <Typography variant="h2" sx={{ fontWeight: 900, color: 'secondary.main', mt: 2, lineHeight: 1.1, fontSize: { xs: '2.8rem', md: '3.8rem' } }}>
+                  <Typography variant="h2" sx={{ fontWeight: 900, color: brandBlue, mt: 2, lineHeight: 1.1, fontSize: { xs: '2.8rem', md: '3.8rem' } }}>
                     Our Employees are Our <Box component="span" sx={{ color: 'primary.main', position: 'relative' }}>
                       Biggest Assets
                       <Box sx={{ position: 'absolute', bottom: 8, left: 0, width: '100%', height: '8px', bgcolor: 'rgba(15,122,79,0.1)', zIndex: -1 }} />
@@ -70,29 +95,35 @@ const Career: React.FC = () => {
 
                 <Grid container spacing={4}>
                   {[
-                    { icon: Trophy, title: 'Expert Mentorship', text: 'Learn from industry veterans in metrology.' },
-                    { icon: Rocket, title: 'Modern Tools', text: 'Access to the latest calibration technology.' },
-                    { icon: Users, title: 'Collaborative Environment', text: 'We believe in growing together as a team.' },
-                    { icon: Star, title: 'Excellence Focused', text: 'Quality is our top priority in every task.' }
+                    { icon: Trophy, title: 'Expert Mentorship', text: 'Learn from industry veterans in metrology.', color: brandGreen },
+                    { icon: Rocket, title: 'Modern Tools', text: 'Access to the latest calibration technology.', color: brandBlue },
+                    { icon: Users, title: 'Collaborative Environment', text: 'We believe in growing together as a team.', color: brandBlue },
+                    { icon: Star, title: 'Excellence Focused', text: 'Quality is our top priority in every task.', color: brandGreen }
                   ].map((item, i) => (
                     <Grid key={i} size={{ xs: 12, sm: 6 }}>
                       <Paper
                         elevation={0}
                         sx={{
                           p: 3,
-                          borderRadius: '24px',
+                          borderRadius: 4,
                           bgcolor: 'white',
-                          border: '1px solid rgba(0,0,0,0.04)',
-                          boxShadow: '0 10px 30px rgba(0,0,0,0.02)',
-                          height: '100%'
+                          border: '1px solid rgba(0,27,94,0.08)',
+                          boxShadow: '0 18px 45px rgba(0,27,94,0.08)',
+                          height: '100%',
+                          transition: 'all 0.3s ease',
+                          '&:hover': {
+                            transform: 'translateY(-6px)',
+                            boxShadow: '0 24px 56px rgba(0,27,94,0.14)',
+                            borderColor: 'rgba(15,122,79,0.24)',
+                          },
                         }}
                       >
                         <Stack spacing={2}>
-                          <Box sx={{ color: 'primary.main', bgcolor: 'rgba(15,122,79,0.1)', p: 1.5, borderRadius: '14px', width: 'fit-content' }}>
+                          <Box sx={{ color: item.color, bgcolor: i % 2 ? 'rgba(0,27,94,0.08)' : 'rgba(15,122,79,0.1)', p: 1.5, borderRadius: '14px', width: 'fit-content' }}>
                             <item.icon size={28} />
                           </Box>
                           <Box>
-                            <Typography variant="h6" sx={{ fontWeight: 900, color: 'secondary.main' }}>{item.title}</Typography>
+                            <Typography variant="h6" sx={{ fontWeight: 900, color: brandBlue }}>{item.title}</Typography>
                             <Typography variant="body2" sx={{ color: 'text.secondary', mt: 0.5, lineHeight: 1.6 }}>{item.text}</Typography>
                           </Box>
                         </Stack>
@@ -115,7 +146,7 @@ const Career: React.FC = () => {
                 sx={{
                   position: 'absolute',
                   inset: -25,
-                  background: 'linear-gradient(135deg, rgba(15,122,79,0.1) 0%, transparent 100%)',
+                  background: `linear-gradient(135deg, rgba(15,122,79,0.16) 0%, rgba(0,27,94,0.08) 100%)`,
                   borderRadius: '60px',
                   transform: 'rotate(3deg)',
                   zIndex: 0
@@ -128,10 +159,11 @@ const Career: React.FC = () => {
                   width: '100%',
                   height: { xs: 450, md: 650 },
                   objectFit: 'cover',
-                  borderRadius: '50px',
+                  borderRadius: 6,
                   position: 'relative',
                   zIndex: 1,
-                  boxShadow: '0 40px 80px rgba(15,122,79,0.2)'
+                  boxShadow: '0 40px 90px rgba(0,27,94,0.18)',
+                  border: '8px solid white',
                 }}
               />
               <MotionPaper
@@ -143,17 +175,17 @@ const Career: React.FC = () => {
                   bottom: 40,
                   left: -30,
                   p: 4,
-                  borderRadius: '30px',
+                  borderRadius: 5,
                   bgcolor: 'white',
-                  boxShadow: '0 30px 60px rgba(0,0,0,0.15)',
+                  boxShadow: '0 30px 60px rgba(0,27,94,0.18)',
                   zIndex: 2,
                   display: { xs: 'none', md: 'block' }
                 }}
               >
                 <Stack direction="row" spacing={3} sx={{ alignItems: 'center' }}>
-                  <Avatar sx={{ bgcolor: 'primary.main', width: 64, height: 64 }}><Trophy size={32} /></Avatar>
+                  <Avatar sx={{ bgcolor: brandGreen, width: 64, height: 64 }}><Trophy size={32} /></Avatar>
                   <Box>
-                    <Typography variant="h4" sx={{ fontWeight: 900, color: 'secondary.main' }}>11+ Years</Typography>
+                    <Typography variant="h4" sx={{ fontWeight: 900, color: brandBlue }}>11+ Years</Typography>
                     <Typography variant="subtitle2" sx={{ fontWeight: 700, color: 'primary.main', letterSpacing: 1 }}>INDUSTRY LEADERSHIP</Typography>
                   </Box>
                 </Stack>
@@ -164,9 +196,17 @@ const Career: React.FC = () => {
       </Container>
 
       {/* 2. Career Invitation Section - CINEMATIC & ATTRACTIVE */}
-      <Box sx={{ py: { xs: 15, md: 25 }, bgcolor: 'secondary.main', color: 'white', position: 'relative', overflow: 'hidden' }}>
+      <Box
+        sx={{
+          py: { xs: 15, md: 25 },
+          background: `linear-gradient(135deg, ${brandBlue} 0%, #07375f 46%, ${brandGreenDark} 100%)`,
+          color: 'white',
+          position: 'relative',
+          overflow: 'hidden',
+        }}
+      >
         <Box sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0.05, backgroundImage: 'url("https://www.transparenttextures.com/patterns/carbon-fibre.png")' }} />
-        <Box sx={{ position: 'absolute', top: '-10%', right: '-10%', width: '60vw', height: '60vw', background: 'radial-gradient(circle, rgba(15,122,79,0.15) 0%, transparent 70%)', filter: 'blur(120px)' }} />
+        <Box sx={{ position: 'absolute', top: '-10%', right: '-10%', width: '60vw', height: '60vw', background: 'radial-gradient(circle, rgba(117,221,169,0.18) 0%, transparent 70%)', filter: 'blur(120px)' }} />
 
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
           <Grid container spacing={10} sx={{ alignItems: 'center' }}>
@@ -174,9 +214,9 @@ const Career: React.FC = () => {
               <MotionBox {...fadeInUp}>
                 <Stack spacing={4}>
                   <Box>
-                    <Typography variant="overline" sx={{ color: 'primary.light', fontWeight: 900, letterSpacing: 6 }}>JOIN THE TEAM</Typography>
+                      <Typography variant="overline" sx={{ color: '#8ce0b6', fontWeight: 900, letterSpacing: 6 }}>JOIN THE TEAM</Typography>
                     <Typography variant="h2" sx={{ fontWeight: 900, mt: 2, mb: 3, lineHeight: 1.1, fontSize: { xs: '2.8rem', md: '4rem' } }}>
-                      Our Employees are Our <Box component="span" sx={{ color: 'primary.light' }}>Biggest Assets</Box>
+                      Our Employees are Our <Box component="span" sx={{ color: '#8ce0b6' }}>Biggest Assets</Box>
                     </Typography>
                     <Typography variant="h6" sx={{ color: 'rgba(255,255,255,0.7)', fontWeight: 400, lineHeight: 1.8, fontSize: '1.25rem' }}>
                       At PT. Fareast Calibration & Testing Services, we value our people as advocates of our culture. We offer attractive career opportunities for passionate professionals ready to lead in metrology.
@@ -185,7 +225,7 @@ const Career: React.FC = () => {
 
                   <Paper sx={{ p: 4, borderRadius: '30px', bgcolor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)' }}>
                     <Stack spacing={3}>
-                      <Typography variant="h5" sx={{ fontWeight: 800, color: 'primary.light' }}>Who We Are Looking For</Typography>
+                      <Typography variant="h5" sx={{ fontWeight: 800, color: '#8ce0b6' }}>Who We Are Looking For</Typography>
                       <Grid container spacing={2}>
                         {metrologyExpertise.map((item, i) => (
                           <Grid key={i} size={{ xs: 6 }}>
@@ -207,18 +247,18 @@ const Career: React.FC = () => {
                 {...fadeInUp}
                 sx={{
                   p: { xs: 5, md: 8 },
-                  borderRadius: '60px',
+                  borderRadius: 6,
                   bgcolor: 'white',
                   color: 'secondary.main',
-                  boxShadow: '0 50px 100px rgba(0,0,0,0.3)',
+                  boxShadow: '0 50px 100px rgba(0,27,94,0.35)',
                   position: 'relative',
                   overflow: 'hidden'
                 }}
               >
-                <Box sx={{ position: 'absolute', top: 0, right: 0, width: '150px', height: '150px', background: 'linear-gradient(135deg, rgba(15,122,79,0.1) 0%, transparent 100%)', borderRadius: '0 0 0 100%' }} />
+                <Box sx={{ position: 'absolute', top: 0, right: 0, width: '150px', height: '150px', background: 'linear-gradient(135deg, rgba(0,27,94,0.10), rgba(15,122,79,0.08))', borderRadius: '0 0 0 100%' }} />
                 <Stack spacing={4}>
                   <Box>
-                    <Typography variant="h4" sx={{ fontWeight: 900, mb: 2 }}>Ready for a Challenge?</Typography>
+                    <Typography variant="h4" sx={{ fontWeight: 900, mb: 2, color: brandBlue }}>Ready for a Challenge?</Typography>
                     <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
                       If you are keen on a rewarding career in metrology, we invite you to explore exciting opportunities at PT. Fareast Calibration.
                     </Typography>
@@ -277,7 +317,7 @@ const Career: React.FC = () => {
               <Stack spacing={5}>
                 <Box>
                   <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 900, letterSpacing: 4 }}>JOIN US</Typography>
-                  <Typography variant="h2" sx={{ fontWeight: 900, color: 'secondary.main', mt: 2 }}>Submit Your <Box component="span" sx={{ color: 'primary.main' }}>CV</Box></Typography>
+                  <Typography variant="h2" sx={{ fontWeight: 900, color: brandBlue, mt: 2 }}>Submit Your <Box component="span" sx={{ color: brandGreen }}>CV</Box></Typography>
                 </Box>
                 <Typography variant="body1" sx={{ color: 'text.secondary', fontSize: '1.2rem', lineHeight: 1.8 }}>
                   Ready to take the next step in your career? Fill out the form below, upload your CV, and our recruitment team will get in touch with you.
@@ -292,7 +332,7 @@ const Career: React.FC = () => {
                   ].map((benefit, i) => (
                     <Box key={i} sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                       <CheckCircle2 size={24} color="#0f7a4f" />
-                      <Typography variant="body1" sx={{ fontWeight: 700, color: 'secondary.main' }}>{benefit}</Typography>
+                      <Typography variant="body1" sx={{ fontWeight: 700, color: brandBlue }}>{benefit}</Typography>
                     </Box>
                   ))}
                 </Stack>
@@ -300,13 +340,13 @@ const Career: React.FC = () => {
                 <Divider sx={{ my: 2 }} />
 
                 <Stack direction="row" spacing={3} sx={{ alignItems: 'center' }}>
-                  <Box sx={{ width: 72, height: 72, borderRadius: '24px', bgcolor: 'rgba(15,122,79,0.1)', color: 'primary.main', display: 'grid', placeItems: 'center' }}>
+                  <Box sx={{ width: 72, height: 72, borderRadius: 4, bgcolor: 'rgba(0,27,94,0.08)', color: brandBlue, display: 'grid', placeItems: 'center' }}>
                     <PhoneCall size={32} />
                   </Box>
                   <Box>
                     <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 800, letterSpacing: 1 }}>RECRUITMENT HELPLINE</Typography>
                     <Link href="tel:+62778351831" color="inherit" underline="hover">
-                      <Typography variant="h4" sx={{ fontWeight: 900, color: 'secondary.main' }}>+62-778351831</Typography>
+                      <Typography variant="h4" sx={{ fontWeight: 900, color: brandBlue }}>+62-778351831</Typography>
                     </Link>
                   </Box>
                 </Stack>
@@ -320,10 +360,10 @@ const Career: React.FC = () => {
                 {...fadeInUp}
                 sx={{
                   p: { xs: 5, md: 8 },
-                  borderRadius: '60px',
+                  borderRadius: 6,
                   bgcolor: 'white',
-                  boxShadow: '0 40px 100px rgba(0,0,0,0.06)',
-                  border: '1px solid rgba(0,0,0,0.03)',
+                  boxShadow: '0 40px 100px rgba(0,27,94,0.10)',
+                  border: '1px solid rgba(0,27,94,0.08)',
                   position: 'relative'
                 }}
               >
@@ -452,7 +492,7 @@ const Career: React.FC = () => {
                         }}
                       >
                         <Upload size={48} color="#0f7a4f" style={{ marginBottom: '16px' }} />
-                        <Typography variant="h5" sx={{ fontWeight: 900, color: 'secondary.main', mb: 1 }}>Upload Your CV / Resume</Typography>
+                        <Typography variant="h5" sx={{ fontWeight: 900, color: brandBlue, mb: 1 }}>Upload Your CV / Resume</Typography>
                         <Typography variant="body2" sx={{ color: 'text.secondary' }}>Drag and drop your file here, or browse (Max 5MB)</Typography>
                         <input type="file" style={{ display: 'none' }} id="cv-upload-new" />
                         <label htmlFor="cv-upload-new">
@@ -488,7 +528,7 @@ const Career: React.FC = () => {
                         variant="contained"
                         size="large"
                         endIcon={<Send size={20} />}
-                        sx={{ py: 2.5, borderRadius: '20px', fontWeight: 900, fontSize: '1.2rem', bgcolor: 'primary.main', boxShadow: '0 20px 40px rgba(15,122,79,0.3)', '&:hover': { transform: 'translateY(-3px)' } }}
+                        sx={{ py: 2.5, borderRadius: '20px', fontWeight: 900, fontSize: '1.2rem', bgcolor: brandGreen, boxShadow: '0 20px 40px rgba(15,122,79,0.3)', '&:hover': { transform: 'translateY(-3px)', bgcolor: brandBlue } }}
                       >
                         Submit Application
                       </Button>
@@ -502,10 +542,10 @@ const Career: React.FC = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 sx={{
                   p: 10,
-                  borderRadius: '60px',
+                  borderRadius: 6,
                   textAlign: 'center',
                   bgcolor: 'white',
-                  boxShadow: '0 40px 100px rgba(0,0,0,0.08)',
+                  boxShadow: '0 40px 100px rgba(0,27,94,0.10)',
                   minHeight: 600,
                   display: 'flex',
                   flexDirection: 'column',
@@ -516,7 +556,7 @@ const Career: React.FC = () => {
                 <Box sx={{ width: 120, height: 120, bgcolor: 'rgba(15,122,79,0.1)', color: 'primary.main', borderRadius: '50%', display: 'grid', placeItems: 'center', mb: 6 }}>
                   <CheckCircle2 size={80} />
                 </Box>
-                <Typography variant="h2" sx={{ fontWeight: 900, mb: 3, color: 'secondary.main' }}>Application Sent!</Typography>
+                <Typography variant="h2" sx={{ fontWeight: 900, mb: 3, color: brandBlue }}>Application Sent!</Typography>
                 <Typography variant="h6" sx={{ color: 'text.secondary', mb: 6, fontWeight: 400, maxWidth: 500 }}>
                   Thank you for your interest. Our HR team will review your application and get back to you shortly via email or phone.
                 </Typography>
@@ -533,15 +573,15 @@ const Career: React.FC = () => {
         </Grid>
       </Container>
       {/* 4. Contact Details Footer Section - BRAND THEME */}
-      <Box sx={{ bgcolor: '#f4fbf7', py: 10 }}>
+      <Box sx={{ bgcolor: softGreen, py: 10 }}>
         <Container maxWidth="lg">
           <Paper
             sx={{
               p: { xs: 5, md: 8 },
-              borderRadius: '50px',
+              borderRadius: 6,
               bgcolor: 'white',
-              boxShadow: '0 20px 50px rgba(15,122,79,0.05)',
-              border: '1px solid rgba(15,122,79,0.05)'
+              boxShadow: '0 24px 70px rgba(0,27,94,0.08)',
+              border: '1px solid rgba(0,27,94,0.08)'
             }}
           >
             <Grid container spacing={6}>

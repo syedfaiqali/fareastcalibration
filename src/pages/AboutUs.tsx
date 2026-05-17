@@ -134,13 +134,13 @@ const certificates = [
   {
     label: 'KAN Accredited',
     title: 'KAN Accreditation Certificate',
-    file: '/certificates/kan-accreditation.pdf',
+    file: '/certificates/fec-scan-profile.pdf',
     icon: ShieldCheck,
   },
   {
     label: 'ISO 9001:2015',
     title: 'ISO 9001:2015 Certificate',
-    file: '/certificates/iso-9001-2015.pdf',
+    file: '/certificates/fec-scan-profile.pdf',
     icon: Award,
   },
 ];

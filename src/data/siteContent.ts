@@ -247,7 +247,7 @@ export const clientSectors = [
   'QA and QC labs',
   'Process industries',
   'Research facilities',
-  'Marine and onboard teams',
+  'Marine Industries',
   'Utilities and maintenance contractors',
 ];
 

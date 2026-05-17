@@ -3,6 +3,11 @@ import { Box, Container, Typography, Grid, TextField, Button, Paper, Stack, Link
 import PageHeader from '../components/PageHeader';
 import { Mail, MapPinned, PhoneCall, Send, CheckCircle2, Clock } from 'lucide-react';
 
+const brandBlue = '#001b5e';
+const brandGreen = '#0f7a4f';
+const brandGreenDark = '#0d3f2b';
+const softBlue = '#edf5ff';
+
 const Contact: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
 
@@ -48,13 +53,31 @@ const Contact: React.FC = () => {
   ];
 
   return (
-    <Box sx={{ bgcolor: 'white' }}>
+    <Box
+      sx={{
+        bgcolor: softBlue,
+        background:
+          'linear-gradient(180deg, #edf5ff 0%, #ffffff 34%, #f4fbf7 72%, #ffffff 100%)',
+      }}
+    >
       <PageHeader
         title="Get in Touch"
         subtitle="For instrument calibration, onboard testing, pickup, delivery, or quotation requests, our Batam team is ready to help."
       />
 
-      <Container maxWidth="lg" sx={{ py: { xs: 10, md: 15 } }}>
+      <Container maxWidth="lg" sx={{ py: { xs: 10, md: 15 }, position: 'relative' }}>
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 60,
+            left: -100,
+            width: 300,
+            height: 300,
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(15,122,79,0.12), transparent 68%)',
+            pointerEvents: 'none',
+          }}
+        />
         <Grid container spacing={8}>
           {/* Left Column: Contact Info */}
           <Grid size={{ xs: 12, md: 5 }}>
@@ -63,32 +86,57 @@ const Contact: React.FC = () => {
                 <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 800, letterSpacing: 3 }}>
                   DIRECT CHANNELS
                 </Typography>
-                <Typography variant="h2" sx={{ fontWeight: 900, color: 'secondary.main', mt: 1, lineHeight: 1.1 }}>
-                  Contact <Box component="span" sx={{ color: 'primary.main' }}>Fareast</Box>
+                <Typography variant="h2" sx={{ fontWeight: 900, color: brandBlue, mt: 1, lineHeight: 1.1 }}>
+                  Contact <Box component="span" sx={{ color: brandGreen }}>Fareast</Box>
                 </Typography>
               </Box>
 
               <Stack spacing={4}>
                 {contactItems.map((item, i) => (
-                  <Stack key={i} direction="row" spacing={3}>
-                    <Box sx={{ width: 60, height: 60, borderRadius: '20px', bgcolor: 'rgba(15,122,79,0.08)', color: 'primary.main', display: 'grid', placeItems: 'center', flexShrink: 0 }}>
+                  <Stack
+                    key={i}
+                    direction="row"
+                    spacing={3}
+                    sx={{
+                      p: 2.5,
+                      borderRadius: 4,
+                      bgcolor: 'rgba(255,255,255,0.78)',
+                      border: '1px solid rgba(0,27,94,0.08)',
+                      boxShadow: '0 18px 45px rgba(0,27,94,0.06)',
+                      transition: 'all 0.3s ease',
+                      '&:hover': {
+                        transform: 'translateX(6px)',
+                        boxShadow: '0 24px 56px rgba(0,27,94,0.12)',
+                        borderColor: 'rgba(15,122,79,0.24)',
+                      },
+                    }}
+                  >
+                    <Box sx={{ width: 60, height: 60, borderRadius: 3, bgcolor: i % 2 ? 'rgba(0,27,94,0.08)' : 'rgba(15,122,79,0.1)', color: i % 2 ? brandBlue : brandGreen, display: 'grid', placeItems: 'center', flexShrink: 0 }}>
                       <item.icon size={28} />
                     </Box>
                     <Box>
-                      <Typography variant="h6" sx={{ fontWeight: 800, color: 'secondary.main' }}>{item.title}</Typography>
-                      <Typography variant="body1" sx={{ color: 'primary.main', fontWeight: 700 }}>{item.text}</Typography>
+                      <Typography variant="h6" sx={{ fontWeight: 800, color: brandBlue }}>{item.title}</Typography>
+                      <Typography variant="body1" sx={{ color: brandGreen, fontWeight: 700 }}>{item.text}</Typography>
                       <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block', mt: 0.5 }}>{item.sub}</Typography>
                     </Box>
                   </Stack>
                 ))}
               </Stack>
 
-              <Paper sx={{ p: 4, borderRadius: '30px', bgcolor: 'secondary.main', color: 'white' }}>
+              <Paper
+                sx={{
+                  p: 4,
+                  borderRadius: 5,
+                  color: 'white',
+                  background: `linear-gradient(135deg, ${brandBlue} 0%, ${brandGreenDark} 100%)`,
+                  boxShadow: '0 24px 56px rgba(0,27,94,0.18)',
+                }}
+              >
                 <Stack direction="row" spacing={2.5} sx={{ alignItems: 'center' }}>
-                  <Clock size={32} color="#0f7a4f" />
+                  <Clock size={32} color="#8ce0b6" />
                   <Box>
                     <Typography variant="subtitle1" sx={{ fontWeight: 800 }}>Need urgent calibration?</Typography>
-                    <Typography variant="body2" sx={{ opacity: 0.7 }}>Express calibration and onsite service are available without additional express charges.</Typography>
+                    <Typography variant="body2" sx={{ opacity: 0.7 }}>Express calibration and onsite service are available with additional express charges.</Typography>
                   </Box>
                 </Stack>
               </Paper>
@@ -101,13 +149,24 @@ const Contact: React.FC = () => {
               <Paper
                 sx={{
                   p: { xs: 4, md: 6 },
-                  borderRadius: '50px',
+                  borderRadius: 6,
                   bgcolor: 'white',
-                  boxShadow: '0 10px 40px rgba(0,0,0,0.05)',
-                  border: '1px solid rgba(0,0,0,0.03)'
+                  boxShadow: '0 40px 100px rgba(0,27,94,0.10)',
+                  border: '1px solid rgba(0,27,94,0.08)',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  '&::before': {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: 6,
+                    background: `linear-gradient(90deg, ${brandGreen}, ${brandBlue})`,
+                  },
                 }}
               >
-                <Typography variant="h4" sx={{ fontWeight: 900, color: 'secondary.main', mb: 4 }}>
+                <Typography variant="h4" sx={{ fontWeight: 900, color: brandBlue, mb: 4 }}>
                   Send an Enquiry
                 </Typography>
                 <form onSubmit={handleSubmit}>
@@ -241,7 +300,7 @@ const Contact: React.FC = () => {
                         size="large" 
                         fullWidth 
                         endIcon={<Send size={20} />}
-                        sx={{ py: 2.5, borderRadius: '20px', fontWeight: 900, fontSize: '1.2rem', bgcolor: 'primary.main', boxShadow: '0 20px 40px rgba(15,122,79,0.3)', '&:hover': { transform: 'translateY(-3px)' } }}
+                        sx={{ py: 2.5, borderRadius: '20px', fontWeight: 900, fontSize: '1.2rem', bgcolor: brandGreen, boxShadow: '0 20px 40px rgba(15,122,79,0.3)', '&:hover': { transform: 'translateY(-3px)', bgcolor: brandBlue } }}
                       >
                         Send Message
                       </Button>
@@ -253,10 +312,10 @@ const Contact: React.FC = () => {
               <Paper
                 sx={{
                   p: 8,
-                  borderRadius: '50px',
+                  borderRadius: 6,
                   textAlign: 'center',
                   bgcolor: 'white',
-                  boxShadow: '0 10px 40px rgba(0,0,0,0.05)',
+                  boxShadow: '0 40px 100px rgba(0,27,94,0.10)',
                   minHeight: 600,
                   display: 'flex',
                   flexDirection: 'column',
@@ -267,7 +326,7 @@ const Contact: React.FC = () => {
                 <Box sx={{ width: 120, height: 120, bgcolor: 'rgba(15,122,79,0.1)', color: 'primary.main', borderRadius: '50%', display: 'grid', placeItems: 'center', mb: 4 }}>
                   <CheckCircle2 size={70} />
                 </Box>
-                <Typography variant="h3" sx={{ fontWeight: 900, color: 'secondary.main', mb: 2 }}>Enquiry Sent!</Typography>
+                <Typography variant="h3" sx={{ fontWeight: 900, color: brandBlue, mb: 2 }}>Enquiry Sent!</Typography>
                 <Typography variant="h6" sx={{ color: 'text.secondary', fontWeight: 400, maxWidth: 450, mb: 4 }}>
                   We've received your message. A technical specialist will review your request and get back to you shortly.
                 </Typography>
@@ -282,16 +341,16 @@ const Contact: React.FC = () => {
       </Container>
 
       {/* Map Section */}
-      <Box sx={{ pb: { xs: 10, md: 15 } }}>
+      <Box sx={{ pb: { xs: 10, md: 15 }, bgcolor: 'transparent' }}>
         <Container maxWidth="lg">
           <Paper 
             elevation={0}
             sx={{ 
-              borderRadius: '60px', 
+              borderRadius: 6, 
               overflow: 'hidden', 
               height: { xs: 400, md: 600 },
-              border: '1px solid rgba(0,0,0,0.05)',
-              boxShadow: '0 40px 80px rgba(0,0,0,0.08)',
+              border: '8px solid white',
+              boxShadow: '0 40px 90px rgba(0,27,94,0.14)',
               position: 'relative'
             }}
           >
