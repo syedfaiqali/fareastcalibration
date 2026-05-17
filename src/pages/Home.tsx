@@ -52,7 +52,7 @@ const Home: React.FC = () => {
           overflow: 'hidden',
           bgcolor: 'primary.main', // Navy Blue background for the hero
           color: 'white',
-          minHeight: '100vh',
+          minHeight: { xs: 'auto', md: 'calc(100svh - 110px)' },
           display: 'flex',
           alignItems: 'center',
           pt: { xs: 8, md: 0 },
@@ -77,10 +77,18 @@ const Home: React.FC = () => {
           }
         }}
       >
-        <Container maxWidth="xl" sx={{ py: { xs: 8, md: 10 }, position: 'relative', zIndex: 2 }}>
-          <Grid container spacing={6} sx={{ alignItems: 'center' }}>
+        <Container
+          maxWidth="xl"
+          sx={{
+            py: { xs: 7, md: 5, lg: 6 },
+            position: 'relative',
+            zIndex: 2,
+            width: '100%',
+          }}
+        >
+          <Grid container spacing={{ xs: 5, md: 4, lg: 6 }} sx={{ alignItems: 'center' }}>
             <Grid size={{ xs: 12, md: 6 }}>
-              <Stack spacing={4}>
+              <Stack spacing={{ xs: 4, md: 2.75, lg: 3.5 }}>
                 <AnimatePresence mode="wait">
                   <MotionBox
                     key={slide.title}
@@ -101,6 +109,9 @@ const Home: React.FC = () => {
                         variant="h1"
                         sx={{
                           fontSize: { xs: '2.4rem', sm: '3rem', md: '4.5rem' },
+                          '@media (min-width: 900px) and (max-height: 820px)': {
+                            fontSize: '4rem',
+                          },
                           lineHeight: 1.1,
                           fontWeight: 900,
                           color: 'white',
@@ -189,7 +200,7 @@ const Home: React.FC = () => {
                 </AnimatePresence>
 
                 {/* Slider Controls with Progress Loader */}
-                <Stack direction="row" spacing={3} sx={{ alignItems: 'center', mt: 4 }}>
+                <Stack direction="row" spacing={3} sx={{ alignItems: 'center', mt: { xs: 4, md: 2 } }}>
                   <Stack direction="row" spacing={1}>
                     <Box 
                       component="button" 
@@ -258,8 +269,12 @@ const Home: React.FC = () => {
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   sx={{
                     position: 'relative',
-                    width: { xs: 300, md: 540 },
-                    height: { xs: 300, md: 540 },
+                    width: { xs: 300, md: 500, lg: 540 },
+                    height: { xs: 300, md: 500, lg: 540 },
+                    '@media (min-width: 900px) and (max-height: 820px)': {
+                      width: 460,
+                      height: 460,
+                    },
                     borderRadius: '50%',
                     border: '12px solid rgba(255,255,255,0.05)',
                     padding: 2,
