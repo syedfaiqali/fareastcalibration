@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Container, Typography, Breadcrumbs, Link, Stack } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, BadgeCheck } from 'lucide-react';
 
 interface PageHeaderProps {
   title: string;
@@ -11,6 +11,10 @@ interface PageHeaderProps {
 }
 
 const PageHeader: React.FC<PageHeaderProps> = ({ title, subtitle, breadcrumb }) => {
+  const brandBlue = '#001b5e';
+  const brandGreen = '#0f7a4f';
+  const brandGreenDark = '#0d3f2b';
+
   return (
     <Box
       sx={{
@@ -18,15 +22,15 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, subtitle, breadcrumb }) 
         overflow: 'hidden',
         color: 'white',
         background: `
-            radial-gradient(circle at 78% 18%, rgba(79,179,127,0.42) 0%, rgba(15,122,79,0.24) 32%, transparent 52%),
-            radial-gradient(circle at 12% 85%, rgba(0,27,94,0.30) 0%, transparent 36%),
-            linear-gradient(135deg, #0d3f2b 0%, #0f7a4f 68%, #001b5e 100%)
+            radial-gradient(circle at 76% 20%, rgba(79,179,127,0.42) 0%, rgba(15,122,79,0.22) 31%, transparent 52%),
+            radial-gradient(circle at 16% 82%, rgba(0,27,94,0.34) 0%, transparent 36%),
+            linear-gradient(135deg, ${brandGreenDark} 0%, ${brandGreen} 62%, ${brandBlue} 100%)
           `,
-        minHeight: '100vh',
+        minHeight: { xs: 520, md: 640 },
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        pt: { xs: 8, md: 0 },
+        py: { xs: 10, md: 12 },
       }}
     >
       <Box
@@ -37,6 +41,74 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, subtitle, breadcrumb }) 
             'linear-gradient(135deg, rgba(255,255,255,0.08) 0, rgba(255,255,255,0.08) 1px, transparent 1px, transparent 24px), linear-gradient(45deg, rgba(255,255,255,0.05) 0, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 24px)',
           backgroundSize: '48px 48px',
           opacity: 0.45,
+          pointerEvents: 'none',
+        }}
+      />
+      <Box
+        sx={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(90deg, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.04) 52%, rgba(0,27,94,0.28) 100%)',
+          pointerEvents: 'none',
+        }}
+      />
+      <Box
+        component={motion.div}
+        animate={{ rotate: 360 }}
+        transition={{ duration: 36, repeat: Infinity, ease: 'linear' }}
+        sx={{
+          position: 'absolute',
+          right: { xs: -150, md: 86 },
+          top: { xs: 72, md: 92 },
+          width: { xs: 360, md: 520 },
+          height: { xs: 360, md: 520 },
+          borderRadius: '50%',
+          border: '1px dashed rgba(255,255,255,0.24)',
+          boxShadow: '0 0 0 28px rgba(0,27,94,0.10), 0 0 0 58px rgba(15,122,79,0.08)',
+          pointerEvents: 'none',
+        }}
+      />
+      <Box
+        sx={{
+          position: 'absolute',
+          right: { xs: -95, md: 150 },
+          top: { xs: 126, md: 150 },
+          width: { xs: 250, md: 390 },
+          height: { xs: 250, md: 390 },
+          borderRadius: '50%',
+          bgcolor: 'rgba(255,255,255,0.08)',
+          border: '14px solid rgba(0,27,94,0.42)',
+          display: 'grid',
+          placeItems: 'center',
+          boxShadow: 'inset 0 0 60px rgba(255,255,255,0.08), 0 34px 90px rgba(0,27,94,0.24)',
+          pointerEvents: 'none',
+          opacity: { xs: 0.28, md: 0.46 },
+        }}
+      >
+        <Box
+          component="img"
+          src="/fareastcalibrationLogo.jpeg"
+          alt=""
+          sx={{
+            width: '74%',
+            height: '74%',
+            objectFit: 'contain',
+            borderRadius: '50%',
+            filter: 'saturate(0.95)',
+            opacity: 0.9,
+          }}
+        />
+      </Box>
+      <Box
+        sx={{
+          position: 'absolute',
+          left: { xs: 24, md: 88 },
+          bottom: { xs: 20, md: 34 },
+          width: { xs: 150, md: 220 },
+          height: 3,
+          borderRadius: 999,
+          background: 'linear-gradient(90deg, rgba(255,255,255,0.9), rgba(79,179,127,0.78), transparent)',
+          pointerEvents: 'none',
         }}
       />
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
@@ -45,16 +117,34 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, subtitle, breadcrumb }) 
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45 }}
         >
-          <Stack direction="row" spacing={1} sx={{ mb: 2, alignItems: 'center', flexWrap: 'wrap' }}>
+          <Stack direction="row" spacing={1.2} sx={{ mb: 2.5, alignItems: 'center', flexWrap: 'wrap' }}>
+            <Box
+              sx={{
+                width: 38,
+                height: 38,
+                borderRadius: '14px',
+                bgcolor: 'rgba(255,255,255,0.12)',
+                border: '1px solid rgba(255,255,255,0.20)',
+                display: 'grid',
+                placeItems: 'center',
+                color: 'white',
+                boxShadow: '0 12px 28px rgba(0,27,94,0.20)',
+              }}
+            >
+              <BadgeCheck size={20} />
+            </Box>
+            <Typography variant="overline" sx={{ color: 'rgba(255,255,255,0.78)', fontWeight: 900, letterSpacing: 2.5 }}>
+              Fareast Calibration Excellence
+            </Typography>
           </Stack>
           <Breadcrumbs
             separator={<ArrowRight size={14} color="rgba(255,255,255,0.6)" />}
             sx={{ color: 'rgba(255,255,255,0.72)', mb: 3 }}
           >
-            <Link component={RouterLink} to="/" sx={{ color: 'inherit', textDecoration: 'none' }}>
+            <Link component={RouterLink} to="/" sx={{ color: 'inherit', textDecoration: 'none', '&:hover': { color: 'white' } }}>
               Home
             </Link>
-            <Typography sx={{ color: 'rgba(255,255,255,0.92)', fontWeight: 600 }}>
+            <Typography sx={{ color: 'white', fontWeight: 800 }}>
               {breadcrumb || title}
             </Typography>
           </Breadcrumbs>
@@ -69,10 +159,12 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, subtitle, breadcrumb }) 
             variant="h1"
             sx={{
               fontWeight: 800,
-              fontSize: { xs: '2.1rem', sm: '2.8rem', md: '4.2rem' },
+              fontSize: { xs: '2.6rem', sm: '3.2rem', md: '5rem' },
               lineHeight: 1.05,
-              mb: subtitle ? 2 : 0,
-              maxWidth: 900,
+              mb: subtitle ? 2.5 : 0,
+              maxWidth: 760,
+              letterSpacing: 0,
+              textShadow: '0 20px 50px rgba(0,27,94,0.24)',
             }}
           >
             {title}
@@ -84,10 +176,10 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, subtitle, breadcrumb }) 
             variant="h6"
             sx={{
               maxWidth: 760,
-              lineHeight: 1.7,
-              opacity: 0.88,
+              lineHeight: 1.85,
+              color: 'rgba(255,255,255,0.88)',
               fontWeight: 400,
-              fontSize: { xs: '1.02rem', md: '1.18rem' },
+              fontSize: { xs: '1.05rem', md: '1.24rem' },
               display: 'flex',
               flexWrap: 'wrap',
               gap: '0.4rem'
@@ -123,11 +215,11 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, subtitle, breadcrumb }) 
           bottom: 40,
           left: '50%',
           transform: 'translateX(-50%)',
-          display: 'flex',
+          display: { xs: 'none', md: 'flex' },
           flexDirection: 'column',
           alignItems: 'center',
           gap: 1,
-          opacity: 0.6
+          opacity: 0.72
         }}
       >
         <Typography variant="caption" sx={{ fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase' }}>
