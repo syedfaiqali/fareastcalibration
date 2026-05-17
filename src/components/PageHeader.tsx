@@ -26,7 +26,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, subtitle, breadcrumb }) 
             radial-gradient(circle at 16% 82%, rgba(0,27,94,0.34) 0%, transparent 36%),
             linear-gradient(135deg, ${brandGreenDark} 0%, ${brandGreen} 62%, ${brandBlue} 100%)
           `,
-        minHeight: { xs: 520, md: 640 },
+        minHeight: { xs: 520, md: 590 },
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
