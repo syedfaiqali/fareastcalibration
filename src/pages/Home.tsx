@@ -43,6 +43,10 @@ const Home: React.FC = () => {
   }, []);
 
   const slide = heroSlides[activeSlide];
+  const brandBlue = '#001b5e';
+  const brandGreen = '#0f7a4f';
+  const brandGreenDark = '#0d3f2b';
+  const softBlue = '#edf5ff';
 
   return (
     <Box sx={{ bgcolor: '#f4fbf7' }}>
@@ -63,7 +67,7 @@ const Home: React.FC = () => {
             left: 0,
             right: 0,
             bottom: 0,
-            background: 'radial-gradient(circle at 10% 10%, rgba(255,255,255,0.05), transparent 40%)',
+            background: 'radial-gradient(circle at 10% 10%, rgba(255,255,255,0.12), transparent 40%)',
             pointerEvents: 'none',
           },
           '&::after': {
@@ -99,8 +103,8 @@ const Home: React.FC = () => {
                   >
                     <Stack spacing={2.5}>
                       <Stack direction="row" spacing={1.5} sx={{ alignItems: 'center' }}>
-                        <Box sx={{ width: 40, height: 2, bgcolor: 'secondary.main' }} />
-                        <Typography variant="overline" sx={{ color: 'secondary.main', fontWeight: 800, letterSpacing: 2 }}>
+                        <Box sx={{ width: 40, height: 2, bgcolor: 'rgba(255,255,255,0.78)' }} />
+                        <Typography variant="overline" sx={{ color: 'rgba(255,255,255,0.78)', fontWeight: 800, letterSpacing: 2 }}>
                           Fareast Calibration Excellence
                         </Typography>
                       </Stack>
@@ -168,9 +172,11 @@ const Home: React.FC = () => {
                             px: 4, 
                             py: 2, 
                             fontSize: '1rem',
-                            boxShadow: '0 10px 30px rgba(15, 122, 79, 0.3)',
+                            bgcolor: brandBlue,
+                            background: `linear-gradient(135deg, ${brandBlue} 0%, #0c3f8f 100%)`,
+                            boxShadow: '0 16px 34px rgba(0,27,94,0.28)',
                             '&:hover': {
-                              bgcolor: 'secondary.dark',
+                              bgcolor: '#00144a',
                               transform: 'translateY(-2px)'
                             }
                           }}
@@ -248,7 +254,7 @@ const Home: React.FC = () => {
                       initial={{ width: 0 }}
                       animate={{ width: '100%' }}
                       transition={{ duration: 5.2, ease: "linear" }}
-                      style={{ height: '100%', background: '#0f7a4f', position: 'absolute', top: 0, left: 0 }}
+                      style={{ height: '100%', background: '#ffffff', position: 'absolute', top: 0, left: 0 }}
                     />
                   </Box>
                   
@@ -344,15 +350,16 @@ const Home: React.FC = () => {
                       bgcolor: 'white',
                       p: 2,
                       borderRadius: 4,
-                      boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
-                      color: 'primary.main',
+                      border: `1px solid rgba(0,27,94,0.12)`,
+                      boxShadow: '0 20px 40px rgba(0,27,94,0.18)',
+                      color: brandBlue,
                       display: 'flex',
                       alignItems: 'center',
                       gap: 2,
                       zIndex: 10
                     }}
                   >
-                    <Box sx={{ bgcolor: 'secondary.main', color: 'white', p: 1, borderRadius: 2 }}>
+                    <Box sx={{ bgcolor: brandGreen, color: 'white', p: 1, borderRadius: 2 }}>
                       <BadgeCheck size={24} />
                     </Box>
                     <Box>
@@ -372,15 +379,16 @@ const Home: React.FC = () => {
                       bgcolor: 'white',
                       p: 2,
                       borderRadius: 4,
-                      boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
-                      color: 'primary.main',
+                      border: `1px solid rgba(0,27,94,0.12)`,
+                      boxShadow: '0 20px 40px rgba(0,27,94,0.18)',
+                      color: brandBlue,
                       display: 'flex',
                       alignItems: 'center',
                       gap: 2,
                       zIndex: 10
                     }}
                   >
-                    <Box sx={{ bgcolor: 'secondary.main', color: 'white', p: 1, borderRadius: 2 }}>
+                    <Box sx={{ bgcolor: brandGreen, color: 'white', p: 1, borderRadius: 2 }}>
                       <TimerReset size={24} />
                     </Box>
                     <Box>
@@ -403,7 +411,7 @@ const Home: React.FC = () => {
             width: 300,
             height: 300,
             borderRadius: '50%',
-            bgcolor: 'secondary.main',
+            bgcolor: brandBlue,
             opacity: 0.05,
             filter: 'blur(100px)',
           }}
@@ -411,7 +419,7 @@ const Home: React.FC = () => {
       </Box>
 
       {/* About Us Section */}
-      <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'background.default', position: 'relative', overflow: 'hidden' }}>
+      <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: softBlue, position: 'relative', overflow: 'hidden' }}>
         <Box 
           sx={{ 
             position: 'absolute', 
@@ -433,7 +441,7 @@ const Home: React.FC = () => {
                     width: { xs: 320, md: 480 },
                     height: { xs: 320, md: 480 },
                     borderRadius: '50%',
-                    border: '2px dashed rgba(15,122,79,0.3)',
+                    border: '2px dashed rgba(0,27,94,0.24)',
                     p: 2,
                     display: 'flex',
                     alignItems: 'center',
@@ -448,7 +456,7 @@ const Home: React.FC = () => {
                       borderRadius: '50%',
                       border: '12px solid rgba(0, 27, 94, 0.85)',
                       overflow: 'hidden',
-                      boxShadow: '0 30px 60px rgba(0,0,0,0.15)',
+                      boxShadow: '0 30px 60px rgba(0,27,94,0.14)',
                       bgcolor: 'white',
                       display: 'flex',
                       alignItems: 'center',
@@ -460,7 +468,7 @@ const Home: React.FC = () => {
                   {/* Decorative floating dots */}
                   <Box sx={{ position: 'absolute', top: 40, right: 40, width: 60, height: 60, display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1 }}>
                     {[...Array(9)].map((_, i) => (
-                      <Box key={i} sx={{ width: 4, height: 4, borderRadius: '50%', bgcolor: 'primary.main' }} />
+                      <Box key={i} sx={{ width: 4, height: 4, borderRadius: '50%', bgcolor: i % 2 ? brandGreen : brandBlue }} />
                     ))}
                   </Box>
                 </MotionBox>
@@ -472,15 +480,15 @@ const Home: React.FC = () => {
                   label="Welcome To Fareast Calibration" 
                   sx={{ 
                     width: 'fit-content', 
-                    bgcolor: 'primary.main', 
+                    bgcolor: brandBlue,
                     color: 'white', 
                     fontWeight: 700, 
                     px: 1,
                     borderRadius: '50px'
                   }} 
                 />
-                <Typography variant="h2" sx={{ fontWeight: 900, color: 'primary.main', fontSize: { xs: '2.5rem', md: '3.5rem' } }}>
-                  PT Fareast Calibration and Testing Services
+                <Typography variant="h2" sx={{ fontWeight: 900, color: brandBlue, fontSize: { xs: '2.5rem', md: '3.5rem' } }}>
+                  PT Fareast <Box component="span" sx={{ color: brandGreen }}>Calibration</Box> and Testing Services
                 </Typography>
                 <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8, fontSize: '1.1rem' }}>
                   Independent calibration and testing laboratory in Batam, Indonesia, serving thermal, mechanical, electrical, dimensional, analytical, general, and onboard calibration needs since 2014.
@@ -492,11 +500,11 @@ const Home: React.FC = () => {
                       width: 64, 
                       height: 64, 
                       borderRadius: '50%', 
-                      bgcolor: 'primary.main', 
+                      bgcolor: brandBlue,
                       color: 'white', 
                       display: 'grid', 
                       placeItems: 'center',
-                      boxShadow: '0 10px 20px rgba(15,122,79,0.2)'
+                      boxShadow: '0 10px 20px rgba(0,27,94,0.18)'
                     }}
                   >
                     <PhoneCall size={28} />
@@ -504,7 +512,7 @@ const Home: React.FC = () => {
                   <Box>
                     <Typography variant="body2" sx={{ color: 'text.secondary', fontWeight: 600 }}>Have Any Questions?</Typography>
                     <Link href="tel:+6282286881953" color="inherit" underline="hover">
-                      <Typography variant="h5" sx={{ color: 'primary.main', fontWeight: 900 }}>+62-822-8688-1953</Typography>
+                      <Typography variant="h5" sx={{ color: brandGreen, fontWeight: 900 }}>+62-822-8688-1953</Typography>
                     </Link>
                   </Box>
                 </Stack>
@@ -515,17 +523,18 @@ const Home: React.FC = () => {
       </Box>
 
       {/* Why Choose Us Section */}
-      <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: '#ffffff' }}>
+      <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: '#ffffff', position: 'relative', overflow: 'hidden' }}>
+        <Box sx={{ position: 'absolute', inset: 0, pointerEvents: 'none', background: 'linear-gradient(115deg, transparent 0%, transparent 54%, rgba(0,27,94,0.04) 54%, rgba(15,122,79,0.06) 100%)' }} />
         <Container maxWidth="lg">
           <Grid container spacing={8} sx={{ alignItems: 'center', flexDirection: { xs: 'column-reverse', md: 'row' } }}>
             <Grid size={{ xs: 12, md: 6 }}>
               <Stack spacing={4}>
                 <Box>
-                  <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 800, letterSpacing: 2 }}>
+                  <Typography variant="overline" sx={{ color: brandGreen, fontWeight: 800, letterSpacing: 2 }}>
                     Why Choose Us?
                   </Typography>
-                  <Typography variant="h3" sx={{ fontWeight: 900, mt: 1, color: 'secondary.main' }}>
-                    Accurate & Reliable Calibration Solutions
+                  <Typography variant="h3" sx={{ fontWeight: 900, mt: 1, color: brandBlue }}>
+                    Accurate & Reliable <Box component="span" sx={{ color: brandGreen }}>Calibration</Box> Solutions
                   </Typography>
                 </Box>
                 
@@ -536,11 +545,11 @@ const Home: React.FC = () => {
                     { title: "Lab and Onsite Support", text: "In-lab and onsite calibration facilities with free pickup and delivery within Batam." }
                   ].map((item, index) => (
                     <Stack key={index} direction="row" spacing={2.5} sx={{ alignItems: 'flex-start' }}>
-                      <Box sx={{ mt: 0.5, bgcolor: 'rgba(15,122,79,0.1)', color: 'primary.main', p: 1, borderRadius: '50%' }}>
+                      <Box sx={{ mt: 0.5, bgcolor: index % 2 ? 'rgba(0,27,94,0.08)' : 'rgba(15,122,79,0.10)', color: index % 2 ? brandBlue : brandGreen, p: 1, borderRadius: '50%' }}>
                         <BadgeCheck size={20} />
                       </Box>
                       <Box>
-                        <Typography variant="h6" sx={{ fontWeight: 800, color: 'secondary.main' }}>{item.title}</Typography>
+                        <Typography variant="h6" sx={{ fontWeight: 800, color: brandBlue }}>{item.title}</Typography>
                         <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.6 }}>{item.text}</Typography>
                       </Box>
                     </Stack>
@@ -557,7 +566,8 @@ const Home: React.FC = () => {
                   sx={{
                     borderRadius: '24px 24px 100px 24px',
                     overflow: 'hidden',
-                    boxShadow: '0 40px 80px rgba(0,0,0,0.12)',
+                    boxShadow: '0 40px 80px rgba(0,27,94,0.16)',
+                    border: '1px solid rgba(0,27,94,0.10)',
                     height: { xs: 350, md: 500 }
                   }}
                 >
@@ -576,14 +586,15 @@ const Home: React.FC = () => {
                     width: 180,
                     height: 180,
                     borderRadius: '50%',
-                    bgcolor: 'primary.main',
+                    bgcolor: brandBlue,
+                    background: `linear-gradient(135deg, ${brandBlue} 0%, ${brandGreen} 100%)`,
                     color: 'white',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
                     textAlign: 'center',
-                    boxShadow: '0 20px 40px rgba(15,122,79,0.15)',
+                    boxShadow: '0 20px 40px rgba(0,27,94,0.18)',
                     border: '8px solid white',
                     zIndex: 2
                   }}
@@ -597,14 +608,14 @@ const Home: React.FC = () => {
         </Container>
       </Box>
       {/* Precision Gallery Section - NEW */}
-      <Box sx={{ py: 12, bgcolor: '#ffffff' }}>
+      <Box sx={{ py: 12, bgcolor: softBlue }}>
         <Container maxWidth="lg">
           <Stack spacing={1} sx={{ textAlign: 'center', mb: 8 }}>
-            <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 800, letterSpacing: 3 }}>
+            <Typography variant="overline" sx={{ color: brandGreen, fontWeight: 800, letterSpacing: 3 }}>
               PRECISION IN ACTION
             </Typography>
-            <Typography variant="h3" sx={{ fontWeight: 900, color: 'secondary.main' }}>
-              Our Laboratory & Field Excellence
+            <Typography variant="h3" sx={{ fontWeight: 900, color: brandBlue }}>
+              Our Laboratory & <Box component="span" sx={{ color: brandGreen }}>Field Excellence</Box>
             </Typography>
           </Stack>
           
@@ -625,7 +636,8 @@ const Home: React.FC = () => {
                     height: 300, 
                     borderRadius: '24px', 
                     overflow: 'hidden',
-                    boxShadow: '0 20px 40px rgba(15,122,79,0.08)'
+                    boxShadow: '0 22px 44px rgba(0,27,94,0.12)',
+                    border: '1px solid rgba(0,27,94,0.10)',
                   }}
                 >
                   <Box 
@@ -637,7 +649,7 @@ const Home: React.FC = () => {
                     sx={{ 
                       position: 'absolute', 
                       inset: 0, 
-                      background: 'linear-gradient(to top, rgba(13,63,43,0.8) 0%, transparent 60%)',
+                      background: `linear-gradient(to top, rgba(0,27,94,0.82) 0%, rgba(15,122,79,0.42) 58%, transparent 100%)`,
                       display: 'flex',
                       alignItems: 'flex-end',
                       p: 3,
@@ -657,14 +669,15 @@ const Home: React.FC = () => {
         </Container>
       </Box>
       {/* Our Services Section */}
-      <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'background.default', position: 'relative' }}>
+      <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: '#ffffff', position: 'relative', overflow: 'hidden' }}>
+        <Box sx={{ position: 'absolute', inset: 0, opacity: 0.55, pointerEvents: 'none', background: `radial-gradient(circle at 10% 10%, ${softBlue}, transparent 30%), radial-gradient(circle at 90% 20%, rgba(15,122,79,0.08), transparent 26%)` }} />
         <Container maxWidth="lg">
           <Stack spacing={1} sx={{ textAlign: 'center', mb: 8 }}>
-            <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 800, letterSpacing: 2 }}>
+            <Typography variant="overline" sx={{ color: brandGreen, fontWeight: 800, letterSpacing: 2 }}>
               Our Services
             </Typography>
-            <Typography variant="h3" sx={{ fontWeight: 900, color: 'secondary.main' }}>
-              Comprehensive Calibration Services
+            <Typography variant="h3" sx={{ fontWeight: 900, color: brandBlue }}>
+              Comprehensive <Box component="span" sx={{ color: brandGreen }}>Calibration</Box> Services
             </Typography>
           </Stack>
 
@@ -679,8 +692,8 @@ const Home: React.FC = () => {
                       height: '100%',
                       p: 4,
                       borderRadius: '20px',
-                      bgcolor: 'white',
-                      border: 'none',
+                      bgcolor: 'rgba(255,255,255,0.92)',
+                      border: '1px solid rgba(0,27,94,0.10)',
                       position: 'relative',
                       overflow: 'hidden',
                       '&::before': {
@@ -690,7 +703,7 @@ const Home: React.FC = () => {
                         right: -30,
                         width: 120,
                         height: 120,
-                        border: '1px solid rgba(0,0,0,0.03)',
+                        border: '1px solid rgba(0,27,94,0.08)',
                         borderRadius: '50%',
                       }
                     }}
@@ -700,8 +713,8 @@ const Home: React.FC = () => {
                         width: 70, 
                         height: 70, 
                         borderRadius: '50%', 
-                        bgcolor: 'rgba(15,122,79,0.08)', 
-                        color: 'secondary.main', 
+                        bgcolor: index % 2 ? 'rgba(0,27,94,0.08)' : 'rgba(15,122,79,0.10)', 
+                        color: index % 2 ? brandBlue : brandGreen, 
                         display: 'grid', 
                         placeItems: 'center',
                         mb: 3
@@ -709,7 +722,7 @@ const Home: React.FC = () => {
                     >
                       <Icon size={32} />
                     </Box>
-                    <Typography variant="h5" sx={{ fontWeight: 800, mb: 2, color: 'primary.main' }}>
+                    <Typography variant="h5" sx={{ fontWeight: 800, mb: 2, color: brandBlue }}>
                       {service.title}
                     </Typography>
                     <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.8, mb: 3 }}>
@@ -828,7 +841,7 @@ const Home: React.FC = () => {
       <Box 
         sx={{ 
           py: { xs: 10, md: 15 }, 
-          bgcolor: 'white', 
+          bgcolor: softBlue, 
           position: 'relative', 
           overflow: 'hidden',
           '&::before': {
@@ -839,7 +852,7 @@ const Home: React.FC = () => {
             transform: 'translateX(-50%)',
             width: '100%',
             height: 1,
-            background: 'linear-gradient(90deg, transparent, rgba(15,122,79,0.1), transparent)',
+            background: 'linear-gradient(90deg, transparent, rgba(0,27,94,0.14), rgba(15,122,79,0.14), transparent)',
           }
         }}
       >
@@ -850,11 +863,11 @@ const Home: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 800, letterSpacing: 4 }}>
+              <Typography variant="overline" sx={{ color: brandGreen, fontWeight: 800, letterSpacing: 4 }}>
                 TRUSTED PARTNERS
               </Typography>
-              <Typography variant="h2" sx={{ fontWeight: 900, color: 'secondary.main', mt: 1 }}>
-                Supporting Industrial <Box component="span" sx={{ color: 'primary.main' }}>Leaders</Box>
+              <Typography variant="h2" sx={{ fontWeight: 900, color: brandBlue, mt: 1 }}>
+                Supporting Industrial <Box component="span" sx={{ color: brandGreen }}>Leaders</Box>
               </Typography>
               <Typography variant="body1" sx={{ color: 'text.secondary', maxWidth: 600, mx: 'auto', mt: 2 }}>
                 We provide high-precision calibration services for organizations that demand absolute measurement confidence.
@@ -883,13 +896,14 @@ const Home: React.FC = () => {
                     alignItems: 'center', 
                     justifyContent: 'center',
                     p: 3,
-                    bgcolor: '#f8fafc',
+                    bgcolor: 'rgba(255,255,255,0.86)',
+                    border: '1px solid rgba(0,27,94,0.08)',
                     borderRadius: '16px',
                     transition: 'all 0.3s ease',
                     '&:hover': {
                       bgcolor: 'white',
                       transform: 'translateY(-3px)',
-                      boxShadow: '0 10px 20px rgba(0,0,0,0.05)',
+                      boxShadow: '0 14px 28px rgba(0,27,94,0.10)',
                     }
                   }}
                 >
@@ -910,8 +924,8 @@ const Home: React.FC = () => {
               ))}
             </Box>
             
-            <Box sx={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: 150, background: 'linear-gradient(90deg, #ffffff 0%, transparent 100%)', zIndex: 2 }} />
-            <Box sx={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: 150, background: 'linear-gradient(-90deg, #ffffff 0%, transparent 100%)', zIndex: 2 }} />
+            <Box sx={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: 150, background: `linear-gradient(90deg, ${softBlue} 0%, transparent 100%)`, zIndex: 2 }} />
+            <Box sx={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: 150, background: `linear-gradient(-90deg, ${softBlue} 0%, transparent 100%)`, zIndex: 2 }} />
           </Box>
 
           <style>{`
@@ -931,7 +945,7 @@ const Home: React.FC = () => {
               variant="text"
               color="primary"
               endIcon={<ArrowRight size={20} />}
-              sx={{ fontWeight: 800, fontSize: '1.1rem' }}
+              sx={{ fontWeight: 800, fontSize: '1.1rem', color: brandBlue }}
             >
               Explore our full client portfolio
             </Button>
@@ -943,11 +957,11 @@ const Home: React.FC = () => {
 
 
       {/* Book Appointment Section - BEAUTIFIED */}
-      <Box sx={{ py: { xs: 8, md: 15 }, bgcolor: '#f4fbf7' }}>
+      <Box sx={{ py: { xs: 8, md: 15 }, bgcolor: '#ffffff' }}>
         <Container maxWidth="lg">
-          <Grid container spacing={0} sx={{ borderRadius: '50px', overflow: 'hidden', boxShadow: '0 50px 100px rgba(15,122,79,0.1)' }}>
+          <Grid container spacing={0} sx={{ borderRadius: '36px', overflow: 'hidden', boxShadow: '0 50px 100px rgba(0,27,94,0.12)', border: '1px solid rgba(0,27,94,0.10)' }}>
             {/* Left Panel: Trust & Image Gallery */}
-            <Grid size={{ xs: 12, md: 5 }} sx={{ bgcolor: 'primary.main', p: { xs: 5, md: 8 }, color: 'white', position: 'relative', overflow: 'hidden' }}>
+            <Grid size={{ xs: 12, md: 5 }} sx={{ bgcolor: brandBlue, background: `linear-gradient(145deg, ${brandBlue} 0%, #062c68 48%, ${brandGreenDark} 100%)`, p: { xs: 5, md: 8 }, color: 'white', position: 'relative', overflow: 'hidden' }}>
               <Box sx={{ position: 'relative', zIndex: 2 }}>
                 <Typography variant="overline" sx={{ color: 'rgba(255,255,255,0.6)', fontWeight: 800, letterSpacing: 2 }}>
                   GET IN TOUCH
@@ -961,13 +975,13 @@ const Home: React.FC = () => {
 
                 <Stack spacing={4}>
                   {[
-                    { label: 'Accredited Lab', val: 'KAN | ISO/IEC 17025' },
+                    { label: 'Accredited Lab', val: 'KAN | ISO/IEC 17025 & ISO:9001-2015' },
                     { label: 'Experience', val: '11+ Years' },
                     { label: 'Turnaround', val: 'Fast & Reliable' }
                   ].map((stat, i) => (
                     <Box key={i}>
-                      <Typography variant="caption" sx={{ opacity: 0.6, fontWeight: 700, letterSpacing: 1 }}>{stat.label}</Typography>
-                      <Typography variant="h5" sx={{ fontWeight: 800 }}>{stat.val}</Typography>
+                      <Typography variant="caption" sx={{ color: 'rgba(255,255,255,0.62)', fontWeight: 700, letterSpacing: 1 }}>{stat.label}</Typography>
+                      <Typography variant="h5" sx={{ fontWeight: 800, color: i === 0 ? '#ffffff' : 'rgba(255,255,255,0.92)' }}>{stat.val}</Typography>
                     </Box>
                   ))}
                 </Stack>
@@ -982,7 +996,7 @@ const Home: React.FC = () => {
                   width: 300, 
                   height: 300, 
                   borderRadius: '50%', 
-                  bgcolor: 'rgba(255,255,255,0.05)',
+                  bgcolor: 'rgba(15,122,79,0.18)',
                   zIndex: 1
                 }} 
               />
@@ -992,7 +1006,7 @@ const Home: React.FC = () => {
             <Grid size={{ xs: 12, md: 7 }} sx={{ bgcolor: 'white', p: { xs: 5, md: 8 } }}>
               <Stack spacing={4}>
                 <Box>
-                  <Typography variant="h4" sx={{ fontWeight: 800, color: 'secondary.main' }}>
+                  <Typography variant="h4" sx={{ fontWeight: 800, color: brandBlue }}>
                     Send Us a Message
                   </Typography>
                   <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1 }}>
@@ -1070,7 +1084,9 @@ const Home: React.FC = () => {
                     fontSize: '1.1rem', 
                     fontWeight: 800, 
                     borderRadius: '15px',
-                    boxShadow: '0 20px 40px rgba(15,122,79,0.2)'
+                    bgcolor: brandBlue,
+                    background: `linear-gradient(135deg, ${brandBlue} 0%, ${brandGreen} 100%)`,
+                    boxShadow: '0 20px 40px rgba(0,27,94,0.18)'
                   }}
                 >
                   Send Request Now
@@ -1082,9 +1098,9 @@ const Home: React.FC = () => {
       </Box>
 
       {/* Industrial Projects Gallery Slider - BEAUTIFIED */}
-      <Box sx={{ py: 12, bgcolor: '#ffffff', borderTop: '1px solid rgba(15,122,79,0.05)' }}>
+      <Box sx={{ py: 12, bgcolor: softBlue, borderTop: '1px solid rgba(0,27,94,0.08)' }}>
         <Container maxWidth="xl">
-          <Typography variant="overline" sx={{ display: 'block', textAlign: 'center', color: 'primary.main', fontWeight: 800, mb: 6, letterSpacing: 3 }}>
+          <Typography variant="overline" sx={{ display: 'block', textAlign: 'center', color: brandBlue, fontWeight: 800, mb: 6, letterSpacing: 3 }}>
             OUR PRECISION PROJECTS
           </Typography>
           
@@ -1115,7 +1131,8 @@ const Home: React.FC = () => {
                     height: 280, 
                     borderRadius: '24px',
                     overflow: 'hidden',
-                    boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
+                    boxShadow: '0 22px 44px rgba(0,27,94,0.14)',
+                    border: '1px solid rgba(0,27,94,0.12)',
                     position: 'relative'
                   }}
                 >
@@ -1128,7 +1145,7 @@ const Home: React.FC = () => {
                     sx={{ 
                       position: 'absolute', 
                       inset: 0, 
-                      background: 'linear-gradient(to top, rgba(13,63,43,0.4) 0%, transparent 50%)'
+                      background: `linear-gradient(to top, rgba(0,27,94,0.54) 0%, rgba(15,122,79,0.20) 55%, transparent 100%)`
                     }} 
                   />
                 </Box>
@@ -1136,14 +1153,14 @@ const Home: React.FC = () => {
             </MotionBox>
             
             {/* Soft gradient masks for the edges */}
-            <Box sx={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: 200, background: 'linear-gradient(90deg, #ffffff 10%, transparent 100%)', zIndex: 2 }} />
-            <Box sx={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: 200, background: 'linear-gradient(-90deg, #ffffff 10%, transparent 100%)', zIndex: 2 }} />
+            <Box sx={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: 200, background: `linear-gradient(90deg, ${softBlue} 10%, transparent 100%)`, zIndex: 2 }} />
+            <Box sx={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: 200, background: `linear-gradient(-90deg, ${softBlue} 10%, transparent 100%)`, zIndex: 2 }} />
           </Box>
         </Container>
       </Box>
 
       {/* CTA Bar above Footer */}
-      <Box sx={{ bgcolor: 'primary.main', py: 4 }}>
+      <Box sx={{ bgcolor: brandBlue, background: `linear-gradient(135deg, ${brandBlue} 40%, ${brandGreenDark} 60%)`, py: 4 }}>
         <Container maxWidth="lg">
           <Stack 
             direction={{ xs: 'column', md: 'row' }} 
@@ -1151,7 +1168,7 @@ const Home: React.FC = () => {
             sx={{ justifyContent: 'space-between', alignItems: 'center' }}
           >
             <Stack direction="row" spacing={3} sx={{ alignItems: 'center' }}>
-              <Box sx={{ width: 60, height: 60, borderRadius: '50%', bgcolor: 'white', color: 'primary.main', display: 'grid', placeItems: 'center', boxShadow: '0 10px 20px rgba(15,122,79,0.1)' }}>
+              <Box sx={{ width: 60, height: 60, borderRadius: '50%', bgcolor: 'white', color: brandBlue, display: 'grid', placeItems: 'center', boxShadow: '0 10px 20px rgba(0,27,94,0.18)' }}>
                 <MessageSquare size={30} />
               </Box>
               <Typography variant="h5" sx={{ color: 'white', fontWeight: 800 }}>
@@ -1161,12 +1178,12 @@ const Home: React.FC = () => {
             <Button 
               variant="contained" 
               sx={{ 
-                bgcolor: 'secondary.main', 
+                bgcolor: brandGreen, 
                 color: 'white', 
                 px: 4, 
                 py: 1.5, 
                 borderRadius: '50px',
-                '&:hover': { bgcolor: 'secondary.dark' }
+                '&:hover': { bgcolor: brandGreenDark }
               }}
             >
               Contact Us
