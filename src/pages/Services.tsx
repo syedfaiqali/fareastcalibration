@@ -11,6 +11,16 @@ const brandGreen = '#0f7a4f';
 const brandGreenDark = '#0d3f2b';
 const softBlue = '#edf5ff';
 
+const serviceVisuals = [
+  'https://images.unsplash.com/photo-1565043589221-1bb8b8f2e3d1?auto=format&fit=crop&w=1000&q=80',
+  'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1000&q=80',
+  'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1000&q=80',
+  'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1000&q=80',
+  'https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=1000&q=80',
+  'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80',
+  'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1000&q=80',
+];
+
 const Services: React.FC = () => {
   return (
     <Box
@@ -51,177 +61,268 @@ const Services: React.FC = () => {
           </Typography>
         </Stack>
 
-        <Grid container spacing={3.5} sx={{ position: 'relative', zIndex: 1, alignItems: 'stretch' }}>
+        <Stack spacing={{ xs: 5, md: 7 }} sx={{ position: 'relative', zIndex: 1 }}>
           {serviceGroups.map((service, index) => {
             const Icon = service.icon;
+            const reverse = index % 2 === 1;
+
             return (
-              <Grid key={service.title} id={service.anchor} size={{ xs: 12, sm: 6, md: 4 }} sx={{ scrollMarginTop: 120 }}>
-                <MotionPaper
-                  whileHover={{ y: -10, boxShadow: '0 34px 80px rgba(0,27,94,0.18)' }}
-                  sx={{
-                    height: '100%',
-                    minHeight: 520,
-                    borderRadius: 2,
-                    bgcolor: '#ffffff',
-                    border: '1px solid rgba(0,27,94,0.12)',
-                    boxShadow: '0 20px 54px rgba(0,27,94,0.10)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    position: 'relative',
-                    overflow: 'hidden',
-                    '&::before': {
-                      content: '""',
-                      position: 'absolute',
-                      inset: 0,
-                      pointerEvents: 'none',
-                      background:
-                        'linear-gradient(135deg, rgba(15,122,79,0.10) 0%, transparent 28%), linear-gradient(180deg, transparent 0%, rgba(237,245,255,0.72) 100%)',
-                      opacity: 0.72,
-                    },
-                  }}
-                >
-                  <Box
-                    sx={{
-                      position: 'relative',
-                      minHeight: 168,
-                      p: 3,
-                      color: 'white',
-                      overflow: 'hidden',
-                      background:
-                        index % 2 === 0
-                          ? `linear-gradient(135deg, ${brandBlue} 0%, #08376f 48%, ${brandGreenDark} 100%)`
-                          : `linear-gradient(135deg, ${brandGreenDark} 0%, ${brandGreen} 52%, ${brandBlue} 100%)`,
-                      '&::before': {
-                        content: '""',
-                        position: 'absolute',
-                        inset: 0,
-                        opacity: 0.18,
-                        background:
-                          'linear-gradient(rgba(255,255,255,0.16) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.14) 1px, transparent 1px)',
-                        backgroundSize: '28px 28px',
-                      },
-                    }}
-                  >
-                    <Icon
-                      size={150}
-                      strokeWidth={1.3}
-                      style={{
-                        position: 'absolute',
-                        right: -28,
-                        bottom: -34,
-                        opacity: 0.13,
-                      }}
-                    />
-                    <Stack spacing={2.5} sx={{ position: 'relative', zIndex: 1 }}>
-                      <Stack direction="row" sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
-                        <Typography variant="caption" sx={{ color: 'rgba(255,255,255,0.72)', fontWeight: 900, letterSpacing: 2 }}>
-                          SERVICE {String(index + 1).padStart(2, '0')}
-                        </Typography>
-                        <Box
-                          sx={{
-                            width: 54,
-                            height: 54,
-                            borderRadius: 2,
-                            bgcolor: 'rgba(255,255,255,0.12)',
-                            border: '1px solid rgba(255,255,255,0.22)',
-                            display: 'grid',
-                            placeItems: 'center',
-                            boxShadow: '0 18px 36px rgba(0,0,0,0.18)',
-                          }}
-                        >
-                          <Icon size={28} />
-                        </Box>
-                      </Stack>
-                      <Typography variant="h5" sx={{ fontWeight: 900, lineHeight: 1.15, maxWidth: 250 }}>
-                        {service.title}
-                      </Typography>
-                    </Stack>
-                  </Box>
-
-                  <Stack spacing={3} sx={{ p: { xs: 3, md: 3.5 }, position: 'relative', zIndex: 1, flexGrow: 1 }}>
-                    <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.85 }}>
-                      {service.summary}
-                    </Typography>
-
-                    <Stack spacing={1.5}>
-                      <Stack direction="row" sx={{ alignItems: 'center', justifyContent: 'space-between', gap: 2 }}>
-                        <Typography variant="caption" sx={{ fontWeight: 900, color: brandGreen, letterSpacing: 1.3 }}>
-                          CORE CAPABILITIES
-                        </Typography>
-                        <Box sx={{ height: 1, flex: 1, bgcolor: 'rgba(0,27,94,0.10)' }} />
-                      </Stack>
-
-                      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                        {service.items.map((item) => (
-                          <Chip
-                            key={item}
-                            icon={<BadgeCheck size={15} />}
-                            label={item}
-                            size="small"
-                            sx={{
-                              maxWidth: '100%',
-                              height: 'auto',
-                              minHeight: 32,
-                              borderRadius: 1.5,
-                              bgcolor: 'rgba(15,122,79,0.08)',
-                              border: '1px solid rgba(15,122,79,0.14)',
-                              color: '#17352b',
-                              fontWeight: 700,
-                              '& .MuiChip-label': {
-                                display: 'block',
-                                whiteSpace: 'normal',
-                                py: 0.6,
-                                lineHeight: 1.35,
-                              },
-                              '& .MuiChip-icon': {
-                                color: brandGreen,
-                                ml: 1,
-                              },
-                            }}
-                          />
-                        ))}
-                      </Box>
-                    </Stack>
-                  </Stack>
-
-                  <Box
-                    sx={{
-                      p: { xs: 3, md: 3.5 },
-                      pt: 0,
-                      position: 'relative',
-                      zIndex: 1,
-                    }}
-                  >
-                    <Button
-                      component="a"
-                      href="mailto:fareastcalibration@gmail.com"
-                      fullWidth
-                      variant="contained"
-                      endIcon={<ArrowRight size={18} />}
+              <MotionPaper
+                key={service.title}
+                id={service.anchor}
+                initial={{ opacity: 0, y: 42, scale: 0.98 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, amount: 0.24 }}
+                transition={{ duration: 0.65, ease: 'easeOut' }}
+                whileHover={{ y: -8 }}
+                sx={{
+                  scrollMarginTop: 120,
+                  borderRadius: { xs: 3, md: 5 },
+                  overflow: 'hidden',
+                  bgcolor: '#ffffff',
+                  border: '1px solid rgba(0,27,94,0.12)',
+                  boxShadow: '0 28px 80px rgba(0,27,94,0.14)',
+                  position: 'relative',
+                  '&:hover .service-image': {
+                    transform: 'scale(1.08)',
+                  },
+                  '&:hover .service-orbit': {
+                    transform: 'rotate(20deg) scale(1.04)',
+                  },
+                }}
+              >
+                <Grid container sx={{ minHeight: { xs: 'auto', md: 520 } }}>
+                  <Grid size={{ xs: 12, md: 5 }} sx={{ order: { xs: 1, md: reverse ? 2 : 1 } }}>
+                    <Box
                       sx={{
-                        justifyContent: 'space-between',
-                        py: 1.45,
-                        px: 2.25,
-                        borderRadius: 1.5,
-                        fontWeight: 900,
+                        minHeight: { xs: 300, md: 520 },
+                        height: '100%',
+                        position: 'relative',
+                        overflow: 'hidden',
                         bgcolor: brandBlue,
-                        background: `linear-gradient(135deg, ${brandBlue} 0%, ${brandGreenDark} 100%)`,
-                        boxShadow: '0 16px 34px rgba(0,27,94,0.18)',
-                        '&:hover': {
-                          bgcolor: brandGreenDark,
-                          boxShadow: '0 20px 44px rgba(0,27,94,0.24)',
-                        },
                       }}
                     >
-                      Request this service
-                    </Button>
-                  </Box>
-                </MotionPaper>
-              </Grid>
+                      <Box
+                        className="service-image"
+                        component="img"
+                        src={serviceVisuals[index % serviceVisuals.length]}
+                        alt={service.title}
+                        sx={{
+                          width: '100%',
+                          height: '100%',
+                          minHeight: { xs: 300, md: 520 },
+                          objectFit: 'cover',
+                          transition: 'transform 900ms ease',
+                          filter: 'saturate(0.94) contrast(1.04)',
+                        }}
+                      />
+                      <Box
+                        sx={{
+                          position: 'absolute',
+                          inset: 0,
+                          background:
+                            'linear-gradient(135deg, rgba(0,27,94,0.78), rgba(15,122,79,0.30) 52%, rgba(13,63,43,0.82))',
+                        }}
+                      />
+                      <Box
+                        className="service-orbit"
+                        sx={{
+                          position: 'absolute',
+                          right: reverse ? 'auto' : -70,
+                          left: reverse ? -70 : 'auto',
+                          bottom: -70,
+                          width: 260,
+                          height: 260,
+                          borderRadius: '50%',
+                          border: '1px dashed rgba(255,255,255,0.34)',
+                          boxShadow: '0 0 0 28px rgba(255,255,255,0.06), 0 0 0 56px rgba(140,224,182,0.06)',
+                          transition: 'transform 900ms ease',
+                        }}
+                      />
+                      <Icon
+                        size={210}
+                        strokeWidth={1}
+                        style={{
+                          position: 'absolute',
+                          right: reverse ? 'auto' : 22,
+                          left: reverse ? 22 : 'auto',
+                          bottom: 18,
+                          opacity: 0.2,
+                          color: 'white',
+                        }}
+                      />
+                      <Stack
+                        spacing={1}
+                        sx={{
+                          position: 'absolute',
+                          left: 28,
+                          right: 28,
+                          top: 28,
+                          color: 'white',
+                        }}
+                      >
+                        <Typography variant="caption" sx={{ fontWeight: 900, letterSpacing: 2.4, color: '#8ce0b6' }}>
+                          SERVICE {String(index + 1).padStart(2, '0')}
+                        </Typography>
+                        <Typography variant="h4" sx={{ fontWeight: 900, lineHeight: 1.05, maxWidth: 330 }}>
+                          {service.title}
+                        </Typography>
+                      </Stack>
+                    </Box>
+                  </Grid>
+
+                  <Grid size={{ xs: 12, md: 7 }} sx={{ order: { xs: 2, md: reverse ? 1 : 2 } }}>
+                    <Stack
+                      spacing={3}
+                      sx={{
+                        height: '100%',
+                        justifyContent: 'center',
+                        p: { xs: 3.5, md: 5.5 },
+                        background:
+                          reverse
+                            ? 'linear-gradient(135deg, #ffffff 0%, #f4fbf7 52%, #edf5ff 100%)'
+                            : 'linear-gradient(135deg, #ffffff 0%, #edf5ff 52%, #f4fbf7 100%)',
+                        position: 'relative',
+                        overflow: 'hidden',
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          position: 'absolute',
+                          right: -70,
+                          top: -70,
+                          width: 220,
+                          height: 220,
+                          borderRadius: '50%',
+                          bgcolor: 'rgba(15,122,79,0.07)',
+                        }}
+                      />
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: 92 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.65, delay: 0.18 }}
+                        style={{
+                          height: 5,
+                          borderRadius: 999,
+                          background: `linear-gradient(90deg, ${brandGreen}, ${brandBlue})`,
+                        }}
+                      />
+                      <Box sx={{ position: 'relative', zIndex: 1 }}>
+                        <Typography variant="overline" sx={{ color: brandGreen, fontWeight: 900, letterSpacing: 2.4 }}>
+                          Premium Calibration Support
+                        </Typography>
+                        <Typography
+                          variant="h3"
+                          sx={{
+                            mt: 1,
+                            color: brandBlue,
+                            fontWeight: 900,
+                            lineHeight: 1.08,
+                            maxWidth: 720,
+                          }}
+                        >
+                          {service.title}
+                        </Typography>
+                      </Box>
+
+                      <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.9, maxWidth: 760, position: 'relative', zIndex: 1 }}>
+                        {service.summary}
+                      </Typography>
+
+                      <Stack spacing={1.5} sx={{ position: 'relative', zIndex: 1 }}>
+                        <Stack direction="row" sx={{ alignItems: 'center', gap: 1.5 }}>
+                          <Typography variant="caption" sx={{ fontWeight: 900, color: brandGreen, letterSpacing: 1.3 }}>
+                            CAPABILITIES
+                          </Typography>
+                          <Box sx={{ height: 1, flex: 1, bgcolor: 'rgba(0,27,94,0.12)' }} />
+                        </Stack>
+
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                          {service.items.map((item, itemIndex) => (
+                            <Box
+                              key={item}
+                              component={motion.div}
+                              initial={{ opacity: 0, y: 12 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.35, delay: Math.min(itemIndex * 0.025, 0.18) }}
+                            >
+                              <Chip
+                                icon={<BadgeCheck size={15} />}
+                                label={item}
+                                size="small"
+                                sx={{
+                                  maxWidth: '100%',
+                                  height: 'auto',
+                                  minHeight: 34,
+                                  borderRadius: 1.5,
+                                  bgcolor: 'rgba(15,122,79,0.08)',
+                                  border: '1px solid rgba(15,122,79,0.14)',
+                                  color: '#17352b',
+                                  fontWeight: 800,
+                                  '& .MuiChip-label': {
+                                    display: 'block',
+                                    whiteSpace: 'normal',
+                                    py: 0.65,
+                                    lineHeight: 1.35,
+                                  },
+                                  '& .MuiChip-icon': {
+                                    color: brandGreen,
+                                    ml: 1,
+                                  },
+                                }}
+                              />
+                            </Box>
+                          ))}
+                        </Box>
+                      </Stack>
+
+                      <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.5} sx={{ pt: 1, position: 'relative', zIndex: 1 }}>
+                        <Button
+                          component="a"
+                          href="mailto:fareastcalibration@gmail.com"
+                          variant="contained"
+                          endIcon={<ArrowRight size={18} />}
+                          sx={{
+                            py: 1.55,
+                            px: 3,
+                            borderRadius: 1.5,
+                            fontWeight: 900,
+                            bgcolor: brandBlue,
+                            background: `linear-gradient(135deg, ${brandBlue} 0%, ${brandGreenDark} 100%)`,
+                            boxShadow: '0 16px 34px rgba(0,27,94,0.18)',
+                          }}
+                        >
+                          Request this service
+                        </Button>
+                        <Button
+                          component="a"
+                          href="tel:+62778351831"
+                          variant="outlined"
+                          sx={{
+                            py: 1.55,
+                            px: 3,
+                            borderRadius: 1.5,
+                            fontWeight: 900,
+                            color: brandBlue,
+                            borderColor: 'rgba(0,27,94,0.20)',
+                            '&:hover': {
+                              borderColor: brandGreen,
+                              bgcolor: 'rgba(15,122,79,0.06)',
+                            },
+                          }}
+                        >
+                          Talk to specialist
+                        </Button>
+                      </Stack>
+                    </Stack>
+                  </Grid>
+                </Grid>
+              </MotionPaper>
             );
           })}
-        </Grid>
+        </Stack>
       </Container>
 
       {/* Workflow Section */}

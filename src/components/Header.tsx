@@ -9,8 +9,6 @@ import {
   Container,
   Drawer,
   Divider,
-  Menu as MuiMenu,
-  MenuItem as MuiMenuItem,
   List,
   ListItem,
   ListItemText,
@@ -19,28 +17,18 @@ import {
 } from '@mui/material';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { LayoutGroup, motion, useScroll, useSpring } from 'framer-motion';
-import { ArrowRight, ChevronDown, Mail, Menu, PhoneCall, X } from 'lucide-react';
-import { navigation, serviceMenuLinks } from '../data/siteContent';
+import { ArrowRight, Mail, Menu, PhoneCall, X } from 'lucide-react';
+import { navigation } from '../data/siteContent';
 import logoKanan from '../assets/logokanan.png';
 
 const Header: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [serviceMenuAnchor, setServiceMenuAnchor] = useState<HTMLElement | null>(null);
   const location = useLocation();
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, { stiffness: 140, damping: 30, restDelta: 0.001 });
-  const serviceMenuOpen = Boolean(serviceMenuAnchor);
 
   const handleDrawerToggle = () => {
     setMobileOpen((value) => !value);
-  };
-
-  const handleServiceMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setServiceMenuAnchor(event.currentTarget);
-  };
-
-  const handleServiceMenuClose = () => {
-    setServiceMenuAnchor(null);
   };
 
   const drawer = (
@@ -120,10 +108,7 @@ const Header: React.FC = () => {
                         bgcolor: active ? 'rgba(15,122,79,0.08)' : 'transparent',
                       }}
                     >
-                      <Stack direction="row" spacing={0.75} sx={{ alignItems: 'center' }}>
-                        <Box component="span">{item.label}</Box>
-                        {item.label === 'Services' && <ChevronDown size={14} />}
-                      </Stack>
+                      {item.label}
                     </Button>
                   }
                 />
@@ -134,31 +119,6 @@ const Header: React.FC = () => {
       </List>
 
       <Divider sx={{ my: 1.75 }} />
-
-      <Typography variant="overline" sx={{ color: 'text.secondary', fontWeight: 700, letterSpacing: 1 }}>
-        Service links
-      </Typography>
-      <Stack spacing={0.5} sx={{ mt: 1 }}>
-        {serviceMenuLinks.map((item) => (
-          <Button
-            key={item.label}
-            component={RouterLink}
-            to={item.path}
-            fullWidth
-            sx={{
-              justifyContent: 'flex-start',
-              color: 'text.primary',
-              fontWeight: 500,
-              py: 1.05,
-              px: 1.2,
-              borderRadius: 2,
-              '&:hover': { bgcolor: 'rgba(15,122,79,0.06)' },
-            }}
-          >
-            {item.label}
-          </Button>
-        ))}
-      </Stack>
     </Box>
   );
 
@@ -316,36 +276,6 @@ const Header: React.FC = () => {
                   const active = item.label === 'Services'
                     ? location.pathname.startsWith('/services')
                     : location.pathname === item.path;
-                  if (item.label === 'Services') {
-                    return (
-                      <Box
-                        key={item.label}
-                        component={motion.div}
-                        whileHover={{ y: -1 }}
-                        whileTap={{ scale: 0.98 }}
-                      >
-                        <Button
-                          onClick={handleServiceMenuOpen}
-                          sx={{
-                            color: active ? 'primary.main' : 'text.primary',
-                            fontWeight: active ? 700 : 500,
-                            px: 2.2,
-                            py: 1.2,
-                            whiteSpace: 'nowrap',
-                            borderRadius: 999,
-                            bgcolor: active ? 'rgba(15,122,79,0.08)' : 'transparent',
-                            '&:hover': { bgcolor: 'rgba(15,122,79,0.06)' },
-                          }}
-                        >
-                          <Stack direction="row" spacing={0.6} sx={{ alignItems: 'center' }}>
-                            <Box component="span">{item.label}</Box>
-                            <ChevronDown size={14} />
-                          </Stack>
-                        </Button>
-                      </Box>
-                    );
-                  }
-
                   return (
                     <Box
                       key={item.label}
@@ -407,36 +337,6 @@ const Header: React.FC = () => {
                 </Box>
               </Box>
             </LayoutGroup>
-
-            <MuiMenu
-              anchorEl={serviceMenuAnchor}
-              open={serviceMenuOpen}
-              onClose={handleServiceMenuClose}
-              slotProps={{
-                paper: {
-                  sx: {
-                    mt: 1.25,
-                    borderRadius: 3,
-                    border: '1px solid rgba(15,122,79,0.10)',
-                    boxShadow: '0 18px 40px rgba(15,40,28,0.12)',
-                    minWidth: 280,
-                    overflow: 'hidden',
-                  },
-                },
-              }}
-            >
-              {serviceMenuLinks.map((item) => (
-                <MuiMenuItem
-                  key={item.label}
-                  component={RouterLink}
-                  to={item.path}
-                  onClick={handleServiceMenuClose}
-                  sx={{ py: 1.2, fontSize: 14, fontWeight: 500 }}
-                >
-                  {item.label}
-                </MuiMenuItem>
-              ))}
-            </MuiMenu>
 
             <IconButton
               color="inherit"
