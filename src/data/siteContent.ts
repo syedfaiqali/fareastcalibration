@@ -138,7 +138,7 @@ export const serviceGroups = [
     title: 'Flow Meter Calibration',
     icon: ThermometerSun,
     summary:
-      'Our master flow meter test bench is German technology with computerized display and accredited from maker factory with high accuracy. The system is equipped with various air separators and control valves for better accuracy result.',
+      'Keep every transfer, process line, and utility reading under control with precision flow calibration supported by a computerized German technology test bench, air separators, and control valves for stable, dependable results.',
     items: ['Manual flow meters', 'Ultrasonic flow meters', 'Turbine flow meters', 'Magnetic flow meters'],
   },
   {
@@ -146,7 +146,7 @@ export const serviceGroups = [
     title: 'Pressure Calibration',
     icon: Gauge,
     summary:
-      'Fareast calibration also capable for the test and calibration of all type of industrial pressure instruments.',
+      'Protect your process, safety systems, and inspection records with accurate pressure calibration for industrial gauges, transmitters, switches, and testing equipment handled by experienced technicians.',
     items: ['Bunker Hose pressure testing', 'Digital pressure gauges testing', 'Pressure switches testing', 'Pressure transmitters testing', 'Dead weight tester', 'Pressure transducer testing', 'Barometer testing', 'Pressure indicator testing'],
   },
   {
@@ -154,7 +154,7 @@ export const serviceGroups = [
     title: 'Temperature Calibration',
     icon: Ruler,
     summary:
-      'Fareast calibration also have a wide range of temperature instruments calibration &  testing service.',
+      'From production ovens to sensitive measuring instruments, we help your team trust every temperature reading with careful calibration, testing, and traceable documentation.',
     items: ['Analog temperature indicators', 'Digital thermometers', 'Oven ,Baking testing', 'Thermocouples', 'Thermo hygrometer etc.', 'RTD testing'],
   },
   {
@@ -162,7 +162,7 @@ export const serviceGroups = [
     title: 'Dimensional Calibration',
     icon: Zap,
     summary:
-      'Fareast calibration also offer a wide range of industrial dimensional instruments calibration.',
+      'Improve inspection confidence with dimensional calibration for hand tools, gauges, and precision measuring instruments used in daily quality control and production checks.',
     items: ['Vernir  /dial / digital caliper', 'Micrometer', 'Caliper checker/gauge block/length bars', 'Dial gauge/tester', 'Height gauge/Precision height master', 'Dimensional hand tools calibration', 'Plug gauge/pin gauge/Bore gauge'],
   },
   {
@@ -170,7 +170,7 @@ export const serviceGroups = [
     title: 'Mass Calibration',
     icon: FlaskConical,
     summary:
-      'Fareast calibration also capable to calibrate all type of weighing and balance scale with internationally tested load.',
+      'Make every weighing decision reliable with calibration for scales, balances, load cells, and indicators using tested reference loads and practical service support.',
     items: ['All type of weighing scales', 'Bench scales', 'Weight indicators', 'Floor scales', 'Post, Mail, and shipping scales', 'Load cells.', 'Lab balance.'],
   },
   {
@@ -178,7 +178,7 @@ export const serviceGroups = [
     title: 'Electrical Calibration',
     icon: Droplets,
     summary:
-      'Fareast calibration is also have a wide range of industrial electric instrument testing and calibration service.',
+      'Reduce downtime and keep electrical troubleshooting accurate with calibration and testing for meters, testers, calibrators, analyzers, and process instruments.',
     items: ['Frequency Meter /Counter', 'LCR / Capacitance/ Resistance /Inductance Meter', 'Timer/ Stop Watch', 'Mega Ohm /Milli Ohm Meter', 'Sound Level Meter/ Lux Meter', 'Vibration Meter', 'PH /Conductivity/ TDS Meter', 'Tachometer/Stroboscope', 'Digital / Analog Multimeter', 'Clampmeter', 'Multifunction Calibrator', 'Oscilloscope / Scope Meter', 'AC/DC Power Supply/ Power Meter', 'Ammeter / Voltmeter / Kilowatt Meter', 'High Voltage Meter/ Probe', 'Insulation Tester/ Megger'],
   },
   {
@@ -186,7 +186,7 @@ export const serviceGroups = [
     title: 'General Calibration',
     icon: Factory,
     summary:
-      'Onboard calibration and testing for marine and industrial customers, including hose testing, noise, vibration, flow, and gas detection.',
+      'Bring calibration support directly to your vessel, plant, or worksite with practical onboard and industrial testing for safety, maintenance, inspection, and compliance needs.',
     items: ['OWS Calibration on vessel on site', 'Noise level survey on vessel on site', 'Thickness gauge testing on vessel on site', 'Vibration test', 'Safety device testing', 'Valves pressure testing', 'Safety relief valves calibration', 'Fire Alarm testing'],
   },
 ];
