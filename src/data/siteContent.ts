@@ -134,71 +134,71 @@ export const homeGallery = [
 
 export const serviceGroups = [
   {
-    anchor: 'thermal-calibration',
-    title: 'Thermal Calibration',
+    anchor: 'flowM-calibration',
+    title: 'Flow Meter Calibration',
     icon: ThermometerSun,
     summary:
-      'Temperature and humidity calibration for sensors, indicators, sources, ovens, furnaces, chambers, baths, and environmental monitors.',
-    items: ['Glass thermometers', 'Thermocouples and RTDs', 'IR thermometers and black body sources', 'Ovens, furnaces, chambers and baths'],
+      'Our master flow meter test bench is German technology with computerized display and accredited from maker factory with high accuracy. The system is equipped with various air separators and control valves for better accuracy result.',
+    items: ['Manual flow meters', 'Ultrasonic flow meters', 'Turbine flow meters', 'Magnetic flow meters'],
   },
   {
-    anchor: 'mechanical-calibration',
-    title: 'Mechanical Calibration',
+    anchor: 'pressure-calibration',
+    title: 'Pressure Calibration',
     icon: Gauge,
     summary:
-      'Pressure, vacuum, torque, hardness, flow, weighing, and mechanical instrument calibration for industrial operations.',
-    items: ['Pressure and vacuum gauges', 'Manometers and pressure calibrators', 'Torque tools and hardness testers', 'Flow meters, weights and balances'],
+      'Fareast calibration also capable for the test and calibration of all type of industrial pressure instruments.',
+    items: ['Bunker Hose pressure testing', 'Digital pressure gauges testing', 'Pressure switches testing', 'Pressure transmitters testing', 'Dead weight tester', 'Pressure transducer testing', 'Barometer testing', 'Pressure indicator testing'],
   },
   {
-    anchor: 'dimensional',
-    title: 'Dimensional Calibration',
+    anchor: 'temperature-calibration',
+    title: 'Temperature Calibration',
     icon: Ruler,
     summary:
-      'Dimensional calibration for measuring tools used by production, inspection, maintenance, and quality teams.',
-    items: ['Calipers, height and depth gauges', 'Gauge blocks and micrometers', 'Dial gauges and bore gauges', 'Thickness, coating and ultrasonic gauges'],
+      'Fareast calibration also have a wide range of temperature instruments calibration &  testing service.',
+    items: ['Analog temperature indicators', 'Digital thermometers', 'Oven ,Baking testing', 'Thermocouples', 'Thermo hygrometer etc.', 'RTD testing'],
+  },
+  {
+    anchor: 'dimensional-calibration',
+    title: 'Dimensional Calibration',
+    icon: Zap,
+    summary:
+      'Fareast calibration also offer a wide range of industrial dimensional instruments calibration.',
+    items: ['Vernir  /dial / digital caliper', 'Micrometer', 'Caliper checker/gauge block/length bars', 'Dial gauge/tester', 'Height gauge/Precision height master', 'Dimensional hand tools calibration', 'Plug gauge/pin gauge/Bore gauge'],
+  },
+  {
+    anchor: 'mass-calibration',
+    title: 'Mass Calibration',
+    icon: FlaskConical,
+    summary:
+      'Fareast calibration also capable to calibrate all type of weighing and balance scale with internationally tested load.',
+    items: ['All type of weighing scales', 'Bench scales', 'Weight indicators', 'Floor scales', 'Post, Mail, and shipping scales', 'Load cells.', 'Lab balance.'],
   },
   {
     anchor: 'electrical-calibration',
     title: 'Electrical Calibration',
-    icon: Zap,
+    icon: Droplets,
     summary:
-      'Electrical calibration for measuring, testing, source, and inspection instruments across shop floors, vessels, and laboratories.',
-    items: ['Voltmeters, ammeters and multimeters', 'Clamp meters and oscilloscopes', 'LCR, power and watt meters', 'Process, mV and mA calibrators'],
+      'Fareast calibration is also have a wide range of industrial electric instrument testing and calibration service.',
+    items: ['Frequency Meter /Counter', 'LCR / Capacitance/ Resistance /Inductance Meter', 'Timer/ Stop Watch', 'Mega Ohm /Milli Ohm Meter', 'Sound Level Meter/ Lux Meter', 'Vibration Meter', 'PH /Conductivity/ TDS Meter', 'Tachometer/Stroboscope', 'Digital / Analog Multimeter', 'Clampmeter', 'Multifunction Calibrator', 'Oscilloscope / Scope Meter', 'AC/DC Power Supply/ Power Meter', 'Ammeter / Voltmeter / Kilowatt Meter', 'High Voltage Meter/ Probe', 'Insulation Tester/ Megger'],
   },
   {
     anchor: 'general-calibration',
     title: 'General Calibration',
-    icon: FlaskConical,
-    summary:
-      'Calibration support for analytical, environmental, safety, and portable test instruments used in daily operations.',
-    items: ['pH, TDS, hydrometer and viscosity tools', 'Tachometers, anemometers and lux meters', 'Sound, vibration and UV meters', 'Gas detectors, load cells and OWS tests'],
-  },
-  {
-    anchor: 'analytical-calibration',
-    title: 'Analytical Calibration',
-    icon: Droplets,
-    summary:
-      'Analytical instrument calibration using reference standards to verify readings, zero error, and operating accuracy.',
-    items: ['Viscometers and viscosity cups', 'Alcometers and hydrometers', 'pH and TDS meters', 'Chlorine and contamination meters'],
-  },
-  {
-    anchor: 'onboard-testing',
-    title: 'Onboard Calibration & Testing',
     icon: Factory,
     summary:
       'Onboard calibration and testing for marine and industrial customers, including hose testing, noise, vibration, flow, and gas detection.',
-    items: ['OWS and flow meter calibration', 'Bulk, fresh water and bunker hose testing', 'Noise and vibration surveys', 'Portable gas detector and scale testing'],
+    items: ['OWS Calibration on vessel on site', 'Noise level survey on vessel on site', 'Thickness gauge testing on vessel on site', 'Vibration test', 'Safety device testing', 'Valves pressure testing', 'Safety relief valves calibration', 'Fire Alarm testing'],
   },
 ];
 
 export const serviceMenuLinks = [
-  { label: 'Thermal Calibration', path: '/services#thermal-calibration' },
-  { label: 'Mechanical Calibration', path: '/services#mechanical-calibration' },
-  { label: 'Dimensional Calibration', path: '/services#dimensional' },
+  { label: 'Flow Meter Calibration', path: '/services#flowM-calibration' },
+  { label: 'Pressure Calibration', path: '/services#pressure-calibration' },
+  { label: 'Temperature Calibration', path: '/services#temperature-calibration' },
+  { label: 'Dimensional Calibration', path: '/services#dimensional-calibration' },
   { label: 'Electrical Calibration', path: '/services#electrical-calibration' },
+  { label: 'Mass Calibration', path: '/services#mass-calibration' },
   { label: 'General Calibration', path: '/services#general-calibration' },
-  { label: 'Analytical Calibration', path: '/services#analytical-calibration' },
-  { label: 'Onboard Testing', path: '/services#onboard-testing' },
 ];
 
 export const processSteps = [
