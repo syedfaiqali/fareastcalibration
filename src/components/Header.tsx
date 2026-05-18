@@ -31,6 +31,11 @@ const Header: React.FC = () => {
     setMobileOpen((value) => !value);
   };
 
+  const handleNavClick = () => {
+    setMobileOpen(false);
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  };
+
   const drawer = (
     <Box sx={{ p: 2.5 }}>
       <Stack direction="row" spacing={1.5} sx={{ mb: 3, alignItems: 'center' }}>
@@ -97,6 +102,7 @@ const Header: React.FC = () => {
                     <Button
                       component={RouterLink}
                       to={item.path}
+                      onClick={handleNavClick}
                       fullWidth
                       sx={{
                         color: active ? 'primary.main' : 'text.primary',
@@ -208,6 +214,7 @@ const Header: React.FC = () => {
             <Box
               component={RouterLink}
               to="/"
+              onClick={handleNavClick}
               sx={{
                 flexGrow: 1,
                 minWidth: 0,
@@ -286,6 +293,7 @@ const Header: React.FC = () => {
                       <Button
                         component={RouterLink}
                         to={item.path}
+                        onClick={handleNavClick}
                         sx={{
                           color: active ? 'primary.main' : 'text.primary',
                           fontWeight: active ? 700 : 500,
@@ -322,6 +330,7 @@ const Header: React.FC = () => {
                   <Button
                     component={RouterLink}
                     to="/contact"
+                    onClick={handleNavClick}
                     variant="contained"
                     color="primary"
                     endIcon={<ArrowRight size={16} />}
