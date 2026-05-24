@@ -24,7 +24,6 @@ import ourClient3 from '../assets/ourclient3.webp';
 import ourClient4 from '../assets/ourclient4.webp';
 import ourClient5 from '../assets/ourclient5.webp';
 import ourClient6 from '../assets/ourclient6.webp';
-import ourClient7 from '../assets/ourclient7.webp';
 import ourClient8 from '../assets/ourclient8.webp';
 import ourClient9 from '../assets/ourclient9.webp';
 import ourClient10 from '../assets/ourclient10.webp';
@@ -34,6 +33,28 @@ import ourClient14 from '../assets/ourclient14.webp';
 import ourClient15 from '../assets/ourclient15.webp';
 import ourClient16 from '../assets/ourclient16.webp';
 import ourClient17 from '../assets/ourclient17.webp';
+import labImage from '../assets/lab 1.webp';
+import analyticalImage from '../assets/analytical.webp';
+import analyticalBenchImage from '../assets/analytical 1.webp';
+import dimensionalImage from '../assets/dimensional 15.webp';
+import dimensionalBenchImage from '../assets/dimension 12.webp';
+import electricalImage from '../assets/electrical 11.webp';
+import electricalBenchImage from '../assets/e;ectrical 14.webp';
+import mechanicalImage from '../assets/mechanical 12.webp';
+import mechanicalBenchImage from '../assets/mechanical 7.webp';
+import pressureImage from '../assets/pressure 8.webp';
+import pressureBenchImage from '../assets/pressure.webp';
+import thermalImage from '../assets/thermal 10.webp';
+import thermalBenchImage from '../assets/thermal 9.webp';
+import generalImage from '../assets/general 5.webp';
+import generalBenchImage from '../assets/general 8.webp';
+import onsiteImage from '../assets/onsite 9.webp';
+import onsiteBenchImage from '../assets/onsite 1.webp';
+import teamImage from '../assets/IMG-20190318-WA0013.webp';
+import fieldTeamImage from '../assets/IMG-20230306-WA0054.webp';
+import inspectionImage from '../assets/DSC00437.webp';
+import calibrationBenchImage from '../assets/DSC00356.webp';
+import aboutHeroImage from '../assets/DSC00498.webp';
 
 export const navigation = [
   { label: 'Home', path: '/' },
@@ -63,73 +84,83 @@ export const heroStats = [
 export const heroSlides = [
   {
     title: 'PT. Fareast Calibration Services',
-    description: 'Temperature and humidity instruments calibrated for reliable process, chamber, oven, and environmental measurements.',
-    image:
-      '/fareastcalibrationLogo.jpeg',
+    description: 'Accredited calibration and testing support from our Batam laboratory for dependable industrial measurement confidence.',
+    image: aboutHeroImage,
+    objectPosition: '38% center',
   },
   {
     title: 'Thermal calibration',
     description: 'Temperature and humidity instruments calibrated for reliable process, chamber, oven, and environmental measurements.',
-    image:
-      'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1400&q=80',
+    image: thermalImage,
   },
   {
     title: 'Mechanical calibration',
     description: 'Pressure gauges, vacuum gauges, torque tools, flow meters, weights, and balances supported in lab or on site.',
-    image:
-      'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1400&q=80',
+    image: mechanicalImage,
   },
   {
     title: 'Dimensional calibration',
     description: 'Calipers, micrometers, gauge blocks, thickness gauges, and inspection tools calibrated for dependable accuracy.',
-    image:
-      'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1400&q=80',
+    image: dimensionalImage,
   },
   {
     title: 'Electrical calibration',
     description: 'Multimeters, clamp meters, oscilloscopes, power meters, testers, and process calibrators verified with care.',
-    image:
-      'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1400&q=80',
+    image: electricalImage,
   },
 ];
 
 export const homeGallery = [
   {
-    title: 'Flow calibration',
-    caption: 'Process and utility instruments',
-    image:
-      'https://images.unsplash.com/photo-1565043589221-1bb8b8f2e3d1?auto=format&fit=crop&w=1200&q=80',
+    title: 'Lab calibration bench',
+    caption: 'Traceable work carried out in controlled laboratory conditions',
+    image: labImage,
   },
   {
-    title: 'Inspection bench',
-    caption: 'Working surfaces and reference tools',
-    image:
-      'https://images.unsplash.com/photo-1530099486328-e021101a494a?auto=format&fit=crop&w=1200&q=80',
+    title: 'Dimensional inspection',
+    caption: 'Calipers, gauges, and hand tools checked for reliable accuracy',
+    image: dimensionalBenchImage,
   },
   {
-    title: 'Instrumentation details',
-    caption: 'Close-up technical precision',
-    image:
-      'https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=1200&q=80',
+    title: 'Electrical verification',
+    caption: 'Meters and test instruments verified against reference standards',
+    image: electricalBenchImage,
   },
   {
-    title: 'Lab workflow',
-    caption: 'Calibration and verification moment',
-    image:
-      'https://images.unsplash.com/photo-1518321745211-8e2a1f8b0d8d?auto=format&fit=crop&w=1200&q=80',
+    title: 'Pressure calibration',
+    caption: 'Industrial gauges and pressure instruments tested with care',
+    image: pressureImage,
   },
   {
-    title: 'Validation setup',
-    caption: 'Environment mapping and control',
-    image:
-      'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80',
+    title: 'Thermal calibration',
+    caption: 'Temperature and humidity instruments supported for process teams',
+    image: thermalBenchImage,
   },
   {
-    title: 'Service desk',
-    caption: 'Clear workflow, clear response',
-    image:
-      'https://images.unsplash.com/photo-1520607162513-0f2a2d5a0c6a?auto=format&fit=crop&w=1200&q=80',
+    title: 'Onsite support',
+    caption: 'Field service for onboard, plant, and maintenance requirements',
+    image: onsiteImage,
   },
+];
+
+export const aboutImages = {
+  intro: aboutHeroImage,
+  lab: labImage,
+  team: teamImage,
+  fieldTeam: fieldTeamImage,
+  inspection: inspectionImage,
+};
+
+export const projectGallery = [
+  { title: 'Analytical calibration', image: analyticalImage },
+  { title: 'Analytical instrument check', image: analyticalBenchImage },
+  { title: 'Electrical testing', image: electricalImage },
+  { title: 'Mechanical calibration', image: mechanicalBenchImage },
+  { title: 'Pressure gauge testing', image: pressureBenchImage },
+  { title: 'Thermal measurement', image: thermalImage },
+  { title: 'General calibration', image: generalBenchImage },
+  { title: 'Onsite service', image: onsiteBenchImage },
+  { title: 'Lab workflow', image: calibrationBenchImage },
 ];
 
 export const serviceGroups = [
@@ -137,6 +168,7 @@ export const serviceGroups = [
     anchor: 'flowM-calibration',
     title: 'Flow Meter Calibration',
     icon: ThermometerSun,
+    image: generalImage,
     summary:
       'Keep every transfer, process line, and utility reading under control with precision flow calibration supported by a computerized German technology test bench, air separators, and control valves for stable, dependable results.',
     items: ['Manual flow meters', 'Ultrasonic flow meters', 'Turbine flow meters', 'Magnetic flow meters'],
@@ -145,6 +177,7 @@ export const serviceGroups = [
     anchor: 'pressure-calibration',
     title: 'Pressure Calibration',
     icon: Gauge,
+    image: pressureImage,
     summary:
       'Protect your process, safety systems, and inspection records with accurate pressure calibration for industrial gauges, transmitters, switches, and testing equipment handled by experienced technicians.',
     items: ['Bunker Hose pressure testing', 'Digital pressure gauges testing', 'Pressure switches testing', 'Pressure transmitters testing', 'Dead weight tester', 'Pressure transducer testing', 'Barometer testing', 'Pressure indicator testing'],
@@ -153,6 +186,7 @@ export const serviceGroups = [
     anchor: 'temperature-calibration',
     title: 'Temperature Calibration',
     icon: Ruler,
+    image: thermalImage,
     summary:
       'From production ovens to sensitive measuring instruments, we help your team trust every temperature reading with careful calibration, testing, and traceable documentation.',
     items: ['Analog temperature indicators', 'Digital thermometers', 'Oven ,Baking testing', 'Thermocouples', 'Thermo hygrometer etc.', 'RTD testing'],
@@ -161,6 +195,7 @@ export const serviceGroups = [
     anchor: 'dimensional-calibration',
     title: 'Dimensional Calibration',
     icon: Zap,
+    image: dimensionalImage,
     summary:
       'Improve inspection confidence with dimensional calibration for hand tools, gauges, and precision measuring instruments used in daily quality control and production checks.',
     items: ['Vernir  /dial / digital caliper', 'Micrometer', 'Caliper checker/gauge block/length bars', 'Dial gauge/tester', 'Height gauge/Precision height master', 'Dimensional hand tools calibration', 'Plug gauge/pin gauge/Bore gauge'],
@@ -169,6 +204,7 @@ export const serviceGroups = [
     anchor: 'mass-calibration',
     title: 'Mass Calibration',
     icon: FlaskConical,
+    image: mechanicalImage,
     summary:
       'Make every weighing decision reliable with calibration for scales, balances, load cells, and indicators using tested reference loads and practical service support.',
     items: ['All type of weighing scales', 'Bench scales', 'Weight indicators', 'Floor scales', 'Post, Mail, and shipping scales', 'Load cells.', 'Lab balance.'],
@@ -177,6 +213,7 @@ export const serviceGroups = [
     anchor: 'electrical-calibration',
     title: 'Electrical Calibration',
     icon: Droplets,
+    image: electricalImage,
     summary:
       'Reduce downtime and keep electrical troubleshooting accurate with calibration and testing for meters, testers, calibrators, analyzers, and process instruments.',
     items: ['Frequency Meter /Counter', 'LCR / Capacitance/ Resistance /Inductance Meter', 'Timer/ Stop Watch', 'Mega Ohm /Milli Ohm Meter', 'Sound Level Meter/ Lux Meter', 'Vibration Meter', 'PH /Conductivity/ TDS Meter', 'Tachometer/Stroboscope', 'Digital / Analog Multimeter', 'Clampmeter', 'Multifunction Calibrator', 'Oscilloscope / Scope Meter', 'AC/DC Power Supply/ Power Meter', 'Ammeter / Voltmeter / Kilowatt Meter', 'High Voltage Meter/ Probe', 'Insulation Tester/ Megger'],
@@ -185,6 +222,7 @@ export const serviceGroups = [
     anchor: 'general-calibration',
     title: 'General Calibration',
     icon: Factory,
+    image: onsiteImage,
     summary:
       'Bring calibration support directly to your vessel, plant, or worksite with practical onboard and industrial testing for safety, maintenance, inspection, and compliance needs.',
     items: ['OWS Calibration on vessel on site', 'Noise level survey on vessel on site', 'Thickness gauge testing on vessel on site', 'Vibration test', 'Safety device testing', 'Valves pressure testing', 'Safety relief valves calibration', 'Fire Alarm testing'],
@@ -281,22 +319,21 @@ export const testimonials = [
 ];
 
 export const clients = [
-  { name: 'Client 1', logo: ourClient1 },
-  { name: 'Client 2', logo: ourClient2 },
-  { name: 'Client 3', logo: ourClient3 },
-  { name: 'Client 4', logo: ourClient4 },
-  { name: 'Client 5', logo: ourClient5 },
-  { name: 'Client 6', logo: ourClient6 },
-  { name: 'Client 7', logo: ourClient7 },
-  { name: 'Client 8', logo: ourClient8 },
-  { name: 'Client 9', logo: ourClient9 },
-  { name: 'Client 10', logo: ourClient10 },
-  { name: 'Client 11', logo: ourClient11 },
-  { name: 'Client 12', logo: ourClient12 },
-  { name: 'Client 14', logo: ourClient14 },
-  { name: 'Client 15', logo: ourClient15 },
-  { name: 'Client 16', logo: ourClient16 },
-  { name: 'Client 17', logo: ourClient17 },
+  { name: 'Batamec Shipyard', logo: ourClient1 },
+  { name: 'PT. Delta Shipyard', logo: ourClient2 },
+  { name: 'MacDermott', logo: ourClient3 },
+  { name: 'MPA Singapore', logo: ourClient4 },
+  { name: 'GE', logo: ourClient5 },
+  { name: 'Austin', logo: ourClient6 },
+  { name: 'HARRIS Hotels', logo: ourClient8 },
+  { name: 'Batam Aero Technic', logo: ourClient9 },
+  { name: 'Integrated Engineering Group', logo: ourClient10 },
+  { name: 'Nippon Steel', logo: ourClient11 },
+  { name: 'PaxOcean', logo: ourClient12 },
+  { name: 'EPC-M', logo: ourClient14 },
+  { name: 'Caterpillar', logo: ourClient15 },
+  { name: 'PT Citra Tubindo Tbk', logo: ourClient16 },
+  { name: 'Bredero Shaw', logo: ourClient17 },
 ];
 
 

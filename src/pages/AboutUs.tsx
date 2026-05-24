@@ -3,6 +3,7 @@ import { Box, Container, Typography, Grid, Paper, Stack, Divider, Chip, Button, 
 import { motion } from 'framer-motion';
 import PageHeader from '../components/PageHeader';
 import directorImg from '../assets/director.webp';
+import { aboutImages } from '../data/siteContent';
 import {
   BadgeCheck,
   ClipboardCheck,
@@ -209,11 +210,45 @@ const AboutUs: React.FC = () => {
           </Grid>
           <Grid size={{ xs: 12, md: 6 }}>
             <MotionBox initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 1.2 }}>
-              <Box component="img" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1000&q=80" sx={{ width: '100%', height: { xs: 400, md: 600 }, objectFit: 'cover', borderRadius: '42px', border: '1px solid rgba(0,27,94,0.12)', boxShadow: '0 50px 100px rgba(0,27,94,0.16)' }} />
+              <Box component="img" src={aboutImages.intro} alt="Fareast calibration laboratory" sx={{ width: '100%', height: { xs: 400, md: 600 }, objectFit: 'cover', borderRadius: '42px', border: '1px solid rgba(0,27,94,0.12)', boxShadow: '0 50px 100px rgba(0,27,94,0.16)' }} />
             </MotionBox>
           </Grid>
         </Grid>
       </Container>
+
+      {/* 1b. Lab & Field Gallery */}
+      <Box sx={{ bgcolor: softGreen, py: { xs: 8, md: 12 }, borderTop: '1px solid rgba(0,27,94,0.08)', borderBottom: '1px solid rgba(0,27,94,0.08)' }}>
+        <Container maxWidth="lg">
+          <Grid container spacing={3}>
+            {[
+              { title: 'Controlled laboratory', image: aboutImages.intro },
+              { title: 'Technician workflow', image: aboutImages.team },
+              { title: 'Onsite service team', image: aboutImages.fieldTeam },
+              { title: 'Instrument inspection', image: aboutImages.inspection },
+            ].map((item) => (
+              <Grid key={item.title} size={{ xs: 12, sm: 6, md: 3 }}>
+                <MotionPaper
+                  whileHover={{ y: -8 }}
+                  sx={{
+                    height: 260,
+                    borderRadius: '28px',
+                    overflow: 'hidden',
+                    position: 'relative',
+                    border: '1px solid rgba(0,27,94,0.10)',
+                    boxShadow: '0 24px 54px rgba(0,27,94,0.10)',
+                  }}
+                >
+                  <Box component="img" src={item.image} alt={item.title} sx={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <Box sx={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,27,94,0.78), rgba(15,122,79,0.18), transparent)' }} />
+                  <Typography variant="subtitle1" sx={{ position: 'absolute', left: 20, right: 20, bottom: 18, color: 'white', fontWeight: 900 }}>
+                    {item.title}
+                  </Typography>
+                </MotionPaper>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </Box>
 
       {/* 2. Director Message */}
       <Box sx={{

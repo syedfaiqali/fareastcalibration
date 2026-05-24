@@ -24,11 +24,15 @@ import {
   MessageSquare,
 } from 'lucide-react';
 import {
+  aboutImages,
   heroStats,
   heroSlides,
+  homeGallery,
+  projectGallery,
   serviceGroups,
   clients,
 } from '../data/siteContent';
+import accurateCalibrationImage  from '../assets/DIMENSIONAL 8.webp'; 
 
 const MotionBox = motion(Box);
 const MotionCard = motion(Card);
@@ -330,7 +334,12 @@ const Home: React.FC = () => {
                         animate={{ scale: 1, opacity: 1 }}
                         exit={{ scale: 1.1, opacity: 0 }}
                         transition={{ duration: 0.8 }}
-                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          objectPosition: slide.objectPosition || 'center',
+                        }}
                       />
                     </AnimatePresence>
                     <Box
@@ -467,7 +476,7 @@ const Home: React.FC = () => {
                       justifyContent: 'center',
                     }}
                   >
-                    <Box component="img" src="/fareastcalibrationLogo.jpeg" sx={{ width: '80%', height: '80%', objectFit: 'contain' }} />
+                    <Box component="img" src={aboutImages.intro} alt="Fareast calibration laboratory" sx={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   </Box>
                   {/* Decorative floating dots */}
                   <Box sx={{ position: 'absolute', top: 40, right: 40, width: 60, height: 60, display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1 }}>
@@ -575,7 +584,7 @@ const Home: React.FC = () => {
                     height: { xs: 350, md: 500 }
                   }}
                 >
-                  <Box component="img" src="https://images.unsplash.com/photo-1579154235884-10f5fe138760?auto=format&fit=crop&w=1200&q=80" sx={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <Box component="img" src={accurateCalibrationImage} sx={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </MotionBox>
 
                 {/* Experience Badge */}
@@ -624,14 +633,7 @@ const Home: React.FC = () => {
           </Stack>
 
           <Grid container spacing={3}>
-            {[
-              { url: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80', title: 'Electrical Testing' },
-              { url: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80', title: 'Pressure Calibration' },
-              { url: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=800&q=80', title: 'Precision Metrology' },
-              { url: 'https://images.unsplash.com/photo-1532187875605-1832d244b14a?auto=format&fit=crop&w=800&q=80', title: 'Scientific Verification' },
-              { url: 'https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80', title: 'Cleanroom Standards' },
-              { url: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80', title: 'Thermal Analysis' }
-            ].map((img, i) => (
+            {homeGallery.map((img, i) => (
               <Grid key={i} size={{ xs: 12, sm: 6, md: 4 }}>
                 <MotionBox
                   whileHover={{ y: -10 }}
@@ -646,7 +648,8 @@ const Home: React.FC = () => {
                 >
                   <Box
                     component="img"
-                    src={img.url}
+                    src={img.image}
+                    alt={img.title}
                     sx={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
                   <Box
@@ -655,7 +658,9 @@ const Home: React.FC = () => {
                       inset: 0,
                       background: `linear-gradient(to top, rgba(0,27,94,0.82) 0%, rgba(15,122,79,0.42) 58%, transparent 100%)`,
                       display: 'flex',
-                      alignItems: 'flex-end',
+                      flexDirection: 'column',
+                      alignItems: 'flex-start',
+                      justifyContent: 'flex-end',
                       p: 3,
                       opacity: 0,
                       transition: 'opacity 0.3s ease',
@@ -664,6 +669,9 @@ const Home: React.FC = () => {
                   >
                     <Typography variant="h6" sx={{ color: 'white', fontWeight: 700 }}>
                       {img.title}
+                    </Typography>
+                    <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.78)', mt: 0.75 }}>
+                      {img.caption}
                     </Typography>
                   </Box>
                 </MotionBox>
@@ -712,6 +720,20 @@ const Home: React.FC = () => {
                       }
                     }}
                   >
+                    <Box
+                      component="img"
+                      src={service.image}
+                      alt={service.title}
+                      sx={{
+                        width: 'calc(100% + 64px)',
+                        height: 150,
+                        mx: -4,
+                        mt: -4,
+                        mb: 3,
+                        objectFit: 'cover',
+                        display: 'block',
+                      }}
+                    />
                     <Box
                       sx={{
                         width: 70,
@@ -1118,16 +1140,7 @@ const Home: React.FC = () => {
               }}
               sx={{ display: 'flex', gap: 4, width: 'max-content' }}
             >
-              {[
-                'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80',
-                'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80',
-                'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=600&q=80',
-                'https://images.unsplash.com/photo-1532187875605-1832d244b14a?auto=format&fit=crop&w=600&q=80',
-                'https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=600&q=80',
-                'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=600&q=80',
-                'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80',
-                'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80'
-              ].map((url, i) => (
+              {[...projectGallery, ...projectGallery].map((item, i) => (
                 <Box
                   key={i}
                   sx={{
@@ -1142,7 +1155,8 @@ const Home: React.FC = () => {
                 >
                   <Box
                     component="img"
-                    src={url}
+                    src={item.image}
+                    alt={item.title}
                     sx={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
                   <Box

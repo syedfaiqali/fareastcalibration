@@ -11,16 +11,6 @@ const brandGreen = '#0f7a4f';
 const brandGreenDark = '#0d3f2b';
 const softBlue = '#edf5ff';
 
-const serviceVisuals = [
-  'https://images.unsplash.com/photo-1565043589221-1bb8b8f2e3d1?auto=format&fit=crop&w=1000&q=80',
-  'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1000&q=80',
-  'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1000&q=80',
-  'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1000&q=80',
-  'https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=1000&q=80',
-  'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80',
-  'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1000&q=80',
-];
-
 type ServiceGroup = typeof serviceGroups[number];
 
 interface ServiceShowcaseProps {
@@ -106,7 +96,7 @@ const ServiceShowcase: React.FC<ServiceShowcaseProps> = ({ service, index }) => 
           >
             <Box
               component={motion.img}
-              src={serviceVisuals[index % serviceVisuals.length]}
+              src={service.image}
               alt={service.title}
               style={{ y: imageY }}
               variants={{
