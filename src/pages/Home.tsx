@@ -174,6 +174,8 @@ const Home: React.FC = () => {
                         <Button
                           variant="contained"
                           color="secondary"
+                          to="/services"
+                          component={RouterLink}
                           size="large"
                           endIcon={<ArrowRight size={20} />}
                           sx={{
@@ -193,6 +195,8 @@ const Home: React.FC = () => {
                         </Button>
                         <Button
                           variant="outlined"
+                          to="/contact"
+                          component={RouterLink}
                           sx={{
                             px: 4,
                             py: 2,

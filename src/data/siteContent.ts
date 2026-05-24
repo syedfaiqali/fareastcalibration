@@ -55,6 +55,7 @@ import fieldTeamImage from '../assets/IMG-20230306-WA0054.webp';
 import inspectionImage from '../assets/DSC00437.webp';
 import calibrationBenchImage from '../assets/DSC00356.webp';
 import aboutHeroImage from '../assets/DSC00498.webp';
+import fareastcalibrationLogo from '../../public/fareastcalibrationLogo.jpeg';
 
 export const navigation = [
   { label: 'Home', path: '/' },
@@ -82,6 +83,12 @@ export const heroStats = [
 ];
 
 export const heroSlides = [
+  {
+    title: 'PT. Fareast Calibration Services',
+    description: 'We help industries protect quality, safety, and trust with accurate calibration services backed by reliable support and fast response.',
+    image: fareastcalibrationLogo,
+    objectPosition: '38% center',
+  },
   {
     title: 'PT. Fareast Calibration Services',
     description: 'Accredited calibration and testing support from our Batam laboratory for dependable industrial measurement confidence.',
