@@ -18,22 +18,22 @@ import {
   Wrench,
   Zap,
 } from 'lucide-react';
-import ourClient1 from '../assets/ourclient1.png';
-import ourClient2 from '../assets/ourclient2.png';
-import ourClient3 from '../assets/ourclient3.png';
-import ourClient4 from '../assets/ourclient4.png';
-import ourClient5 from '../assets/ourclient5.jpg';
-import ourClient6 from '../assets/ourclient6.jpg';
-import ourClient7 from '../assets/ourclient7.jpg';
-import ourClient8 from '../assets/ourclient8.png';
-import ourClient9 from '../assets/ourclient9.png';
-import ourClient10 from '../assets/ourclient10.png';
-import ourClient11 from '../assets/ourclient11.png';
-import ourClient12 from '../assets/ourclient12.jpg';
-import ourClient14 from '../assets/ourclient14.png';
-import ourClient15 from '../assets/ourclient15.png';
-import ourClient16 from '../assets/ourclient16.png';
-import ourClient17 from '../assets/ourclient17.png';
+import ourClient1 from '../assets/ourclient1.webp';
+import ourClient2 from '../assets/ourclient2.webp';
+import ourClient3 from '../assets/ourclient3.webp';
+import ourClient4 from '../assets/ourclient4.webp';
+import ourClient5 from '../assets/ourclient5.webp';
+import ourClient6 from '../assets/ourclient6.webp';
+import ourClient7 from '../assets/ourclient7.webp';
+import ourClient8 from '../assets/ourclient8.webp';
+import ourClient9 from '../assets/ourclient9.webp';
+import ourClient10 from '../assets/ourclient10.webp';
+import ourClient11 from '../assets/ourclient11.webp';
+import ourClient12 from '../assets/ourclient12.webp';
+import ourClient14 from '../assets/ourclient14.webp';
+import ourClient15 from '../assets/ourclient15.webp';
+import ourClient16 from '../assets/ourclient16.webp';
+import ourClient17 from '../assets/ourclient17.webp';
 
 export const navigation = [
   { label: 'Home', path: '/' },

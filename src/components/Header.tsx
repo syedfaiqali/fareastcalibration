@@ -19,7 +19,7 @@ import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { LayoutGroup, motion, useScroll, useSpring } from 'framer-motion';
 import { ArrowRight, Mail, Menu, PhoneCall, X } from 'lucide-react';
 import { navigation } from '../data/siteContent';
-import logoKanan from '../assets/logokanan.png';
+import logoKanan from '../assets/logokanan.webp';
 
 const Header: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);

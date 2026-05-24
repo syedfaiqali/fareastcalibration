@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Box, Container, Typography, Grid, Paper, Stack, Divider, Chip, Button, Dialog, IconButton } from '@mui/material';
 import { motion } from 'framer-motion';
 import PageHeader from '../components/PageHeader';
-import directorImg from '../assets/director.png';
+import directorImg from '../assets/director.webp';
 import {
   BadgeCheck,
   ClipboardCheck,
