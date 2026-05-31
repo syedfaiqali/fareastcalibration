@@ -189,8 +189,6 @@ const Clients: React.FC = () => {
                       boxShadow: '0 24px 56px rgba(0,27,94,0.16)',
                       '&::before': { opacity: 1 },
                       '& img': {
-                        filter: 'grayscale(0%)',
-                        opacity: 1,
                         transform: 'scale(1.05)'
                       }
                     }
@@ -204,9 +202,8 @@ const Clients: React.FC = () => {
                       maxWidth: '85%',
                       maxHeight: '85%',
                       objectFit: 'contain',
-                      filter: 'grayscale(100%)',
-                      opacity: 0.6,
-                      transition: 'all 0.3s ease',
+                      opacity: 1,
+                      transition: 'transform 0.3s ease',
                     }}
                   />
                 </Box>
