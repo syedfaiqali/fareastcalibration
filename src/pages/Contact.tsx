@@ -22,12 +22,14 @@ const Contact: React.FC = () => {
       title: 'Call Our Service Desk', 
       text: (
         <>
-          <Link href="tel:+62778351831" color="inherit" underline="hover">+62-778-351-831</Link>
+          <Link href="tel:+62778351831" color="inherit" underline="hover">+62 778 351 831</Link>
           {' / '}
-          <Link href="tel:+6281267051658" color="inherit" underline="hover">+62 812-6705-1658</Link>
+          <Link href="tel:+6281267051658" color="inherit" underline="hover">+62 812 6705 1658</Link>
+          {' / '}
+          <Link href="tel:+6282286881953" color="inherit" underline="hover">+62 822 8688 1953</Link>
         </>
       ), 
-      sub: 'Contact person: Andi Sahabinnu' 
+      sub: '' 
     },
     { 
       icon: Mail, 

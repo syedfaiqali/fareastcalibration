@@ -144,6 +144,12 @@ const certificates = [
     file: '/certificates/fec-scan-profile.pdf',
     icon: Award,
   },
+  {
+    label: 'PT. FEC Profile',
+    title: 'PT. FEC Profile',
+    file: '/certificates/fec-scan-profile.pdf',
+    icon: Award,
+  },
 ];
 
 

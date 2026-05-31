@@ -168,9 +168,9 @@ const Header: React.FC = () => {
                 <Stack direction="row" spacing={0.9} sx={{ alignItems: 'center' }}>
                   <PhoneCall size={14} />
                   <Typography variant="caption">
-                    <Link href="tel:+62778351831" color="inherit" underline="hover">+62-778-351-831</Link>
+                    <Link href="tel:+62778351831" color="inherit" underline="hover">+62 778 351 831</Link>
                     {' / '}
-                    <Link href="tel:+6281267051658" color="inherit" underline="hover">+62 812-6705-1658</Link>
+                    <Link href="tel:+6281267051658" color="inherit" underline="hover">+62 812 6705 1658</Link>
                   </Typography>
                 </Stack>
                 <Stack direction="row" spacing={0.9} sx={{ alignItems: 'center' }}>

@@ -305,11 +305,11 @@ export const industries = [
 
 export const clientSectors = [
   'Production plants',
-  'QA and QC labs',
+  'QA & QC labs',
   'Process industries',
-  'Research facilities',
+  'Manufacturing Industries',
   'Marine Industries',
-  'Utilities and maintenance contractors',
+  'Oil & Gas Industries',
 ];
 
 export const testimonials = [

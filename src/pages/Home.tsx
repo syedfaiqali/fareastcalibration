@@ -529,7 +529,7 @@ const Home: React.FC = () => {
                   <Box>
                     <Typography variant="body2" sx={{ color: 'text.secondary', fontWeight: 600 }}>Have Any Questions?</Typography>
                     <Link href="tel:+6282286881953" color="inherit" underline="hover">
-                      <Typography variant="h5" sx={{ color: brandGreen, fontWeight: 900 }}>+62-822-8688-1953</Typography>
+                      <Typography variant="h5" sx={{ color: brandGreen, fontWeight: 900 }}>+62 822 8688 1953</Typography>
                     </Link>
                   </Box>
                 </Stack>

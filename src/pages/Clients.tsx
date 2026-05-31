@@ -61,8 +61,8 @@ const Clients: React.FC = () => {
         >
           <Grid container spacing={2} sx={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
             {[
-              { label: 'Satisfied Customers', value: '300+' },
-              { label: 'Instruments Calibrated', value: '4000+' },
+              { label: 'Satisfied Customers', value: '500+' },
+              { label: 'Instruments Calibrated', value: '20000+' },
               { label: 'Established', value: '2014' },
               { label: 'Standards', value: 'KAN' },
             ].map((stat, i) => (
