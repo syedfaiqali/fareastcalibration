@@ -8,6 +8,8 @@ import { PhoneCall, Mail, MapPinned } from 'lucide-react';
 import { Link as RouterLink } from 'react-router-dom';
 import { navigation } from '../data/siteContent';
 
+const officeMapUrl = 'https://www.google.com/maps/search/?api=1&query=PT.%20Fareast%20Calibration%20%26%20Testing%20Services%2C%20Tiban%20Raya%20Lestari%2C%20Block%20C%2F4%2C%20Sekupang%2C%20Batam%2C%20Indonesia';
+
 const Footer: React.FC = () => {
   return (
     <Box
@@ -133,9 +135,11 @@ const Footer: React.FC = () => {
                 </Box>
                 <Box>
                   <Typography variant="caption" sx={{ opacity: 0.5, display: 'block' }}>Head Office</Typography>
-                  <Typography variant="body2" sx={{ opacity: 0.8, maxWidth: 300, fontWeight: 700 }}>
+                  <Link href={officeMapUrl} target="_blank" rel="noopener noreferrer" color="inherit" underline="hover" sx={{ display: 'block', opacity: 0.8, maxWidth: 300 }}>
+                    <Typography variant="body2" sx={{ fontWeight: 700 }}>
                     Tiban Raya Lestari, Block C/4, Sekupang, Batam, Indonesia
-                  </Typography>
+                    </Typography>
+                  </Link>
                 </Box>
               </Stack>
             </Stack>

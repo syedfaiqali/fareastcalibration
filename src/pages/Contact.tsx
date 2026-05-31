@@ -7,6 +7,7 @@ const brandBlue = '#001b5e';
 const brandGreen = '#0f7a4f';
 const brandGreenDark = '#0d3f2b';
 const softBlue = '#edf5ff';
+const officeMapUrl = 'https://www.google.com/maps/search/?api=1&query=PT.%20Fareast%20Calibration%20%26%20Testing%20Services%2C%20Tiban%20Raya%20Lestari%2C%20Block%20C%2F4%2C%20Sekupang%2C%20Batam%2C%20Indonesia';
 
 const Contact: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -49,7 +50,11 @@ const Contact: React.FC = () => {
     { 
       icon: MapPinned, 
       title: 'Visit Our Laboratory', 
-      text: 'Tiban Raya Lestari, Block C/4', 
+      text: (
+        <Link href={officeMapUrl} target="_blank" rel="noopener noreferrer" color="inherit" underline="hover">
+          Tiban Raya Lestari, Block C/4
+        </Link>
+      ),
       sub: 'Sekupang, Batam, Indonesia' 
     }
   ];
