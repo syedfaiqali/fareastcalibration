@@ -10,7 +10,10 @@ import {
   Users,
   Trophy,
   Rocket,
-  CheckCircle2
+  CheckCircle2,
+  MapPinned,
+  Mail,
+  Globe2,
 } from 'lucide-react';
 
 const MotionBox = motion(Box);
@@ -21,6 +24,7 @@ const brandGreen = '#0f7a4f';
 const brandGreenDark = '#0d3f2b';
 const softBlue = '#edf5ff';
 const softGreen = '#f4fbf7';
+const officeMapUrl = 'https://www.google.com/maps/search/?api=1&query=PT.%20Fareast%20Calibration%20%26%20Testing%20Services%2C%20Tiban%20Raya%20Lestari%2C%20Block%20C%2F4%2C%20Sekupang%2C%20Batam%2C%20Indonesia';
 
 const fadeInUp: any = {
   initial: { opacity: 0, y: 40 },
@@ -346,7 +350,7 @@ const Career: React.FC = () => {
                   <Box>
                     <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 800, letterSpacing: 1 }}>RECRUITMENT HELPLINE</Typography>
                     <Link href="tel:+62778351831" color="inherit" underline="hover">
-                      <Typography variant="h4" sx={{ fontWeight: 900, color: brandBlue }}>+62-778351831</Typography>
+                      <Typography variant="h4" sx={{ fontWeight: 900, color: brandBlue }}>+62 778 351 831</Typography>
                     </Link>
                   </Box>
                 </Stack>
@@ -572,49 +576,62 @@ const Career: React.FC = () => {
           </Grid>
         </Grid>
       </Container>
-      {/* 4. Contact Details Footer Section - BRAND THEME */}
-      <Box sx={{ bgcolor: softGreen, py: 10 }}>
+      {/* 4. Contact Details Footer Section */}
+      <Box sx={{ bgcolor: softGreen, py: 10, position: 'relative', overflow: 'hidden' }}>
+        <Box sx={{ position: 'absolute', inset: 0, opacity: 0.05, backgroundImage: `radial-gradient(${brandBlue} 1px, transparent 1px)`, backgroundSize: '28px 28px' }} />
         <Container maxWidth="lg">
           <Paper
             sx={{
-              p: { xs: 5, md: 8 },
+              p: { xs: 4, md: 6 },
               borderRadius: 6,
-              bgcolor: 'white',
-              boxShadow: '0 24px 70px rgba(0,27,94,0.08)',
-              border: '1px solid rgba(0,27,94,0.08)'
+              background: `linear-gradient(135deg, ${brandBlue} 0%, #07375f 52%, ${brandGreenDark} 100%)`,
+              color: 'white',
+              boxShadow: '0 28px 74px rgba(0,27,94,0.20)',
+              border: '1px solid rgba(255,255,255,0.14)',
+              position: 'relative',
+              overflow: 'hidden',
             }}
           >
-            <Grid container spacing={6}>
+            <Box sx={{ mb: 5 }}>
+              <Typography variant="overline" sx={{ color: '#8ce0b6', fontWeight: 900, letterSpacing: 4 }}>LET'S CONNECT</Typography>
+              <Typography variant="h3" sx={{ fontWeight: 900, mt: 1 }}>Start Your Career Conversation</Typography>
+            </Box>
+            <Grid container spacing={2.5}>
               <Grid size={{ xs: 12, md: 4 }}>
-                <Stack spacing={2}>
-                  <Typography variant="h6" sx={{ fontWeight: 900, color: 'primary.main' }}>Office Address</Typography>
-                  <Typography variant="body1" sx={{ color: 'text.secondary', fontWeight: 500 }}>
-                    Tiban Raya Lestari, C/4 Sekupang<br />
-                    Batam, Indonesia
+                <Stack spacing={2} sx={{ height: '100%', p: 3, borderRadius: 4, bgcolor: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)' }}>
+                  <Box sx={{ width: 48, height: 48, display: 'grid', placeItems: 'center', borderRadius: 3, bgcolor: 'rgba(140,224,182,0.14)', color: '#8ce0b6' }}><MapPinned size={24} /></Box>
+                  <Typography variant="h6" sx={{ fontWeight: 900 }}>Office Address</Typography>
+                  <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.72)', lineHeight: 1.7 }}>
+                    Tiban Raya Lestari, Block C/4, Sekupang<br />Batam, Indonesia
                   </Typography>
+                  <Link href={officeMapUrl} target="_blank" rel="noopener noreferrer" sx={{ color: '#8ce0b6', fontWeight: 900, width: 'fit-content' }}>
+                    Open in Google Maps
+                  </Link>
                 </Stack>
               </Grid>
               <Grid size={{ xs: 12, md: 4 }}>
-                <Stack spacing={2}>
-                  <Typography variant="h6" sx={{ fontWeight: 900, color: 'primary.main' }}>Contact Info</Typography>
-                  <Typography variant="body1" sx={{ color: 'text.secondary', fontWeight: 500 }}>
-                    Call us: <Link href="tel:+62778351831" color="inherit" underline="hover">+62-778351831</Link><br />
+                <Stack spacing={2} sx={{ height: '100%', p: 3, borderRadius: 4, bgcolor: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)' }}>
+                  <Box sx={{ width: 48, height: 48, display: 'grid', placeItems: 'center', borderRadius: 3, bgcolor: 'rgba(140,224,182,0.14)', color: '#8ce0b6' }}><Mail size={24} /></Box>
+                  <Typography variant="h6" sx={{ fontWeight: 900 }}>Recruitment Contact</Typography>
+                  <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.72)', lineHeight: 1.9 }}>
+                    Call: <Link href="tel:+62778351831" color="inherit" underline="hover">+62 778 351 831</Link><br />
                     Email: <Link href="mailto:sales@fareastcalibration.com" color="inherit" underline="hover">sales@fareastcalibration.com</Link>
                   </Typography>
                 </Stack>
               </Grid>
               <Grid size={{ xs: 12, md: 4 }}>
-                <Stack spacing={2}>
-                  <Typography variant="h6" sx={{ fontWeight: 900, color: 'primary.main' }}>Connect With Us</Typography>
-                  <Typography variant="body1" sx={{ color: 'text.secondary', fontWeight: 500 }}>
+                <Stack spacing={2} sx={{ height: '100%', p: 3, borderRadius: 4, bgcolor: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)' }}>
+                  <Box sx={{ width: 48, height: 48, display: 'grid', placeItems: 'center', borderRadius: 3, bgcolor: 'rgba(140,224,182,0.14)', color: '#8ce0b6' }}><Globe2 size={24} /></Box>
+                  <Typography variant="h6" sx={{ fontWeight: 900 }}>Connect With Us</Typography>
+                  <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.72)', lineHeight: 1.9 }}>
                     Facebook: <Link href="https://www.facebook.com/fareastcalibration/" target="_blank" color="inherit" underline="hover">facebook.com/fareastcalibr</Link><br />
                     Website: <Link href="https://www.fareastcalibration.com" target="_blank" color="inherit" underline="hover">www.fareastcalibration.com</Link>
                   </Typography>
                 </Stack>
               </Grid>
             </Grid>
-            <Box sx={{ mt: 6, pt: 6, borderTop: '1px solid rgba(0,0,0,0.05)', textAlign: 'center' }}>
-              <Typography variant="body2" sx={{ color: 'text.secondary', fontWeight: 800 }}>
+            <Box sx={{ mt: 5, pt: 4, borderTop: '1px solid rgba(255,255,255,0.12)', textAlign: 'center' }}>
+              <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.68)', fontWeight: 800 }}>
                 PT. FAREAST CALIBRATION & TESTING SERVICES
               </Typography>
             </Box>

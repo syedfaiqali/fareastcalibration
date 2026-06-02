@@ -38,11 +38,11 @@ const Clients: React.FC = () => {
       />
 
       {/* Trust Stats Section - Clean & Minimal */}
-      <Container maxWidth="lg" sx={{ mt: -8, position: 'relative', zIndex: 3 }}>
+      <Container maxWidth="lg" sx={{ mt: { xs: -5, md: -8 }, position: 'relative', zIndex: 3 }}>
         <Box
           sx={{
-            p: { xs: 3, md: 5 },
-            borderRadius: 6,
+            p: { xs: 1.5, sm: 3, md: 5 },
+            borderRadius: { xs: 4, md: 6 },
             color: 'white',
             position: 'relative',
             overflow: 'hidden',
@@ -59,27 +59,47 @@ const Clients: React.FC = () => {
             },
           }}
         >
-          <Grid container spacing={2} sx={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
+          <Grid container spacing={{ xs: 1, sm: 2 }} sx={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
             {[
-              { label: 'Satisfied Customers', value: '300+' },
-              { label: 'Instruments Calibrated', value: '4000+' },
+              { label: 'Satisfied Customers', value: '500+' },
+              { label: 'Instruments Calibrated', value: '20000+' },
               { label: 'Established', value: '2014' },
               { label: 'Standards', value: 'KAN' },
             ].map((stat, i) => (
               <Grid key={i} size={{ xs: 6, md: 3 }}>
                 <Box
                   sx={{
-                    p: { xs: 2, md: 3 },
-                    borderRadius: 4,
+                    px: { xs: 0.75, sm: 2, md: 3 },
+                    py: { xs: 1.5, sm: 2, md: 3 },
+                    borderRadius: { xs: 2.5, md: 4 },
                     border: '1px solid rgba(255,255,255,0.13)',
                     bgcolor: 'rgba(255,255,255,0.06)',
                     height: '100%',
                   }}
                 >
-                  <Typography variant="h3" sx={{ fontWeight: 900, color: i % 2 ? '#8ce0b6' : 'white', mb: 0.5 }}>
+                  <Typography
+                    variant="h3"
+                    sx={{
+                      fontWeight: 900,
+                      color: i % 2 ? '#8ce0b6' : 'white',
+                      mb: 0.5,
+                      fontSize: { xs: '1.45rem', sm: '2rem', md: '3rem' },
+                    }}
+                  >
                     {stat.value}
                   </Typography>
-                  <Typography variant="caption" sx={{ color: 'rgba(255,255,255,0.72)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: 1 }}>
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      color: 'rgba(255,255,255,0.72)',
+                      fontWeight: 800,
+                      textTransform: 'uppercase',
+                      letterSpacing: { xs: 0.35, sm: 1 },
+                      fontSize: { xs: '0.57rem', sm: '0.72rem' },
+                      lineHeight: 1.35,
+                      display: 'block',
+                    }}
+                  >
                     {stat.label}
                   </Typography>
                 </Box>
@@ -94,7 +114,7 @@ const Clients: React.FC = () => {
       {/* Logo Grid Section - BRAND THEME PREMIUM */}
       <Box
         sx={{
-          py: { xs: 12, md: 18 },
+          py: { xs: 8, sm: 10, md: 18 },
           position: 'relative',
           overflow: 'hidden',
           bgcolor: 'transparent',
@@ -116,14 +136,15 @@ const Clients: React.FC = () => {
         />
 
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
-          <Stack spacing={2} sx={{ textAlign: 'center', mb: 10 }}>
+          <Stack spacing={2} sx={{ textAlign: 'center', mb: { xs: 5, md: 10 } }}>
             <Box>
               <Typography
                 variant="overline"
                 sx={{
                   color: 'primary.main',
                   fontWeight: 900,
-                  letterSpacing: 4,
+                  letterSpacing: { xs: 2.5, sm: 4 },
+                  fontSize: { xs: '0.67rem', sm: '0.75rem' },
                   textTransform: 'uppercase'
                 }}
               >
@@ -135,7 +156,8 @@ const Clients: React.FC = () => {
                   fontWeight: 900,
                   color: brandBlue,
                   mt: 1,
-                  fontSize: { xs: '2.5rem', md: '3.5rem' },
+                  fontSize: { xs: '2rem', sm: '2.5rem', md: '3.5rem' },
+                  lineHeight: 1.12,
                 }}
               >
                 Our Trusted <Box component="span" sx={{ color: brandGreen }}>Clients</Box>
@@ -154,15 +176,24 @@ const Clients: React.FC = () => {
           </Stack>
 
 
-          <Grid container spacing={3} sx={{ justifyContent: 'center' }}>
+          <Grid container spacing={{ xs: 1.5, sm: 2, md: 3 }} sx={{ justifyContent: 'center' }}>
             {clients.map((client, i) => (
-              <Grid key={i} size={{ xs: 6, sm: 4, md: 3 }}>
+              <Grid
+                key={i}
+                size={{ xs: 6, sm: 4, md: 3 }}
+                sx={{
+                  '@media (max-width: 380px)': {
+                    flexBasis: '100%',
+                    maxWidth: '100%',
+                  },
+                }}
+              >
                 <Box
                   sx={{
-                    p: 3,
-                    height: { xs: 100, md: 140 },
+                    p: { xs: 1.5, sm: 2, md: 3 },
+                    height: { xs: 104, sm: 112, md: 140 },
                     bgcolor: 'white',
-                    borderRadius: 4,
+                    borderRadius: { xs: 3, md: 4 },
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -189,8 +220,6 @@ const Clients: React.FC = () => {
                       boxShadow: '0 24px 56px rgba(0,27,94,0.16)',
                       '&::before': { opacity: 1 },
                       '& img': {
-                        filter: 'grayscale(0%)',
-                        opacity: 1,
                         transform: 'scale(1.05)'
                       }
                     }
@@ -201,12 +230,13 @@ const Clients: React.FC = () => {
                     src={client.logo}
                     alt={client.name}
                     sx={{
-                      maxWidth: '85%',
-                      maxHeight: '85%',
+                      width: '100%',
+                      height: '100%',
+                      maxWidth: { xs: '92%', sm: '88%', md: '85%' },
+                      maxHeight: { xs: '88%', md: '85%' },
                       objectFit: 'contain',
-                      filter: 'grayscale(100%)',
-                      opacity: 0.6,
-                      transition: 'all 0.3s ease',
+                      opacity: 1,
+                      transition: 'transform 0.3s ease',
                     }}
                   />
                 </Box>
@@ -223,7 +253,7 @@ const Clients: React.FC = () => {
 
 
       {/* Sectors Section */}
-      <Box sx={{ py: 12, bgcolor: softGreen, position: 'relative', overflow: 'hidden' }}>
+      <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: softGreen, position: 'relative', overflow: 'hidden' }}>
         <Box
           sx={{
             position: 'absolute',
@@ -233,12 +263,15 @@ const Clients: React.FC = () => {
           }}
         />
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
-          <Grid container spacing={8} sx={{ alignItems: 'center' }}>
+          <Grid container spacing={{ xs: 5, md: 8 }} sx={{ alignItems: 'center' }}>
             <Grid size={{ xs: 12, md: 6 }}>
               <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 800, letterSpacing: 2 }}>
                 SECTOR COVERAGE
               </Typography>
-              <Typography variant="h3" sx={{ fontWeight: 900, color: brandBlue, mt: 1, mb: 3 }}>
+              <Typography
+                variant="h3"
+                sx={{ fontWeight: 900, color: brandBlue, mt: 1, mb: 2.5, fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' } }}
+              >
                 Precision Across Every Vertical
               </Typography>
               <Typography variant="body1" sx={{ color: 'text.secondary', mb: 4, lineHeight: 1.8 }}>
@@ -264,11 +297,11 @@ const Clients: React.FC = () => {
               <Box
                 sx={{
                   position: 'relative',
-                  height: 400,
-                  borderRadius: 6,
+                  height: { xs: 260, sm: 340, md: 400 },
+                  borderRadius: { xs: 4, md: 6 },
                   overflow: 'hidden',
                   boxShadow: '0 30px 70px rgba(0,27,94,0.18)',
-                  border: '8px solid white',
+                  border: { xs: '5px solid white', md: '8px solid white' },
                 }}
               >
                 <Box
@@ -286,8 +319,8 @@ const Clients: React.FC = () => {
                 <Stack
                   sx={{
                     position: 'absolute',
-                    bottom: 30,
-                    left: 30,
+                    bottom: { xs: 20, md: 30 },
+                    left: { xs: 20, md: 30 },
                     color: 'white'
                   }}
                 >
@@ -301,14 +334,14 @@ const Clients: React.FC = () => {
       </Box>
 
       {/* Call to Action */}
-      <Box sx={{ py: 12 }}>
+      <Box sx={{ py: { xs: 8, md: 12 } }}>
         <Container maxWidth="md">
           <Card
             sx={{
               background: `linear-gradient(135deg, ${brandGreenDark} 0%, ${brandGreen} 48%, ${brandBlue} 100%)`,
               color: 'white',
-              p: { xs: 6, md: 10 },
-              borderRadius: 6,
+              p: { xs: 3, sm: 6, md: 10 },
+              borderRadius: { xs: 4, md: 6 },
               textAlign: 'center',
               position: 'relative',
               overflow: 'hidden'
@@ -329,14 +362,14 @@ const Clients: React.FC = () => {
               <Box sx={{ mx: 'auto', bgcolor: 'rgba(255,255,255,0.13)', border: '1px solid rgba(255,255,255,0.22)', p: 2, borderRadius: '50%' }}>
                 <Handshake size={40} />
               </Box>
-              <Typography variant="h3" sx={{ fontWeight: 900 }}>
+              <Typography variant="h3" sx={{ fontWeight: 900, fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' } }}>
                 Become Our Partner
               </Typography>
               <Typography variant="body1" sx={{ opacity: 0.8 }}>
                 Experience the difference that technical precision and reliable support can make
                 for your organization. Join our growing list of prestigious clients.
               </Typography>
-              <Box sx={{ pt: 3 }}>
+              <Box sx={{ pt: { xs: 1, sm: 3 } }}>
                 <Button
                   component="a"
                   href="mailto:fareastcalibration@gmail.com"
@@ -345,10 +378,11 @@ const Clients: React.FC = () => {
                   sx={{
                     bgcolor: '#fec001',
                     color: 'secondary.main',
-                    px: 6,
-                    py: 2,
+                    width: { xs: '100%', sm: 'auto' },
+                    px: { xs: 2, sm: 6 },
+                    py: { xs: 1.6, sm: 2 },
                     borderRadius: '50px',
-                    fontSize: '1.1rem',
+                    fontSize: { xs: '0.92rem', sm: '1.1rem' },
                     fontWeight: 800,
                     textTransform: 'none',
                     boxShadow: '0 15px 30px rgba(0,0,0,0.2)',

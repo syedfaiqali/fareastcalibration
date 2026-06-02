@@ -137,12 +137,30 @@ const certificates = [
     title: 'KAN Accreditation Certificate',
     file: '/certificates/fec-scan-profile.pdf',
     icon: ShieldCheck,
+    color: brandGreen,
+    tint: 'rgba(15,122,79,0.10)',
+    border: 'rgba(15,122,79,0.24)',
+    shadow: 'rgba(15,122,79,0.16)',
   },
   {
     label: 'ISO 9001:2015',
     title: 'ISO 9001:2015 Certificate',
     file: '/certificates/fec-scan-profile.pdf',
     icon: Award,
+    color: brandBlue,
+    tint: 'rgba(0,27,94,0.08)',
+    border: 'rgba(0,27,94,0.20)',
+    shadow: 'rgba(0,27,94,0.16)',
+  },
+  {
+    label: 'PT. FEC Profile',
+    title: 'PT. FEC Profile',
+    file: '/certificates/fec-scan-profile.pdf',
+    icon: ClipboardCheck,
+    color: '#0c3f8f',
+    tint: 'rgba(12,63,143,0.09)',
+    border: 'rgba(12,63,143,0.22)',
+    shadow: 'rgba(12,63,143,0.16)',
   },
 ];
 
@@ -173,7 +191,14 @@ const AboutUs: React.FC = () => {
                 <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.9, fontSize: '1.1rem', opacity: 0.9 }}>
                   Since 2014 we are providing quality services, with low price, best lead time and according to customer target price. Accredited by KAN Indonesia (ISO/IEC 17025:2017) and certified for ISO 9001:2015.
                 </Typography>
-                <Stack direction="row" spacing={4} sx={{ mt: 2 }}>
+                <Box
+                  sx={{
+                    display: 'grid',
+                    gridTemplateColumns: { xs: '1fr', sm: 'repeat(3, minmax(0, 1fr))' },
+                    gap: 1.5,
+                    mt: 2,
+                  }}
+                >
                   {certificates.map((item, idx) => (
                     <Box
                       key={idx}
@@ -183,8 +208,10 @@ const AboutUs: React.FC = () => {
                       sx={{
                         display: 'flex',
                         alignItems: 'center',
-                        gap: 1.5,
-                        p: 2,
+                        gap: 1.25,
+                        minWidth: 0,
+                        width: '100%',
+                        p: 1.5,
                         borderRadius: '16px',
                         bgcolor: 'white',
                         boxShadow: '0 14px 34px rgba(0,27,94,0.07)',
@@ -195,16 +222,16 @@ const AboutUs: React.FC = () => {
                         transition: 'all 0.25s ease',
                         '&:hover': {
                           transform: 'translateY(-3px)',
-                          borderColor: idx % 2 ? 'rgba(0,27,94,0.20)' : 'rgba(15,122,79,0.24)',
-                          boxShadow: '0 20px 42px rgba(0,27,94,0.12)',
+                          borderColor: item.border,
+                          boxShadow: `0 20px 42px ${item.shadow}`,
                         },
                       }}
                     >
-                      <Box sx={{ color: idx % 2 ? brandBlue : brandGreen, bgcolor: idx % 2 ? 'rgba(0,27,94,0.08)' : 'rgba(15,122,79,0.1)', p: 1, borderRadius: '10px' }}><item.icon size={24} /></Box>
-                      <Typography variant="subtitle2" sx={{ fontWeight: 800, color: brandBlue }}>{item.label}</Typography>
+                      <Box sx={{ color: item.color, bgcolor: item.tint, p: 1, borderRadius: '10px', flexShrink: 0 }}><item.icon size={22} /></Box>
+                      <Typography variant="subtitle2" sx={{ fontWeight: 800, color: item.color, lineHeight: 1.35 }}>{item.label}</Typography>
                     </Box>
                   ))}
-                </Stack>
+                </Box>
               </Stack>
             </MotionBox>
           </Grid>
@@ -747,7 +774,8 @@ const AboutUs: React.FC = () => {
               height: { xs: '88vh', md: '90vh' },
               borderRadius: { xs: 3, md: 4 },
               overflow: 'hidden',
-              border: '1px solid rgba(0,27,94,0.12)',
+              border: `1px solid ${selectedCertificate?.border || 'rgba(0,27,94,0.12)'}`,
+              boxShadow: `0 28px 80px ${selectedCertificate?.shadow || 'rgba(0,27,94,0.18)'}`,
             },
           },
         }}
@@ -760,7 +788,7 @@ const AboutUs: React.FC = () => {
             justifyContent: 'space-between',
             px: { xs: 2, md: 3 },
             py: 1.5,
-            bgcolor: brandBlue,
+            bgcolor: selectedCertificate?.color || brandBlue,
             color: 'white',
           }}
         >

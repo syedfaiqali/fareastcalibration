@@ -20,6 +20,7 @@ import {
   ChevronLeft,
   ChevronRight,
   PhoneCall,
+  Send,
   TimerReset,
   MessageSquare,
 } from 'lucide-react';
@@ -174,6 +175,8 @@ const Home: React.FC = () => {
                         <Button
                           variant="contained"
                           color="secondary"
+                          to="/services"
+                          component={RouterLink}
                           size="large"
                           endIcon={<ArrowRight size={20} />}
                           sx={{
@@ -193,6 +196,8 @@ const Home: React.FC = () => {
                         </Button>
                         <Button
                           variant="outlined"
+                          to="/contact"
+                          component={RouterLink}
                           sx={{
                             px: 4,
                             py: 2,
@@ -525,7 +530,7 @@ const Home: React.FC = () => {
                   <Box>
                     <Typography variant="body2" sx={{ color: 'text.secondary', fontWeight: 600 }}>Have Any Questions?</Typography>
                     <Link href="tel:+6282286881953" color="inherit" underline="hover">
-                      <Typography variant="h5" sx={{ color: brandGreen, fontWeight: 900 }}>+62-822-8688-1953</Typography>
+                      <Typography variant="h5" sx={{ color: brandGreen, fontWeight: 900 }}>+62 822 8688 1953</Typography>
                     </Link>
                   </Box>
                 </Stack>
@@ -696,6 +701,8 @@ const Home: React.FC = () => {
           <Grid container spacing={4}>
             {serviceGroups.slice(0, 6).map((service, index) => {
               const Icon = service.icon;
+              const accentColor = index % 2 ? brandBlue : brandGreen;
+              const accentRgb = index % 2 ? '0,27,94' : '15,122,79';
               return (
                 <Grid key={index} size={{ xs: 12, sm: 6, md: 4 }}>
                   <MotionCard
@@ -708,6 +715,8 @@ const Home: React.FC = () => {
                       border: '1px solid rgba(0,27,94,0.10)',
                       position: 'relative',
                       overflow: 'hidden',
+                      display: 'flex',
+                      flexDirection: 'column',
                       '&::before': {
                         content: '""',
                         position: 'absolute',
@@ -721,26 +730,33 @@ const Home: React.FC = () => {
                     }}
                   >
                     <Box
-                      component="img"
-                      src={service.image}
-                      alt={service.title}
                       sx={{
                         width: 'calc(100% + 64px)',
                         height: 150,
                         mx: -4,
                         mt: -4,
                         mb: 3,
-                        objectFit: 'cover',
-                        display: 'block',
+                        overflow: 'hidden',
                       }}
-                    />
+                    >
+                      <Box
+                        component="img"
+                        src={service.image}
+                        alt={service.title}
+                        sx={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                        }}
+                      />
+                    </Box>
                     <Box
                       sx={{
                         width: 70,
                         height: 70,
                         borderRadius: '50%',
                         bgcolor: index % 2 ? 'rgba(0,27,94,0.08)' : 'rgba(15,122,79,0.10)',
-                        color: index % 2 ? brandBlue : brandGreen,
+                        color: accentColor,
                         display: 'grid',
                         placeItems: 'center',
                         mb: 3
@@ -748,17 +764,40 @@ const Home: React.FC = () => {
                     >
                       <Icon size={32} />
                     </Box>
-                    <Typography variant="h5" sx={{ fontWeight: 800, mb: 2, color: brandBlue }}>
+                    <Typography variant="h5" sx={{ fontWeight: 800, mb: 2, color: accentColor }}>
                       {service.title}
                     </Typography>
-                    <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.8, mb: 3 }}>
+                    <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.8, mb: 3, flexGrow: 1 }}>
                       {service.summary}
                     </Typography>
                     <Button
+                      component={RouterLink}
+                      to={`/services#${service.anchor}`}
                       variant="text"
-                      color="secondary"
                       endIcon={<ArrowRight size={16} />}
-                      sx={{ p: 0, '&:hover': { bgcolor: 'transparent', transform: 'translateX(5px)' }, transition: 'transform 0.3s' }}
+                      sx={{
+                        alignSelf: 'flex-start',
+                        px: 2,
+                        py: 1,
+                        borderRadius: '999px',
+                        border: `1px solid rgba(${accentRgb},0.20)`,
+                        bgcolor: `rgba(${accentRgb},0.08)`,
+                        color: accentColor,
+                        fontWeight: 800,
+                        transition: 'all 0.3s ease',
+                        '& .MuiButton-endIcon': {
+                          transition: 'transform 0.3s ease',
+                        },
+                        '&:hover': {
+                          bgcolor: accentColor,
+                          color: 'white',
+                          borderColor: accentColor,
+                          boxShadow: `0 8px 18px rgba(${accentRgb},0.20)`,
+                        },
+                        '&:hover .MuiButton-endIcon': {
+                          transform: 'translateX(4px)',
+                        },
+                      }}
                     >
                       Read More
                     </Button>
@@ -941,9 +980,11 @@ const Home: React.FC = () => {
                       maxWidth: '80%',
                       maxHeight: '80%',
                       objectFit: 'contain',
-                      opacity: 0.6,
-                      '&:hover': { opacity: 1 },
-                      transition: 'opacity 0.3s'
+                      opacity: 1,
+                      transition: 'transform 0.3s ease',
+                      '&:hover': {
+                        transform: 'scale(1.08)',
+                      },
                     }}
                   />
                 </Box>
@@ -1043,60 +1084,124 @@ const Home: React.FC = () => {
                 <Grid container spacing={3}>
                   <Grid size={{ xs: 12, sm: 6 }}>
                     <TextField
-                      {...({
-                        fullWidth: true,
-                        label: "Your Name",
-                        variant: "standard",
-                        InputLabelProps: { shrink: true },
-                        sx: { '& .MuiInput-root': { py: 1 } }
-                      } as any)}
+                      fullWidth
+                      label="Your Name"
+                      required
+                      variant="filled"
+                      sx={{
+                        '& .MuiFilledInput-root': {
+                          borderRadius: '20px',
+                          bgcolor: '#f8fafc',
+                          border: '1px solid rgba(0,0,0,0.08)',
+                          transition: 'all 0.3s ease',
+                          '&:hover': { bgcolor: 'white', borderColor: 'primary.light' },
+                          '&.Mui-focused': { bgcolor: 'white', borderColor: 'primary.main', boxShadow: '0 10px 20px rgba(15,122,79,0.05)' },
+                          '&:before, &:after': { display: 'none' }
+                        },
+                        '& .MuiInputLabel-root': { fontWeight: 600, '&.Mui-focused': { color: 'primary.main' } }
+                      }}
                     />
                   </Grid>
                   <Grid size={{ xs: 12, sm: 6 }}>
                     <TextField
-                      {...({
-                        fullWidth: true,
-                        label: "Email Address",
-                        variant: "standard",
-                        InputLabelProps: { shrink: true },
-                        sx: { '& .MuiInput-root': { py: 1 } }
-                      } as any)}
+                      fullWidth
+                      label="Company Name"
+                      variant="filled"
+                      sx={{
+                        '& .MuiFilledInput-root': {
+                          borderRadius: '20px',
+                          bgcolor: '#f8fafc',
+                          border: '1px solid rgba(0,0,0,0.08)',
+                          transition: 'all 0.3s ease',
+                          '&:hover': { bgcolor: 'white', borderColor: 'primary.light' },
+                          '&.Mui-focused': { bgcolor: 'white', borderColor: 'primary.main', boxShadow: '0 10px 20px rgba(15,122,79,0.05)' },
+                          '&:before, &:after': { display: 'none' }
+                        },
+                        '& .MuiInputLabel-root': { fontWeight: 600, '&.Mui-focused': { color: 'primary.main' } }
+                      }}
                     />
                   </Grid>
                   <Grid size={{ xs: 12, sm: 6 }}>
                     <TextField
-                      {...({
-                        fullWidth: true,
-                        label: "Phone Number",
-                        variant: "standard",
-                        InputLabelProps: { shrink: true },
-                        sx: { '& .MuiInput-root': { py: 1 } }
-                      } as any)}
+                      fullWidth
+                      label="Email Address"
+                      required
+                      type="email"
+                      variant="filled"
+                      sx={{
+                        '& .MuiFilledInput-root': {
+                          borderRadius: '20px',
+                          bgcolor: '#f8fafc',
+                          border: '1px solid rgba(0,0,0,0.08)',
+                          transition: 'all 0.3s ease',
+                          '&:hover': { bgcolor: 'white', borderColor: 'primary.light' },
+                          '&.Mui-focused': { bgcolor: 'white', borderColor: 'primary.main', boxShadow: '0 10px 20px rgba(15,122,79,0.05)' },
+                          '&:before, &:after': { display: 'none' }
+                        },
+                        '& .MuiInputLabel-root': { fontWeight: 600, '&.Mui-focused': { color: 'primary.main' } }
+                      }}
                     />
                   </Grid>
                   <Grid size={{ xs: 12, sm: 6 }}>
                     <TextField
-                      {...({
-                        fullWidth: true,
-                        label: "Service Type",
-                        variant: "standard",
-                        placeholder: "e.g. Temperature",
-                        InputLabelProps: { shrink: true },
-                        sx: { '& .MuiInput-root': { py: 1 } }
-                      } as any)}
+                      fullWidth
+                      label="Phone Number"
+                      required
+                      variant="filled"
+                      sx={{
+                        '& .MuiFilledInput-root': {
+                          borderRadius: '20px',
+                          bgcolor: '#f8fafc',
+                          border: '1px solid rgba(0,0,0,0.08)',
+                          transition: 'all 0.3s ease',
+                          '&:hover': { bgcolor: 'white', borderColor: 'primary.light' },
+                          '&.Mui-focused': { bgcolor: 'white', borderColor: 'primary.main', boxShadow: '0 10px 20px rgba(15,122,79,0.05)' },
+                          '&:before, &:after': { display: 'none' }
+                        },
+                        '& .MuiInputLabel-root': { fontWeight: 600, '&.Mui-focused': { color: 'primary.main' } }
+                      }}
                     />
                   </Grid>
                   <Grid size={{ xs: 12 }}>
                     <TextField
-                      {...({
-                        fullWidth: true,
-                        label: "Your Message",
-                        variant: "standard",
-                        multiline: true,
-                        rows: 3,
-                        InputLabelProps: { shrink: true },
-                        sx: { '& .MuiInput-root': { py: 1 } }
-                      } as any)}
+                      fullWidth
+                      label="Subject"
+                      required
+                      variant="filled"
+                      sx={{
+                        '& .MuiFilledInput-root': {
+                          borderRadius: '20px',
+                          bgcolor: '#f8fafc',
+                          border: '2px solid transparent',
+                          transition: 'all 0.3s ease',
+                          '&:hover': { bgcolor: 'white', borderColor: 'primary.light' },
+                          '&.Mui-focused': { bgcolor: 'white', borderColor: 'primary.main', boxShadow: '0 10px 20px rgba(15,122,79,0.05)' },
+                          '&:before, &:after': { display: 'none' }
+                        },
+                        '& .MuiInputLabel-root': { fontWeight: 600, '&.Mui-focused': { color: 'primary.main' } }
+                      }}
+                    />
+                  </Grid>
+                  <Grid size={{ xs: 12 }}>
+                    <TextField
+                      fullWidth
+                      multiline
+                      rows={5}
+                      label="Tell us about your requirements..."
+                      required
+                      variant="filled"
+                      sx={{
+                        '& .MuiFilledInput-root': {
+                          borderRadius: '25px',
+                          bgcolor: '#f8fafc',
+                          border: '2px solid transparent',
+                          transition: 'all 0.3s ease',
+                          '&:hover': { bgcolor: 'white', borderColor: 'primary.light' },
+                          '&.Mui-focused': { bgcolor: 'white', borderColor: 'primary.main', boxShadow: '0 10px 20px rgba(15,122,79,0.05)' },
+                          '&:before, &:after': { display: 'none' }
+                        },
+                        '& .MuiInputLabel-root': { fontWeight: 600, '&.Mui-focused': { color: 'primary.main' } }
+                      }}
                     />
                   </Grid>
                 </Grid>
@@ -1105,17 +1210,18 @@ const Home: React.FC = () => {
                   variant="contained"
                   size="large"
                   fullWidth
+                  endIcon={<Send size={20} />}
                   sx={{
-                    py: 2,
-                    fontSize: '1.1rem',
-                    fontWeight: 800,
-                    borderRadius: '15px',
-                    bgcolor: brandBlue,
-                    background: `linear-gradient(135deg, ${brandBlue} 0%, ${brandGreen} 100%)`,
-                    boxShadow: '0 20px 40px rgba(0,27,94,0.18)'
+                    py: 2.5,
+                    borderRadius: '20px',
+                    fontWeight: 900,
+                    fontSize: '1.2rem',
+                    bgcolor: brandGreen,
+                    boxShadow: '0 20px 40px rgba(15,122,79,0.3)',
+                    '&:hover': { transform: 'translateY(-3px)', bgcolor: brandBlue }
                   }}
                 >
-                  Send Request Now
+                  Send Message
                 </Button>
               </Stack>
             </Grid>

@@ -7,6 +7,7 @@ const brandBlue = '#001b5e';
 const brandGreen = '#0f7a4f';
 const brandGreenDark = '#0d3f2b';
 const softBlue = '#edf5ff';
+const officeMapUrl = 'https://www.google.com/maps/search/?api=1&query=PT.%20Fareast%20Calibration%20%26%20Testing%20Services%2C%20Tiban%20Raya%20Lestari%2C%20Block%20C%2F4%2C%20Sekupang%2C%20Batam%2C%20Indonesia';
 
 const Contact: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -22,12 +23,14 @@ const Contact: React.FC = () => {
       title: 'Call Our Service Desk', 
       text: (
         <>
-          <Link href="tel:+62778351831" color="inherit" underline="hover">+62-778-351-831</Link>
+          <Link href="tel:+62778351831" color="inherit" underline="hover">+62 778 351 831</Link>
           {' / '}
-          <Link href="tel:+6281267051658" color="inherit" underline="hover">+62 812-6705-1658</Link>
+          <Link href="tel:+6281267051658" color="inherit" underline="hover">+62 812 6705 1658</Link>
+          {' / '}
+          <Link href="tel:+6282286881953" color="inherit" underline="hover">+62 822 8688 1953</Link>
         </>
       ), 
-      sub: 'Contact person: Andi Sahabinnu' 
+      sub: '' 
     },
     { 
       icon: Mail, 
@@ -47,7 +50,11 @@ const Contact: React.FC = () => {
     { 
       icon: MapPinned, 
       title: 'Visit Our Laboratory', 
-      text: 'Tiban Raya Lestari, Block C/4', 
+      text: (
+        <Link href={officeMapUrl} target="_blank" rel="noopener noreferrer" color="inherit" underline="hover">
+          Tiban Raya Lestari, Block C/4
+        </Link>
+      ),
       sub: 'Sekupang, Batam, Indonesia' 
     }
   ];
