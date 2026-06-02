@@ -36,8 +36,6 @@ import ourClient17 from '../assets/ourclient17.webp';
 import labImage from '../assets/lab 1.webp';
 import analyticalImage from '../assets/analytical.webp';
 import analyticalBenchImage from '../assets/analytical 1.webp';
-import dimensionalImage from '../assets/dimensional 15.webp';
-import dimensionalBenchImage from '../assets/dimension 12.webp';
 import electricalImage from '../assets/electrical 11.webp';
 import electricalBenchImage from '../assets/e;ectrical 14.webp';
 import mechanicalImage from '../assets/mechanical 12.webp';
@@ -55,6 +53,10 @@ import fieldTeamImage from '../assets/IMG-20230306-WA0054.webp';
 import inspectionImage from '../assets/DSC00437.webp';
 import calibrationBenchImage from '../assets/DSC00356.webp';
 import aboutHeroImage from '../assets/DSC00498.webp';
+import image1a from '../assets/1a.jpg';
+import image1b from '../assets/1b.JPG';
+import image1c from '../assets/1c.jpg';
+import image1d from '../assets/1d.JPG';
 
 export const navigation = [
   { label: 'Home', path: '/' },
@@ -85,7 +87,7 @@ export const heroSlides = [
   {
     title: 'PT. Fareast Calibration Services',
     description: 'Accredited calibration and testing support from our Batam laboratory for dependable industrial measurement confidence.',
-    image: aboutHeroImage,
+    image: image1a,
     objectPosition: '38% center',
   },
   {
@@ -101,7 +103,7 @@ export const heroSlides = [
   {
     title: 'Dimensional calibration',
     description: 'Calipers, micrometers, gauge blocks, thickness gauges, and inspection tools calibrated for dependable accuracy.',
-    image: dimensionalImage,
+    image: image1b,
   },
   {
     title: 'Electrical calibration',
@@ -119,7 +121,7 @@ export const homeGallery = [
   {
     title: 'Dimensional inspection',
     caption: 'Calipers, gauges, and hand tools checked for reliable accuracy',
-    image: dimensionalBenchImage,
+    image: image1b,
   },
   {
     title: 'Electrical verification',
@@ -129,7 +131,7 @@ export const homeGallery = [
   {
     title: 'Pressure calibration',
     caption: 'Industrial gauges and pressure instruments tested with care',
-    image: pressureImage,
+    image: image1d,
   },
   {
     title: 'Thermal calibration',
@@ -195,7 +197,7 @@ export const serviceGroups = [
     anchor: 'dimensional-calibration',
     title: 'Dimensional Calibration',
     icon: Zap,
-    image: dimensionalImage,
+    image: image1c,
     summary:
       'Improve inspection confidence with dimensional calibration for hand tools, gauges, and precision measuring instruments used in daily quality control and production checks.',
     items: ['Vernir  /dial / digital caliper', 'Micrometer', 'Caliper checker/gauge block/length bars', 'Dial gauge/tester', 'Height gauge/Precision height master', 'Dimensional hand tools calibration', 'Plug gauge/pin gauge/Bore gauge'],
@@ -300,9 +302,9 @@ export const clientSectors = [
   'Production plants',
   'QA and QC labs',
   'Process industries',
-  'Research facilities',
+  'Manufacturing Industries',
   'Marine Industries',
-  'Utilities and maintenance contractors',
+  'Oil and Gas Industries',
 ];
 
 export const testimonials = [

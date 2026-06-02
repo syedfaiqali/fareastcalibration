@@ -3,6 +3,7 @@ import { Box, Container, Typography, Breadcrumbs, Link, Stack } from '@mui/mater
 import { Link as RouterLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, BadgeCheck } from 'lucide-react';
+import image1a from '../assets/1a.jpg';
 
 interface PageHeaderProps {
   title: string;
@@ -87,12 +88,12 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, subtitle, breadcrumb }) 
       >
         <Box
           component="img"
-          src="/fareastcalibrationLogo.jpeg"
+          src={image1a}
           alt=""
           sx={{
             width: '74%',
             height: '74%',
-            objectFit: 'contain',
+            objectFit: 'cover',
             borderRadius: '50%',
             filter: 'saturate(0.95)',
             opacity: 0.9,
