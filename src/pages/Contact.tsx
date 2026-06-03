@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { Box, Container, Typography, Grid, TextField, Button, Paper, Stack, Link } from '@mui/material';
+import React from 'react';
+import { Box, Container, Typography, Grid, Paper, Stack, Link } from '@mui/material';
 import PageHeader from '../components/PageHeader';
-import { Mail, MapPinned, PhoneCall, Send, CheckCircle2, Clock } from 'lucide-react';
+import { Mail, MapPinned, PhoneCall, Clock } from 'lucide-react';
+import EnquiryForm from '../components/EnquiryForm';
 
 const brandBlue = '#001b5e';
 const brandGreen = '#0f7a4f';
@@ -10,13 +11,6 @@ const softBlue = '#edf5ff';
 const officeMapUrl = 'https://www.google.com/maps/search/?api=1&query=PT.%20Fareast%20Calibration%20%26%20Testing%20Services%2C%20Tiban%20Raya%20Lestari%2C%20Block%20C%2F4%2C%20Sekupang%2C%20Batam%2C%20Indonesia';
 
 const Contact: React.FC = () => {
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
-
   const contactItems = [
     { 
       icon: PhoneCall, 
@@ -152,196 +146,32 @@ const Contact: React.FC = () => {
 
           {/* Right Column: Contact Form */}
           <Grid size={{ xs: 12, md: 7 }}>
-            {!submitted ? (
-              <Paper
-                sx={{
-                  p: { xs: 4, md: 6 },
-                  borderRadius: 6,
-                  bgcolor: 'white',
-                  boxShadow: '0 40px 100px rgba(0,27,94,0.10)',
-                  border: '1px solid rgba(0,27,94,0.08)',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  '&::before': {
-                    content: '""',
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    height: 6,
-                    background: `linear-gradient(90deg, ${brandGreen}, ${brandBlue})`,
-                  },
-                }}
-              >
-                <Typography variant="h4" sx={{ fontWeight: 900, color: brandBlue, mb: 4 }}>
-                  Send an Enquiry
-                </Typography>
-                <form onSubmit={handleSubmit}>
-                  <Grid container spacing={3}>
-                    <Grid size={{ xs: 12, sm: 6 }}>
-                      <TextField 
-                        fullWidth 
-                        label="Your Name" 
-                        required 
-                        variant="filled" 
-                        sx={{ 
-                          '& .MuiFilledInput-root': { 
-                            borderRadius: '20px', 
-                            bgcolor: '#f8fafc',
-                            border: '1px solid rgba(0,0,0,0.08)',
-                            transition: 'all 0.3s ease',
-                            '&:hover': { bgcolor: 'white', borderColor: 'primary.light' },
-                            '&.Mui-focused': { bgcolor: 'white', borderColor: 'primary.main', boxShadow: '0 10px 20px rgba(15,122,79,0.05)' },
-                            '&:before, &:after': { display: 'none' }
-                          },
-                          '& .MuiInputLabel-root': { fontWeight: 600, '&.Mui-focused': { color: 'primary.main' } }
-                        }} 
-                      />
-                    </Grid>
-                    <Grid size={{ xs: 12, sm: 6 }}>
-                      <TextField 
-                        fullWidth 
-                        label="Company Name" 
-                        variant="filled" 
-                        sx={{ 
-                          '& .MuiFilledInput-root': { 
-                            borderRadius: '20px', 
-                            bgcolor: '#f8fafc',
-                            border: '1px solid rgba(0,0,0,0.08)',
-                            transition: 'all 0.3s ease',
-                            '&:hover': { bgcolor: 'white', borderColor: 'primary.light' },
-                            '&.Mui-focused': { bgcolor: 'white', borderColor: 'primary.main', boxShadow: '0 10px 20px rgba(15,122,79,0.05)' },
-                            '&:before, &:after': { display: 'none' }
-                          },
-                          '& .MuiInputLabel-root': { fontWeight: 600, '&.Mui-focused': { color: 'primary.main' } }
-                        }} 
-                      />
-                    </Grid>
-                    <Grid size={{ xs: 12, sm: 6 }}>
-                      <TextField 
-                        fullWidth 
-                        label="Email Address" 
-                        required 
-                        type="email" 
-                        variant="filled" 
-                        sx={{ 
-                          '& .MuiFilledInput-root': { 
-                            borderRadius: '20px', 
-                            bgcolor: '#f8fafc',
-                            border: '1px solid rgba(0,0,0,0.08)',
-                            transition: 'all 0.3s ease',
-                            '&:hover': { bgcolor: 'white', borderColor: 'primary.light' },
-                            '&.Mui-focused': { bgcolor: 'white', borderColor: 'primary.main', boxShadow: '0 10px 20px rgba(15,122,79,0.05)' },
-                            '&:before, &:after': { display: 'none' }
-                          },
-                          '& .MuiInputLabel-root': { fontWeight: 600, '&.Mui-focused': { color: 'primary.main' } }
-                        }} 
-                      />
-                    </Grid>
-                    <Grid size={{ xs: 12, sm: 6 }}>
-                      <TextField 
-                        fullWidth 
-                        label="Phone Number" 
-                        required 
-                        variant="filled" 
-                        sx={{ 
-                          '& .MuiFilledInput-root': { 
-                            borderRadius: '20px', 
-                            bgcolor: '#f8fafc',
-                            border: '1px solid rgba(0,0,0,0.08)',
-                            transition: 'all 0.3s ease',
-                            '&:hover': { bgcolor: 'white', borderColor: 'primary.light' },
-                            '&.Mui-focused': { bgcolor: 'white', borderColor: 'primary.main', boxShadow: '0 10px 20px rgba(15,122,79,0.05)' },
-                            '&:before, &:after': { display: 'none' }
-                          },
-                          '& .MuiInputLabel-root': { fontWeight: 600, '&.Mui-focused': { color: 'primary.main' } }
-                        }} 
-                      />
-                    </Grid>
-                    <Grid size={{ xs: 12 }}>
-                      <TextField 
-                        fullWidth 
-                        label="Subject" 
-                        required 
-                        variant="filled" 
-                        sx={{ 
-                          '& .MuiFilledInput-root': { 
-                            borderRadius: '20px', 
-                            bgcolor: '#f8fafc',
-                            border: '2px solid transparent',
-                            transition: 'all 0.3s ease',
-                            '&:hover': { bgcolor: 'white', borderColor: 'primary.light' },
-                            '&.Mui-focused': { bgcolor: 'white', borderColor: 'primary.main', boxShadow: '0 10px 20px rgba(15,122,79,0.05)' },
-                            '&:before, &:after': { display: 'none' }
-                          },
-                          '& .MuiInputLabel-root': { fontWeight: 600, '&.Mui-focused': { color: 'primary.main' } }
-                        }} 
-                      />
-                    </Grid>
-                    <Grid size={{ xs: 12 }}>
-                      <TextField 
-                        fullWidth 
-                        multiline 
-                        rows={5} 
-                        label="Tell us about your requirements..." 
-                        required 
-                        variant="filled" 
-                        sx={{ 
-                          '& .MuiFilledInput-root': { 
-                            borderRadius: '25px', 
-                            bgcolor: '#f8fafc',
-                            border: '2px solid transparent',
-                            transition: 'all 0.3s ease',
-                            '&:hover': { bgcolor: 'white', borderColor: 'primary.light' },
-                            '&.Mui-focused': { bgcolor: 'white', borderColor: 'primary.main', boxShadow: '0 10px 20px rgba(15,122,79,0.05)' },
-                            '&:before, &:after': { display: 'none' }
-                          },
-                          '& .MuiInputLabel-root': { fontWeight: 600, '&.Mui-focused': { color: 'primary.main' } }
-                        }} 
-                      />
-                    </Grid>
-                    <Grid size={{ xs: 12 }}>
-                      <Button 
-                        type="submit" 
-                        variant="contained" 
-                        size="large" 
-                        fullWidth 
-                        endIcon={<Send size={20} />}
-                        sx={{ py: 2.5, borderRadius: '20px', fontWeight: 900, fontSize: '1.2rem', bgcolor: brandGreen, boxShadow: '0 20px 40px rgba(15,122,79,0.3)', '&:hover': { transform: 'translateY(-3px)', bgcolor: brandBlue } }}
-                      >
-                        Send Message
-                      </Button>
-                    </Grid>
-                  </Grid>
-                </form>
-              </Paper>
-            ) : (
-              <Paper
-                sx={{
-                  p: 8,
-                  borderRadius: 6,
-                  textAlign: 'center',
-                  bgcolor: 'white',
-                  boxShadow: '0 40px 100px rgba(0,27,94,0.10)',
-                  minHeight: 600,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}
-              >
-                <Box sx={{ width: 120, height: 120, bgcolor: 'rgba(15,122,79,0.1)', color: 'primary.main', borderRadius: '50%', display: 'grid', placeItems: 'center', mb: 4 }}>
-                  <CheckCircle2 size={70} />
-                </Box>
-                <Typography variant="h3" sx={{ fontWeight: 900, color: brandBlue, mb: 2 }}>Enquiry Sent!</Typography>
-                <Typography variant="h6" sx={{ color: 'text.secondary', fontWeight: 400, maxWidth: 450, mb: 4 }}>
-                  We've received your message. A technical specialist will review your request and get back to you shortly.
-                </Typography>
-                <Button variant="outlined" onClick={() => setSubmitted(false)} sx={{ borderRadius: '50px', px: 6 }}>
-                  Send Another Message
-                </Button>
-              </Paper>
-            )}
+            <Paper
+              sx={{
+                p: { xs: 4, md: 6 },
+                borderRadius: 6,
+                bgcolor: 'white',
+                boxShadow: '0 40px 100px rgba(0,27,94,0.10)',
+                border: '1px solid rgba(0,27,94,0.08)',
+                position: 'relative',
+                overflow: 'hidden',
+                '&::before': {
+                  content: '""',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: 6,
+                  background: `linear-gradient(90deg, ${brandGreen}, ${brandBlue})`,
+                },
+              }}
+            >
+              <EnquiryForm
+                pageSource="Contact Page"
+                title="Send an Enquiry"
+                subtitle="Share your calibration, testing, pickup, delivery, or quotation requirements."
+              />
+            </Paper>
           </Grid>
 
         </Grid>

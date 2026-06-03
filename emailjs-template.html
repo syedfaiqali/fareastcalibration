@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fareast Enquiry Email</title>
+    <style>
+      body {
+        margin: 0;
+        background: #edf5ff;
+        color: #1f2937;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .email-shell {
+        width: 100%;
+        padding: 32px 12px;
+        background: linear-gradient(180deg, #edf5ff 0%, #ffffff 100%);
+      }
+
+      .email-card {
+        max-width: 680px;
+        margin: 0 auto;
+        overflow: hidden;
+        border-radius: 22px;
+        background: #ffffff;
+        border: 1px solid rgba(0, 27, 94, 0.12);
+        box-shadow: 0 22px 60px rgba(0, 27, 94, 0.14);
+      }
+
+      .email-header {
+        padding: 34px 38px;
+        color: #ffffff;
+        background: linear-gradient(135deg, #001b5e 0%, #0d3f2b 100%);
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        color: #8ce0b6;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 28px;
+        line-height: 1.25;
+      }
+
+      .email-body {
+        padding: 34px 38px 40px;
+      }
+
+      .info-grid {
+        width: 100%;
+        border-spacing: 0 12px;
+      }
+
+      .label {
+        width: 170px;
+        padding: 14px 16px;
+        border-radius: 14px 0 0 14px;
+        background: #f4fbf7;
+        color: #0f7a4f;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        vertical-align: top;
+      }
+
+      .value {
+        padding: 14px 16px;
+        border-radius: 0 14px 14px 0;
+        background: #f8fafc;
+        color: #001b5e;
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      .message-box {
+        margin-top: 24px;
+        padding: 22px;
+        border-radius: 18px;
+        background: #ffffff;
+        border: 1px solid rgba(15, 122, 79, 0.20);
+      }
+
+      .message-title {
+        margin: 0 0 10px;
+        color: #0f7a4f;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .message-text {
+        margin: 0;
+        color: #374151;
+        font-size: 16px;
+        line-height: 1.7;
+        white-space: pre-line;
+      }
+
+      .footer {
+        padding: 20px 38px 30px;
+        color: #64748b;
+        font-size: 12px;
+        line-height: 1.6;
+        background: #f8fafc;
+      }
+
+      @media (max-width: 560px) {
+        .email-header,
+        .email-body,
+        .footer {
+          padding-left: 22px;
+          padding-right: 22px;
+        }
+
+        .label,
+        .value {
+          display: block;
+          width: auto;
+          border-radius: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="email-shell">
+      <div class="email-card">
+        <div class="email-header">
+          <p class="eyebrow">New website enquiry</p>
+          <h1>{{subject}}</h1>
+        </div>
+
+        <div class="email-body">
+          <table class="info-grid" role="presentation">
+            <tr>
+              <td class="label">Name</td>
+              <td class="value">{{from_name}}</td>
+            </tr>
+            <tr>
+              <td class="label">Company</td>
+              <td class="value">{{company_name}}</td>
+            </tr>
+            <tr>
+              <td class="label">Email</td>
+              <td class="value">{{from_email}}</td>
+            </tr>
+            <tr>
+              <td class="label">Phone</td>
+              <td class="value">{{phone_number}}</td>
+            </tr>
+            <tr>
+              <td class="label">Source</td>
+              <td class="value">{{page_source}}</td>
+            </tr>
+          </table>
+
+          <div class="message-box">
+            <p class="message-title">Requirement Details</p>
+            <p class="message-text">{{message}}</p>
+          </div>
+        </div>
+
+        <div class="footer">
+          This email was sent from the Fareast Calibration website enquiry form. Reply directly to
+          {{reply_to}} to continue the conversation.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
