@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { Box, Container, Typography, Grid, Paper, Stack, Button, TextField, MenuItem, Avatar, Divider, Link } from '@mui/material';
+import { Box, Container, Typography, Grid, Paper, Stack, Button, TextField, Avatar, Divider, Link } from '@mui/material';
 import { motion } from 'framer-motion';
 import PageHeader from '../components/PageHeader';
 import {
   PhoneCall,
   Send,
-  Upload,
   Star,
   Users,
   Trophy,
@@ -24,7 +23,17 @@ const brandGreen = '#0f7a4f';
 const brandGreenDark = '#0d3f2b';
 const softBlue = '#edf5ff';
 const softGreen = '#f4fbf7';
+const recruitmentEmail = 'fareastcalibration@gmail.com';
 const officeMapUrl = 'https://www.google.com/maps/search/?api=1&query=PT.%20Fareast%20Calibration%20%26%20Testing%20Services%2C%20Tiban%20Raya%20Lestari%2C%20Block%20C%2F4%2C%20Sekupang%2C%20Batam%2C%20Indonesia';
+
+const metrologyExpertise = [
+  'Calibration Technician',
+  'Technical Supervisor',
+  'Instrumentation Engineer',
+  'Technical Manager',
+  'Validation Specialist',
+  'Quality Executive',
+];
 
 const fadeInUp: any = {
   initial: { opacity: 0, y: 40 },
@@ -33,21 +42,58 @@ const fadeInUp: any = {
   transition: { duration: 0.8, ease: [0.21, 1.02, 0.47, 0.98] }
 };
 
-const metrologyExpertise = [
-  'Calibration Technician',
-  'Technical Supervisor',
-  'Instrumentation Engineer',
-  'Technical Manager',
-  'Validation Specialist',
-  'Quality Executive'
-];
-
 const Career: React.FC = () => {
-  const [submitted, setSubmitted] = useState(false);
+  const [application, setApplication] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    interest: '',
+    message: '',
+  });
+
+  const fieldSx = {
+    '& .MuiFilledInput-root': {
+      borderRadius: '20px',
+      bgcolor: '#f8fafc',
+      border: '1px solid rgba(0,27,94,0.10)',
+      transition: 'all 0.3s ease',
+      '&:hover': { bgcolor: 'white', borderColor: 'primary.light' },
+      '&.Mui-focused': { bgcolor: 'white', borderColor: 'primary.main', boxShadow: '0 10px 20px rgba(15,122,79,0.05)' },
+      '&:before, &:after': { display: 'none' }
+    },
+    '& .MuiInputLabel-root': { fontWeight: 600, '&.Mui-focused': { color: 'primary.main' } }
+  };
+
+  const handleFieldChange =
+    (field: keyof typeof application) =>
+    (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      setApplication((current) => ({ ...current, [field]: event.target.value }));
+    };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+
+    const subject = `Career Application - ${application.fullName || 'Fareast Candidate'}`;
+    const body = [
+      'Hello Fareast Recruitment Team,',
+      '',
+      'I would like to apply or ask about career opportunities at PT. Fareast Calibration.',
+      '',
+      `Full Name: ${application.fullName}`,
+      `Email: ${application.email}`,
+      `Phone: ${application.phone}`,
+      `Position / Area of Interest: ${application.interest || 'Open to suitable opportunities'}`,
+      '',
+      'Message:',
+      application.message || 'Please find my CV attached for your review.',
+      '',
+      'I will attach my CV/resume to this email.',
+      '',
+      'Thank you.',
+    ].join('\n');
+
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(recruitmentEmail)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(gmailUrl, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -276,9 +322,9 @@ const Career: React.FC = () => {
                         <Send size={24} />
                       </Box>
                       <Box>
-                        <Typography variant="caption" sx={{ fontWeight: 800, opacity: 0.6, letterSpacing: 1 }}>EMAIL YOUR CV</Typography>
-                        <Link href="mailto:fareastcalibration@gmail.com" color="inherit" underline="hover">
-                          <Typography variant="h6" sx={{ fontWeight: 800 }}>fareastcalibration@gmail.com</Typography>
+                        <Typography variant="caption" sx={{ fontWeight: 800, opacity: 0.6, letterSpacing: 1 }}>EMAIL YOUR APPLICATION</Typography>
+                        <Link href={`mailto:${recruitmentEmail}`} color="inherit" underline="hover">
+                          <Typography variant="h6" sx={{ fontWeight: 800 }}>{recruitmentEmail}</Typography>
                         </Link>
                         <Link href="mailto:info@fareastcalibration.com" color="inherit" underline="hover">
                           <Typography variant="body2" sx={{ color: 'text.secondary' }}>info@fareastcalibration.com</Typography>
@@ -295,7 +341,7 @@ const Career: React.FC = () => {
                     variant="contained"
                     size="large"
                     fullWidth
-                    href="mailto:fareastcalibration@gmail.com"
+                    href={`mailto:${recruitmentEmail}`}
                     sx={{
                       py: 2,
                       borderRadius: '20px',
@@ -321,10 +367,10 @@ const Career: React.FC = () => {
               <Stack spacing={5}>
                 <Box>
                   <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 900, letterSpacing: 4 }}>JOIN US</Typography>
-                  <Typography variant="h2" sx={{ fontWeight: 900, color: brandBlue, mt: 2 }}>Submit Your <Box component="span" sx={{ color: brandGreen }}>CV</Box></Typography>
+                  <Typography variant="h2" sx={{ fontWeight: 900, color: brandBlue, mt: 2 }}>Start Your <Box component="span" sx={{ color: brandGreen }}>Application</Box></Typography>
                 </Box>
                 <Typography variant="body1" sx={{ color: 'text.secondary', fontSize: '1.2rem', lineHeight: 1.8 }}>
-                  Ready to take the next step in your career? Fill out the form below, upload your CV, and our recruitment team will get in touch with you.
+                  Tell us who you are, what kind of role you are looking for, and open Gmail with a prepared message. Attach your CV there before sending.
                 </Typography>
 
                 <Stack spacing={3}>
@@ -359,170 +405,128 @@ const Career: React.FC = () => {
           </Grid>
 
           <Grid size={{ xs: 12, md: 7 }}>
-            {!submitted ? (
-              <MotionPaper
-                {...fadeInUp}
-                sx={{
-                  p: { xs: 5, md: 8 },
-                  borderRadius: 6,
-                  bgcolor: 'white',
-                  boxShadow: '0 40px 100px rgba(0,27,94,0.10)',
-                  border: '1px solid rgba(0,27,94,0.08)',
-                  position: 'relative'
-                }}
-              >
-                <form onSubmit={handleSubmit}>
-                  <Grid container spacing={4}>
+            <MotionPaper
+              {...fadeInUp}
+              sx={{
+                p: { xs: 4, md: 7 },
+                borderRadius: 6,
+                bgcolor: 'white',
+                boxShadow: '0 40px 100px rgba(0,27,94,0.10)',
+                border: '1px solid rgba(0,27,94,0.08)',
+                position: 'relative',
+                overflow: 'hidden',
+                '&::before': {
+                  content: '""',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: 6,
+                  background: `linear-gradient(90deg, ${brandGreen}, ${brandBlue})`,
+                },
+              }}
+            >
+              <form onSubmit={handleSubmit}>
+                <Stack spacing={4}>
+                  <Box>
+                    <Typography variant="h4" sx={{ fontWeight: 900, color: brandBlue, mb: 1 }}>
+                      Write Your Application
+                    </Typography>
+                    <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
+                      We will open Gmail with your details ready. Attach your CV or resume there before sending.
+                    </Typography>
+                  </Box>
+
+                  <Grid container spacing={3}>
                     <Grid size={{ xs: 12, sm: 6 }}>
-                      <TextField 
-                        fullWidth 
-                        label="Full Name" 
-                        required 
-                        variant="filled" 
-                        sx={{ 
-                          '& .MuiFilledInput-root': { 
-                            borderRadius: '20px', 
-                            bgcolor: '#f8fafc',
-                            border: '1px solid rgba(0,0,0,0.08)',
-                            transition: 'all 0.3s ease',
-                            '&:hover': { bgcolor: 'white', borderColor: 'primary.light' },
-                            '&.Mui-focused': { bgcolor: 'white', borderColor: 'primary.main', boxShadow: '0 10px 20px rgba(15,122,79,0.05)' },
-                            '&:before, &:after': { display: 'none' }
-                          },
-                          '& .MuiInputLabel-root': { fontWeight: 600, '&.Mui-focused': { color: 'primary.main' } }
-                        }} 
+                      <TextField
+                        fullWidth
+                        label="Full Name"
+                        required
+                        variant="filled"
+                        value={application.fullName}
+                        onChange={handleFieldChange('fullName')}
+                        sx={fieldSx}
                       />
                     </Grid>
                     <Grid size={{ xs: 12, sm: 6 }}>
-                      <TextField 
-                        fullWidth 
-                        label="Email Address" 
-                        type="email" 
-                        required 
-                        variant="filled" 
-                        sx={{ 
-                          '& .MuiFilledInput-root': { 
-                            borderRadius: '20px', 
-                            bgcolor: '#f8fafc',
-                            border: '1px solid rgba(0,0,0,0.08)',
-                            transition: 'all 0.3s ease',
-                            '&:hover': { bgcolor: 'white', borderColor: 'primary.light' },
-                            '&.Mui-focused': { bgcolor: 'white', borderColor: 'primary.main', boxShadow: '0 10px 20px rgba(15,122,79,0.05)' },
-                            '&:before, &:after': { display: 'none' }
-                          },
-                          '& .MuiInputLabel-root': { fontWeight: 600, '&.Mui-focused': { color: 'primary.main' } }
-                        }} 
+                      <TextField
+                        fullWidth
+                        label="Email Address"
+                        type="email"
+                        required
+                        variant="filled"
+                        value={application.email}
+                        onChange={handleFieldChange('email')}
+                        sx={fieldSx}
                       />
                     </Grid>
                     <Grid size={{ xs: 12, sm: 6 }}>
-                      <TextField 
-                        fullWidth 
-                        label="Phone Number" 
-                        required 
-                        variant="filled" 
-                        sx={{ 
-                          '& .MuiFilledInput-root': { 
-                            borderRadius: '20px', 
-                            bgcolor: '#f8fafc',
-                            border: '1px solid rgba(0,0,0,0.08)',
-                            transition: 'all 0.3s ease',
-                            '&:hover': { bgcolor: 'white', borderColor: 'primary.light' },
-                            '&.Mui-focused': { bgcolor: 'white', borderColor: 'primary.main', boxShadow: '0 10px 20px rgba(15,122,79,0.05)' },
-                            '&:before, &:after': { display: 'none' }
-                          },
-                          '& .MuiInputLabel-root': { fontWeight: 600, '&.Mui-focused': { color: 'primary.main' } }
-                        }} 
+                      <TextField
+                        fullWidth
+                        label="Phone Number"
+                        required
+                        variant="filled"
+                        value={application.phone}
+                        onChange={handleFieldChange('phone')}
+                        sx={fieldSx}
                       />
                     </Grid>
                     <Grid size={{ xs: 12, sm: 6 }}>
-                      <TextField 
-                        select 
-                        fullWidth 
-                        label="Designation" 
-                        defaultValue="Calibration Engineer" 
-                        variant="filled" 
-                        slotProps={{
-                          select: {
-                            MenuProps: {
-                              slotProps: {
-                                paper: {
-                                  sx: {
-                                    borderRadius: '20px',
-                                    mt: 1,
-                                    boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
-                                    border: '1px solid rgba(0,0,0,0.05)',
-                                    '& .MuiMenuItem-root': {
-                                      py: 1.5,
-                                      px: 3,
-                                      fontWeight: 600,
-                                      '&:hover': { bgcolor: 'rgba(15,122,79,0.05)', color: 'primary.main' },
-                                      '&.Mui-selected': { bgcolor: 'primary.main', color: 'white', '&:hover': { bgcolor: 'primary.dark' } }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }}
-                        sx={{ 
-                          '& .MuiFilledInput-root': { 
-                            borderRadius: '20px', 
-                            bgcolor: '#f8fafc',
-                            border: '1px solid rgba(0,0,0,0.08)',
-                            transition: 'all 0.3s ease',
-                            '&:hover': { bgcolor: 'white', borderColor: 'primary.light' },
-                            '&.Mui-focused': { bgcolor: 'white', borderColor: 'primary.main', boxShadow: '0 10px 20px rgba(15,122,79,0.05)' },
-                            '&:before, &:after': { display: 'none' }
-                          },
-                          '& .MuiInputLabel-root': { fontWeight: 600, '&.Mui-focused': { color: 'primary.main' } }
-                        }}
-                      >
-                        {metrologyExpertise?.map((role) => (
-                          <MenuItem key={role} value={role}>{role}</MenuItem>
-                        ))}
-                      </TextField>
+                      <TextField
+                        fullWidth
+                        label="Position or Area of Interest"
+                        variant="filled"
+                        placeholder="Calibration, instrumentation, QA, admin..."
+                        value={application.interest}
+                        onChange={handleFieldChange('interest')}
+                        sx={fieldSx}
+                      />
                     </Grid>
                     <Grid size={{ xs: 12 }}>
                       <Box
                         sx={{
-                          p: 6,
-                          border: '2px dashed rgba(15,122,79,0.3)',
-                          borderRadius: '30px',
-                          textAlign: 'center',
-                          bgcolor: 'rgba(15,122,79,0.02)',
-                          transition: '0.3s',
-                          cursor: 'pointer',
-                          '&:hover': { bgcolor: 'rgba(15,122,79,0.05)', borderColor: 'primary.main' }
+                          p: { xs: 3, md: 4 },
+                          borderRadius: 5,
+                          bgcolor: 'rgba(15,122,79,0.05)',
+                          border: '1px solid rgba(15,122,79,0.16)',
+                          display: 'flex',
+                          gap: 2.5,
+                          alignItems: { xs: 'flex-start', sm: 'center' },
+                          flexDirection: { xs: 'column', sm: 'row' },
                         }}
                       >
-                        <Upload size={48} color="#0f7a4f" style={{ marginBottom: '16px' }} />
-                        <Typography variant="h5" sx={{ fontWeight: 900, color: brandBlue, mb: 1 }}>Upload Your CV / Resume</Typography>
-                        <Typography variant="body2" sx={{ color: 'text.secondary' }}>Drag and drop your file here, or browse (Max 5MB)</Typography>
-                        <input type="file" style={{ display: 'none' }} id="cv-upload-new" />
-                        <label htmlFor="cv-upload-new">
-                          <Button component="span" variant="contained" sx={{ mt: 3, borderRadius: '12px', fontWeight: 800, px: 4 }}>Choose File</Button>
-                        </label>
+                        <Box sx={{ width: 56, height: 56, borderRadius: 3, bgcolor: 'white', color: brandGreen, display: 'grid', placeItems: 'center', flexShrink: 0, boxShadow: '0 14px 28px rgba(15,122,79,0.10)' }}>
+                          <Mail size={28} />
+                        </Box>
+                        <Box>
+                          <Typography variant="h6" sx={{ fontWeight: 900, color: brandBlue }}>
+                            Attach your CV in Gmail
+                          </Typography>
+                          <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.7 }}>
+                            After clicking the button, Gmail opens with your message prepared. Use Gmail's attach button to add your CV before sending.
+                          </Typography>
+                        </Box>
                       </Box>
                     </Grid>
                     <Grid size={{ xs: 12 }}>
-                      <TextField 
-                        fullWidth 
-                        multiline 
-                        rows={4} 
-                        label="Tell us about yourself" 
-                        variant="filled" 
-                        sx={{ 
-                          '& .MuiFilledInput-root': { 
-                            borderRadius: '20px', 
-                            bgcolor: '#f8fafc',
-                            border: '2px solid transparent',
-                            transition: 'all 0.3s ease',
-                            '&:hover': { bgcolor: 'white', borderColor: 'primary.light' },
-                            '&.Mui-focused': { bgcolor: 'white', borderColor: 'primary.main', boxShadow: '0 10px 20px rgba(15,122,79,0.05)' },
-                            '&:before, &:after': { display: 'none' }
+                      <TextField
+                        fullWidth
+                        multiline
+                        rows={6}
+                        label="Your message or questions"
+                        required
+                        variant="filled"
+                        placeholder="Tell us about your experience, skills, availability, or ask about open opportunities..."
+                        value={application.message}
+                        onChange={handleFieldChange('message')}
+                        sx={{
+                          ...fieldSx,
+                          '& .MuiFilledInput-root': {
+                            ...fieldSx['& .MuiFilledInput-root'],
+                            borderRadius: '25px',
                           },
-                          '& .MuiInputLabel-root': { fontWeight: 600, '&.Mui-focused': { color: 'primary.main' } }
-                        }} 
+                        }}
                       />
                     </Grid>
                     <Grid size={{ xs: 12 }}>
@@ -532,47 +536,23 @@ const Career: React.FC = () => {
                         variant="contained"
                         size="large"
                         endIcon={<Send size={20} />}
-                        sx={{ py: 2.5, borderRadius: '20px', fontWeight: 900, fontSize: '1.2rem', bgcolor: brandGreen, boxShadow: '0 20px 40px rgba(15,122,79,0.3)', '&:hover': { transform: 'translateY(-3px)', bgcolor: brandBlue } }}
+                        sx={{
+                          py: 2.5,
+                          borderRadius: '20px',
+                          fontWeight: 900,
+                          fontSize: { xs: '1rem', sm: '1.15rem' },
+                          bgcolor: brandGreen,
+                          boxShadow: '0 20px 40px rgba(15,122,79,0.3)',
+                          '&:hover': { transform: 'translateY(-3px)', bgcolor: brandBlue },
+                        }}
                       >
-                        Submit Application
+                        Open Gmail to Apply
                       </Button>
                     </Grid>
                   </Grid>
-                </form>
-              </MotionPaper>
-            ) : (
-              <MotionPaper
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                sx={{
-                  p: 10,
-                  borderRadius: 6,
-                  textAlign: 'center',
-                  bgcolor: 'white',
-                  boxShadow: '0 40px 100px rgba(0,27,94,0.10)',
-                  minHeight: 600,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}
-              >
-                <Box sx={{ width: 120, height: 120, bgcolor: 'rgba(15,122,79,0.1)', color: 'primary.main', borderRadius: '50%', display: 'grid', placeItems: 'center', mb: 6 }}>
-                  <CheckCircle2 size={80} />
-                </Box>
-                <Typography variant="h2" sx={{ fontWeight: 900, mb: 3, color: brandBlue }}>Application Sent!</Typography>
-                <Typography variant="h6" sx={{ color: 'text.secondary', mb: 6, fontWeight: 400, maxWidth: 500 }}>
-                  Thank you for your interest. Our HR team will review your application and get back to you shortly via email or phone.
-                </Typography>
-                <Button
-                  variant="outlined"
-                  onClick={() => setSubmitted(false)}
-                  sx={{ borderRadius: '15px', px: 6, py: 1.5, fontWeight: 900, border: '2px solid' }}
-                >
-                  Submit Another Application
-                </Button>
-              </MotionPaper>
-            )}
+                </Stack>
+              </form>
+            </MotionPaper>
           </Grid>
         </Grid>
       </Container>
