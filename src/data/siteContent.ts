@@ -88,13 +88,13 @@ export const heroSlides = [
   {
     title: 'PT. Fareast Calibration Services',
     description: 'We help industries protect quality, safety, and trust with accurate calibration services backed by reliable support and fast response.',
-    image: fareastcalibrationLogo,
+    image: image1a,
     objectPosition: '38% center',
   },
   {
     title: 'PT. Fareast Calibration Services',
     description: 'Accredited calibration and testing support from our Batam laboratory for dependable industrial measurement confidence.',
-    image: image1a,
+    image: aboutHeroImage,
     objectPosition: '38% center',
   },
   {
