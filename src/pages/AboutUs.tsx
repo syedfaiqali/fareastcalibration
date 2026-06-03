@@ -135,7 +135,7 @@ const certificates = [
   {
     label: 'KAN Accredited',
     title: 'KAN Accreditation Certificate',
-    file: '/certificates/fec-scan-profile.pdf',
+    file: '/certificates/KAN CERT ISO 17025.pdf',
     icon: ShieldCheck,
     color: brandGreen,
     tint: 'rgba(15,122,79,0.10)',
@@ -145,7 +145,7 @@ const certificates = [
   {
     label: 'ISO 9001:2015',
     title: 'ISO 9001:2015 Certificate',
-    file: '/certificates/fec-scan-profile.pdf',
+    file: '/certificates/CERTIFICATE ISO 9001-2015 (1 April 2024 - 31 March 2027).pdf',
     icon: Award,
     color: brandBlue,
     tint: 'rgba(0,27,94,0.08)',
