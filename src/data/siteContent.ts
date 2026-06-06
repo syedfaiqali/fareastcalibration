@@ -18,21 +18,30 @@ import {
   Wrench,
   Zap,
 } from 'lucide-react';
-import ourClient1 from '../assets/ourclient1.webp';
-import ourClient2 from '../assets/ourclient2.webp';
-import ourClient3 from '../assets/ourclient3.webp';
-import ourClient4 from '../assets/ourclient4.webp';
-import ourClient5 from '../assets/ourclient5.webp';
-import ourClient6 from '../assets/ourclient6.webp';
-import ourClient8 from '../assets/ourclient8.webp';
-import ourClient9 from '../assets/ourclient9.webp';
-import ourClient10 from '../assets/ourclient10.webp';
-import ourClient11 from '../assets/ourclient11.webp';
-import ourClient12 from '../assets/ourclient12.webp';
-import ourClient14 from '../assets/ourclient14.webp';
-import ourClient15 from '../assets/ourclient15.webp';
-import ourClient16 from '../assets/ourclient16.webp';
-import ourClient17 from '../assets/ourclient17.webp';
+import brederoShawIndonesiaLogo from '../assets/clients/normalized/bredero-shaw-indonesia.webp';
+import dveMarineEngineeringLogo from '../assets/clients/normalized/dvemarineengineering.webp';
+import oceaneeringLogo from '../assets/clients/normalized/oceaneering-international-logo-wine.webp';
+import pipamasLogo from '../assets/clients/normalized/pipamas.webp';
+import ptAppipaLogo from '../assets/clients/normalized/ptappipa.webp';
+import ptGreatDynamicsLogo from '../assets/clients/normalized/ptgreatdynamics.webp';
+import ptLancangLogo from '../assets/clients/normalized/ptlancang.webp';
+import rpcLogo from '../assets/clients/normalized/rpc.webp';
+import bourbonLogo from '../assets/clients/normalized/bourbon-black.webp';
+import cameronLogo from '../assets/clients/normalized/cameron.webp';
+import eklLogo from '../assets/clients/normalized/ekl.webp';
+import globalAutomationLogo from '../assets/clients/normalized/globalautomation.webp';
+import imagesOneLogo from '../assets/clients/normalized/images-1.webp';
+import ndtLogo from '../assets/clients/normalized/ndt.webp';
+import osielectronicsLogo from '../assets/clients/osielectronics.svg';
+import ourClient3Logo from '../assets/clients/normalized/ourclient3.webp';
+import ourClient15Logo from '../assets/clients/normalized/ourclient15.webp';
+import palmaLogo from '../assets/clients/normalized/palma.webp';
+import ptCitraTurbineLogo from '../assets/clients/normalized/ptcitraturbine.webp';
+import rainbowTubularsLogo from '../assets/clients/normalized/rainbowtubulars.webp';
+import rinaLogo from '../assets/clients/rina-black.svg';
+import seascapeLogo from '../assets/clients/normalized/seascape.webp';
+import vallianzLogo from '../assets/clients/normalized/vallianz-logo.webp';
+import volexLogo from '../assets/clients/volex-logo-black.svg';
 import labImage from '../assets/lab 1.webp';
 import analyticalImage from '../assets/analytical.webp';
 import analyticalBenchImage from '../assets/analytical 1.webp';
@@ -327,22 +336,41 @@ export const testimonials = [
   },
 ];
 
-export const clients = [
-  { name: 'Batamec Shipyard', logo: ourClient1 },
-  { name: 'PT. Delta Shipyard', logo: ourClient2 },
-  { name: 'MacDermott', logo: ourClient3 },
-  { name: 'MPA Singapore', logo: ourClient4 },
-  { name: 'GE', logo: ourClient5 },
-  { name: 'Austin', logo: ourClient6 },
-  { name: 'HARRIS Hotels', logo: ourClient8 },
-  { name: 'Batam Aero Technic', logo: ourClient9 },
-  { name: 'Integrated Engineering Group', logo: ourClient10 },
-  { name: 'Nippon Steel', logo: ourClient11 },
-  { name: 'PaxOcean', logo: ourClient12 },
-  { name: 'EPC-M', logo: ourClient14 },
-  { name: 'Caterpillar', logo: ourClient15 },
-  { name: 'PT Citra Tubindo Tbk', logo: ourClient16 },
-  { name: 'Bredero Shaw', logo: ourClient17 },
+export type ClientLogo = {
+  name: string;
+  logo: string;
+  logoFit?: {
+    scale?: number;
+    maxWidth?: string;
+    maxHeight?: string;
+  };
+};
+
+export const clients: ClientLogo[] = [
+  { name: 'Bredero Shaw Indonesia', logo: brederoShawIndonesiaLogo },
+  { name: 'Bourbon', logo: bourbonLogo, logoFit: { maxHeight: '82%' } },
+  { name: 'Cameron', logo: cameronLogo },
+  { name: 'DVE Marine Engineering', logo: dveMarineEngineeringLogo, logoFit: { maxHeight: '84%' } },
+  { name: 'EKL', logo: eklLogo },
+  { name: 'Global Automation', logo: globalAutomationLogo },
+  { name: 'NDT', logo: ndtLogo, logoFit: { maxHeight: '88%' } },
+  { name: 'Oceaneering International', logo: oceaneeringLogo },
+  { name: 'OSI Electronics', logo: osielectronicsLogo, logoFit: { scale: 1.1 } },
+  { name: 'Palma', logo: palmaLogo, logoFit: { maxHeight: '86%' } },
+  { name: 'PIPAMAS', logo: pipamasLogo, logoFit: { maxHeight: '88%' } },
+  { name: 'PT Appipa', logo: ptAppipaLogo },
+  { name: 'PT Citra Turbine', logo: ptCitraTurbineLogo },
+  { name: 'PT Great Dynamics', logo: ptGreatDynamicsLogo },
+  { name: 'PT Lancang', logo: ptLancangLogo },
+  { name: 'Rainbow Tubulars', logo: rainbowTubularsLogo },
+  { name: 'RINA', logo: rinaLogo, logoFit: { scale: 1.25 } },
+  { name: 'RPC', logo: rpcLogo, logoFit: { maxHeight: '84%' } },
+  { name: 'Seascape', logo: seascapeLogo },
+  { name: 'Vallianz', logo: vallianzLogo },
+  { name: 'Volex', logo: volexLogo, logoFit: { scale: 1.25, maxHeight: '86%' } },
+  { name: 'PaxOcean', logo: ourClient3Logo },
+  { name: 'Caterpillar', logo: ourClient15Logo },
+  { name: 'Client Logo', logo: imagesOneLogo },
 ];
 
 

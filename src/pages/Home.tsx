@@ -904,6 +904,7 @@ const Home: React.FC = () => {
 
       {/* Our Clients Section - BRAND THEME PREMIUM */}
       <Box
+        id="clients"
         sx={{
           py: { xs: 10, md: 15 },
           bgcolor: softBlue,
@@ -951,44 +952,55 @@ const Home: React.FC = () => {
                 animation: 'scroll 60s linear infinite',
               }}
             >
-              {[...clients, ...clients].map((client, i) => (
-                <Box
-                  key={i}
-                  sx={{
-                    width: 200,
-                    height: 100,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    p: 3,
-                    bgcolor: 'rgba(255,255,255,0.86)',
-                    border: '1px solid rgba(0,27,94,0.08)',
-                    borderRadius: '16px',
-                    transition: 'all 0.3s ease',
-                    '&:hover': {
-                      bgcolor: 'white',
-                      transform: 'translateY(-3px)',
-                      boxShadow: '0 14px 28px rgba(0,27,94,0.10)',
-                    }
-                  }}
-                >
+              {[...clients, ...clients].map((client, i) => {
+                const fit = client.logoFit ?? {};
+                const scale = fit.scale ?? 1;
+
+                return (
                   <Box
-                    component="img"
-                    src={client.logo}
-                    alt={client.name}
+                    key={i}
                     sx={{
-                      maxWidth: '80%',
-                      maxHeight: '80%',
-                      objectFit: 'contain',
-                      opacity: 1,
-                      transition: 'transform 0.3s ease',
+                      width: { xs: 180, sm: 220 },
+                      height: { xs: 96, sm: 112 },
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      p: { xs: 1.25, sm: 1.5 },
+                      bgcolor: 'rgba(255,255,255,0.92)',
+                      border: '1px solid rgba(0,27,94,0.08)',
+                      borderRadius: '16px',
+                      transition: 'all 0.3s ease',
+                      overflow: 'hidden',
+                      flex: '0 0 auto',
                       '&:hover': {
-                        transform: 'scale(1.08)',
+                        bgcolor: 'white',
+                        transform: 'translateY(-3px)',
+                        boxShadow: '0 14px 28px rgba(0,27,94,0.10)',
+                        '& img': {
+                          transform: `scale(${scale * 1.05})`,
+                        },
                       },
                     }}
-                  />
-                </Box>
-              ))}
+                  >
+                    <Box
+                      component="img"
+                      src={client.logo}
+                      alt={client.name}
+                      sx={{
+                        display: 'block',
+                        width: '100%',
+                        height: '100%',
+                        maxWidth: fit.maxWidth ?? '82%',
+                        maxHeight: fit.maxHeight ?? '76%',
+                        objectFit: 'contain',
+                        opacity: 1,
+                        transform: `scale(${scale})`,
+                        transition: 'transform 0.3s ease',
+                      }}
+                    />
+                  </Box>
+                );
+              })}
             </Box>
 
             <Box sx={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: 150, background: `linear-gradient(90deg, ${softBlue} 0%, transparent 100%)`, zIndex: 2 }} />

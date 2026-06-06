@@ -177,71 +177,78 @@ const Clients: React.FC = () => {
 
 
           <Grid container spacing={{ xs: 1.5, sm: 2, md: 3 }} sx={{ justifyContent: 'center' }}>
-            {clients.map((client, i) => (
-              <Grid
-                key={i}
-                size={{ xs: 6, sm: 4, md: 3 }}
-                sx={{
-                  '@media (max-width: 380px)': {
-                    flexBasis: '100%',
-                    maxWidth: '100%',
-                  },
-                }}
-              >
-                <Box
+            {clients.map((client, i) => {
+              const fit = client.logoFit ?? {};
+              const scale = fit.scale ?? 1;
+
+              return (
+                <Grid
+                  key={i}
+                  size={{ xs: 6, sm: 4, md: 3 }}
                   sx={{
-                    p: { xs: 1.5, sm: 2, md: 3 },
-                    height: { xs: 104, sm: 112, md: 140 },
-                    bgcolor: 'white',
-                    borderRadius: { xs: 3, md: 4 },
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    border: '1px solid rgba(0,27,94,0.08)',
-                    boxShadow: '0 18px 45px rgba(0,27,94,0.08)',
-                    transition: 'all 0.3s ease',
-                    cursor: 'pointer',
-                    position: 'relative',
-                    overflow: 'hidden',
-                    '&::before': {
-                      content: '""',
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      height: 4,
-                      background: `linear-gradient(90deg, ${brandGreen}, ${brandBlue})`,
-                      opacity: 0,
-                      transition: 'opacity 0.3s ease',
+                    '@media (max-width: 380px)': {
+                      flexBasis: '100%',
+                      maxWidth: '100%',
                     },
-                    '&:hover': {
-                      borderColor: 'rgba(15,122,79,0.35)',
-                      transform: 'translateY(-5px)',
-                      boxShadow: '0 24px 56px rgba(0,27,94,0.16)',
-                      '&::before': { opacity: 1 },
-                      '& img': {
-                        transform: 'scale(1.05)'
-                      }
-                    }
                   }}
                 >
                   <Box
-                    component="img"
-                    src={client.logo}
-                    alt={client.name}
                     sx={{
-                      width: '100%',
-                      height: '100%',
-                      maxWidth: { xs: '92%', sm: '88%', md: '85%' },
-                      maxHeight: { xs: '88%', md: '85%' },
-                      objectFit: 'contain',
-                      opacity: 1,
-                      transition: 'transform 0.3s ease',
+                      p: { xs: 1, sm: 1.5, md: 2 },
+                      height: { xs: 112, sm: 124, md: 144 },
+                      bgcolor: 'white',
+                      borderRadius: { xs: 3, md: 4 },
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      border: '1px solid rgba(0,27,94,0.08)',
+                      boxShadow: '0 18px 45px rgba(0,27,94,0.08)',
+                      transition: 'all 0.3s ease',
+                      cursor: 'pointer',
+                      position: 'relative',
+                      overflow: 'hidden',
+                      '&::before': {
+                        content: '""',
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        height: 4,
+                        background: `linear-gradient(90deg, ${brandGreen}, ${brandBlue})`,
+                        opacity: 0,
+                        transition: 'opacity 0.3s ease',
+                      },
+                      '&:hover': {
+                        borderColor: 'rgba(15,122,79,0.35)',
+                        transform: 'translateY(-5px)',
+                        boxShadow: '0 24px 56px rgba(0,27,94,0.16)',
+                        '&::before': { opacity: 1 },
+                        '& img': {
+                          transform: `scale(${scale * 1.04})`,
+                        },
+                      },
                     }}
-                  />
-                </Box>
-              </Grid>
-            ))}
+                  >
+                    <Box
+                      component="img"
+                      src={client.logo}
+                      alt={client.name}
+                      sx={{
+                        display: 'block',
+                        width: '100%',
+                        height: '100%',
+                        maxWidth: fit.maxWidth ?? { xs: '86%', sm: '84%', md: '82%' },
+                        maxHeight: fit.maxHeight ?? { xs: '78%', md: '76%' },
+                        objectFit: 'contain',
+                        opacity: 1,
+                        transform: `scale(${scale})`,
+                        transition: 'transform 0.3s ease',
+                      }}
+                    />
+                  </Box>
+                </Grid>
+              );
+            })}
           </Grid>
 
 
