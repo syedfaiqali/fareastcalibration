@@ -9,12 +9,12 @@ import {
   Button,
 } from '@mui/material';
 import PageHeader from '../components/PageHeader';
-
 import {
   CheckCircle2,
   Handshake,
 } from 'lucide-react';
 import { clients, clientSectors } from '../data/siteContent';
+import image1g from '../assets/1g.jpg';
 
 const brandBlue = '#001b5e';
 const brandGreen = '#0f7a4f';
@@ -313,7 +313,7 @@ const Clients: React.FC = () => {
               >
                 <Box
                   component="img"
-                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80"
+                  src={image1g}
                   sx={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
                 <Box
