@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Box, Container, Typography, Grid, Paper, Stack, Divider, Chip, Button, Dialog, IconButton } from '@mui/material';
 import { motion } from 'framer-motion';
 import PageHeader from '../components/PageHeader';
-import directorImg from '../assets/director.webp';
+import directorImg from '../assets/director.jpg';
 import { aboutImages } from '../data/siteContent';
 import {
   BadgeCheck,
@@ -290,7 +290,7 @@ const AboutUs: React.FC = () => {
           <Grid container spacing={10} sx={{ alignItems: 'center' }}>
             <Grid size={{ xs: 12, md: 6 }}>
               <MotionBox initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }}>
-                <Box component="img" src={directorImg} alt="Director" sx={{ width: '100%', height: { xs: 450, md: 700 }, objectFit: 'cover', borderRadius: '48px', border: '1px solid rgba(255,255,255,0.16)', boxShadow: '0 60px 120px rgba(0,27,94,0.45)' }} />
+                <Box component="img" src={directorImg} alt="Muhammad Aamir, Director Operations" sx={{ width: '100%', height: { xs: 450, md: 700 }, objectFit: 'cover', objectPosition: '60% center', borderRadius: '48px', border: '1px solid rgba(255,255,255,0.16)', boxShadow: '0 60px 120px rgba(0,27,94,0.45)' }} />
               </MotionBox>
             </Grid>
             <Grid size={{ xs: 12, md: 6 }}>
