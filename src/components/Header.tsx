@@ -52,7 +52,7 @@ const Header: React.FC = () => {
             flexShrink: 0,
           }}
         >
-          <Box component="img" src="/fareastcalibrationLogo.jpeg" alt="Fareast Calibration logo" sx={{ width: 38, height: 38, borderRadius: '50%', objectFit: 'contain', position: 'relative', zIndex: 1 }} />
+          <Box component="img" src="/fareast-logo.webp" alt="Fareast Calibration logo" sx={{ width: 38, height: 38, borderRadius: '50%', objectFit: 'contain', position: 'relative', zIndex: 1, bgcolor: 'white', p: 0.25 }} />
         </Box>
         <Box>
           <Typography variant="subtitle1" sx={{ fontWeight: 800, lineHeight: 1.1, color: 'primary.main' }}>
@@ -246,14 +246,16 @@ const Header: React.FC = () => {
               >
                 <Box
                   component="img"
-                  src="/fareastcalibrationLogo.jpeg"
+                  src="/fareast-logo.webp"
                   alt="Fareast Calibration logo"
                   sx={{
-                    width: 46,
-                    height: 46,
+                    width: 44,
+                    height: 44,
                     borderRadius: '50%',
                     objectFit: 'contain',
-                    display: 'block'
+                    display: 'block',
+                    bgcolor: 'white',
+                    p: 0.25,
                   }}
                 />
               </Box>

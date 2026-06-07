@@ -70,9 +70,9 @@ const BrandLoader: React.FC = () => {
           />
           <Box
             component="img"
-            src="/fareastcalibrationLogo.jpeg"
+            src="/fareast-logo.webp"
             alt="Fareast Calibration logo"
-            sx={{ width: 62, height: 62, borderRadius: '50%', position: 'relative', zIndex: 1, bgcolor: 'white', p: 0.5 }}
+            sx={{ width: 62, height: 62, borderRadius: '50%', position: 'relative', zIndex: 1, bgcolor: 'white', p: 0.75, objectFit: 'contain' }}
           />
         </Box>
 

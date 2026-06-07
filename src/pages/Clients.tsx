@@ -14,7 +14,7 @@ import {
   Handshake,
 } from 'lucide-react';
 import { clients, clientSectors } from '../data/siteContent';
-import image1g from '../assets/1g.jpg';
+import image1g from '../assets/1g.webp';
 
 const brandBlue = '#001b5e';
 const brandGreen = '#0f7a4f';

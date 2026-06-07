@@ -3,7 +3,7 @@ import { Box, Container, Typography, Breadcrumbs, Link, Stack } from '@mui/mater
 import { Link as RouterLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, BadgeCheck } from 'lucide-react';
-import image1a from '../assets/1a.jpg';
+import image1a from '../assets/1a.webp';
 
 interface PageHeaderProps {
   title: string;

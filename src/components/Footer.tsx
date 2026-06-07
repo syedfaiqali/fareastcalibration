@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
         <Grid container spacing={8}>
           <Grid size={{ xs: 12, md: 5 }}>
             <Stack direction="row" spacing={2} sx={{ mb: 4, alignItems: 'center' }}>
-              <Box component="img" src="/fareastcalibrationLogo.jpeg" alt="Fareast Calibration logo" sx={{ width: 64, height: 64, borderRadius: '50%', border: '2px solid rgba(255,255,255,0.1)' }} />
+              <Box component="img" src="/fareast-logo.webp" alt="Fareast Calibration logo" sx={{ width: 64, height: 64, borderRadius: '50%', border: '2px solid rgba(255,255,255,0.1)', objectFit: 'contain', bgcolor: 'white', p: 0.5 }} />
               <Box>
                 <Typography variant="h4" sx={{ fontWeight: 900, lineHeight: 1.1, letterSpacing: -1 }}>
                   PT. Fareast Calibration Services
